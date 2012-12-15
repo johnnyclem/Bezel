@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC866E3A167D1FF6001779CB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF25883F166ECC2B00A2225E /* Crashlytics.framework */; };
+		CC866E3D167D20A3001779CB /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC866E36167D1E3C001779CB /* libGPUImage.a */; };
 		EF160767167BB7E800EC21EB /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EF160764167BB7E800EC21EB /* SVProgressHUD.bundle */; };
 		EF160769167BB7E800EC21EB /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = EF160766167BB7E800EC21EB /* SVProgressHUD.m */; };
 		EF16076A167BB7E800EC21EB /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = EF160766167BB7E800EC21EB /* SVProgressHUD.m */; };
@@ -50,7 +52,6 @@
 		EF258823166ECA8000A2225E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EF258822166ECA8000A2225E /* Default.png */; };
 		EF25883D166ECBCC00A2225E /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF25883B166ECBCC00A2225E /* libTestFlight.a */; };
 		EF25883E166ECBCC00A2225E /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF25883B166ECBCC00A2225E /* libTestFlight.a */; };
-		EF258840166ECC2B00A2225E /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF25883F166ECC2B00A2225E /* Crashlytics.framework */; };
 		EF258841166ECC2C00A2225E /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF25883F166ECC2B00A2225E /* Crashlytics.framework */; };
 		EF258843166ECCCF00A2225E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EF258842166ECCCF00A2225E /* libz.dylib */; };
 		EF258847166ECF2D00A2225E /* DMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258846166ECF2D00A2225E /* DMPageControl.m */; };
@@ -243,7 +244,6 @@
 		EFF44B151671A01C0023FF70 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF44B141671A01C0023FF70 /* CoreVideo.framework */; };
 		EFF44B171671A0240023FF70 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF44B161671A0240023FF70 /* OpenGLES.framework */; };
 		EFF44B191671A0290023FF70 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF44B181671A0290023FF70 /* AVFoundation.framework */; };
-		EFF44B291671A0880023FF70 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF44B241671A0670023FF70 /* libGPUImage.a */; };
 		EFF44B381671B8CB0023FF70 /* YLBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF44B351671B8CB0023FF70 /* YLBackgroundView.m */; };
 		EFF44B391671B8CB0023FF70 /* YLBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF44B351671B8CB0023FF70 /* YLBackgroundView.m */; };
 		EFF44B3A1671B8CB0023FF70 /* YLProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF44B371671B8CB0023FF70 /* YLProgressBar.m */; };
@@ -283,33 +283,33 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EF2587D1166EC66400A2225E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EF25879C166EC66400A2225E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EF2587A4166EC66400A2225E;
-			remoteInfo = Bezel;
-		};
-		EFF44B231671A0670023FF70 /* PBXContainerItemProxy */ = {
+		CC866E35167D1E3C001779CB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EFF44B1A1671A0660023FF70 /* GPUImage.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
 			remoteInfo = GPUImage;
 		};
-		EFF44B251671A0670023FF70 /* PBXContainerItemProxy */ = {
+		CC866E37167D1E3C001779CB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EFF44B1A1671A0660023FF70 /* GPUImage.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = BCF1A34414DDB1EC00852800;
 			remoteInfo = GPUImageTests;
 		};
-		EFF44B271671A0780023FF70 /* PBXContainerItemProxy */ = {
+		CC866E3B167D202F001779CB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EFF44B1A1671A0660023FF70 /* GPUImage.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = BCF1A33314DDB1EC00852800;
 			remoteInfo = GPUImage;
+		};
+		EF2587D1166EC66400A2225E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF25879C166EC66400A2225E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF2587A4166EC66400A2225E;
+			remoteInfo = Bezel;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -359,7 +359,7 @@
 		EF258822166ECA8000A2225E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Bezel/Resources/Images/Default.png; sourceTree = SOURCE_ROOT; };
 		EF25883B166ECBCC00A2225E /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		EF25883C166ECBCC00A2225E /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
-		EF25883F166ECC2B00A2225E /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		EF25883F166ECC2B00A2225E /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = "Bezel/Third Party/Crashlytics.framework"; sourceTree = "<group>"; };
 		EF258842166ECCCF00A2225E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		EF258845166ECF2D00A2225E /* DMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMPageControl.h; path = "Third Party/DMPageControl/DMPageControl.h"; sourceTree = "<group>"; };
 		EF258846166ECF2D00A2225E /* DMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMPageControl.m; path = "Third Party/DMPageControl/DMPageControl.m"; sourceTree = "<group>"; };
@@ -511,7 +511,7 @@
 		EFF44B141671A01C0023FF70 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		EFF44B161671A0240023FF70 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		EFF44B181671A0290023FF70 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		EFF44B1A1671A0660023FF70 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = ../GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
+		EFF44B1A1671A0660023FF70 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = "Bezel/Third Party/GPUImage/framework/GPUImage.xcodeproj"; sourceTree = "<group>"; };
 		EFF44B331671B8CB0023FF70 /* ARCMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARCMacro.h; path = "Third Party/YLProgressBar/ARCMacro.h"; sourceTree = "<group>"; };
 		EFF44B341671B8CB0023FF70 /* YLBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YLBackgroundView.h; path = "Third Party/YLProgressBar/YLBackgroundView.h"; sourceTree = "<group>"; };
 		EFF44B351671B8CB0023FF70 /* YLBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YLBackgroundView.m; path = "Third Party/YLProgressBar/YLBackgroundView.m"; sourceTree = "<group>"; };
@@ -549,6 +549,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC866E3D167D20A3001779CB /* libGPUImage.a in Frameworks */,
+				CC866E3A167D1FF6001779CB /* Crashlytics.framework in Frameworks */,
 				EF5011A516757A390033B574 /* StoreKit.framework in Frameworks */,
 				EFDE980916755AE4006FB1AC /* CoreImage.framework in Frameworks */,
 				EFDE980716755AD6006FB1AC /* MobileCoreServices.framework in Frameworks */,
@@ -557,7 +559,6 @@
 				EF9449ED1673F74F0068663F /* Social.framework in Frameworks */,
 				EF9449EB1673F74B0068663F /* Accounts.framework in Frameworks */,
 				EF9449E91673F7470068663F /* AssetsLibrary.framework in Frameworks */,
-				EFF44B291671A0880023FF70 /* libGPUImage.a in Frameworks */,
 				EFF44B191671A0290023FF70 /* AVFoundation.framework in Frameworks */,
 				EFF44B171671A0240023FF70 /* OpenGLES.framework in Frameworks */,
 				EFF44B151671A01C0023FF70 /* CoreVideo.framework in Frameworks */,
@@ -569,7 +570,6 @@
 				EF2587AC166EC66400A2225E /* Foundation.framework in Frameworks */,
 				EF2587B0166EC66400A2225E /* CoreData.framework in Frameworks */,
 				EF25883D166ECBCC00A2225E /* libTestFlight.a in Frameworks */,
-				EF258840166ECC2B00A2225E /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +589,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC866E30167D1E3C001779CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CC866E36167D1E3C001779CB /* libGPUImage.a */,
+				CC866E38167D1E3C001779CB /* GPUImageTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		EF160763167BB7E800EC21EB /* SVProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -630,28 +639,28 @@
 		EF2587A8166EC66400A2225E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EF5011A416757A390033B574 /* StoreKit.framework */,
-				EFDE980816755AE4006FB1AC /* CoreImage.framework */,
-				EFDE980616755AD6006FB1AC /* MobileCoreServices.framework */,
-				EFDE980416755ACC006FB1AC /* ImageIO.framework */,
 				EFDE980216755AC4006FB1AC /* Accelerate.framework */,
-				EF9449EC1673F74F0068663F /* Social.framework */,
 				EF9449EA1673F74B0068663F /* Accounts.framework */,
 				EF9449E81673F7470068663F /* AssetsLibrary.framework */,
-				EFF44B1A1671A0660023FF70 /* GPUImage.xcodeproj */,
 				EFF44B181671A0290023FF70 /* AVFoundation.framework */,
-				EFF44B161671A0240023FF70 /* OpenGLES.framework */,
-				EFF44B141671A01C0023FF70 /* CoreVideo.framework */,
+				EF2587AF166EC66400A2225E /* CoreData.framework */,
+				EF2587AD166EC66400A2225E /* CoreGraphics.framework */,
+				EFDE980816755AE4006FB1AC /* CoreImage.framework */,
 				EFF44B111671A0150023FF70 /* CoreMedia.framework */,
-				EFA08801167025A400AA6992 /* QuartzCore.framework */,
-				EF258842166ECCCF00A2225E /* libz.dylib */,
+				EFF44B141671A01C0023FF70 /* CoreVideo.framework */,
 				EF25883F166ECC2B00A2225E /* Crashlytics.framework */,
+				EF2587AB166EC66400A2225E /* Foundation.framework */,
+				EFF44B1A1671A0660023FF70 /* GPUImage.xcodeproj */,
+				EFDE980416755ACC006FB1AC /* ImageIO.framework */,
+				EF258842166ECCCF00A2225E /* libz.dylib */,
+				EFDE980616755AD6006FB1AC /* MobileCoreServices.framework */,
+				EFF44B161671A0240023FF70 /* OpenGLES.framework */,
+				EFA08801167025A400AA6992 /* QuartzCore.framework */,
+				EF2587CC166EC66400A2225E /* SenTestingKit.framework */,
+				EF9449EC1673F74F0068663F /* Social.framework */,
+				EF5011A416757A390033B574 /* StoreKit.framework */,
 				EF25883A166ECBCC00A2225E /* TestFlight */,
 				EF2587A9166EC66400A2225E /* UIKit.framework */,
-				EF2587AB166EC66400A2225E /* Foundation.framework */,
-				EF2587AD166EC66400A2225E /* CoreGraphics.framework */,
-				EF2587AF166EC66400A2225E /* CoreData.framework */,
-				EF2587CC166EC66400A2225E /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -664,10 +673,10 @@
 				EF5011AF16766ACD0033B574 /* Categories */,
 				EF2587ED166EC79000A2225E /* Controller */,
 				EFE390481677F38C009F2AC9 /* Model */,
-				EF2587E8166EC76400A2225E /* View */,
 				EF258809166ECA0200A2225E /* Resources */,
 				EF2587B2166EC66400A2225E /* Supporting Files */,
 				EF258844166ECF0900A2225E /* Third Party */,
+				EF2587E8166EC76400A2225E /* View */,
 			);
 			path = Bezel;
 			sourceTree = "<group>";
@@ -778,7 +787,8 @@
 				EF25883B166ECBCC00A2225E /* libTestFlight.a */,
 				EF25883C166ECBCC00A2225E /* TestFlight.h */,
 			);
-			path = TestFlight;
+			name = TestFlight;
+			path = "Bezel/Third Party/TestFlight";
 			sourceTree = "<group>";
 		};
 		EF258844166ECF0900A2225E /* Third Party */ = {
@@ -1056,15 +1066,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		EFF44B1B1671A0660023FF70 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				EFF44B241671A0670023FF70 /* libGPUImage.a */,
-				EFF44B261671A0670023FF70 /* GPUImageTests.octest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		EFF44B321671B88D0023FF70 /* YLProgressBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1116,7 +1117,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				EFF44B281671A0780023FF70 /* PBXTargetDependency */,
+				CC866E3C167D202F001779CB /* PBXTargetDependency */,
 			);
 			name = Bezel;
 			productName = Bezel;
@@ -1164,7 +1165,7 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = EFF44B1B1671A0660023FF70 /* Products */;
+					ProductGroup = CC866E30167D1E3C001779CB /* Products */;
 					ProjectRef = EFF44B1A1671A0660023FF70 /* GPUImage.xcodeproj */;
 				},
 			);
@@ -1177,18 +1178,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		EFF44B241671A0670023FF70 /* libGPUImage.a */ = {
+		CC866E36167D1E3C001779CB /* libGPUImage.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libGPUImage.a;
-			remoteRef = EFF44B231671A0670023FF70 /* PBXContainerItemProxy */;
+			remoteRef = CC866E35167D1E3C001779CB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		EFF44B261671A0670023FF70 /* GPUImageTests.octest */ = {
+		CC866E38167D1E3C001779CB /* GPUImageTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = GPUImageTests.octest;
-			remoteRef = EFF44B251671A0670023FF70 /* PBXContainerItemProxy */;
+			remoteRef = CC866E37167D1E3C001779CB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1490,15 +1491,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CC866E3C167D202F001779CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImage;
+			targetProxy = CC866E3B167D202F001779CB /* PBXContainerItemProxy */;
+		};
 		EF2587D2166EC66400A2225E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EF2587A4166EC66400A2225E /* Bezel */;
 			targetProxy = EF2587D1166EC66400A2225E /* PBXContainerItemProxy */;
-		};
-		EFF44B281671A0780023FF70 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = GPUImage;
-			targetProxy = EFF44B271671A0780023FF70 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1578,18 +1579,17 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Bezel/Third Party\"/**",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bezel/Bezel-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../GPUImage\"/**",
 					"\"$(SRCROOT)/Bezel/Third Party\"/**",
-					"\"$(SRCROOT)/Bezel/Third Party/Crashlytics.framework\"/**",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Bezel/Bezel-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/TestFlight\"",
+					"\"$(SRCROOT)/Bezel/Third Party\"/**",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1604,18 +1604,17 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Bezel/Third Party\"/**",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bezel/Bezel-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../GPUImage\"/**",
 					"\"$(SRCROOT)/Bezel/Third Party\"/**",
-					"\"$(SRCROOT)/Bezel/Third Party/Crashlytics.framework\"/**",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Bezel/Bezel-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/TestFlight\"",
+					"\"$(SRCROOT)/Bezel/Third Party\"/**",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "CAF81F22-C7C5-4E75-9105-D953B78FD005";
