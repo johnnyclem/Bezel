@@ -80,7 +80,6 @@ BMPoint BMPointFromPoint (CGPoint point) {
 - (void)getRawPixel:(UInt8 *)rgba atPoint:(BMPoint)point {
 	size_t width = CGBitmapContextGetWidth(context);
 	size_t height = CGBitmapContextGetHeight(context);
-    NSLog(@"height: %zu, width: %zu", height, width);
 	NSAssert(point.x >= 0 && point.x < width, @"Point must be within bitmap.");
 	NSAssert(point.y >= 0 && point.y < height, @"Point must be within bitmap.");
 	unsigned char * argbData = &bitmapData[((point.y * width) + point.x) * 4];
@@ -94,7 +93,6 @@ BMPoint BMPointFromPoint (CGPoint point) {
 - (void)setRawPixel:(const UInt8 *)rgba atPoint:(BMPoint)point {
 	size_t width = CGBitmapContextGetWidth(context);
 	size_t height = CGBitmapContextGetHeight(context);
-    NSLog(@"height: %zu, width: %zu", height, width);
 	NSAssert(point.x >= 0 && point.x < width, @"Point must be within bitmap.");
 	NSAssert(point.y >= 0 && point.y < height, @"Point must be within bitmap.");
 	unsigned char * argbData = &bitmapData[((point.y * width) + point.x) * 4];

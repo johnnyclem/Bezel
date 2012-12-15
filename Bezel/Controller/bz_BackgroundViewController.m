@@ -117,7 +117,7 @@ extern NSString * bz_ColorPickerPurchaseKey;
         if (!colorPickerIsPurchased) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"buyColorPicker" object:nil userInfo:nil];
         } else {
-
+            NSLog(@"Color picker is purchased");
             colorPicker = [[RSColorPickerView alloc] initWithFrame:CGRectMake(0, 0, mWidth, mWidth)];
             colorPicker.delegate = self;
             [colorPicker setCropToCircle:NO];
@@ -294,6 +294,7 @@ extern NSString * bz_ColorPickerPurchaseKey;
 }
 
 - (void)keepNewColor {
+    
     
     bgIsColor = YES;
     [UIView animateWithDuration:0.5
