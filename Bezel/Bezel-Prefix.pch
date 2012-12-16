@@ -14,10 +14,12 @@
     #import <CoreData/CoreData.h>
     #import <MobileCoreServices/MobileCoreServices.h>
     #import <SystemConfiguration/SystemConfiguration.h>
-    #import <AFNetworking/AFNetworking.h>
+    #import "AFNetworking.h"
     #import "TestFlight.h"
     #import <Crashlytics/Crashlytics.h>
     #import <QuartzCore/QuartzCore.h>
     #import "EssentialImager.h"
     #import "GPUImage.h"
+
+    #import "bz_Constants.h"
 #endif

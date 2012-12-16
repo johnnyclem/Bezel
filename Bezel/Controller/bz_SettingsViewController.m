@@ -6,15 +6,12 @@
 //  Copyright (c) 2012 Mind Diaper. All rights reserved.
 //
 
-#import <AFNetworking/AFNetworking.h>
-
+#import "AFNetworking.h"
 #import "bz_SettingsViewController.h"
-#import "bz_AdView.h"
-#import "bz_Ad.h"
+#import "bz_PromotionView.h"
+#import "bz_Promotion.h"
 #import "bz_SettingsCell.h"
 #import "bz_Setting.h"
-
-NSString* const bz_SettingsFullResolutionKey = @"full_resolution";
 
 @interface bz_SettingsViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -28,16 +25,17 @@ NSString* const bz_SettingsFullResolutionKey = @"full_resolution";
 {
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     
-    [self.collectionView registerClass:[bz_AdView class] forSupplementaryViewOfKind: UICollectionElementKindSectionHeader withReuseIdentifier:@"bz_AdView"];
+    [self.collectionView registerClass:[bz_PromotionView class] forSupplementaryViewOfKind: UICollectionElementKindSectionHeader withReuseIdentifier: BZ_PROMOTION_VIEW_REUSE_IDENTIFIER];
     
     bz_Setting *fullRes = [[bz_Setting alloc] init];
     fullRes.readableName = @"Photo Quality";
-    fullRes.defaultsIdentifier = bz_SettingsFullResolutionKey;
+    fullRes.defaultsIdentifier = BZ_SETTINGS_FULL_RESOLUTION_KEY;
     fullRes.valueType = bz_SettingsValueTypeInteger;
-    fullRes.value = [NSNumber numberWithInt:[df integerForKey: bz_SettingsFullResolutionKey]];
+    fullRes.value = [NSNumber numberWithInt:[df integerForKey: BZ_SETTINGS_FULL_RESOLUTION_KEY]];
     
     self.settings = @[fullRes];
-    
+
+    [self loadPromotions];
 }
 
 - (void)viewDidLoad
@@ -103,15 +101,15 @@ NSString* const bz_SettingsFullResolutionKey = @"full_resolution";
     
     switch (setting.valueType) {
         case bz_SettingsValueTypeBoolean: {
-            reuseIdentifier = @"Switch";
+            reuseIdentifier = BZ_PROMOTION_VALUE_SWITCH_REUSE_IDENTIFIER;
         }
             break;
         case bz_SettingsValueTypeStepper: {
-            reuseIdentifier = @"Stepper";
+            reuseIdentifier = BZ_PROMOTION_VALUE_STEPPER_REUSE_IDENTIFIER;
         }
             break;
         case bz_SettingsValueTypeInteger: {
-            reuseIdentifier = @"SegmentedControl";
+            reuseIdentifier = BZ_PROMOTION_VALUE_SEGMENTED_CONTROL_REUSE_IDENTIFIER;
         }
             break;
     }
@@ -119,7 +117,7 @@ NSString* const bz_SettingsFullResolutionKey = @"full_resolution";
     bz_SettingsCell *cell = [cv dequeueReusableCellWithReuseIdentifier: reuseIdentifier forIndexPath:indexPath];
     
     if (bz_SettingsValueTypeInteger) {
-        [(UISegmentedControl*)cell.accessoryView setSelectedSegmentIndex:[df integerForKey: bz_SettingsFullResolutionKey]];
+        [(UISegmentedControl*)cell.accessoryView setSelectedSegmentIndex:[df integerForKey: BZ_SETTINGS_FULL_RESOLUTION_KEY]];
     }
     cell.settingsLabel.text = setting.readableName;
     cell.accessoryView.tag = indexPath.row;
@@ -131,7 +129,7 @@ NSString* const bz_SettingsFullResolutionKey = @"full_resolution";
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    bz_AdView *supView = [self.collectionView dequeueReusableSupplementaryViewOfKind: UICollectionElementKindSectionHeader withReuseIdentifier:@"bz_AdView" forIndexPath: indexPath];
+    bz_PromotionView *supView = [self.collectionView dequeueReusableSupplementaryViewOfKind: UICollectionElementKindSectionHeader withReuseIdentifier: BZ_PROMOTION_VIEW_REUSE_IDENTIFIER forIndexPath: indexPath];
     
     if ([self.promotions objectAtIndex: indexPath.section]) {
         [supView setPromotion:[self.promotions objectAtIndex: indexPath.section]];
@@ -147,6 +145,14 @@ NSString* const bz_SettingsFullResolutionKey = @"full_resolution";
 
 - (void)loadPromotions
 {
+#ifdef DEBUG
+    BOOL loadRemote = [[NSUserDefaults standardUserDefaults] boolForKey: BZ_SETTINGS_LOAD_REMOTE_PROMOTIONS];
+    if (!loadRemote) {
+        [self local_loadPromotions];
+        return;
+    }
+#endif
+    
     NSURL *url = [NSURL URLWithString:@"feedURL"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
@@ -184,7 +190,7 @@ NSString* const bz_SettingsFullResolutionKey = @"full_resolution";
         if (promotions) {
             for (NSDictionary *promo in promotions)
             {
-                bz_Ad *aPromotion = [[bz_Ad alloc] initWithDictionary: promo];
+                bz_Promotion *aPromotion = [[bz_Promotion alloc] initWithDictionary: promo];
                 if (aPromotion)
                 {
                     // Reload supplementary views.

@@ -1,5 +1,5 @@
 //
-//  bz_Ad.h
+//  bz_Promotion.h
 //  Bezel
 //
 //  Created by Josh Buchacher on 12/15/12.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface bz_Ad : NSObject
+@interface bz_Promotion : NSObject
 
 @property (strong, nonatomic, readonly) NSString *promotionTitle;
 @property (strong, nonatomic, readonly) NSString *promotionDescription;

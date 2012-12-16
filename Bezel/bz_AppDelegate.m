@@ -9,10 +9,6 @@
 #import "bz_AppDelegate.h"
 
 NSString const *VersionNumber   = @"1.0";
-extern NSString * bz_SettingsFullResolutionKey;
-extern NSString * bz_HolidayPackPurchaseKey;
-extern NSString * bz_ColorPickerPurchaseKey;
-extern NSString * bz_SettingsFirstLaunchKey;
 
 @implementation bz_AppDelegate
 
@@ -27,10 +23,12 @@ extern NSString * bz_SettingsFirstLaunchKey;
     [Crashlytics startWithAPIKey:@"3c4f5213fd594dc8cb9435c1b4710e2fb2cbe1e6"];
     
     // Register Defaults
-    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *defaultPrefs = [NSDictionary dictionaryWithObjectsAndKeys:
-                                  0, bz_SettingsFullResolutionKey, [NSNumber numberWithBool:FALSE], bz_ColorPickerPurchaseKey, [NSNumber numberWithBool:FALSE], bz_HolidayPackPurchaseKey, nil];
+                                  [NSNumber numberWithInt: 0], BZ_SETTINGS_FULL_RESOLUTION_KEY,
+                                  [NSNumber numberWithBool:FALSE], BZ_COLOR_PICKER_PURCHASE_KEY,
+                                  [NSNumber numberWithBool:FALSE], BZ_HOLIDAY_PACK_PURCHASE_KEY,
+                                  [NSNumber numberWithBool:FALSE], BZ_SETTINGS_LOAD_REMOTE_PROMOTIONS, nil];
     [defaults registerDefaults: defaultPrefs];
     [defaults synchronize];
 

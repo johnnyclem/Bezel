@@ -20,12 +20,6 @@
 #import <Accounts/Accounts.h>
 #import "SVProgressHUD.h"
 
-NSString* const bz_SettingsFirstLaunchKey = @"first_launch";
-
-extern NSString * bz_HolidayPackPurchaseKey;
-extern NSString * bz_ColorPickerPurchaseKey;
-extern NSString * bz_SettingsFullResolutionKey;
-
 @interface bz_MainViewController ()
 {
     IBOutlet bz_Button *cart;
@@ -86,8 +80,8 @@ extern NSString * bz_SettingsFullResolutionKey;
     keepPhoto = NO;
     imageCameFromLibrary = NO;
     NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
-    holidayPackIsPurchased = [(NSNumber*)[standard objectForKey:bz_HolidayPackPurchaseKey] boolValue];
-    colorPickerIsPurchased = [(NSNumber*)[standard objectForKey:bz_ColorPickerPurchaseKey] boolValue];
+    holidayPackIsPurchased = [(NSNumber*)[standard objectForKey: BZ_HOLIDAY_PACK_PURCHASE_KEY] boolValue];
+    colorPickerIsPurchased = [(NSNumber*)[standard objectForKey: BZ_COLOR_PICKER_PURCHASE_KEY] boolValue];
 
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         useLibrary = NO;
@@ -127,7 +121,7 @@ extern NSString * bz_SettingsFullResolutionKey;
 
     NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
     
-    if ([(NSString*)[standard objectForKey:bz_SettingsFirstLaunchKey] isEqualToString:@"FALSE"]) {
+    if ([(NSString*)[standard objectForKey:BZ_SETTINGS_FIRST_LAUNCH_KEY] isEqualToString:@"FALSE"]) {
         if (!keepPhoto) {
             self.currentImage = nil;
             if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
@@ -143,9 +137,9 @@ extern NSString * bz_SettingsFullResolutionKey;
     } else {
         bz_TutorialViewController *tutorialView = [[bz_TutorialViewController alloc] init];
         [self presentViewController:tutorialView animated:YES completion:^(void) {
-            [standard setObject:@"FALSE" forKey:bz_SettingsFirstLaunchKey];
+            [standard setObject:@"FALSE" forKey: BZ_SETTINGS_FIRST_LAUNCH_KEY];
             [standard synchronize];
-            NSLog(@"first launch bool value: %@", (NSString*)[standard stringForKey:bz_SettingsFirstLaunchKey]);
+            NSLog(@"first launch bool value: %@", (NSString*)[standard stringForKey: BZ_SETTINGS_FIRST_LAUNCH_KEY]);
         }];
     }
 
@@ -276,7 +270,7 @@ extern NSString * bz_SettingsFullResolutionKey;
     bz_MaskShapeLayer *photoMaskLayer;
     
     NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
-    holidayPackIsPurchased = [(NSNumber*)[standard objectForKey:bz_HolidayPackPurchaseKey] boolValue];
+    holidayPackIsPurchased = [(NSNumber*)[standard objectForKey: BZ_HOLIDAY_PACK_PURCHASE_KEY] boolValue];
 
     bz_Button *button = [notification.userInfo objectForKey:@"newShape"];
     NSLog(@"button tag is %i", button.tag);
@@ -284,7 +278,7 @@ extern NSString * bz_SettingsFullResolutionKey;
     if (button.tag <= 7) {
         switch (button.tag) {
             case 3:
-                switch ([standard integerForKey:bz_SettingsFullResolutionKey]) {
+                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
                     case 1:
                         _saveMask  = [UIImage imageNamed:@"circleMask_1024.png"];
                         break;
@@ -298,7 +292,7 @@ extern NSString * bz_SettingsFullResolutionKey;
                 _maskImage = [UIImage imageNamed:@"circle.png"];
                 break;
             case 4:
-                switch ([standard integerForKey:bz_SettingsFullResolutionKey]) {
+                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
                     case 1:
                         _saveMask  = [UIImage imageNamed:@"squareMask_1024.png"];
                         break;
@@ -312,7 +306,7 @@ extern NSString * bz_SettingsFullResolutionKey;
                 _maskImage = [UIImage imageNamed:@"square.png"];
                 break;
             case 5:
-                switch ([standard integerForKey:bz_SettingsFullResolutionKey]) {
+                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
                     case 1:
                         _saveMask  = [UIImage imageNamed:@"triangleMask_1024.png"];
                         break;
@@ -326,7 +320,7 @@ extern NSString * bz_SettingsFullResolutionKey;
                 _maskImage = [UIImage imageNamed:@"triangle.png"];
                 break;
             case 6:
-                switch ([standard integerForKey:bz_SettingsFullResolutionKey]) {
+                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
                     case 1:
                         _saveMask  = [UIImage imageNamed:@"hexagonMask_1024.png"];
                         break;
@@ -340,7 +334,7 @@ extern NSString * bz_SettingsFullResolutionKey;
                 _maskImage = [UIImage imageNamed:@"hexagon.png"];
                 break;
             case 7:
-                switch ([standard integerForKey:bz_SettingsFullResolutionKey]) {
+                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
                     case 1:
                         _saveMask  = [UIImage imageNamed:@"heartMask_1024.png"];
                         break;
@@ -354,7 +348,7 @@ extern NSString * bz_SettingsFullResolutionKey;
                 _maskImage = [UIImage imageNamed:@"heart.png"];
                 break;
             default:
-                switch ([standard integerForKey:bz_SettingsFullResolutionKey]) {
+                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
                     case 1:
                         _saveMask  = [UIImage imageNamed:@"circleMask_1024.png"];
                         break;
@@ -373,7 +367,7 @@ extern NSString * bz_SettingsFullResolutionKey;
     else if (button.tag >= 53 && holidayPackIsPurchased) {
         switch ([(bz_Button*)[notification.userInfo objectForKey:@"newShape"] tag]) {
             case 53:
-                switch ([standard integerForKey:bz_SettingsFullResolutionKey]) {
+                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
                     case 1:
                         _saveMask  = [UIImage imageNamed:@"treeMask_1024.png"];
                         break;
@@ -387,7 +381,7 @@ extern NSString * bz_SettingsFullResolutionKey;
                 _maskImage = [UIImage imageNamed:@"tree.png"];
                 break;
             case 55:
-                switch ([standard integerForKey:bz_SettingsFullResolutionKey]) {
+                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
                     case 1:
                         _saveMask  = [UIImage imageNamed:@"starMask_1024.png"];
                         break;
@@ -401,7 +395,7 @@ extern NSString * bz_SettingsFullResolutionKey;
                 _maskImage = [UIImage imageNamed:@"star.png"];
                 break;
             case 58:
-                switch ([standard integerForKey:bz_SettingsFullResolutionKey]) {
+                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
                     case 1:
                         _saveMask  = [UIImage imageNamed:@"ornamentMask_1024.png"];
                         break;

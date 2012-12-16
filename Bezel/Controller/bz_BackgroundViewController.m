@@ -9,9 +9,6 @@
 #import "bz_BackgroundViewController.h"
 #import "FlipView.h"
 
-extern NSString * bz_HolidayPackPurchaseKey;
-extern NSString * bz_ColorPickerPurchaseKey;
-
 @interface bz_BackgroundViewController ()
 {
     UIView *colorPickerView;
@@ -60,8 +57,8 @@ extern NSString * bz_ColorPickerPurchaseKey;
     _bgColor = [UIColor blackColor];
     
     NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
-    holidayPackIsPurchased = [(NSNumber*)[standard objectForKey:bz_HolidayPackPurchaseKey] boolValue];
-    colorPickerIsPurchased = [(NSNumber*)[standard objectForKey:bz_ColorPickerPurchaseKey] boolValue];
+    holidayPackIsPurchased = [(NSNumber*)[standard objectForKey: BZ_HOLIDAY_PACK_PURCHASE_KEY] boolValue];
+    colorPickerIsPurchased = [(NSNumber*)[standard objectForKey: BZ_COLOR_PICKER_PURCHASE_KEY] boolValue];
 
     CGFloat btnOffset   = (_scrollHeight-100);
 
@@ -112,7 +109,7 @@ extern NSString * bz_ColorPickerPurchaseKey;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"newBackground" object:self userInfo:newBackground];
     } else if (button.tag == 25) {
         NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
-        colorPickerIsPurchased = [(NSNumber*)[standard objectForKey:bz_ColorPickerPurchaseKey] boolValue];
+        colorPickerIsPurchased = [(NSNumber*)[standard objectForKey: BZ_COLOR_PICKER_PURCHASE_KEY] boolValue];
         
         if (!colorPickerIsPurchased) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"buyColorPicker" object:nil userInfo:nil];
@@ -161,7 +158,7 @@ extern NSString * bz_ColorPickerPurchaseKey;
     } else if (button.tag >= 123) {
         bgIsColor = NO;
         NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
-        holidayPackIsPurchased = [(NSNumber*)[standard objectForKey:bz_HolidayPackPurchaseKey] boolValue];
+        holidayPackIsPurchased = [(NSNumber*)[standard objectForKey: BZ_HOLIDAY_PACK_PURCHASE_KEY] boolValue];
 
         if (!holidayPackIsPurchased) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"buyHolidayPack" object:nil userInfo:nil];

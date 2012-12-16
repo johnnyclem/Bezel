@@ -1,0 +1,10 @@
+{
+    "promotions": [
+        {
+            "promotion_title": "CinePro",
+            "promotion_description": "Should we even use descriptions?",
+            "promotion_image_href": "http://www.maclife.com/files/u325188/2012/07/cinepro-pulldown-menus.jpg",
+            "promotion_href": "itms://itunes.apple.com/us/app/cinepro/id522585198?mt=8&uo=4"
+        }
+    ]
+}

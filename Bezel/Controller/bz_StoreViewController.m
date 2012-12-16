@@ -13,9 +13,6 @@
 #define HOLIDAY_PACK_ID @"bz_holidayPack"
 #define COLOR_PICKER_ID @"bz_colorPicker"
 
-NSString* const bz_HolidayPackPurchaseKey = @"holiday_pack";
-NSString* const bz_ColorPickerPurchaseKey = @"color_picker";
-
 @interface bz_StoreViewController ()
 
 @property (nonatomic, strong) IBOutlet UIView *holidayBG;
@@ -70,8 +67,8 @@ NSString* const bz_ColorPickerPurchaseKey = @"color_picker";
     colorPickerPurchase.delegate = self;
     
     NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
-    holidayPackIsPurchased = [(NSNumber*)[standard objectForKey:bz_HolidayPackPurchaseKey] boolValue];
-    colorPickerIsPurchased = [(NSNumber*)[standard objectForKey:bz_ColorPickerPurchaseKey] boolValue];
+    holidayPackIsPurchased = [(NSNumber*)[standard objectForKey: BZ_HOLIDAY_PACK_PURCHASE_KEY] boolValue];
+    colorPickerIsPurchased = [(NSNumber*)[standard objectForKey: BZ_COLOR_PICKER_PURCHASE_KEY] boolValue];
     
     
 }
@@ -224,7 +221,7 @@ NSString* const bz_ColorPickerPurchaseKey = @"color_picker";
             }
 
             NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
-            [standard setObject:[NSNumber numberWithBool:TRUE] forKey:bz_HolidayPackPurchaseKey];
+            [standard setObject:[NSNumber numberWithBool:TRUE] forKey: BZ_HOLIDAY_PACK_PURCHASE_KEY];
             [standard synchronize];
             UIAlertView *updatedAlert = [[UIAlertView alloc] initWithTitle:@"Thank You!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [updatedAlert show];
@@ -245,7 +242,7 @@ NSString* const bz_ColorPickerPurchaseKey = @"color_picker";
             }
 
             NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
-            [standard setObject:[NSNumber numberWithBool:TRUE] forKey:bz_ColorPickerPurchaseKey];
+            [standard setObject:[NSNumber numberWithBool:TRUE] forKey: BZ_COLOR_PICKER_PURCHASE_KEY];
             [standard synchronize];
             UIAlertView *updatedAlert = [[UIAlertView alloc] initWithTitle:@"Thank You!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [updatedAlert show];
