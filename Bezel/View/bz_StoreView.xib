@@ -88,7 +88,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<string key="IBUIText">The Bezel Holiday Pack includes 6 new shapes, plus a candy-cane background.  Perfect for a holiday-inspired profile pic, or the cover photo for your Christmas card.</string>
+								<string key="IBUIText">The Bezel Holiday Pack includes 3 new shapes and 3 holiday-themed background images.                 Perfect for a yuletide profile pic, or the cover photo for your Christmas card.</string>
 								<object class="NSColor" key="IBUITextColor" id="70705084">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MQA</bytes>
@@ -239,6 +239,7 @@
 						<string key="NSFrame">{{141, 500}, {38, 36}}</string>
 						<reference key="NSSuperview" ref="649628398"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
