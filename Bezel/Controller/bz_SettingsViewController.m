@@ -6,8 +6,11 @@
 //  Copyright (c) 2012 Mind Diaper. All rights reserved.
 //
 
+#import <AFNetworking/AFNetworking.h>
+
 #import "bz_SettingsViewController.h"
 #import "bz_AdView.h"
+#import "bz_Ad.h"
 #import "bz_SettingsCell.h"
 #import "bz_Setting.h"
 
@@ -15,6 +18,7 @@ NSString* const bz_SettingsFullResolutionKey = @"full_resolution";
 
 @interface bz_SettingsViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) NSMutableArray *promotions;
 @property (strong, nonatomic) NSArray *settings;
 @end
 
@@ -129,9 +133,75 @@ NSString* const bz_SettingsFullResolutionKey = @"full_resolution";
 {
     bz_AdView *supView = [self.collectionView dequeueReusableSupplementaryViewOfKind: UICollectionElementKindSectionHeader withReuseIdentifier:@"bz_AdView" forIndexPath: indexPath];
     
+    if ([self.promotions objectAtIndex: indexPath.section]) {
+        [supView setPromotion:[self.promotions objectAtIndex: indexPath.section]];
+    } else {
+        // handle err
+    }
     
     
     return supView;
+}
+
+#pragma mark - Promotions
+
+- (void)loadPromotions
+{
+    NSURL *url = [NSURL URLWithString:@"feedURL"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    AFJSONRequestOperation *fetchPromotions = [AFJSONRequestOperation
+                                               JSONRequestOperationWithRequest:request
+                                               success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
+                                               {
+                                                   // Collecion view updates
+                                               }
+                                               failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON)
+                                               {
+                                                   // Handle failure
+                                               }];
+    
+    [fetchPromotions start];
+}
+
+- (void)local_loadPromotions
+{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"promotion" ofType:@"json"];
+    NSError *fileErr;
+    NSData *jsonData = [NSData dataWithContentsOfFile: filePath options: NSDataReadingMappedIfSafe error: &fileErr];
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData: jsonData options: NSJSONReadingAllowFragments error: &fileErr];
+    
+    // Failure Block (if it were remote)
+    if (fileErr)
+    {
+        // Handle failure.
+    }
+    
+    // Success Block (if it were remote)
+    else
+    {
+        NSDictionary *promotions = [json objectForKey:@"promotions"];
+        if (promotions) {
+            for (NSDictionary *promo in promotions)
+            {
+                bz_Ad *aPromotion = [[bz_Ad alloc] initWithDictionary: promo];
+                if (aPromotion)
+                {
+                    // Reload supplementary views.
+                    if (!self.promotions) self.promotions = [NSMutableArray arrayWithCapacity: 5]; // arbitrary #, not usually many promotions at once.
+                    [self.promotions addObject: aPromotion];
+                    [self.collectionView reloadData];
+                }
+            }
+        }
+        else
+        {
+            // Handle failure.
+        }
+        
+        
+    }
+    
 }
 
 
