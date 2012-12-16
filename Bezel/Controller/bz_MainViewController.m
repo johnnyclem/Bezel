@@ -179,7 +179,7 @@ extern NSString * bz_SettingsFullResolutionKey;
     imagePickerController.navigationBarHidden = YES;
 
     if (self.view.frame.size.height != 480) {
-        imagePickerController.view.frame = CGRectMake(0, 60, imagePickerController.view.frame.size.width, imagePickerController.view.frame.size.height);
+        imagePickerController.view.frame = CGRectMake(0, 0, 320, 480);
     }
 
     [self.view addSubview:imagePickerController.view];
@@ -439,11 +439,11 @@ extern NSString * bz_SettingsFullResolutionKey;
 //    }
 
     previewMaskLayer = [[bz_MaskShapeLayer alloc] initWithShapeFromImage:_maskImage atSize:CGSizeMake(320, 320)];
-    if (self.view.frame.size.height == 480) {
+//    if (self.view.frame.size.height == 480) {
         previewMaskLayer.frame = CGRectMake(0, 60, 320, 320);
-    } else {
-        previewMaskLayer.frame = CGRectMake(0, 0, 320, 320);
-    }
+//    } else {
+//        previewMaskLayer.frame = CGRectMake(0, 90, 320, 320);
+//    }
     photoMaskLayer = [[bz_MaskShapeLayer alloc] initWithShapeFromImage:_maskImage atSize:CGSizeMake(320, 320)];
 
     imagePickerController.view.layer.mask = previewMaskLayer;
@@ -881,7 +881,7 @@ extern NSString * bz_SettingsFullResolutionKey;
         if (useLibrary) {
             imageCameFromLibrary = YES;
             [self dismissViewControllerAnimated:YES completion:^(void){
-                takenImage = [[info objectForKey:UIImagePickerControllerEditedImage] resizedImage:imgSize interpolationQuality:kCGInterpolationLow];
+                takenImage = [[info objectForKey:UIImagePickerControllerEditedImage] resizedImage:imgSize interpolationQuality:kCGInterpolationDefault];
 //            replace code below with
 //            saveToCache();
                 dict = [NSDictionary dictionaryWithObject:takenImage forKey:@"newImageKey"];
@@ -891,8 +891,15 @@ extern NSString * bz_SettingsFullResolutionKey;
             }];
         } else {
             imageCameFromLibrary = NO;
-            GPUImageCropFilter *filter = [[GPUImageCropFilter alloc] initWithCropRegion:CGRectMake(.140625, 0, .75, 1)];
-            takenImage = [[filter imageByFilteringImage:[info objectForKey:UIImagePickerControllerOriginalImage]] resizedImage:imgSize interpolationQuality:kCGInterpolationLow];
+            GPUImageCropFilter *filter;
+
+            if (self.view.frame.size.height == 480) {
+                filter = [[GPUImageCropFilter alloc] initWithCropRegion:CGRectMake(.140625, 0, .75, 1)];
+            } else {
+                filter = [[GPUImageCropFilter alloc] initWithCropRegion:CGRectMake(.19218745, 0, .75, 1)];
+            }
+
+            takenImage = [[filter imageByFilteringImage:[info objectForKey:UIImagePickerControllerOriginalImage] ] resizedImage:imgSize interpolationQuality:kCGInterpolationDefault];            
 //            replace code below with
 //            saveToCache();
             dict = [NSDictionary dictionaryWithObject:takenImage forKey:@"newImageKey"];
