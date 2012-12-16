@@ -70,10 +70,9 @@
 #pragma mark Helper methods
 
 - (UIView *)createViewAtIndex:(NSUInteger)index withImage:(UIImage*)image {
-    UIImageView* view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 20,
-                                                            self.view.frame.size.height - 50)];
+    UIImageView* view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
     if (index == 3) {
-        UIButton *close = [[UIButton alloc] initWithFrame:view.frame];
+        UIButton *close = [[UIButton alloc] initWithFrame:CGRectMake(0, 40, 320, 440)];
         [close setImage:image forState:UIControlStateNormal];
         [close addTarget:self action:@selector(closeTutorial) forControlEvents:UIControlEventTouchUpInside];
         return close;
