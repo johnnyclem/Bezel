@@ -20,6 +20,7 @@ NSString* const bz_ColorPickerPurchaseKey = @"color_picker";
 
 @property (nonatomic, strong) IBOutlet UIView *holidayBG;
 @property (nonatomic, strong) IBOutlet UIView *colorPickerBG;
+@property (nonatomic, strong) IBOutlet UIPageControl *pageControl;
 
 @end
 
@@ -27,6 +28,7 @@ NSString* const bz_ColorPickerPurchaseKey = @"color_picker";
 
 @synthesize scrollView  = _scrollView;
 @synthesize navBar      = _navBar;
+@synthesize pageControl = _pageControl;
 @synthesize buyColorPickerButton, buyHolidayPackButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -46,19 +48,18 @@ NSString* const bz_ColorPickerPurchaseKey = @"color_picker";
     buyHolidayPackButton = [MAConfirmButton buttonWithTitle:@"installed" confirm:@"Buy Now"];
     [buyHolidayPackButton addTarget:self action:@selector(purchaseHolidayPack) forControlEvents:UIControlEventTouchUpInside];
     [buyHolidayPackButton setTintColor:[UIColor colorWithRed:0.3922 green:0.5686 blue:0.9333 alpha:1.0]];
-    [buyHolidayPackButton setAnchor:CGPointMake(290, 280)];
+    [buyHolidayPackButton setAnchor:CGPointMake(290, 265)];
     buyColorPickerButton.enabled = NO;
     [_scrollView addSubview:buyHolidayPackButton];
 
     buyColorPickerButton = [MAConfirmButton buttonWithTitle:@"installed" confirm:@"Buy Now"];
     [buyColorPickerButton addTarget:self action:@selector(purchaseColorPicker) forControlEvents:UIControlEventTouchUpInside];
     [buyColorPickerButton setTintColor:[UIColor colorWithRed:0.3922 green:0.5686 blue:0.9333 alpha:1.0]];
-    [buyColorPickerButton setAnchor:CGPointMake(610, 280)];
+    [buyColorPickerButton setAnchor:CGPointMake(610, 265)];
     buyColorPickerButton.enabled = NO;
     [_scrollView addSubview:buyColorPickerButton];
 
 //    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"patternBG.png"]];
-    [_scrollView setDelegate:self];
     _scrollView.frame = CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height-44);
     [_scrollView setContentSize:CGSizeMake(_scrollView.frame.size.width*2, _scrollView.frame.size.height)];
     
@@ -79,6 +80,8 @@ NSString* const bz_ColorPickerPurchaseKey = @"color_picker";
 {
     [super viewWillAppear:animated];
     
+    _pageControl.frame = CGRectMake(_pageControl.frame.origin.x, self.view.frame.size.height-40.f, _pageControl.frame.size.width, _pageControl.frame.size.height);
+    
     if (!holidayPackIsPurchased) {
         buyHolidayPackButton.enabled = YES;
         [buyHolidayPackButton setTitle:@"0.99" forState:UIControlStateNormal];
@@ -90,6 +93,23 @@ NSString* const bz_ColorPickerPurchaseKey = @"color_picker";
         [colorPickerPurchase requestProduct:COLOR_PICKER_ID];
     }
 
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)aScrollView
+{
+    [aScrollView setContentOffset: CGPointMake(aScrollView.contentOffset.x, 0)];
+    int offset = aScrollView.contentOffset.x;
+    
+    switch (offset) {
+        case 0:
+            [_pageControl setCurrentPage:0];
+            break;
+        case 320:
+            [_pageControl setCurrentPage:1];
+            break;
+        default:
+            break;
+    }
 }
 
 -(void)purchaseHolidayPack
