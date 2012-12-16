@@ -124,9 +124,8 @@ extern NSString * bz_SettingsFullResolutionKey;
 - (void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:animated];
-    NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
 
-    NSLog(@"first launch bool value: %@", (NSString*)[standard stringForKey:bz_SettingsFirstLaunchKey]);
+    NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
     
     if ([(NSString*)[standard objectForKey:bz_SettingsFirstLaunchKey] isEqualToString:@"FALSE"]) {
         if (!keepPhoto) {
@@ -178,7 +177,11 @@ extern NSString * bz_SettingsFullResolutionKey;
     imagePickerController.showsCameraControls = NO;
     imagePickerController.toolbarHidden = YES;
     imagePickerController.navigationBarHidden = YES;
-    
+
+    if (self.view.frame.size.height != 480) {
+        imagePickerController.view.frame = CGRectMake(0, 60, imagePickerController.view.frame.size.width, imagePickerController.view.frame.size.height);
+    }
+
     [self.view addSubview:imagePickerController.view];
     [self.view sendSubviewToBack:imagePickerController.view];
     [imagePickerController viewWillAppear:NO];
@@ -436,7 +439,11 @@ extern NSString * bz_SettingsFullResolutionKey;
 //    }
 
     previewMaskLayer = [[bz_MaskShapeLayer alloc] initWithShapeFromImage:_maskImage atSize:CGSizeMake(320, 320)];
-    previewMaskLayer.frame = CGRectMake(0, 60, 320, 320);
+    if (self.view.frame.size.height == 480) {
+        previewMaskLayer.frame = CGRectMake(0, 60, 320, 320);
+    } else {
+        previewMaskLayer.frame = CGRectMake(0, 0, 320, 320);
+    }
     photoMaskLayer = [[bz_MaskShapeLayer alloc] initWithShapeFromImage:_maskImage atSize:CGSizeMake(320, 320)];
 
     imagePickerController.view.layer.mask = previewMaskLayer;
