@@ -11,4 +11,8 @@
 
 @interface bz_CaptureManager : NSObject
 
+@property (strong, nonatomic) AVCaptureStillImageOutput *stillImageOutput;
+
+-(void)takePicture;
+
 @end
