@@ -7,11 +7,11 @@
 //
 
 #import "bz_MainViewController.h"
-#import "bz_ImagePickerViewController.h"
 #import "bz_StoreViewController.h"
 #import "bz_MaskShapeLayer.h"
 #import "bz_ScrollViewController.h"
 #import "bz_TutorialViewController.h"
+#import "bz_CaptureManager.h"
 #import "UIImage+Utils.h"
 #import "UIImage+Resize.h"
 #import "UIImage+Storage.h"
@@ -27,7 +27,6 @@
     IBOutlet bz_Button *settings;
     bz_Button *yes;
     bz_Button *no;
-    bz_ImagePickerViewController *imagePicker;
     UIImagePickerController *imagePickerController;
     
     BOOL colorPickerIsPurchased;
@@ -36,6 +35,7 @@
     BOOL keepPhoto;
 }
 
+@property (nonatomic, strong) IBOutlet UIView *cameraPreviewView;
 @property (nonatomic, strong) UIView *cameraMaskView;
 @property (nonatomic, strong) UIView *photoMaskView;
 @property (nonatomic, strong) UIImageView *bgView;

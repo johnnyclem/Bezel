@@ -354,6 +354,9 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
         <class className="bz_Button" superclassName="UIButton">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/bz_Button.h"/>
         </class>
@@ -363,7 +366,9 @@
         <class className="bz_MainViewController" superclassName="bz_ViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/bz_MainViewController.h"/>
             <relationships>
+                <relationship kind="action" name="importFromLibrary:"/>
                 <relationship kind="action" name="openStoreView:"/>
+                <relationship kind="outlet" name="cameraPreviewView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="cart" candidateClass="bz_Button"/>
                 <relationship kind="outlet" name="gallery" candidateClass="bz_Button"/>
                 <relationship kind="outlet" name="imageView" candidateClass="bz_ImageView"/>
@@ -408,6 +413,9 @@
         </class>
         <class className="bz_ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/bz_ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="close:"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
