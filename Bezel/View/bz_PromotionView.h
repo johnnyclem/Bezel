@@ -12,6 +12,7 @@
 
 @interface bz_PromotionView : UICollectionReusableView
 
+@property (strong, nonatomic, setter =  _setPromotion:) bz_Promotion *promotion;
 @property (weak, nonatomic, readonly) IBOutlet UILabel *promotionTitleLabel;
 @property (weak, nonatomic, readonly) IBOutlet UILabel *promotionDescriptionLabel;
 @property (weak, nonatomic, readonly) IBOutlet UIImageView *promotionImageView;

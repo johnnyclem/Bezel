@@ -136,29 +136,27 @@
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Med-lY-gJO">
                                 <color key="backgroundColor" red="0.11477598852040816" green="0.11477598852040816" blue="0.11477598852040816" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0vQ-zN-Oht">
-                                    <size key="itemSize" width="315" height="80"/>
-                                    <size key="headerReferenceSize" width="50" height="226"/>
+                                    <size key="itemSize" width="310" height="80"/>
+                                    <size key="headerReferenceSize" width="50" height="235"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="5" minY="10" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="10" maxX="5" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="bz_PromotionViewStepper" id="ynf-vI-r3j" customClass="bz_SettingsCell">
-                                        <rect key="frame" x="5" y="236" width="315" height="80"/>
+                                        <rect key="frame" x="5" y="245" width="310" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="315" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="aJQ-1s-EAP">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="94" id="Uay-iS-qwY"/>
-                                                    </constraints>
                                                     <connections>
                                                         <action selector="valueChanged:" destination="dEk-S9-x76" eventType="valueChanged" id="wFS-HI-vgA"/>
                                                     </connections>
                                                 </stepper>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Some Setting" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sw1-kK-2KX">
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="173" id="4jh-hx-eFg"/>
                                                         <constraint firstAttribute="height" constant="48" id="dfq-kZ-bp9"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
@@ -170,11 +168,10 @@
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Sw1-kK-2KX" secondAttribute="bottom" constant="20" type="default" id="35J-Cw-VRE"/>
+                                            <constraint firstItem="Sw1-kK-2KX" firstAttribute="leading" secondItem="ynf-vI-r3j" secondAttribute="leading" constant="20" type="default" id="6Ep-Z9-myB"/>
                                             <constraint firstItem="aJQ-1s-EAP" firstAttribute="leading" secondItem="Sw1-kK-2KX" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="8Oj-PI-OP0"/>
+                                            <constraint firstAttribute="bottom" secondItem="Sw1-kK-2KX" secondAttribute="bottom" constant="20" type="default" id="Coe-p9-Nx6"/>
                                             <constraint firstItem="aJQ-1s-EAP" firstAttribute="top" secondItem="ynf-vI-r3j" secondAttribute="top" constant="26" id="MEH-GL-c05"/>
-                                            <constraint firstAttribute="trailing" secondItem="aJQ-1s-EAP" secondAttribute="trailing" constant="20" type="default" id="qtq-QD-u5O"/>
-                                            <constraint firstItem="Sw1-kK-2KX" firstAttribute="leading" secondItem="ynf-vI-r3j" secondAttribute="leading" constant="20" type="default" id="u8x-vI-sUK"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="accessoryView" destination="aJQ-1s-EAP" id="BAh-iu-kR0"/>
@@ -182,22 +179,20 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="bz_PromotionViewSwitch" id="18e-Gv-GgU" customClass="bz_SettingsCell">
-                                        <rect key="frame" x="5" y="326" width="315" height="80"/>
+                                        <rect key="frame" x="5" y="335" width="310" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="315" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TJI-Q3-9LI">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="77" id="PnQ-QW-hFS"/>
-                                                    </constraints>
                                                     <connections>
                                                         <action selector="valueChanged:" destination="dEk-S9-x76" eventType="valueChanged" id="r0D-9G-xzM"/>
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Some Setting" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bT9-KU-Tc7">
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="190" id="nUR-It-ESb"/>
                                                         <constraint firstAttribute="height" constant="48" id="tXc-SS-7lU"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
@@ -209,11 +204,10 @@
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="TJI-Q3-9LI" secondAttribute="trailing" constant="20" type="default" id="MdI-55-iwa"/>
-                                            <constraint firstItem="bT9-KU-Tc7" firstAttribute="centerY" secondItem="18e-Gv-GgU" secondAttribute="centerY" type="default" id="QMy-sJ-LG4"/>
+                                            <constraint firstItem="bT9-KU-Tc7" firstAttribute="leading" secondItem="18e-Gv-GgU" secondAttribute="leading" constant="20" type="default" id="duv-c7-XlR"/>
                                             <constraint firstItem="TJI-Q3-9LI" firstAttribute="leading" secondItem="bT9-KU-Tc7" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="ihD-mc-6oM"/>
                                             <constraint firstItem="TJI-Q3-9LI" firstAttribute="top" secondItem="18e-Gv-GgU" secondAttribute="top" constant="26" id="lJT-NZ-OHd"/>
-                                            <constraint firstItem="bT9-KU-Tc7" firstAttribute="leading" secondItem="18e-Gv-GgU" secondAttribute="leading" constant="20" type="default" id="yIo-5f-5uv"/>
+                                            <constraint firstItem="bT9-KU-Tc7" firstAttribute="centerY" secondItem="18e-Gv-GgU" secondAttribute="centerY" type="default" id="qOs-Kv-elb"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="accessoryView" destination="TJI-Q3-9LI" id="Frw-YW-1Ou"/>
@@ -221,10 +215,10 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="bz_PromotionViewSegmentedControl" id="2RE-Iw-Qqb" customClass="bz_SettingsCell">
-                                        <rect key="frame" x="5" y="416" width="315" height="80"/>
+                                        <rect key="frame" x="5" y="425" width="310" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="315" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Some Setting" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2e-Py-OQi">
@@ -264,11 +258,11 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="bz_PromotionView" id="suT-np-24T" customClass="bz_PromotionView">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="226"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="235"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="cinePromo.png" translatesAutoresizingMaskIntoConstraints="NO" id="aia-8O-PDk"/>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Promotion Title Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cvu-Qq-gA1">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Check out CinePro on the App Store" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cvu-Qq-gA1">
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" type="user" id="QWb-lA-Lna"/>
                                             </constraints>
@@ -276,19 +270,37 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0G-5h-UEb">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal">
+                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="openPromotionUrl" destination="suT-np-24T" eventType="touchUpInside" id="V02-4n-1fy"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="aia-8O-PDk" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="0Ml-ty-1Oz"/>
+                                        <constraint firstItem="aia-8O-PDk" firstAttribute="top" secondItem="Cvu-Qq-gA1" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="5Fa-Rh-wDi"/>
                                         <constraint firstAttribute="trailing" secondItem="Cvu-Qq-gA1" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="74p-EG-IYp"/>
-                                        <constraint firstItem="aia-8O-PDk" firstAttribute="leading" secondItem="suT-np-24T" secondAttribute="leading" type="default" id="AAe-lg-Cuw"/>
-                                        <constraint firstItem="aia-8O-PDk" firstAttribute="bottom" secondItem="suT-np-24T" secondAttribute="bottom" type="default" id="Gdm-GV-5nh"/>
-                                        <constraint firstItem="aia-8O-PDk" firstAttribute="trailing" secondItem="suT-np-24T" secondAttribute="trailing" type="default" id="aK4-7f-oOo"/>
-                                        <constraint firstItem="Cvu-Qq-gA1" firstAttribute="top" secondItem="suT-np-24T" secondAttribute="top" constant="8" type="user" id="eL4-Xm-IIw"/>
-                                        <constraint firstItem="aia-8O-PDk" firstAttribute="top" secondItem="Cvu-Qq-gA1" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="q6k-OU-Mt4"/>
+                                        <constraint firstItem="g0G-5h-UEb" firstAttribute="bottom" secondItem="suT-np-24T" secondAttribute="bottom" type="default" id="ChN-da-B6y"/>
+                                        <constraint firstItem="aia-8O-PDk" firstAttribute="leading" secondItem="suT-np-24T" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="D2U-22-mcD"/>
+                                        <constraint firstItem="g0G-5h-UEb" firstAttribute="trailing" secondItem="suT-np-24T" secondAttribute="trailing" type="default" id="HLE-NX-FEs"/>
+                                        <constraint firstItem="Cvu-Qq-gA1" firstAttribute="top" secondItem="suT-np-24T" secondAttribute="top" constant="20" symbolic="YES" type="default" id="e86-zl-M6J"/>
+                                        <constraint firstItem="g0G-5h-UEb" firstAttribute="top" secondItem="suT-np-24T" secondAttribute="top" type="default" id="gzm-Cl-Agf"/>
+                                        <constraint firstItem="g0G-5h-UEb" firstAttribute="leading" secondItem="suT-np-24T" secondAttribute="leading" type="default" id="hZg-FH-em5"/>
+                                        <constraint firstAttribute="trailing" secondItem="aia-8O-PDk" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="nRw-6g-vFE"/>
                                         <constraint firstItem="Cvu-Qq-gA1" firstAttribute="leading" secondItem="suT-np-24T" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="uOE-zt-fVv"/>
                                     </constraints>
                                     <connections>
                                         <outlet property="promotionImageView" destination="aia-8O-PDk" id="gqK-am-8ey"/>
                                         <outlet property="promotionTitleLabel" destination="Cvu-Qq-gA1" id="nBL-pi-UC3"/>
+                                        <outlet property="tappableArea" destination="g0G-5h-UEb" id="sl2-YQ-ikf"/>
                                     </connections>
                                 </collectionReusableView>
                                 <connections>
@@ -354,9 +366,6 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
-        </class>
         <class className="bz_Button" superclassName="UIButton">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/bz_Button.h"/>
         </class>
@@ -366,8 +375,6 @@
         <class className="bz_MainViewController" superclassName="bz_ViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/bz_MainViewController.h"/>
             <relationships>
-                <relationship kind="action" name="importFromLibrary:"/>
-                <relationship kind="action" name="openStoreView:"/>
                 <relationship kind="outlet" name="cameraPreviewView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="cart" candidateClass="bz_Button"/>
                 <relationship kind="outlet" name="gallery" candidateClass="bz_Button"/>
@@ -381,6 +388,7 @@
                 <relationship kind="outlet" name="promotionDescriptionLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="promotionImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="promotionTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tappableArea" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="bz_ScrollView" superclassName="UIScrollView">
@@ -413,9 +421,6 @@
         </class>
         <class className="bz_ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/bz_ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="close:"/>
-            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

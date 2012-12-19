@@ -74,22 +74,16 @@
     [def synchronize];
 }
 
-- (IBAction)loadAppStoreLink:(id)sender {
-    NSLog(@"loading cinepro");
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms://itunes.apple.com/us/app/cinepro/id522585198?mt=8&uo=4"]];
-}
-
 - (IBAction)close:(id)sender{
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
+    return self.settings.count;
 }
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
     
-    return self.settings.count;
+    return 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath;
@@ -160,11 +154,26 @@
                                                JSONRequestOperationWithRequest:request
                                                success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON)
                                                {
-                                                   // Collecion view updates
+                                                   if (response.statusCode == 200) {
+                                                       NSDictionary *promotions = [JSON objectForKey:@"promotions"];
+                                                       if (promotions) {
+                                                           for (NSDictionary *promo in promotions)
+                                                           {
+                                                               bz_Promotion *aPromotion = [[bz_Promotion alloc] initWithDictionary: promo];
+                                                               if (aPromotion)
+                                                               {
+                                                                   // Reload supplementary views.
+                                                                   if (!self.promotions) self.promotions = [NSMutableArray arrayWithCapacity: 5]; // arbitrary #, not usually many promotions at once.
+                                                                   [self.promotions addObject: aPromotion];
+                                                                   [self.collectionView reloadData];
+                                                               }
+                                                           }
+                                                       }
+                                                   }
                                                }
                                                failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON)
                                                {
-                                                   // Handle failure
+                                                   [self local_loadPromotions];
                                                }];
     
     [fetchPromotions start];
