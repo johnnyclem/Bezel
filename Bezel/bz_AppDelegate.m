@@ -28,7 +28,7 @@ NSString const *VersionNumber   = @"1.0";
                                   [NSNumber numberWithInt: 0], BZ_SETTINGS_FULL_RESOLUTION_KEY,
                                   [NSNumber numberWithBool:FALSE], BZ_COLOR_PICKER_PURCHASE_KEY,
                                   [NSNumber numberWithBool:FALSE], BZ_HOLIDAY_PACK_PURCHASE_KEY,
-                                  [NSNumber numberWithBool:TRUE], BZ_SETTINGS_LOAD_REMOTE_PROMOTIONS, nil];
+                                  [NSNumber numberWithBool:FALSE], BZ_SETTINGS_LOAD_REMOTE_PROMOTIONS, nil];
     [defaults registerDefaults: defaultPrefs];
     [defaults synchronize];
 
