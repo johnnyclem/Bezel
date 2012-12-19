@@ -16,6 +16,7 @@ NSString* const BZ_HOLIDAY_PACK_PURCHASE_KEY = @"holiday_pack";
 NSString* const BZ_COLOR_PICKER_PURCHASE_KEY = @"color_picker";
 NSString* const BZ_SETTINGS_FULL_RESOLUTION_KEY = @"full_resolution";
 NSString* const BZ_SETTINGS_FIRST_LAUNCH_KEY = @"first_launch";
+NSString* const BZ_SETTINGS_SAVE_TO_CAMERA_ROLL_KEY = @"save_to_camera_roll";
 
 // Reuse identifiers
 NSString* const BZ_PROMOTION_VIEW_REUSE_IDENTIFIER = @"bz_PromotionView";

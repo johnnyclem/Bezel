@@ -33,7 +33,14 @@
     fullRes.valueType = bz_SettingsValueTypeInteger;
     fullRes.value = [NSNumber numberWithInt:[df integerForKey: BZ_SETTINGS_FULL_RESOLUTION_KEY]];
     
-    self.settings = @[fullRes];
+    bz_Setting *saveToCameraRoll = [[bz_Setting alloc] init];
+    saveToCameraRoll.readableName = @"Save original to Camera Roll";
+    saveToCameraRoll.defaultsIdentifier = BZ_SETTINGS_SAVE_TO_CAMERA_ROLL_KEY;
+    saveToCameraRoll.valueType = bz_SettingsValueTypeBoolean;
+    saveToCameraRoll.value = [NSNumber numberWithInt:[df integerForKey: BZ_SETTINGS_SAVE_TO_CAMERA_ROLL_KEY]];
+    
+    
+    self.settings = @[fullRes, saveToCameraRoll];
 
     [self loadPromotions];
 }
@@ -79,11 +86,11 @@
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return self.settings.count;
+    return 1;
 }
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
     
-    return 1;
+    return self.settings.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath;
@@ -110,9 +117,8 @@
     
     bz_SettingsCell *cell = [cv dequeueReusableCellWithReuseIdentifier: reuseIdentifier forIndexPath:indexPath];
     
-    if (bz_SettingsValueTypeInteger) {
-        [(UISegmentedControl*)cell.accessoryView setSelectedSegmentIndex:[df integerForKey: BZ_SETTINGS_FULL_RESOLUTION_KEY]];
-    }
+    [cell setCurrentValue: [df valueForKey: setting.defaultsIdentifier] forType: setting.valueType];
+    
     cell.settingsLabel.text = setting.readableName;
     cell.accessoryView.tag = indexPath.row;
     

@@ -11,7 +11,6 @@
 
 @interface bz_SettingsViewController : bz_ViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
-- (IBAction)loadAppStoreLink:(id)sender;
 - (IBAction)close:(id)sender;
 - (IBAction)valueChanged:(id)sender;
 

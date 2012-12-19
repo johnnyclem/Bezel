@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "bz_Setting.h"
 
 @interface bz_SettingsCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *settingsLabel;
 @property (weak, nonatomic) IBOutlet UIView *accessoryView;
+
+- (void)setCurrentValue:(id)value forType:(bz_SettingsValueType)type;
 
 @end
