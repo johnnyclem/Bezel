@@ -34,7 +34,7 @@
     fullRes.value = [NSNumber numberWithInt:[df integerForKey: BZ_SETTINGS_FULL_RESOLUTION_KEY]];
     
     bz_Setting *saveToCameraRoll = [[bz_Setting alloc] init];
-    saveToCameraRoll.readableName = @"Save original to Camera Roll";
+    saveToCameraRoll.readableName = @"Save Original Photo to Camera Roll";
     saveToCameraRoll.defaultsIdentifier = BZ_SETTINGS_SAVE_TO_CAMERA_ROLL_KEY;
     saveToCameraRoll.valueType = bz_SettingsValueTypeBoolean;
     saveToCameraRoll.value = [NSNumber numberWithInt:[df integerForKey: BZ_SETTINGS_SAVE_TO_CAMERA_ROLL_KEY]];

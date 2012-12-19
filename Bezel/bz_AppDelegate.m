@@ -28,8 +28,8 @@ NSString const *VersionNumber   = @"1.0";
                                   [NSNumber numberWithInt: 0], BZ_SETTINGS_FULL_RESOLUTION_KEY,
                                   [NSNumber numberWithBool:FALSE], BZ_COLOR_PICKER_PURCHASE_KEY,
                                   [NSNumber numberWithBool:FALSE], BZ_HOLIDAY_PACK_PURCHASE_KEY,
-                                  [NSNumber numberWithBool:FALSE], BZ_SETTINGS_LOAD_REMOTE_PROMOTIONS,
-                                  [NSNumber numberWithBool:FALSE], BZ_SETTINGS_SAVE_TO_CAMERA_ROLL_KEY, nil];
+                                  [NSNumber numberWithBool:TRUE], BZ_SETTINGS_LOAD_REMOTE_PROMOTIONS,
+                                  [NSNumber numberWithBool:TRUE], BZ_SETTINGS_SAVE_TO_CAMERA_ROLL_KEY, nil];
     [defaults registerDefaults: defaultPrefs];
     [defaults synchronize];
 

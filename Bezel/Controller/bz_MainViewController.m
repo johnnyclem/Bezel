@@ -788,6 +788,7 @@
     switch (alertView.tag) {
         case 10:
             if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Discard Photo"]) {
+                keepPhoto = NO;
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"StartOver" object:nil userInfo:dict];
             }
             break;
@@ -795,6 +796,7 @@
             break;
         case 30:
             if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Start Over"]) {
+                keepPhoto = NO;
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"StartOver" object:nil userInfo:dict];
             }
             break;
@@ -892,7 +894,16 @@
             } else {
                 filter = [[GPUImageCropFilter alloc] initWithCropRegion:CGRectMake(.19218745, 0, .75, 1)];
             }
-
+            
+            if ([df boolForKey:BZ_SETTINGS_SAVE_TO_CAMERA_ROLL_KEY] == TRUE) {
+                [self.library writeImageToSavedPhotosAlbum:[[info objectForKey:UIImagePickerControllerOriginalImage] CGImage] orientation:ALAssetOrientationRight completionBlock:^(NSURL *assetURL, NSError *error) {
+                    if (error!=nil) {
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error Saving Image" message:@"Bezel encountered an error while attempting to save image to Photo Library.  Please try saving again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                        alert.tag = 0;
+                        [alert show];
+                    }
+                }];
+            }
             takenImage = [[filter imageByFilteringImage:[info objectForKey:UIImagePickerControllerOriginalImage] ] resizedImage:imgSize interpolationQuality:kCGInterpolationDefault];            
 //            replace code below with
 //            saveToCache();
