@@ -147,7 +147,7 @@
     }
 #endif
     
-    NSURL *url = [NSURL URLWithString:@"feedURL"];
+    NSURL *url = [NSURL URLWithString:@"http://minddiaper.com/ads/bezel.json"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     AFJSONRequestOperation *fetchPromotions = [AFJSONRequestOperation

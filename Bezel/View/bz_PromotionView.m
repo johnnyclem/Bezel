@@ -23,6 +23,7 @@
     if (self) {
         UIButton *tappableArea = [UIButton buttonWithType:UIButtonTypeCustom];
         tappableArea.frame = frame;
+        [tappableArea addTarget:self action:@selector(openPromotionUrl) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
 }
@@ -49,6 +50,9 @@
     NSURL *promoUrl = self.promotion.promotionHref;
     if (promoUrl) {
         [[UIApplication sharedApplication] openURL: promoUrl];
+        NSLog(@"opening promo url: %@", self.promotion.promotionHref);
+    } else {
+        NSLog(@"no promo href");
     }
 }
 

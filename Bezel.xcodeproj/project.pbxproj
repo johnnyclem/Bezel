@@ -179,7 +179,6 @@
 		CC821FE7167E531400445EAC /* treeMask.png in Resources */ = {isa = PBXBuildFile; fileRef = EF6EBDD5167842E5001B25DD /* treeMask.png */; };
 		CC821FE8167E531400445EAC /* holidayBackgrounds.png in Resources */ = {isa = PBXBuildFile; fileRef = EF6EBDEB16785F42001B25DD /* holidayBackgrounds.png */; };
 		CC821FE9167E531400445EAC /* standardBackgrounds.png in Resources */ = {isa = PBXBuildFile; fileRef = EF6EBDEC16785F42001B25DD /* standardBackgrounds.png */; };
-		CC821FEA167E531400445EAC /* cinePromo.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9B2CFE16787DF70012024E /* cinePromo.png */; };
 		CC821FEB167E531400445EAC /* tutorial1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF9B2D0E1678905A0012024E /* tutorial1.jpg */; };
 		CC821FEC167E531400445EAC /* tutorial2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF9B2D0F1678905A0012024E /* tutorial2.jpg */; };
 		CC821FED167E531400445EAC /* tutorial3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF9B2D101678905A0012024E /* tutorial3.jpg */; };
@@ -393,8 +392,6 @@
 		EF9584B9167459F9006B042C /* square.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9584B2167459F9006B042C /* square.png */; };
 		EF9584BA167459F9006B042C /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9584B3167459F9006B042C /* triangle.png */; };
 		EF9584BB167459F9006B042C /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9584B3167459F9006B042C /* triangle.png */; };
-		EF9B2CFF16787DF70012024E /* cinePromo.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9B2CFE16787DF70012024E /* cinePromo.png */; };
-		EF9B2D0016787DF70012024E /* cinePromo.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9B2CFE16787DF70012024E /* cinePromo.png */; };
 		EF9B2D04167889F80012024E /* GCPagedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9B2D03167889F80012024E /* GCPagedScrollView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		EF9B2D05167889F80012024E /* GCPagedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9B2D03167889F80012024E /* GCPagedScrollView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		EF9B2D0C16788A220012024E /* bz_TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9B2D0B16788A220012024E /* bz_TutorialViewController.m */; };
@@ -712,7 +709,6 @@
 		EF9584B1167459F9006B042C /* hexagon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hexagon.png; path = Resources/Shapes/hexagon.png; sourceTree = "<group>"; };
 		EF9584B2167459F9006B042C /* square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = square.png; path = Resources/Shapes/square.png; sourceTree = "<group>"; };
 		EF9584B3167459F9006B042C /* triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = triangle.png; path = Resources/Shapes/triangle.png; sourceTree = "<group>"; };
-		EF9B2CFE16787DF70012024E /* cinePromo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cinePromo.png; path = Resources/Images/cinePromo.png; sourceTree = "<group>"; };
 		EF9B2D02167889F80012024E /* GCPagedScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPagedScrollView.h; sourceTree = "<group>"; };
 		EF9B2D03167889F80012024E /* GCPagedScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPagedScrollView.m; sourceTree = "<group>"; };
 		EF9B2D0A16788A220012024E /* bz_TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_TutorialViewController.h; path = Controller/bz_TutorialViewController.h; sourceTree = "<group>"; };
@@ -914,7 +910,7 @@
 				CC2CF431167DB2A900A0EDA7 /* UIImageView+AFNetworking.m */,
 			);
 			name = AFNetworking;
-			path = "Third Party/AFNetworking";
+			path = "Third Party/AFNetworking/AFNetworking";
 			sourceTree = "<group>";
 		};
 		CC866E30167D1E3C001779CB /* Products */ = {
@@ -1217,7 +1213,6 @@
 				EF9B2D0F1678905A0012024E /* tutorial2.jpg */,
 				EF9B2D101678905A0012024E /* tutorial3.jpg */,
 				EF9B2D111678905A0012024E /* tutorial4.jpg */,
-				EF9B2CFE16787DF70012024E /* cinePromo.png */,
 				EF5011E5167673A00033B574 /* test.jpg */,
 				EFA0882E16715AA100AA6992 /* holidayShapes.png */,
 				EFA0882F16715AA100AA6992 /* standardShapes.png */,
@@ -1609,7 +1604,6 @@
 				CC821FE7167E531400445EAC /* treeMask.png in Resources */,
 				CC821FE8167E531400445EAC /* holidayBackgrounds.png in Resources */,
 				CC821FE9167E531400445EAC /* standardBackgrounds.png in Resources */,
-				CC821FEA167E531400445EAC /* cinePromo.png in Resources */,
 				CC821FEB167E531400445EAC /* tutorial1.jpg in Resources */,
 				CC821FEC167E531400445EAC /* tutorial2.jpg in Resources */,
 				CC821FED167E531400445EAC /* tutorial3.jpg in Resources */,
@@ -1692,7 +1686,6 @@
 				EF6EBDE0167842E5001B25DD /* treeMask.png in Resources */,
 				EF6EBDED16785F42001B25DD /* holidayBackgrounds.png in Resources */,
 				EF6EBDEF16785F42001B25DD /* standardBackgrounds.png in Resources */,
-				EF9B2CFF16787DF70012024E /* cinePromo.png in Resources */,
 				EF9B2D121678905A0012024E /* tutorial1.jpg in Resources */,
 				EF9B2D141678905A0012024E /* tutorial2.jpg in Resources */,
 				EF9B2D161678905A0012024E /* tutorial3.jpg in Resources */,
@@ -1769,7 +1762,6 @@
 				EF6EBDE1167842E5001B25DD /* treeMask.png in Resources */,
 				EF6EBDEE16785F42001B25DD /* holidayBackgrounds.png in Resources */,
 				EF6EBDF016785F42001B25DD /* standardBackgrounds.png in Resources */,
-				EF9B2D0016787DF70012024E /* cinePromo.png in Resources */,
 				EF9B2D131678905A0012024E /* tutorial1.jpg in Resources */,
 				EF9B2D151678905A0012024E /* tutorial2.jpg in Resources */,
 				EF9B2D171678905A0012024E /* tutorial3.jpg in Resources */,
