@@ -214,9 +214,6 @@
 		CC822012167E5A8400445EAC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CC822011167E5A8400445EAC /* Settings.bundle */; };
 		CC866E3A167D1FF6001779CB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF25883F166ECC2B00A2225E /* Crashlytics.framework */; };
 		CC866E3D167D20A3001779CB /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC866E36167D1E3C001779CB /* libGPUImage.a */; };
-		CC8839A8167E9F7200374C63 /* bz_CaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839A7167E9F7200374C63 /* bz_CaptureManager.m */; };
-		CC8839A9167E9F7200374C63 /* bz_CaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839A7167E9F7200374C63 /* bz_CaptureManager.m */; };
-		CC8839AA167E9F7200374C63 /* bz_CaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839A7167E9F7200374C63 /* bz_CaptureManager.m */; };
 		CC8839AD167EA21D00374C63 /* bz_ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839AC167EA21D00374C63 /* bz_ImageView.m */; };
 		CC8839AE167EA21D00374C63 /* bz_ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839AC167EA21D00374C63 /* bz_ImageView.m */; };
 		CC8839AF167EA21D00374C63 /* bz_ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839AC167EA21D00374C63 /* bz_ImageView.m */; };
@@ -564,8 +561,6 @@
 		CC821F3C167DBB4D00445EAC /* bz_PromotionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bz_PromotionsTest.m; sourceTree = "<group>"; };
 		CC82200E167E531400445EAC /* Bezel-QA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bezel-QA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC822011167E5A8400445EAC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Resources/Settings.bundle; sourceTree = "<group>"; };
-		CC8839A6167E9F7200374C63 /* bz_CaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_CaptureManager.h; path = Controller/bz_CaptureManager.h; sourceTree = "<group>"; };
-		CC8839A7167E9F7200374C63 /* bz_CaptureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_CaptureManager.m; path = Controller/bz_CaptureManager.m; sourceTree = "<group>"; };
 		CC8839AB167EA21D00374C63 /* bz_ImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_ImageView.h; path = View/bz_ImageView.h; sourceTree = "<group>"; };
 		CC8839AC167EA21D00374C63 /* bz_ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_ImageView.m; path = View/bz_ImageView.m; sourceTree = "<group>"; };
 		CCEA6807167DB00D00BD08DE /* promotion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = promotion.json; path = "Mock Data/promotion.json"; sourceTree = "<group>"; };
@@ -910,7 +905,7 @@
 				CC2CF431167DB2A900A0EDA7 /* UIImageView+AFNetworking.m */,
 			);
 			name = AFNetworking;
-			path = "Third Party/AFNetworking/AFNetworking";
+			path = "Third Party/AFNetworking";
 			sourceTree = "<group>";
 		};
 		CC866E30167D1E3C001779CB /* Products */ = {
@@ -1082,8 +1077,6 @@
 				EF258888166F055F00A2225E /* bz_AdjustmentViewController.m */,
 				EF258893166F059500A2225E /* bz_BackgroundViewController.h */,
 				EF258894166F059800A2225E /* bz_BackgroundViewController.m */,
-				CC8839A6167E9F7200374C63 /* bz_CaptureManager.h */,
-				CC8839A7167E9F7200374C63 /* bz_CaptureManager.m */,
 				EF258883166F044D00A2225E /* bz_FilterViewController.h */,
 				EF258884166F044E00A2225E /* bz_FilterViewController.m */,
 				EF2587EE166EC7A900A2225E /* bz_GalleryViewController.h */,
@@ -1872,7 +1865,6 @@
 				CC821FA6167E531400445EAC /* AFXMLRequestOperation.m in Sources */,
 				CC821FA7167E531400445EAC /* UIImageView+AFNetworking.m in Sources */,
 				CC384CC5167E642800174786 /* bz_Constants.m in Sources */,
-				CC8839A9167E9F7200374C63 /* bz_CaptureManager.m in Sources */,
 				CC8839AE167EA21D00374C63 /* bz_ImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1951,7 +1943,6 @@
 				CC2CF439167DB2A900A0EDA7 /* AFXMLRequestOperation.m in Sources */,
 				CC2CF43A167DB2A900A0EDA7 /* UIImageView+AFNetworking.m in Sources */,
 				CC384CC4167E642800174786 /* bz_Constants.m in Sources */,
-				CC8839A8167E9F7200374C63 /* bz_CaptureManager.m in Sources */,
 				CC8839AD167EA21D00374C63 /* bz_ImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2029,7 +2020,6 @@
 				CC821F45167DBB8E00445EAC /* AFXMLRequestOperation.m in Sources */,
 				CC821F46167DBB8E00445EAC /* UIImageView+AFNetworking.m in Sources */,
 				CC384CC6167E642800174786 /* bz_Constants.m in Sources */,
-				CC8839AA167E9F7200374C63 /* bz_CaptureManager.m in Sources */,
 				CC8839AF167EA21D00374C63 /* bz_ImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
