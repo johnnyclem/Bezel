@@ -13,10 +13,16 @@
 
 @interface BZ_Session : NSManagedObject
 
-@property (nonatomic, retain) NSData * currentFullResolutionImage;
-@property (nonatomic, retain) NSData * currentThumbnailImage;
+@property (nonatomic, retain, readonly) NSData * currentFullResolutionImage;
+@property (nonatomic, retain, readonly) NSData * currentThumbnailImage;
 @property (nonatomic, retain) NSNumber * imageId;
 @property (nonatomic, retain) NSOrderedSet *adjustments;
+
+- (void)setFullResolutionImage:(UIImage *)image;
+- (void)setThumbnailImage:(UIImage *)image;
+- (UIImage *)fullResolutionImage;
+- (UIImage *)thumbnailImage;
+
 @end
 
 @interface BZ_Session (CoreDataGeneratedAccessors)
