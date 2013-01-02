@@ -1,13 +1,20 @@
 //
-//  bz_Session.m
+//  BZ_Session.m
 //  Bezel
 //
-//  Created by Josh Buchacher on 1/1/13.
+//  Created by Josh Buchacher on 1/2/13.
 //  Copyright (c) 2013 Mind Diaper. All rights reserved.
 //
 
-#import "bz_Session.h"
+#import "BZ_Session.h"
+#import "BZ_Adjustment.h"
 
-@implementation bz_Session
+
+@implementation BZ_Session
+
+@dynamic currentFullResolutionImage;
+@dynamic currentThumbnailImage;
+@dynamic imageId;
+@dynamic adjustments;
 
 @end
