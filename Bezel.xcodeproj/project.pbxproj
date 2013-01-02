@@ -217,6 +217,9 @@
 		CC8839AD167EA21D00374C63 /* bz_ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839AC167EA21D00374C63 /* bz_ImageView.m */; };
 		CC8839AE167EA21D00374C63 /* bz_ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839AC167EA21D00374C63 /* bz_ImageView.m */; };
 		CC8839AF167EA21D00374C63 /* bz_ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839AC167EA21D00374C63 /* bz_ImageView.m */; };
+		CCD29A221693B5490093141A /* bz_Session.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD29A211693B5490093141A /* bz_Session.m */; };
+		CCD29A231693B5490093141A /* bz_Session.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD29A211693B5490093141A /* bz_Session.m */; };
+		CCD29A241693B5490093141A /* bz_Session.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD29A211693B5490093141A /* bz_Session.m */; };
 		CCEA6808167DB00D00BD08DE /* promotion.json in Resources */ = {isa = PBXBuildFile; fileRef = CCEA6807167DB00D00BD08DE /* promotion.json */; };
 		CCEA6809167DB01100BD08DE /* promotion.json in Resources */ = {isa = PBXBuildFile; fileRef = CCEA6807167DB00D00BD08DE /* promotion.json */; };
 		CCEA680B167DB03F00BD08DE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCEA680A167DB03F00BD08DE /* SystemConfiguration.framework */; };
@@ -563,6 +566,8 @@
 		CC822011167E5A8400445EAC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Resources/Settings.bundle; sourceTree = "<group>"; };
 		CC8839AB167EA21D00374C63 /* bz_ImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_ImageView.h; path = View/bz_ImageView.h; sourceTree = "<group>"; };
 		CC8839AC167EA21D00374C63 /* bz_ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_ImageView.m; path = View/bz_ImageView.m; sourceTree = "<group>"; };
+		CCD29A201693B5490093141A /* bz_Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bz_Session.h; sourceTree = "<group>"; };
+		CCD29A211693B5490093141A /* bz_Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bz_Session.m; sourceTree = "<group>"; };
 		CCEA6807167DB00D00BD08DE /* promotion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = promotion.json; path = "Mock Data/promotion.json"; sourceTree = "<group>"; };
 		CCEA680A167DB03F00BD08DE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EF160764167BB7E800EC21EB /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
@@ -1398,6 +1403,8 @@
 				CC413CCB167D567100773B24 /* bz_Promotion.m */,
 				EFE390491677F38C009F2AC9 /* bz_Setting.h */,
 				EFE3904A1677F38C009F2AC9 /* bz_Setting.m */,
+				CCD29A201693B5490093141A /* bz_Session.h */,
+				CCD29A211693B5490093141A /* bz_Session.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1866,6 +1873,7 @@
 				CC821FA7167E531400445EAC /* UIImageView+AFNetworking.m in Sources */,
 				CC384CC5167E642800174786 /* bz_Constants.m in Sources */,
 				CC8839AE167EA21D00374C63 /* bz_ImageView.m in Sources */,
+				CCD29A231693B5490093141A /* bz_Session.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1944,6 +1952,7 @@
 				CC2CF43A167DB2A900A0EDA7 /* UIImageView+AFNetworking.m in Sources */,
 				CC384CC4167E642800174786 /* bz_Constants.m in Sources */,
 				CC8839AD167EA21D00374C63 /* bz_ImageView.m in Sources */,
+				CCD29A221693B5490093141A /* bz_Session.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2021,6 +2030,7 @@
 				CC821F46167DBB8E00445EAC /* UIImageView+AFNetworking.m in Sources */,
 				CC384CC6167E642800174786 /* bz_Constants.m in Sources */,
 				CC8839AF167EA21D00374C63 /* bz_ImageView.m in Sources */,
+				CCD29A241693B5490093141A /* bz_Session.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
