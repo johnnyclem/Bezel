@@ -8,6 +8,7 @@
 
 #import "bz_ViewController.h"
 #import "bz_ImageViewController.h"
+#import "bz_AppDelegate.h"
 
 @interface bz_ViewController ()
 
@@ -24,6 +25,12 @@
         // Custom initialization
     }
     return self;
+}
+
+- (NSManagedObjectContext *)managedObjectContext
+{
+    bz_AppDelegate<UIApplicationDelegate> *delegate = [[UIApplication sharedApplication] delegate];
+    return [delegate managedObjectContext];
 }
 
 - (void)viewDidLoad

@@ -14,4 +14,6 @@
 @property(nonatomic) CGFloat scrollHeight;
 @property (nonatomic, strong) UIImage *currentImage;
 
+@property (weak, nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
+
 @end

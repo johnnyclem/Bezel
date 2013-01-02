@@ -11,7 +11,7 @@
 
 @interface bz_MainViewController : bz_ViewController  <UIAlertViewDelegate, UIDocumentInteractionControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-@property (nonatomic, strong) IBOutlet bz_ImageView *imageView;
+@property (nonatomic, strong) IBOutlet bz_ImageView *sessionPreview;
 @property (nonatomic, strong) UIImage *maskImage;
 @property (nonatomic, strong) UIColor *bgColor;
 @property (nonatomic, strong) UIImage *bgImage;

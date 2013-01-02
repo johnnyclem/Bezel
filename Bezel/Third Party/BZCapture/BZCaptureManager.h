@@ -28,7 +28,7 @@ typedef enum {
 } BZCaptureQuality;
 
 typedef void (^BZCaptureManagerSuccessBlock)(id obj);
-typedef NSError* (^BZCaptureManagerFailureBlock)(NSError *err);
+typedef void (^BZCaptureManagerFailureBlock)(NSError *err);
 
 /********************************************************************************
  ** Block based callbacks for media capture success/failure.

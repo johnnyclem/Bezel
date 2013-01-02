@@ -18,6 +18,10 @@
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
 #import "SVProgressHUD.h"
+#import "BZCaptureManager.h"
+#import "BZSession.h"
+
+#import "BZMaskAdjustment.h"
 
 @interface bz_MainViewController ()
 {
@@ -46,6 +50,8 @@
 @property (strong, atomic) ALAssetsLibrary* library;
 @property (nonatomic, strong) UIDocumentInteractionController *docController;
 @property (nonatomic) BOOL useLibrary;
+
+@property (strong, nonatomic) BZSession *session;
 
 @end
 
@@ -76,6 +82,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"BZSession" inManagedObjectContext:moc];
+    
+    self.session = [[BZSession alloc] initWithEntity: entityDescription insertIntoManagedObjectContext: moc];
 
     imageCameFromLibrary = NO;
     NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
@@ -162,25 +173,7 @@
     _maskedImage = nil;
     self.currentImage = nil;
     
-    [imagePickerController.view removeFromSuperview];
-    imagePickerController = nil;
-    
-    imagePickerController = [[UIImagePickerController alloc] init];
-    imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-    imagePickerController.delegate = self;
-    imagePickerController.showsCameraControls = NO;
-    imagePickerController.toolbarHidden = YES;
-    imagePickerController.navigationBarHidden = YES;
-
-    if (self.view.frame.size.height != 480) {
-        imagePickerController.view.frame = CGRectMake(0, 0, 320, 480);
-    }
-
-    [self.view addSubview:imagePickerController.view];
-    [self.view sendSubviewToBack:imagePickerController.view];
-    [imagePickerController viewWillAppear:NO];
-    [imagePickerController viewDidAppear:NO];
-
+    [[BZCaptureManager sharedManager] setPreviewLayerWithView: _sessionPreview];
 }
 
 -(IBAction)importFromLibrary:(id)sender {
@@ -202,16 +195,102 @@
 -(void)takePhoto {
     
     void (^takePhoto)(void) = ^ {
-        [imagePickerController takePicture];
+        
+        void (^successBlock)(id obj) = ^(id obj)
+        {
+            if ([obj isKindOfClass:[UIImage class]])
+            {
+                UIImage *img = (UIImage *)obj;
+                NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+                __block NSDictionary* dict;
+                __block NSNotification *libraryPhoto;
+                CGSize imgSize;
+                
+                imageCameFromLibrary = NO;
+                
+                int quality = [df integerForKey:@"full_resolution"];
+                switch (quality) {
+                    case 2: // User wants highest res image
+                        imgSize = CGSizeMake(2048, 2048);
+                        break;
+                    case 1: // User wants 1024x1024 res image
+                        imgSize = CGSizeMake(1024, 1024);
+                        break;
+                    case 0: // User wants 640x640 res image
+                        imgSize = CGSizeMake(640, 640);
+                        break;
+                    default:
+                        break;
+                }
+                
+                if ([df boolForKey:BZ_SETTINGS_SAVE_TO_CAMERA_ROLL_KEY] == TRUE) {
+                    [self.library writeImageToSavedPhotosAlbum: [img CGImage] orientation: img.imageOrientation completionBlock:^(NSURL *assetURL, NSError *error) {
+                        if (error!=nil) {
+                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error Saving Image" message:@"Bezel encountered an error while attempting to save image to Photo Library.  Please try saving again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                            alert.tag = 0;
+                            [alert show];
+                        }
+                    }];
+                }
+                
+                CGSize thumbSize = CGSizeMake(320.0, 320.0);
+
+                UIImage *thumb = [self scaleImage: img toSize: thumbSize];
+                
+                [self.session setFullResolutionImage: img];
+                [self.session setThumbnailImage: thumb];
+                
+                dict = [NSDictionary dictionaryWithObject: thumb forKey:@"newImageKey"];
+                libraryPhoto = [NSNotification notificationWithName:@"newImage" object:self userInfo:dict];
+                [self newPhotoArrived:libraryPhoto];
+                
+                [[BZCaptureManager sharedManager] setPreviewLayerWithView: nil];
+            }
+        };
+        
+        void (^failureBlock)(NSError *err) = ^(NSError *err)
+        {
+            
+        };
+        
+        [[BZCaptureManager sharedManager] captureMediaWithType: BZCaptureTypePhoto
+                                                  successBlock: successBlock
+                                                  failureBlock: failureBlock];
     };
         
     [SVProgressHUD showWithStatus:@"Saving Image"];
     takePhoto();
 }
 
+-(UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)targetSize {
+    //If scaleFactor is not touched, no scaling will occur
+    CGFloat scaleFactor = 1.0;
+    
+    //Deciding which factor to use to scale the image (factor = targetSize / imageSize)
+    if (image.size.width > targetSize.width || image.size.height > targetSize.height)
+        if (!((scaleFactor = (targetSize.width / image.size.width)) > (targetSize.height / image.size.height))) //scale to fit width, or
+            scaleFactor = targetSize.height / image.size.height; // scale to fit heigth.
+    
+    UIGraphicsBeginImageContext(targetSize);
+    
+    //Creating the rect where the scaled image is drawn in
+    CGRect rect = CGRectMake((targetSize.width - image.size.width * scaleFactor) / 2,
+                             (targetSize.height -  image.size.height * scaleFactor) / 2,
+                             image.size.width * scaleFactor, image.size.height * scaleFactor);
+    
+    //Draw the image into the rect
+    [image drawInRect:rect];
+    
+    //Saving the image, ending image context
+    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return scaledImage;
+}
+
 -(void)addBackground:(NSNotification*)notification {
     
-    [_imageView.layer setMask:nil];
+    [_sessionPreview.layer setMask:nil];
 
     _bgColor = [notification.userInfo objectForKey:@"newBGColor"];
     if (_bgColor != nil) {
@@ -236,7 +315,7 @@
     
     self.currentImage = nil;
     self.currentImage = [alpha imageFromCurrentlyProcessedOutput];
-    [_imageView setImage:self.currentImage];
+    [_sessionPreview setImage:self.currentImage];
 
 }
 
@@ -517,16 +596,20 @@
 //    }
     photoMaskLayer = [[bz_MaskShapeLayer alloc] initWithShapeFromImage:_maskImage atSize:CGSizeMake(320, 320)];
 
-    imagePickerController.view.layer.mask = previewMaskLayer;
-    imagePickerController.view.clipsToBounds = YES;
-    [imagePickerController.view setNeedsDisplay];
+    NSEntityDescription *entDesc = [NSEntityDescription entityForName:@"BZAdjustmentManagedObject" inManagedObjectContext: self.managedObjectContext];
+    BZMaskAdjustment *maskAdjustment = [[BZMaskAdjustment alloc] initWithEntity: entDesc insertIntoManagedObjectContext:self.managedObjectContext];
+    NSDictionary *maskInfo = [NSDictionary dictionaryWithObjectsAndKeys: _maskImage, kBZMaskAdjustmentMaskImageKey, nil];
+    maskAdjustment.value = maskInfo;
+    [self.session addAdjustmentsObject: maskAdjustment];
+
+    [self.managedObjectContext save: nil];
 
     if (!imageCameFromLibrary) {
-        [_imageView setImage:nil];
+        [_sessionPreview setImage:nil];
     }
-    _imageView.layer.mask = photoMaskLayer;
-    _imageView.clipsToBounds = YES;
-    [_imageView setNeedsDisplay];
+    _sessionPreview.layer.mask = photoMaskLayer;
+    _sessionPreview.clipsToBounds = YES;
+    [_sessionPreview setNeedsDisplay];
     
 }
 
@@ -574,7 +657,7 @@
     self.currentImage = nil;
     self.currentImage = filteredImage;
     
-    [_imageView setImage:self.currentImage];
+    [_sessionPreview setImage:self.currentImage];
 
 }
 
@@ -589,7 +672,7 @@
     
     keepPhoto = YES;
     self.currentImage = [notification.userInfo objectForKey:@"newImageKey"];
-    [_imageView setImage:self.currentImage];
+    [_sessionPreview setImage:self.currentImage];
     [NSThread detachNewThreadSelector:@selector(processNewLibraryImage:) toTarget:self withObject:nil];
 }
 
@@ -598,7 +681,8 @@
     _maskedImage = [self maskImage:newImage withMask:_maskImage];
     self.currentImage = nil;
     self.currentImage = newImage;
-    [_imageView setImage:self.currentImage];
+    [_sessionPreview setImage:self.currentImage];
+    _sessionPreview.contentMode = UIViewContentModeScaleAspectFill;
 
     UIView *confirm = [[UIView alloc] initWithFrame:CGRectMake(0, UIScreen.mainScreen.bounds.size.height, 320, UIScreen.mainScreen.bounds.size.height-380)];
     confirm.backgroundColor = [UIColor blackColor];
@@ -700,9 +784,9 @@
 -(void)addMaskedImageViewWithImage:(UIImage*)image {
     
     bz_MaskShapeLayer *maskLayer    = [[bz_MaskShapeLayer alloc] initWithCircleShapeAtSize:CGSizeMake(320, 320)];
-    [_imageView setImage:image];
-    _imageView.layer.mask = maskLayer;
-    _imageView.clipsToBounds = YES;
+    [_sessionPreview setImage:image];
+    _sessionPreview.layer.mask = maskLayer;
+    _sessionPreview.clipsToBounds = YES;
 
 }
 
@@ -1031,7 +1115,7 @@
 {
     [self dismissViewControllerAnimated:YES completion:^(void) {
         useLibrary = NO;
-        [_imageView setImage:nil];
+        [_sessionPreview setImage:nil];
         self.currentImage = nil;
         [self viewDidAppear:YES];
     }];
