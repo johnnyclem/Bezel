@@ -20,6 +20,9 @@
 		CC384CC5167E642800174786 /* bz_Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CC384CC3167E642800174786 /* bz_Constants.m */; };
 		CC384CC6167E642800174786 /* bz_Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CC384CC3167E642800174786 /* bz_Constants.m */; };
 		CC413CCC167D567100773B24 /* bz_Promotion.m in Sources */ = {isa = PBXBuildFile; fileRef = CC413CCB167D567100773B24 /* bz_Promotion.m */; };
+		CC55B6AD16949614006AD05A /* BZCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55B6AC16949614006AD05A /* BZCaptureManager.m */; };
+		CC55B6AE16949614006AD05A /* BZCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55B6AC16949614006AD05A /* BZCaptureManager.m */; };
+		CC55B6AF16949614006AD05A /* BZCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55B6AC16949614006AD05A /* BZCaptureManager.m */; };
 		CC821F3D167DBB4D00445EAC /* bz_PromotionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CC821F3C167DBB4D00445EAC /* bz_PromotionsTest.m */; };
 		CC821F3E167DBB8E00445EAC /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF420167DB2A900A0EDA7 /* AFHTTPClient.m */; };
 		CC821F3F167DBB8E00445EAC /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF422167DB2A900A0EDA7 /* AFHTTPRequestOperation.m */; };
@@ -560,6 +563,8 @@
 		CC384CC3167E642800174786 /* bz_Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bz_Constants.m; sourceTree = "<group>"; };
 		CC413CCA167D567100773B24 /* bz_Promotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bz_Promotion.h; sourceTree = "<group>"; };
 		CC413CCB167D567100773B24 /* bz_Promotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bz_Promotion.m; sourceTree = "<group>"; };
+		CC55B6AB16949614006AD05A /* BZCaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BZCaptureManager.h; sourceTree = "<group>"; };
+		CC55B6AC16949614006AD05A /* BZCaptureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BZCaptureManager.m; sourceTree = "<group>"; };
 		CC821F3B167DBB4D00445EAC /* bz_PromotionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bz_PromotionsTest.h; sourceTree = "<group>"; };
 		CC821F3C167DBB4D00445EAC /* bz_PromotionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bz_PromotionsTest.m; sourceTree = "<group>"; };
 		CC82200E167E531400445EAC /* Bezel-QA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bezel-QA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -913,6 +918,16 @@
 			path = "Third Party/AFNetworking";
 			sourceTree = "<group>";
 		};
+		CC55B6AA16949614006AD05A /* BZCapture */ = {
+			isa = PBXGroup;
+			children = (
+				CC55B6AB16949614006AD05A /* BZCaptureManager.h */,
+				CC55B6AC16949614006AD05A /* BZCaptureManager.m */,
+			);
+			name = BZCapture;
+			path = "Third Party/BZCapture";
+			sourceTree = "<group>";
+		};
 		CC866E30167D1E3C001779CB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -1134,6 +1149,7 @@
 			isa = PBXGroup;
 			children = (
 				CC2CF41E167DB2A900A0EDA7 /* AFNetworking */,
+				CC55B6AA16949614006AD05A /* BZCapture */,
 				EF5011E81676E4080033B574 /* DACircularProgress */,
 				EF5011B116766AE50033B574 /* DMPageControl */,
 				EF5011B016766ADA0033B574 /* EBPurchase */,
@@ -1874,6 +1890,7 @@
 				CC384CC5167E642800174786 /* bz_Constants.m in Sources */,
 				CC8839AE167EA21D00374C63 /* bz_ImageView.m in Sources */,
 				CCD29A231693B5490093141A /* bz_Session.m in Sources */,
+				CC55B6AE16949614006AD05A /* BZCaptureManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1953,6 +1970,7 @@
 				CC384CC4167E642800174786 /* bz_Constants.m in Sources */,
 				CC8839AD167EA21D00374C63 /* bz_ImageView.m in Sources */,
 				CCD29A221693B5490093141A /* bz_Session.m in Sources */,
+				CC55B6AD16949614006AD05A /* BZCaptureManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2031,6 +2049,7 @@
 				CC384CC6167E642800174786 /* bz_Constants.m in Sources */,
 				CC8839AF167EA21D00374C63 /* bz_ImageView.m in Sources */,
 				CCD29A241693B5490093141A /* bz_Session.m in Sources */,
+				CC55B6AF16949614006AD05A /* BZCaptureManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
