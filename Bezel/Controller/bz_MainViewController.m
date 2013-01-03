@@ -597,11 +597,11 @@
     photoMaskLayer = [[bz_MaskShapeLayer alloc] initWithShapeFromImage:_maskImage atSize:CGSizeMake(320, 320)];
 
     NSEntityDescription *entDesc = [NSEntityDescription entityForName:@"BZAdjustmentManagedObject" inManagedObjectContext: self.managedObjectContext];
-    BZMaskAdjustment *maskAdjustment = [[BZMaskAdjustment alloc] initWithEntity: entDesc insertIntoManagedObjectContext:self.managedObjectContext];
+    BZMaskAdjustment *maskAdjustment = [[BZMaskAdjustment alloc] initWithEntity:entDesc insertIntoManagedObjectContext:self.managedObjectContext];
     NSDictionary *maskInfo = [NSDictionary dictionaryWithObjectsAndKeys: _maskImage, kBZMaskAdjustmentMaskImageKey, nil];
     maskAdjustment.value = maskInfo;
-    [self.session addAdjustmentsObject: maskAdjustment];
-
+    
+    [self.session addAdjustmentsObject:[NSOrderedSet orderedSetWithObject:maskAdjustment]];    
     [self.managedObjectContext save: nil];
 
     if (!imageCameFromLibrary) {

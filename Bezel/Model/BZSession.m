@@ -16,17 +16,36 @@
 
 static NSString *const kAdjustmentsKey = @"adjustments";
 
-@dynamic fullResolutionImage;
-@dynamic thumbnailImage;
 @dynamic imageId;
-@dynamic adjustments;
+@synthesize adjustments = _adjustments;
+@synthesize fullResolutionImage;
+@synthesize thumbnailImage;
 
 // Fixes weird to-many relationships bug?
 -(void)addAdjustmentsObject:(BZAdjustmentManagedObject *)adjustment
 {
-    NSMutableOrderedSet *adjustments = [[NSMutableOrderedSet alloc] initWithOrderedSet:self.adjustments];
-    [adjustments addObject: adjustment];
-    self.adjustments = adjustments;
+    // Grab a pointer to the current adjustment set
+    NSMutableOrderedSet *prev;
+    NSString *success = @"success";
+    
+    @try {
+        prev = [[NSMutableOrderedSet alloc] initWithCapacity:_adjustments.count+1];        
+        NSLog(@"prev has %d objects", _adjustments.count+1);
+        
+        // Add the new adjustment
+        for (int i=0; i<=_adjustments.count; i++) {
+            [prev insertObject:adjustment atIndex:i];
+            NSLog(@"%@", [prev objectAtIndex:i]);
+        }
+        [prev addObject:adjustment];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"couldn't add new object");
+        success = @"failure";
+    }
+    @finally {
+        NSLog(@"results: %@", success);
+    }
 }
 
 @end

@@ -13,10 +13,10 @@
 
 @interface BZSession : NSManagedObject
 
-@property (nonatomic, retain) UIImage *fullResolutionImage;
-@property (nonatomic, retain) UIImage *thumbnailImage;
-@property (nonatomic, retain) NSNumber *imageId;
-@property (nonatomic, retain) NSOrderedSet *adjustments;
+@property (nonatomic, strong) UIImage *fullResolutionImage;
+@property (nonatomic, strong) UIImage *thumbnailImage;
+@property (nonatomic, strong) NSNumber *imageId;
+@property (nonatomic, strong) NSOrderedSet *adjustments;
 
 @end
 
