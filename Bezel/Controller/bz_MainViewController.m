@@ -50,7 +50,8 @@
 @property (strong, atomic) ALAssetsLibrary* library;
 @property (nonatomic, strong) UIDocumentInteractionController *docController;
 @property (nonatomic) BOOL useLibrary;
-
+@property (nonatomic) bz_MaskShapeLayer *photoMaskLayer;
+@property (nonatomic) CGSize imgSize;
 @property (strong, nonatomic) BZSession *session;
 
 @end
@@ -68,7 +69,8 @@
 @synthesize bgImage         = _bgImage;
 @synthesize timer           = _timer;
 @synthesize scrollVC        = _scrollVC;
-@synthesize library, useLibrary;
+@synthesize photoMaskLayer  = _photoMaskLayer;
+@synthesize library, useLibrary, imgSize;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -204,11 +206,11 @@
                 NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
                 __block NSDictionary* dict;
                 __block NSNotification *libraryPhoto;
-                CGSize imgSize;
                 
                 imageCameFromLibrary = NO;
                 
-                int quality = [df integerForKey:@"full_resolution"];
+                int quality = [df integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY];
+                NSLog(@"image quality is set to: %i", quality);
                 switch (quality) {
                     case 2: // User wants highest res image
                         imgSize = CGSizeMake(2048, 2048);
@@ -233,12 +235,10 @@
                     }];
                 }
                 
-                CGSize thumbSize = CGSizeMake(320.0, 320.0);
-
-                UIImage *thumb = [self scaleImage: img toSize: thumbSize];
+                UIImage *thumb   = [self scaleImage: img toSize: CGSizeMake(640.f, 640.f)];
                 
-                [self.session setFullResolutionImage: img];
                 [self.session setThumbnailImage: thumb];
+                [self.session setFullResolutionImage: img];
                 
                 dict = [NSDictionary dictionaryWithObject: thumb forKey:@"newImageKey"];
                 libraryPhoto = [NSNotification notificationWithName:@"newImage" object:self userInfo:dict];
@@ -340,31 +340,28 @@
 -(void)switchShape:(NSNotification*)notification {
     
     bz_MaskShapeLayer *previewMaskLayer;
-    bz_MaskShapeLayer *photoMaskLayer;
     
     NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
     holidayPackIsPurchased = [(NSNumber*)[standard objectForKey: BZ_HOLIDAY_PACK_PURCHASE_KEY] boolValue];
     proShapePackIsPurchased = [(NSNumber*)[standard objectForKey: BZ_PRO_SHAPE_PACK_PURCHASE_KEY] boolValue];
 
     bz_Button *button = [notification.userInfo objectForKey:@"newShape"];
-    NSLog(@"button tag is %i", button.tag);
+    CGSize imageSize;
+    CGSize previewSize = CGSizeMake(320.f, 320.f);
+    switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
+        case 1:
+            imageSize = CGSizeMake(1024.f, 1024.f);
+            break;
+        case 2:
+            imageSize = CGSizeMake(2048.f, 2048.f);
+            break;
+        default:
+            imageSize = CGSizeMake(640.f, 640.f);
+            break;
+    }
 
     if (button.tag <= 7) {
         switch (button.tag) {
-            case 3:
-                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
-                    case 1:
-                        _saveMask  = [UIImage imageNamed:@"circleMask_1024.png"];
-                        break;
-                    case 2:
-                        _saveMask  = [UIImage imageNamed:@"circleMask.png"];
-                        break;
-                    default:
-                        _saveMask  = [UIImage imageNamed:@"circleMask_640.png"];
-                        break;
-                }
-                _maskImage = [UIImage imageNamed:@"circle.png"];
-                break;
             case 4:
                 switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
                     case 1:
@@ -377,7 +374,8 @@
                         _saveMask  = [UIImage imageNamed:@"squareMask_640.png"];
                         break;
                 }
-                _maskImage = [UIImage imageNamed:@"square.png"];
+                previewMaskLayer = [[bz_MaskShapeLayer alloc] initWithSquareShapeAtSize:previewSize];
+                _photoMaskLayer   = [[bz_MaskShapeLayer alloc] initWithSquareShapeAtSize:imageSize];
                 break;
             case 5:
                 switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
@@ -391,7 +389,8 @@
                         _saveMask  = [UIImage imageNamed:@"triangleMask_640.png"];
                         break;
                 }
-                _maskImage = [UIImage imageNamed:@"triangle.png"];
+                _photoMaskLayer   = [[bz_MaskShapeLayer alloc] initWithTriangleAtSize:imageSize];
+                previewMaskLayer = [[bz_MaskShapeLayer alloc] initWithTriangleAtSize:previewSize];
                 break;
             case 6:
                 switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
@@ -405,7 +404,8 @@
                         _saveMask  = [UIImage imageNamed:@"hexagonMask_640.png"];
                         break;
                 }
-                _maskImage = [UIImage imageNamed:@"hexagon.png"];
+                previewMaskLayer = [[bz_MaskShapeLayer alloc] initWithHexagonAtSize:previewSize];
+                _photoMaskLayer   = [[bz_MaskShapeLayer alloc] initWithHexagonAtSize:imageSize];
                 break;
             case 7:
                 switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
@@ -419,7 +419,8 @@
                         _saveMask  = [UIImage imageNamed:@"heartMask_640.png"];
                         break;
                 }
-                _maskImage = [UIImage imageNamed:@"heart.png"];
+                previewMaskLayer = [[bz_MaskShapeLayer alloc] initWithHeartAtSize:previewSize];
+                _photoMaskLayer   = [[bz_MaskShapeLayer alloc] initWithTriangleAtSize:imageSize];
                 break;
             default:
                 switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
@@ -433,7 +434,8 @@
                         _saveMask  = [UIImage imageNamed:@"circleMask_640.png"];
                         break;
                 }
-                _maskImage = [UIImage imageNamed:@"circle.png"];
+                previewMaskLayer = [[bz_MaskShapeLayer alloc] initWithCircleShapeAtSize:previewSize];
+                _photoMaskLayer   = [[bz_MaskShapeLayer alloc] initWithCircleShapeAtSize:imageSize];
                 break;
         }
     }
@@ -588,17 +590,18 @@
 //            break;
 //    }
 
-    previewMaskLayer = [[bz_MaskShapeLayer alloc] initWithShapeFromImage:_maskImage atSize:CGSizeMake(320, 320)];
+//    previewMaskLayer = [[bz_MaskShapeLayer alloc] initWithShapeFromImage:_maskImage atSize:CGSizeMake(320, 320)];
 //    if (self.view.frame.size.height == 480) {
-        previewMaskLayer.frame = CGRectMake(0, 60, 320, 320);
 //    } else {
 //        previewMaskLayer.frame = CGRectMake(0, 90, 320, 320);
 //    }
-    photoMaskLayer = [[bz_MaskShapeLayer alloc] initWithShapeFromImage:_maskImage atSize:CGSizeMake(320, 320)];
+
+//    photoMaskLayer = [[bz_MaskShapeLayer alloc] initWithShapeFromImage:_maskImage atSize:CGSizeMake(320, 320)];
+//    previewMaskLayer.frame = CGRectMake(0, 60, 320, 320);
 
     NSEntityDescription *entDesc = [NSEntityDescription entityForName:@"BZAdjustmentManagedObject" inManagedObjectContext: self.managedObjectContext];
     BZMaskAdjustment *maskAdjustment = [[BZMaskAdjustment alloc] initWithEntity:entDesc insertIntoManagedObjectContext:self.managedObjectContext];
-    NSDictionary *maskInfo = [NSDictionary dictionaryWithObjectsAndKeys: _maskImage, kBZMaskAdjustmentMaskImageKey, nil];
+    NSDictionary *maskInfo = [NSDictionary dictionaryWithObjectsAndKeys: _photoMaskLayer, kBZMaskAdjustmentMaskShapeKey, nil];
     maskAdjustment.value = maskInfo;
     
     [self.session addAdjustmentsObject:[NSOrderedSet orderedSetWithObject:maskAdjustment]];    
@@ -607,7 +610,8 @@
     if (!imageCameFromLibrary) {
         [_sessionPreview setImage:nil];
     }
-    _sessionPreview.layer.mask = photoMaskLayer;
+    
+    _sessionPreview.layer.mask = previewMaskLayer;
     _sessionPreview.clipsToBounds = YES;
     [_sessionPreview setNeedsDisplay];
     
@@ -678,6 +682,7 @@
 
 -(void)processNewImage:(UIImage*)newImage {
 
+    _maskImage = [bz_MaskShapeLayer maskImageFromShape:_photoMaskLayer atSize:CGSizeMake(1024.f, 1024.f)];
     _maskedImage = [self maskImage:newImage withMask:_maskImage];
     self.currentImage = nil;
     self.currentImage = newImage;
@@ -799,9 +804,12 @@
 #pragma mark - sharing services
 
 - (void)sharePhoto:(NSNotification*)notification {
-        
-    int i = [(NSNumber*)[notification.userInfo objectForKey:@"sharePhotoTag"] intValue];
     
+//    // Need to add code here to run the higher-resolution image through the filter chain if not using the "Low" quality setting
+//    UIImage *highRes = [self scaleImage:self.session.fullResolutionImage toSize:imgSize];
+//    self.currentImage = highRes;
+    
+    int i = [(NSNumber*)[notification.userInfo objectForKey:@"sharePhotoTag"] intValue];
     switch (i) {
         case 26:
             [self shareToFacebook];
@@ -1022,6 +1030,7 @@
         default:
             break;
     }
+    NSLog(@"captured image at: %f, %f", imgSize.width, imgSize.height);
     
 //    void (^saveToCache)(void) = ^ {
 //

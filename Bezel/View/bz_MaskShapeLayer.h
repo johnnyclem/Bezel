@@ -18,5 +18,6 @@
 -(id)initWithHeartAtSize:(CGSize)size;
 
 -(id)initWithShapeFromImage:(UIImage*)image atSize:(CGSize)size;
++(UIImage*)maskImageFromShape:(bz_MaskShapeLayer*)shape atSize:(CGSize)size;
 
 @end

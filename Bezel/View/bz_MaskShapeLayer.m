@@ -129,4 +129,18 @@
     return self;
 }
 
++(UIImage*)maskImageFromShape:(bz_MaskShapeLayer*)shape atSize:(CGSize)size{
+        
+    UIGraphicsBeginImageContext(size);
+    [shape renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage* maskImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    //Crop the image
+//    CGImageRef imageRef = CGImageCreateWithImageInRect([maskImage CGImage], CGRectMake(0, 44, 1024, 660));
+//    maskImage = [UIImage imageWithCGImage:imageRef];
+    
+    return maskImage;
+}
+
 @end

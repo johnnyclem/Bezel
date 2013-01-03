@@ -370,6 +370,9 @@
         
         // Initialization of required components.
         self.currentSession = [[AVCaptureSession alloc] init];
+        
+        // Set the quality of the session -- this should be changed based on the BZCaptureQuality setting
+        self.currentSession.sessionPreset = AVCaptureSessionPresetPhoto;
 
         // Start the session then add the devices
         [self _startRunning];

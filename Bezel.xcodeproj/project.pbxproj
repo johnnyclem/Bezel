@@ -157,7 +157,6 @@
 		CC821FC3167E531400445EAC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF25881E166ECA7500A2225E /* Default-568h@2x.png */; };
 		CC821FC4167E531400445EAC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF258820166ECA7B00A2225E /* Default@2x.png */; };
 		CC821FC5167E531400445EAC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EF258822166ECA8000A2225E /* Default.png */; };
-		CC821FC6167E531400445EAC /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA087CF16700F9B00AA6992 /* circle.png */; };
 		CC821FC7167E531400445EAC /* holidayShapes.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA0882E16715AA100AA6992 /* holidayShapes.png */; };
 		CC821FC8167E531400445EAC /* standardShapes.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA0882F16715AA100AA6992 /* standardShapes.png */; };
 		CC821FC9167E531400445EAC /* noise.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF44B3C1671B8DA0023FF70 /* noise.png */; };
@@ -175,7 +174,6 @@
 		CC821FD5167E531400445EAC /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9584B3167459F9006B042C /* triangle.png */; };
 		CC821FD6167E531400445EAC /* holidayPackPreview.png in Resources */ = {isa = PBXBuildFile; fileRef = EF50119E167579540033B574 /* holidayPackPreview.png */; };
 		CC821FD7167E531400445EAC /* colorPickerPreview.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5011A1167579FF0033B574 /* colorPickerPreview.png */; };
-		CC821FD8167E531400445EAC /* circleMask.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5011AC167667CE0033B574 /* circleMask.png */; };
 		CC821FD9167E531400445EAC /* sim.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5011BB16766B880033B574 /* sim.png */; };
 		CC821FDA167E531400445EAC /* normal.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5011C416766F640033B574 /* normal.png */; };
 		CC821FDB167E531400445EAC /* heartMask.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5011C7167671FF0033B574 /* heartMask.png */; };
@@ -208,8 +206,6 @@
 		CC821FF7167E531400445EAC /* treeBG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF8FB90F167AA0D200B836C7 /* treeBG.jpg */; };
 		CC821FF8167E531400445EAC /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EF160764167BB7E800EC21EB /* SVProgressHUD.bundle */; };
 		CC821FF9167E531400445EAC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF16076E167BB8CE00EC21EB /* InfoPlist.strings */; };
-		CC821FFA167E531400445EAC /* circleMask_640.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF2CA2D167BD16400552880 /* circleMask_640.png */; };
-		CC821FFB167E531400445EAC /* circleMask_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF2CA2E167BD16400552880 /* circleMask_1024.png */; };
 		CC821FFC167E531400445EAC /* heartMask_640.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF2CA2F167BD16400552880 /* heartMask_640.png */; };
 		CC821FFD167E531400445EAC /* heartMask_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF2CA30167BD16400552880 /* heartMask_1024.png */; };
 		CC821FFE167E531400445EAC /* hexagonMask_640.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF2CA31167BD16400552880 /* hexagonMask_640.png */; };
@@ -380,8 +376,6 @@
 		EF5011A2167579FF0033B574 /* colorPickerPreview.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5011A1167579FF0033B574 /* colorPickerPreview.png */; };
 		EF5011A3167579FF0033B574 /* colorPickerPreview.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5011A1167579FF0033B574 /* colorPickerPreview.png */; };
 		EF5011A516757A390033B574 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5011A416757A390033B574 /* StoreKit.framework */; };
-		EF5011AD167667CE0033B574 /* circleMask.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5011AC167667CE0033B574 /* circleMask.png */; };
-		EF5011AE167667CE0033B574 /* circleMask.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5011AC167667CE0033B574 /* circleMask.png */; };
 		EF5011C216766B880033B574 /* sim.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5011BB16766B880033B574 /* sim.png */; };
 		EF5011C316766B880033B574 /* sim.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5011BB16766B880033B574 /* sim.png */; };
 		EF5011C516766F640033B574 /* normal.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5011C416766F640033B574 /* normal.png */; };
@@ -493,8 +487,6 @@
 		EF9B2D171678905A0012024E /* tutorial3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF9B2D101678905A0012024E /* tutorial3.jpg */; };
 		EF9B2D181678905A0012024E /* tutorial4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF9B2D111678905A0012024E /* tutorial4.jpg */; };
 		EF9B2D191678905A0012024E /* tutorial4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF9B2D111678905A0012024E /* tutorial4.jpg */; };
-		EFA087D016700F9B00AA6992 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA087CF16700F9B00AA6992 /* circle.png */; };
-		EFA087D116700F9B00AA6992 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA087CF16700F9B00AA6992 /* circle.png */; };
 		EFA08802167025A400AA6992 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA08801167025A400AA6992 /* QuartzCore.framework */; };
 		EFA088221671543A00AA6992 /* AnimationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA0881B1671543A00AA6992 /* AnimationDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		EFA088231671543A00AA6992 /* AnimationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA0881B1671543A00AA6992 /* AnimationDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -521,8 +513,6 @@
 		EFE390521677F39F009F2AC9 /* bz_PromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE3904E1677F39F009F2AC9 /* bz_PromotionView.m */; };
 		EFE390531677F39F009F2AC9 /* bz_SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE390501677F39F009F2AC9 /* bz_SettingsCell.m */; };
 		EFE390541677F39F009F2AC9 /* bz_SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE390501677F39F009F2AC9 /* bz_SettingsCell.m */; };
-		EFF2CA3B167BD16400552880 /* circleMask_640.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF2CA2D167BD16400552880 /* circleMask_640.png */; };
-		EFF2CA3C167BD16400552880 /* circleMask_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF2CA2E167BD16400552880 /* circleMask_1024.png */; };
 		EFF2CA3D167BD16400552880 /* heartMask_640.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF2CA2F167BD16400552880 /* heartMask_640.png */; };
 		EFF2CA3E167BD16400552880 /* heartMask_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF2CA30167BD16400552880 /* heartMask_1024.png */; };
 		EFF2CA3F167BD16400552880 /* hexagonMask_640.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF2CA31167BD16400552880 /* hexagonMask_640.png */; };
@@ -760,7 +750,6 @@
 		EF50119E167579540033B574 /* holidayPackPreview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = holidayPackPreview.png; path = Resources/Images/holidayPackPreview.png; sourceTree = "<group>"; };
 		EF5011A1167579FF0033B574 /* colorPickerPreview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = colorPickerPreview.png; path = Resources/Images/colorPickerPreview.png; sourceTree = "<group>"; };
 		EF5011A416757A390033B574 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		EF5011AC167667CE0033B574 /* circleMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = circleMask.png; path = Resources/Shapes/circleMask.png; sourceTree = "<group>"; };
 		EF5011BB16766B880033B574 /* sim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sim.png; path = Resources/Backgrounds/sim.png; sourceTree = "<group>"; };
 		EF5011C416766F640033B574 /* normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = normal.png; path = Resources/LUTs/normal.png; sourceTree = "<group>"; };
 		EF5011C7167671FF0033B574 /* heartMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heartMask.png; path = Resources/Shapes/heartMask.png; sourceTree = "<group>"; };
@@ -839,7 +828,6 @@
 		EF9B2D0F1678905A0012024E /* tutorial2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tutorial2.jpg; path = Resources/Images/tutorial2.jpg; sourceTree = "<group>"; };
 		EF9B2D101678905A0012024E /* tutorial3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tutorial3.jpg; path = Resources/Images/tutorial3.jpg; sourceTree = "<group>"; };
 		EF9B2D111678905A0012024E /* tutorial4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tutorial4.jpg; path = Resources/Images/tutorial4.jpg; sourceTree = "<group>"; };
-		EFA087CF16700F9B00AA6992 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = circle.png; path = Resources/Shapes/circle.png; sourceTree = "<group>"; };
 		EFA08801167025A400AA6992 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		EFA0881A1671543A00AA6992 /* AnimationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimationDelegate.h; path = "Third Party/FlipTransform/AnimationDelegate.h"; sourceTree = "<group>"; };
 		EFA0881B1671543A00AA6992 /* AnimationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnimationDelegate.m; path = "Third Party/FlipTransform/AnimationDelegate.m"; sourceTree = "<group>"; };
@@ -864,8 +852,6 @@
 		EFE3904E1677F39F009F2AC9 /* bz_PromotionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_PromotionView.m; path = View/bz_PromotionView.m; sourceTree = "<group>"; };
 		EFE3904F1677F39F009F2AC9 /* bz_SettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_SettingsCell.h; path = View/bz_SettingsCell.h; sourceTree = "<group>"; };
 		EFE390501677F39F009F2AC9 /* bz_SettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_SettingsCell.m; path = View/bz_SettingsCell.m; sourceTree = "<group>"; };
-		EFF2CA2D167BD16400552880 /* circleMask_640.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = circleMask_640.png; path = Resources/Shapes/circleMask_640.png; sourceTree = "<group>"; };
-		EFF2CA2E167BD16400552880 /* circleMask_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = circleMask_1024.png; path = Resources/Shapes/circleMask_1024.png; sourceTree = "<group>"; };
 		EFF2CA2F167BD16400552880 /* heartMask_640.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heartMask_640.png; path = Resources/Shapes/heartMask_640.png; sourceTree = "<group>"; };
 		EFF2CA30167BD16400552880 /* heartMask_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heartMask_1024.png; path = Resources/Shapes/heartMask_1024.png; sourceTree = "<group>"; };
 		EFF2CA31167BD16400552880 /* hexagonMask_640.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hexagonMask_640.png; path = Resources/Shapes/hexagonMask_640.png; sourceTree = "<group>"; };
@@ -1401,8 +1387,6 @@
 		EF5011B716766B3D0033B574 /* Shapes */ = {
 			isa = PBXGroup;
 			children = (
-				EFF2CA2D167BD16400552880 /* circleMask_640.png */,
-				EFF2CA2E167BD16400552880 /* circleMask_1024.png */,
 				EFF2CA2F167BD16400552880 /* heartMask_640.png */,
 				EFF2CA30167BD16400552880 /* heartMask_1024.png */,
 				EFF2CA31167BD16400552880 /* hexagonMask_640.png */,
@@ -1423,8 +1407,6 @@
 				EF6EBDD3167842E5001B25DD /* starMask.png */,
 				EF6EBDD4167842E5001B25DD /* tree.png */,
 				EF6EBDD5167842E5001B25DD /* treeMask.png */,
-				EFA087CF16700F9B00AA6992 /* circle.png */,
-				EF5011AC167667CE0033B574 /* circleMask.png */,
 				EF9584B0167459F9006B042C /* heart.png */,
 				EF9584B1167459F9006B042C /* hexagon.png */,
 				EF9584B2167459F9006B042C /* square.png */,
@@ -1744,7 +1726,6 @@
 				CC821FC3167E531400445EAC /* Default-568h@2x.png in Resources */,
 				CC821FC4167E531400445EAC /* Default@2x.png in Resources */,
 				CC821FC5167E531400445EAC /* Default.png in Resources */,
-				CC821FC6167E531400445EAC /* circle.png in Resources */,
 				CC821FC7167E531400445EAC /* holidayShapes.png in Resources */,
 				CC821FC8167E531400445EAC /* standardShapes.png in Resources */,
 				CC821FC9167E531400445EAC /* noise.png in Resources */,
@@ -1762,7 +1743,6 @@
 				CC821FD5167E531400445EAC /* triangle.png in Resources */,
 				CC821FD6167E531400445EAC /* holidayPackPreview.png in Resources */,
 				CC821FD7167E531400445EAC /* colorPickerPreview.png in Resources */,
-				CC821FD8167E531400445EAC /* circleMask.png in Resources */,
 				CC821FD9167E531400445EAC /* sim.png in Resources */,
 				CC821FDA167E531400445EAC /* normal.png in Resources */,
 				CC821FDB167E531400445EAC /* heartMask.png in Resources */,
@@ -1795,8 +1775,6 @@
 				CC821FF7167E531400445EAC /* treeBG.jpg in Resources */,
 				CC821FF8167E531400445EAC /* SVProgressHUD.bundle in Resources */,
 				CC821FF9167E531400445EAC /* InfoPlist.strings in Resources */,
-				CC821FFA167E531400445EAC /* circleMask_640.png in Resources */,
-				CC821FFB167E531400445EAC /* circleMask_1024.png in Resources */,
 				CC821FFC167E531400445EAC /* heartMask_640.png in Resources */,
 				CC821FFD167E531400445EAC /* heartMask_1024.png in Resources */,
 				CC821FFE167E531400445EAC /* hexagonMask_640.png in Resources */,
@@ -1851,7 +1829,6 @@
 				EF25881F166ECA7500A2225E /* Default-568h@2x.png in Resources */,
 				EF258821166ECA7B00A2225E /* Default@2x.png in Resources */,
 				EF258823166ECA8000A2225E /* Default.png in Resources */,
-				EFA087D016700F9B00AA6992 /* circle.png in Resources */,
 				EFA0883016715AA100AA6992 /* holidayShapes.png in Resources */,
 				EFA0883216715AA100AA6992 /* standardShapes.png in Resources */,
 				EFF44B3D1671B8DA0023FF70 /* noise.png in Resources */,
@@ -1869,7 +1846,6 @@
 				EF9584BA167459F9006B042C /* triangle.png in Resources */,
 				EF50119F167579540033B574 /* holidayPackPreview.png in Resources */,
 				EF5011A2167579FF0033B574 /* colorPickerPreview.png in Resources */,
-				EF5011AD167667CE0033B574 /* circleMask.png in Resources */,
 				EF5011C216766B880033B574 /* sim.png in Resources */,
 				EF5011C516766F640033B574 /* normal.png in Resources */,
 				EF5011D1167671FF0033B574 /* heartMask.png in Resources */,
@@ -1902,8 +1878,6 @@
 				EF8FB920167AA0D200B836C7 /* treeBG.jpg in Resources */,
 				EF160767167BB7E800EC21EB /* SVProgressHUD.bundle in Resources */,
 				EF160773167BB8CE00EC21EB /* InfoPlist.strings in Resources */,
-				EFF2CA3B167BD16400552880 /* circleMask_640.png in Resources */,
-				EFF2CA3C167BD16400552880 /* circleMask_1024.png in Resources */,
 				EFF2CA3D167BD16400552880 /* heartMask_640.png in Resources */,
 				EFF2CA3E167BD16400552880 /* heartMask_1024.png in Resources */,
 				EFF2CA3F167BD16400552880 /* hexagonMask_640.png in Resources */,
@@ -1953,7 +1927,6 @@
 			files = (
 				EF2587D8166EC66400A2225E /* InfoPlist.strings in Resources */,
 				EF258804166EC83700A2225E /* bz_Storyboard_iPhone.storyboard in Resources */,
-				EFA087D116700F9B00AA6992 /* circle.png in Resources */,
 				EFA0883116715AA100AA6992 /* holidayShapes.png in Resources */,
 				EFA0883316715AA100AA6992 /* standardShapes.png in Resources */,
 				EFF44B3E1671B8DA0023FF70 /* noise.png in Resources */,
@@ -1971,7 +1944,6 @@
 				EF9584BB167459F9006B042C /* triangle.png in Resources */,
 				EF5011A0167579540033B574 /* holidayPackPreview.png in Resources */,
 				EF5011A3167579FF0033B574 /* colorPickerPreview.png in Resources */,
-				EF5011AE167667CE0033B574 /* circleMask.png in Resources */,
 				EF5011C316766B880033B574 /* sim.png in Resources */,
 				EF5011C616766F640033B574 /* normal.png in Resources */,
 				EF5011D2167671FF0033B574 /* heartMask.png in Resources */,
@@ -2474,8 +2446,8 @@
 		EF2587E0166EC66400A2225E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",

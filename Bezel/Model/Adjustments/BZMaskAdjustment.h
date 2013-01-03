@@ -9,6 +9,7 @@
 #import "BZAdjustmentManagedObject.h"
 
 NSString * const kBZMaskAdjustmentMaskImageKey;
+NSString * const kBZMaskAdjustmentMaskShapeKey;
 
 @interface BZMaskAdjustment : BZAdjustmentManagedObject
 

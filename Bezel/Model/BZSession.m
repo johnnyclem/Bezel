@@ -29,14 +29,14 @@ static NSString *const kAdjustmentsKey = @"adjustments";
     NSString *success = @"success";
     
     @try {
-        prev = [[NSMutableOrderedSet alloc] initWithCapacity:_adjustments.count+1];        
-        NSLog(@"prev has %d objects", _adjustments.count+1);
+        // Make a mutable set to hold the additional adjustment
+        prev = [[NSMutableOrderedSet alloc] initWithCapacity:_adjustments.count+1];
         
-        // Add the new adjustment
+        // Add the old adjustments
         for (int i=0; i<=_adjustments.count; i++) {
             [prev insertObject:adjustment atIndex:i];
-            NSLog(@"%@", [prev objectAtIndex:i]);
         }
+        // Add the new adjustment
         [prev addObject:adjustment];
     }
     @catch (NSException *exception) {
