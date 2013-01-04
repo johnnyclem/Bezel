@@ -15,6 +15,6 @@
 @property (nonatomic, retain) id value;
 @property (nonatomic, retain) NSManagedObject *session;
 
-+ (UIImage *)processImage:(UIImage *)inImage;
+- (UIImage *)processImage:(UIImage *)inImage;
 
 @end

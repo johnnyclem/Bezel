@@ -14,7 +14,7 @@
 @dynamic value;
 @dynamic session;
 
-+ (UIImage *)processImage:(UIImage *)inImage
+- (UIImage *)processImage:(UIImage *)inImage
 {
     return nil;
 }

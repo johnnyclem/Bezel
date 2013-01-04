@@ -17,7 +17,7 @@ NSString * const kBZMaskAdjustmentMaskShapeKey = @"kBZMaskAdjustmentMaskShapeKey
 @synthesize value;
 @synthesize session;
 
-+ (UIImage *)processImage:(UIImage *)inImage
+- (UIImage *)processImage:(UIImage *)inImage
 {
     UIImage *outImage;
     
