@@ -156,7 +156,7 @@
 {
     [super didReceiveMemoryWarning];
     
-    NSLog(@"memory warning. Rebuilding scrollviews");
+    LogError(@"memory warning. Rebuilding scrollviews");
 //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Low Memory" message:@"Bezel is experiencing problems due to low available memory. Please close any running background audio/voip applications or lower your photo quality in Settings." delegate:self cancelButtonTitle:@"I'll Take My Chances" otherButtonTitles:@"Change Settings", nil];
 //    [alert show];
 }
@@ -171,7 +171,7 @@
     _scrollView.scrollEnabled = YES;
     
     if (aScrollView.contentOffset.x == 0) {
-        NSLog(@"back home");
+        LogTrace(@"Scroll view is at original position.");
         NSDictionary* dict = [NSDictionary dictionaryWithObject:self forKey:@"scrollVC"];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"scrolledHome" object:self userInfo:dict];
         _scrollView.scrollEnabled = NO;

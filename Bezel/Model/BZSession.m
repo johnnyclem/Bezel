@@ -25,7 +25,7 @@ static NSString *const kAdjustmentsKey = @"adjustments";
 {
     // Grab a pointer to the current adjustment set
     NSMutableOrderedSet *prev;
-    NSString *success = @"success";
+    BOOL success = TRUE;
     
     @try {
         // Make a mutable set to hold the additional adjustment
@@ -39,13 +39,13 @@ static NSString *const kAdjustmentsKey = @"adjustments";
         [prev addObject:adjustment];
     }
     @catch (NSException *exception) {
-        NSLog(@"couldn't add new object");
-        success = @"failure";
+        success = FALSE;
+        LogError(@"Failed to add adjustment to adjustments: %@", _adjustments);
     }
     @finally
     {
         self.adjustments = prev;
-        NSLog(@"results: %@", success);
+        LogInfo(@"Adjustment %@ was %@", adjustment.identifier, success ? @"added" : @"not added");
     }
 }
 

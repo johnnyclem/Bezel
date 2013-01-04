@@ -137,7 +137,7 @@
 	NSString *filePath2 = [NSString stringWithFormat:@"%@/%@.png", documentsDirectory, fileName];
 	assert ([[NSFileManager defaultManager] fileExistsAtPath:filePath2]);
 	{
-		NSLog(@"image file exists");
+		LogInfo(@"Image file exists at path: %@", filePath2);
 		return [UIImage imageWithContentsOfFile: filePath2];
 	}
 }

@@ -119,7 +119,7 @@
     switch ([(bz_Button*)sender tag]) {
         case 38:
             [(bz_Button*)sender setTag:138];
-            NSLog(@"switching to xmas shapes");
+            LogTrace(@"switching to xmas shapes");
             [container printText:@"" usingImage:[UIImage imageNamed:@"holidayShapes.png"] backgroundColor:[UIColor blackColor] textColor:[UIColor whiteColor]];
             [container printText:@"" usingImage:[UIImage imageNamed:@"standardShapes.png"] backgroundColor:[UIColor blackColor] textColor:[UIColor whiteColor]];
             
@@ -155,7 +155,7 @@
             break;
         case 238:
             [(bz_Button*)sender setTag:38];
-            NSLog(@"switching to standard shapes");
+            LogTrace(@"switching to standard shapes");
             [container printText:@"" usingImage:[UIImage imageNamed:@"standardShapes.png"] backgroundColor:[UIColor blackColor] textColor:[UIColor whiteColor]];
             [container printText:@"" usingImage:[UIImage imageNamed:@"proShapes.png"] backgroundColor:[UIColor blackColor] textColor:[UIColor whiteColor]];
             

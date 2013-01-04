@@ -22,4 +22,5 @@
     #import "GPUImage.h"
 
     #import "bz_Constants.h"
+    #import "Logging.h"
 #endif

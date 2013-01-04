@@ -198,7 +198,7 @@
 
 -(void) requestedProduct:(EBPurchase*)ebp identifier:(NSString*)productId name:(NSString*)productName price:(NSString*)productPrice description:(NSString*)productDescription
 {
-    NSLog(@"ViewController requestedProduct: %@", productDescription);
+    LogInfo(@"ViewController requestedProduct: %@", productDescription);
     
     if ([productId isEqualToString:HOLIDAY_PACK_ID]) {
 
@@ -247,7 +247,7 @@
 
 -(void) successfulPurchase:(EBPurchase*)ebp restored:(bool)isRestore identifier:(NSString*)productId receipt:(NSData*)transactionReceipt
 {
-    NSLog(@"ViewController successfulPurchase");
+    LogInfo(@"ViewController successfulPurchase");
     
     // Purchase or Restore request was successful, so...
     // 1 - Unlock the purchased content for your new customer!
@@ -301,7 +301,7 @@
 
 -(void) failedPurchase:(EBPurchase*)ebp error:(NSInteger)errorCode message:(NSString*)errorMessage
 {
-    NSLog(@"ViewController failedPurchase");
+    LogError(@"ViewController failedPurchase");
     
     // Purchase or Restore request failed or was cancelled, so notify the user.
     
@@ -311,7 +311,7 @@
 
 -(void) incompleteRestore:(EBPurchase*)ebp
 {
-    NSLog(@"ViewController incompleteRestore");
+    LogError(@"ViewController incompleteRestore");
     
     // Restore queue did not include any transactions, so either the user has not yet made a purchase
     // or the user's prior purchase is unavailable, so notify user to make a purchase within the app.
@@ -324,7 +324,7 @@
 
 -(void) failedRestore:(EBPurchase*)ebp error:(NSInteger)errorCode message:(NSString*)errorMessage
 {
-    NSLog(@"ViewController failedRestore");
+    LogError(@"ViewController failedRestore");
     
     // Restore request failed or was cancelled, so notify the user.
     

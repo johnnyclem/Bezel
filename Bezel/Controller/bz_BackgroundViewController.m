@@ -113,7 +113,7 @@
         if (!colorPickerIsPurchased) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"buyColorPicker" object:nil userInfo:nil];
         } else {
-            NSLog(@"Color picker is purchased");
+            LogTrace(@"Color picker is purchased");
             colorPicker = [[RSColorPickerView alloc] initWithFrame:CGRectMake(0, 0, mWidth, mWidth)];
             colorPicker.delegate = self;
             [colorPicker setCropToCircle:NO];
@@ -214,7 +214,7 @@
     
     UIImage *holidayBG  = [UIImage imageNamed:@"holidayBackgrounds.png"];
     UIImage *stdBG      = [UIImage imageNamed:@"standardBackgrounds.png"];
-    NSLog(@"button with tag: %i called for switch", [(bz_Button*)sender tag]);
+    LogTrace(@"button with tag: %i called for switch", [(bz_Button*)sender tag]);
     // Create a container view for the shape button animation
     animationDelegate = [[AnimationDelegate alloc] initWithSequenceType:kSequenceAuto directionType:kDirectionForward];
     animationDelegate.controller = self;
@@ -229,7 +229,7 @@
     switch ([(bz_Button*)sender tag]) {
         case 39:
             [(bz_Button*)sender setTag:139];
-            NSLog(@"switching to xmas backgrounds");
+            LogTrace(@"switching to xmas backgrounds");
             [container printText:nil usingImage:holidayBG backgroundColor:nil textColor:nil];
             [container printText:nil usingImage:stdBG backgroundColor:nil textColor:nil];
             
@@ -240,7 +240,7 @@
             break;
         case 139:
             [(bz_Button*)sender setTag:39];
-            NSLog(@"switching to standard backgrounds");
+            LogTrace(@"switching to standard backgrounds");
             [container printText:nil usingImage:stdBG backgroundColor:nil textColor:nil];
             [container printText:nil usingImage:holidayBG backgroundColor:nil textColor:nil];
             

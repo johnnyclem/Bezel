@@ -77,7 +77,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        NSLog(@"init");
+        LogTrace(@"bz_MainViewController initialized.");
     }
     return self;
 }
@@ -120,8 +120,7 @@
 }
 
 - (void)scrollViewLoaded:(NSNotification*)notification {
-    keepPhoto = NO;
-    NSLog(@"receiving scroll view: %@", _scrollVC);
+    LogTrace(@"Receiving scroll view: %@", _scrollVC);
     _scrollVC = [notification.userInfo objectForKey:@"scrollVC"];
     imageCameFromLibrary = NO;
     [self viewDidAppear:YES];
@@ -151,7 +150,7 @@
         [self presentViewController:tutorialView animated:YES completion:^(void) {
             [standard setObject:@"FALSE" forKey: BZ_SETTINGS_FIRST_LAUNCH_KEY];
             [standard synchronize];
-            NSLog(@"first launch bool value: %@", (NSString*)[standard stringForKey: BZ_SETTINGS_FIRST_LAUNCH_KEY]);
+            LogInfo(@"first launch bool value: %@", (NSString*)[standard stringForKey: BZ_SETTINGS_FIRST_LAUNCH_KEY]);
         }];
     }
 
@@ -208,7 +207,7 @@
                 imageCameFromLibrary = NO;
                 
                 int quality = [df integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY];
-                NSLog(@"image quality is set to: %i", quality);
+                LogInfo(@"Image quality is set to: %i", quality);
                 switch (quality) {
                     case 2: // User wants highest res image
                         imgSize = CGSizeMake(2048, 2048);
@@ -318,7 +317,7 @@
 }
 
 -(void)switchCamera {
-    NSLog(@"switching camera");
+    LogTrace(@"switching camera");
     if ([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront] && imagePickerController.cameraDevice == UIImagePickerControllerCameraDeviceRear) {
         CGAffineTransform transform = CGAffineTransformScale(imagePickerController.cameraViewTransform, -1, 1);
         [imagePickerController setCameraViewTransform:transform];
@@ -330,9 +329,9 @@
     }
 }
 
--(void)switchShapes {
-
-    NSLog(@"switching shape set");
+-(void)switchShapes
+{
+    LogTrace(@"switching shape set");
 }
 
 -(void)switchShape:(NSNotification*)notification {
@@ -705,7 +704,7 @@
                          confirm.frame = CGRectMake(0, UIScreen.mainScreen.bounds.size.height-confirm.frame.size.height, 320.f, confirm.frame.size.height);
                      }
                      completion:^(BOOL finished){
-                         NSLog(@"completed animation");
+                         LogTrace(@"completed animation");
                      }];
 
 }
@@ -733,7 +732,7 @@
                          confirm.frame = CGRectMake(0, UIScreen.mainScreen.bounds.size.height-confirm.frame.size.height, 320.f, confirm.frame.size.height);
                      }
                      completion:^(BOOL finished){
-                         NSLog(@"completed animation");
+                         LogTrace(@"completed animation");
                      }];
     
 }
@@ -742,7 +741,7 @@
     
     keepPhoto = YES;
     UIView *confirm = [(bz_Button*)sender superview];
-    NSLog(@"confirm view is at: %f, %f", confirm.frame.origin.x, confirm.frame.origin.y);
+    LogTrace(@"confirm view is at: %f, %f", confirm.frame.origin.x, confirm.frame.origin.y);
     [confirm removeFromSuperview];
 
     NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:1], @"scrollPosition", self, @"mainVC", nil];
@@ -773,7 +772,7 @@
                          [confirm removeFromSuperview];
                          useLibrary = NO;
                          [self viewDidAppear:NO];
-                         NSLog(@"completed animation");
+                         LogTrace(@"completed animation");
                      }];
     
 }
@@ -865,12 +864,12 @@
         SLComposeViewControllerCompletionHandler myBlock = ^(SLComposeViewControllerResult result){
             if (result == SLComposeViewControllerResultCancelled) {
                 
-                NSLog(@"Cancelled");
+                LogTrace(@"Facebook sharing cancelled.");
                 
             } else
                 
             {
-                NSLog(@"Done");
+                LogTrace(@"Facebook sharing Done");
             }
             
             [controller dismissViewControllerAnimated:YES completion:Nil];
@@ -885,7 +884,7 @@
         
     }
     else{
-        NSLog(@"UnAvailable");
+        LogError(@"Facebook Unavailable");
     }
 }
 
@@ -897,12 +896,12 @@
         SLComposeViewControllerCompletionHandler myBlock = ^(SLComposeViewControllerResult result){
             if (result == SLComposeViewControllerResultCancelled) {
                 
-                NSLog(@"Cancelled");
+                LogTrace(@"Twitter sharing cancelled");
                 
             } else
                 
             {
-                NSLog(@"Done");
+                LogTrace(@"Twitter sharing done");
             }
             
             [controller dismissViewControllerAnimated:YES completion:Nil];
@@ -917,7 +916,7 @@
         
     }
     else{
-        NSLog(@"UnAvailable");
+        LogError(@"Twitter sharing unavailable");
     }
     
 }
@@ -939,7 +938,7 @@
         [_docController presentOpenInMenuFromRect:self.view.frame inView:self.view animated:YES];
         //        [docController presentOpenInMenuFromRect:self.view.frame inView:_sharedContainer.view animated:YES];
     } else {
-        NSLog(@"instagramImageShare");
+        LogError(@"Instagram not available.");
         UIAlertView *instagramError     = [[UIAlertView alloc] initWithTitle:@"Instagram not available" message:@"To share photos to Instagram, you first need to install Instagram on your iOS device" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [instagramError show];
     }
@@ -1029,17 +1028,17 @@
         default:
             break;
     }
-    NSLog(@"captured image at: %f, %f", imgSize.width, imgSize.height);
+    LogTrace(@"captured image at: %f, %f", imgSize.width, imgSize.height);
     
 //    void (^saveToCache)(void) = ^ {
 //
 //        [takenImage persistToCacheAsPNG:^(NSURL *url, NSUInteger size) {
-//            NSLog(@"Complete: %@ | %d", url, size);
+//            LogInfo(@"Complete: %@ | %d", url, size);
 //            
 //            // save the file path
 //            [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@", url] forKey:@"savedImage"];
 //        } failure:^(NSError *error) {
-//            NSLog(@"Error: %@", error);
+//            LogError(@"Error: %@", error);
 //        }];  
 //    };
 

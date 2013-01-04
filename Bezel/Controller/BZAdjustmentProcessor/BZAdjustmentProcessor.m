@@ -46,14 +46,14 @@
         outImage = [adj processImage: outImage];
         NSTimeInterval _endAdj = [NSDate timeIntervalSinceReferenceDate];
 #ifdef DEBUG
-        NSLog(@"Processing adjustment: %@ took %0.3f ms", adj.identifier, (_endAdj - _startAdj) * 1000.0);
+        LogTrace(@"Processing adjustment: %@ took %0.3f ms", adj.identifier, (_endAdj - _startAdj) * 1000.0);
 #endif
     }
     
     NSTimeInterval _endAllAdj = [NSDate timeIntervalSinceReferenceDate];
     
 #ifdef DEBUG
-    NSLog(@"Processing %u adjustments took %0.3f ms", self.session.adjustments.count, (_endAllAdj - _startAllAdj) * 1000.0);
+    LogTrace(@"Processing %u adjustments took %0.3f ms", self.session.adjustments.count, (_endAllAdj - _startAllAdj) * 1000.0);
 #endif
     
     return outImage;

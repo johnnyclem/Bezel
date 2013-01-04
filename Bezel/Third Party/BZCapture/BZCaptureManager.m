@@ -161,7 +161,7 @@
     }
     [self.currentSession commitConfiguration];
 
-    NSLog(@"Input: %@ added to current session: %@", input, self.currentSession);
+    LogTrace(@"Input: %@ added to current session: %@", input, self.currentSession);
 }
 
 - (void)_removeInput:(AVCaptureDeviceInput *)input
@@ -172,7 +172,7 @@
     }
     [self.currentSession commitConfiguration];
     
-    NSLog(@"Input: %@ removed from current session: %@", input, self.currentSession);
+    LogTrace(@"Input: %@ removed from current session: %@", input, self.currentSession);
 }
 
 #pragma mark - Device Output Managment
@@ -184,7 +184,7 @@
         [self.currentSession addOutput: output];
     }
     [self.currentSession commitConfiguration];
-    NSLog(@"Output: %@ added to current session: %@", output, self.currentSession);
+    LogTrace(@"Output: %@ added to current session: %@", output, self.currentSession);
 }
 
 - (void)_removeOutput:(AVCaptureOutput *)output
@@ -194,7 +194,7 @@
         [self.currentSession removeOutput: output];
     }
     [self.currentSession commitConfiguration];
-    NSLog(@"Output: %@ removed from current session: %@", output, self.currentSession);
+    LogTrace(@"Output: %@ removed from current session: %@", output, self.currentSession);
 }
 
 - (AVCaptureConnection *)connectionWithMediaType:(NSString *)mediaType fromConnections:(NSArray *)connections

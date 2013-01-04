@@ -50,9 +50,9 @@
     NSURL *promoUrl = self.promotion.promotionHref;
     if (promoUrl) {
         [[UIApplication sharedApplication] openURL: promoUrl];
-        NSLog(@"opening promo url: %@", self.promotion.promotionHref);
+        LogTrace(@"opening promo url: %@", self.promotion.promotionHref);
     } else {
-        NSLog(@"no promo href");
+        LogError(@"no promo href");
     }
 }
 

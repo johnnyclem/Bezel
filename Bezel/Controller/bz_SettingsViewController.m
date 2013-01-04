@@ -74,7 +74,7 @@
     } else if ([sender isKindOfClass:[UISegmentedControl class]]) {
         UISegmentedControl *segment = sender;
         NSNumber *val = [NSNumber numberWithInt: segment.selectedSegmentIndex];
-        NSLog(@"changing quality to %@", val);
+        LogTrace(@"changing quality to %@", val);
         [def setValue: val forKey: setting.defaultsIdentifier];
     }
     
