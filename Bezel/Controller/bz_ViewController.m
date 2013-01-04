@@ -27,12 +27,6 @@
     return self;
 }
 
-- (NSManagedObjectContext *)managedObjectContext
-{
-    bz_AppDelegate<UIApplicationDelegate> *delegate = [[UIApplication sharedApplication] delegate];
-    return [delegate managedObjectContext];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];

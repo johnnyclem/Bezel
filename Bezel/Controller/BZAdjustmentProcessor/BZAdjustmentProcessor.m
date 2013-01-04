@@ -7,7 +7,7 @@
 //
 
 #import "BZAdjustmentProcessor.h"
-#import "BZAdjustmentManagedObject.h"
+#import "BZAdjustment.h"
 #import "BZSession.h"
 
 @implementation BZAdjustmentProcessor
@@ -26,11 +26,23 @@
 {
     UIImage *outImage = self.session.thumbnailImage;
     
-    for (BZAdjustmentManagedObject *adj in self.session.adjustments)
+    for (BZAdjustment *adj in self.session.adjustments)
     {
         outImage = [adj processImage: outImage];
     }
      
+    return outImage;
+}
+
+- (UIImage *)processedFullResolutionImage
+{
+    UIImage *outImage = self.session.thumbnailImage;
+    
+    for (BZAdjustment *adj in self.session.adjustments)
+    {
+        outImage = [adj processImage: outImage];
+    }
+    
     return outImage;
 }
 

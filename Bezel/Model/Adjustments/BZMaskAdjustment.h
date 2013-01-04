@@ -6,15 +6,15 @@
 //  Copyright (c) 2013 Mind Diaper. All rights reserved.
 //
 
-#import "BZAdjustmentManagedObject.h"
+#import "BZAdjustment.h"
 
 NSString * const kBZMaskAdjustmentMaskImageKey;
 NSString * const kBZMaskAdjustmentMaskShapeKey;
 
-@interface BZMaskAdjustment : BZAdjustmentManagedObject
+@interface BZMaskAdjustment : BZAdjustment
 
 @property (nonatomic, retain) NSString *identifier;
 @property (nonatomic, retain) NSDictionary *value;
-@property (nonatomic, retain) NSManagedObject *session;
+@property (nonatomic, retain) BZSession *session;
 
 @end

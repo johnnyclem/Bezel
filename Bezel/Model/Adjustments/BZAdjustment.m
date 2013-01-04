@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Mind Diaper. All rights reserved.
 //
 
-#import "BZAdjustmentManagedObject.h"
+#import "BZAdjustment.h"
 
-@implementation BZAdjustmentManagedObject
+@implementation BZAdjustment
 
 @dynamic identifier;
 @dynamic value;

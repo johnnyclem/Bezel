@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 
-@interface BZAdjustmentManagedObject : NSManagedObject
+@class BZSession;
+
+@interface BZAdjustment : NSObject
 
 @property (nonatomic, retain) NSString *identifier;
 @property (nonatomic, retain) id value;
-@property (nonatomic, retain) NSManagedObject *session;
+@property (nonatomic, retain) BZSession *session;
 
 - (UIImage *)processImage:(UIImage *)inImage;
 

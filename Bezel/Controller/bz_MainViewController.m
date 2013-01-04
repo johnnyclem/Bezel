@@ -85,11 +85,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    NSManagedObjectContext *moc = [self managedObjectContext];
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"BZSession" inManagedObjectContext:moc];
-    
-    self.session = [[BZSession alloc] initWithEntity: entityDescription insertIntoManagedObjectContext: moc];
+
+    self.session = [[BZSession alloc] init];
 
     imageCameFromLibrary = NO;
     NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
@@ -600,17 +597,10 @@
 //    photoMaskLayer = [[bz_MaskShapeLayer alloc] initWithShapeFromImage:_maskImage atSize:CGSizeMake(320, 320)];
 //    previewMaskLayer.frame = CGRectMake(0, 60, 320, 320);
 
-    NSEntityDescription *entDesc = [NSEntityDescription entityForName:@"BZAdjustmentManagedObject" inManagedObjectContext: self.managedObjectContext];
-    BZMaskAdjustment *maskAdjustment = [[BZMaskAdjustment alloc] initWithEntity:entDesc insertIntoManagedObjectContext:self.managedObjectContext];
-    NSDictionary *maskInfo = [NSDictionary dictionaryWithObjectsAndKeys: _photoMaskLayer, kBZMaskAdjustmentMaskShapeKey, nil];
-    maskAdjustment.value = maskInfo;
+    BZMaskAdjustment *maskAdjustment = [[BZMaskAdjustment alloc] init];
+    maskAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: _photoMaskLayer, kBZMaskAdjustmentMaskShapeKey, nil];
     
-    [self.session addAdjustmentsObject: maskAdjustment];    
-    [self.managedObjectContext save: nil];
-    
-    BZAdjustmentProcessor *proc = [[BZAdjustmentProcessor alloc] initWithSession: self.session];
-    
-    _sessionPreview.image = [proc processedThumbnailImage];
+    [self.session addAdjustment: maskAdjustment];
 
     if (!imageCameFromLibrary) {
         [_sessionPreview setImage:nil];
@@ -839,8 +829,12 @@
 
 - (void)saveToCameraRoll {
     
+    BZAdjustmentProcessor *proc = [[BZAdjustmentProcessor alloc] initWithSession: self.session];
+    UIImage *curImg = [proc processedFullResolutionImage];
+    
+    
     [SVProgressHUD showWithStatus:@"Saving Image"];
-    [self.library writeImageToSavedPhotosAlbum:self.currentImage.CGImage metadata:nil completionBlock:^(NSURL *assetURL, NSError *error) {
+    [self.library writeImageToSavedPhotosAlbum: curImg.CGImage metadata:nil completionBlock:^(NSURL *assetURL, NSError *error) {
         if (error!=nil) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error Saving Image" message:@"Bezel encountered an error while attempting to save image to Photo Library.  Please try saving again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             alert.tag = 0;

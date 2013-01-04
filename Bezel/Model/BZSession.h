@@ -7,31 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 
-@class BZAdjustmentManagedObject;
+@class BZAdjustment;
 
-@interface BZSession : NSManagedObject
+@interface BZSession : NSObject
 
 @property (nonatomic, strong) UIImage *fullResolutionImage;
 @property (nonatomic, strong) UIImage *thumbnailImage;
 @property (nonatomic, strong) NSNumber *imageId;
 @property (nonatomic, strong) NSOrderedSet *adjustments;
 
-@end
-
-@interface BZSession (CoreDataGeneratedAccessors)
-
-- (void)insertObject:(BZAdjustmentManagedObject *)value inAdjustmentsAtIndex:(NSUInteger)idx;
-- (void)removeObjectFromAdjustmentsAtIndex:(NSUInteger)idx;
-- (void)insertAdjustments:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
-- (void)removeAdjustmentsAtIndexes:(NSIndexSet *)indexes;
-- (void)replaceObjectInAdjustmentsAtIndex:(NSUInteger)idx withObject:(BZAdjustmentManagedObject *)value;
-- (void)replaceAdjustmentsAtIndexes:(NSIndexSet *)indexes withAdjustments:(NSArray *)values;
-- (void)addAdjustmentsObject:(BZAdjustmentManagedObject *)value;
-- (void)removeAdjustmentsObject:(BZAdjustmentManagedObject *)value;
-- (void)addAdjustments:(NSOrderedSet *)values;
-- (void)removeAdjustments:(NSOrderedSet *)values;
+-(void)addAdjustment:(BZAdjustment *)adjustment;
 
 @end
-

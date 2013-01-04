@@ -9,12 +9,9 @@
 /* Begin PBXBuildFile section */
 		CC033AB916965CC4007D9643 /* BZAdjustmentProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = CC033AB816965CC4007D9643 /* BZAdjustmentProcessor.m */; };
 		CC033ABA16965CC4007D9643 /* BZAdjustmentProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = CC033AB816965CC4007D9643 /* BZAdjustmentProcessor.m */; };
-		CC16B9771694CA2600027CC5 /* Bezel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC16B9751694CA2600027CC5 /* Bezel.xcdatamodeld */; };
-		CC16B9781694CA2600027CC5 /* Bezel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC16B9751694CA2600027CC5 /* Bezel.xcdatamodeld */; };
-		CC16B9791694CA2600027CC5 /* Bezel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC16B9751694CA2600027CC5 /* Bezel.xcdatamodeld */; };
-		CC16B97C1694CBF600027CC5 /* BZAdjustmentManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CC16B97B1694CBF600027CC5 /* BZAdjustmentManagedObject.m */; };
-		CC16B97D1694CBF600027CC5 /* BZAdjustmentManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CC16B97B1694CBF600027CC5 /* BZAdjustmentManagedObject.m */; };
-		CC16B97E1694CBF600027CC5 /* BZAdjustmentManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CC16B97B1694CBF600027CC5 /* BZAdjustmentManagedObject.m */; };
+		CC16B97C1694CBF600027CC5 /* BZAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CC16B97B1694CBF600027CC5 /* BZAdjustment.m */; };
+		CC16B97D1694CBF600027CC5 /* BZAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CC16B97B1694CBF600027CC5 /* BZAdjustment.m */; };
+		CC16B97E1694CBF600027CC5 /* BZAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CC16B97B1694CBF600027CC5 /* BZAdjustment.m */; };
 		CC16B9811694CC1C00027CC5 /* BZSession.m in Sources */ = {isa = PBXBuildFile; fileRef = CC16B9801694CC1C00027CC5 /* BZSession.m */; };
 		CC16B9821694CC1C00027CC5 /* BZSession.m in Sources */ = {isa = PBXBuildFile; fileRef = CC16B9801694CC1C00027CC5 /* BZSession.m */; };
 		CC16B9831694CC1C00027CC5 /* BZSession.m in Sources */ = {isa = PBXBuildFile; fileRef = CC16B9801694CC1C00027CC5 /* BZSession.m */; };
@@ -603,9 +600,8 @@
 /* Begin PBXFileReference section */
 		CC033AB716965CC4007D9643 /* BZAdjustmentProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZAdjustmentProcessor.h; path = Controller/BZAdjustmentProcessor/BZAdjustmentProcessor.h; sourceTree = "<group>"; };
 		CC033AB816965CC4007D9643 /* BZAdjustmentProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZAdjustmentProcessor.m; path = Controller/BZAdjustmentProcessor/BZAdjustmentProcessor.m; sourceTree = "<group>"; };
-		CC16B9761694CA2600027CC5 /* Bezel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bezel.xcdatamodel; sourceTree = "<group>"; };
-		CC16B97A1694CBF600027CC5 /* BZAdjustmentManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZAdjustmentManagedObject.h; path = Adjustments/BZAdjustmentManagedObject.h; sourceTree = "<group>"; };
-		CC16B97B1694CBF600027CC5 /* BZAdjustmentManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZAdjustmentManagedObject.m; path = Adjustments/BZAdjustmentManagedObject.m; sourceTree = "<group>"; };
+		CC16B97A1694CBF600027CC5 /* BZAdjustment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZAdjustment.h; path = Adjustments/BZAdjustment.h; sourceTree = "<group>"; };
+		CC16B97B1694CBF600027CC5 /* BZAdjustment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZAdjustment.m; path = Adjustments/BZAdjustment.m; sourceTree = "<group>"; };
 		CC16B97F1694CC1C00027CC5 /* BZSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BZSession.h; sourceTree = "<group>"; };
 		CC16B9801694CC1C00027CC5 /* BZSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BZSession.m; sourceTree = "<group>"; };
 		CC19F7FE1695F56E001A3828 /* BZMaskAdjustment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZMaskAdjustment.h; path = Adjustments/BZMaskAdjustment.h; sourceTree = "<group>"; };
@@ -995,17 +991,17 @@
 			name = BZAdjustmentProcessor;
 			sourceTree = "<group>";
 		};
-		CC19F7BC16954643001A3828 /* Managed Objects */ = {
+		CC19F7BC16954643001A3828 /* Session and Adjustments */ = {
 			isa = PBXGroup;
 			children = (
-				CC16B97A1694CBF600027CC5 /* BZAdjustmentManagedObject.h */,
-				CC16B97B1694CBF600027CC5 /* BZAdjustmentManagedObject.m */,
+				CC16B97A1694CBF600027CC5 /* BZAdjustment.h */,
+				CC16B97B1694CBF600027CC5 /* BZAdjustment.m */,
 				CC19F7FE1695F56E001A3828 /* BZMaskAdjustment.h */,
 				CC19F7FF1695F56E001A3828 /* BZMaskAdjustment.m */,
 				CC16B97F1694CC1C00027CC5 /* BZSession.h */,
 				CC16B9801694CC1C00027CC5 /* BZSession.m */,
 			);
-			name = "Managed Objects";
+			name = "Session and Adjustments";
 			sourceTree = "<group>";
 		};
 		CC2CF41E167DB2A900A0EDA7 /* AFNetworking */ = {
@@ -1555,8 +1551,7 @@
 		EFE390481677F38C009F2AC9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CC19F7BC16954643001A3828 /* Managed Objects */,
-				CC16B9751694CA2600027CC5 /* Bezel.xcdatamodeld */,
+				CC19F7BC16954643001A3828 /* Session and Adjustments */,
 				CC413CCA167D567100773B24 /* bz_Promotion.h */,
 				CC413CCB167D567100773B24 /* bz_Promotion.m */,
 				EFE390491677F38C009F2AC9 /* bz_Setting.h */,
@@ -2078,8 +2073,7 @@
 				CC384CC5167E642800174786 /* bz_Constants.m in Sources */,
 				CC8839AE167EA21D00374C63 /* bz_ImageView.m in Sources */,
 				CC55B6AE16949614006AD05A /* BZCaptureManager.m in Sources */,
-				CC16B9781694CA2600027CC5 /* Bezel.xcdatamodeld in Sources */,
-				CC16B97D1694CBF600027CC5 /* BZAdjustmentManagedObject.m in Sources */,
+				CC16B97D1694CBF600027CC5 /* BZAdjustment.m in Sources */,
 				CC16B9821694CC1C00027CC5 /* BZSession.m in Sources */,
 				CC19F8011695F56E001A3828 /* BZMaskAdjustment.m in Sources */,
 				CC033ABA16965CC4007D9643 /* BZAdjustmentProcessor.m in Sources */,
@@ -2161,8 +2155,7 @@
 				CC384CC4167E642800174786 /* bz_Constants.m in Sources */,
 				CC8839AD167EA21D00374C63 /* bz_ImageView.m in Sources */,
 				CC55B6AD16949614006AD05A /* BZCaptureManager.m in Sources */,
-				CC16B9771694CA2600027CC5 /* Bezel.xcdatamodeld in Sources */,
-				CC16B97C1694CBF600027CC5 /* BZAdjustmentManagedObject.m in Sources */,
+				CC16B97C1694CBF600027CC5 /* BZAdjustment.m in Sources */,
 				CC16B9811694CC1C00027CC5 /* BZSession.m in Sources */,
 				CC19F8001695F56E001A3828 /* BZMaskAdjustment.m in Sources */,
 				CC033AB916965CC4007D9643 /* BZAdjustmentProcessor.m in Sources */,
@@ -2244,8 +2237,7 @@
 				CC384CC6167E642800174786 /* bz_Constants.m in Sources */,
 				CC8839AF167EA21D00374C63 /* bz_ImageView.m in Sources */,
 				CC55B6AF16949614006AD05A /* BZCaptureManager.m in Sources */,
-				CC16B9791694CA2600027CC5 /* Bezel.xcdatamodeld in Sources */,
-				CC16B97E1694CBF600027CC5 /* BZAdjustmentManagedObject.m in Sources */,
+				CC16B97E1694CBF600027CC5 /* BZAdjustment.m in Sources */,
 				CC16B9831694CC1C00027CC5 /* BZSession.m in Sources */,
 				CC19F8021695F56E001A3828 /* BZMaskAdjustment.m in Sources */,
 			);
@@ -2550,19 +2542,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		CC16B9751694CA2600027CC5 /* Bezel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				CC16B9761694CA2600027CC5 /* Bezel.xcdatamodel */,
-			);
-			currentVersion = CC16B9761694CA2600027CC5 /* Bezel.xcdatamodel */;
-			path = Bezel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = EF25879C166EC66400A2225E /* Project object */;
 }

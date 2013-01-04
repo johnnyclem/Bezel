@@ -7,7 +7,7 @@
 //
 
 #import "BZSession.h"
-#import "BZAdjustmentManagedObject.h"
+#import "BZAdjustment.h"
 
 @interface BZSession ()
 @end
@@ -21,8 +21,7 @@ static NSString *const kAdjustmentsKey = @"adjustments";
 @synthesize fullResolutionImage;
 @synthesize thumbnailImage;
 
-// Fixes weird to-many relationships bug?
--(void)addAdjustmentsObject:(BZAdjustmentManagedObject *)adjustment
+-(void)addAdjustment:(BZAdjustment *)adjustment
 {
     // Grab a pointer to the current adjustment set
     NSMutableOrderedSet *prev;
@@ -43,7 +42,9 @@ static NSString *const kAdjustmentsKey = @"adjustments";
         NSLog(@"couldn't add new object");
         success = @"failure";
     }
-    @finally {
+    @finally
+    {
+        self.adjustments = prev;
         NSLog(@"results: %@", success);
     }
 }

@@ -17,5 +17,6 @@
 - (id)initWithSession:(BZSession *)aSession;
 
 - (UIImage *)processedThumbnailImage;
+- (UIImage *)processedFullResolutionImage;
 
 @end
