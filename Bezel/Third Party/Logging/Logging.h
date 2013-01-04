@@ -93,7 +93,7 @@
  * For these settings to be effective, LOGGING_ENABLED must also be defined and non-zero.
  */
 #ifndef LOGGING_LEVEL_TRACE
-#	define LOGGING_LEVEL_TRACE		0
+#	define LOGGING_LEVEL_TRACE		1
 #endif
 #ifndef LOGGING_LEVEL_INFO
 #	define LOGGING_LEVEL_INFO		1

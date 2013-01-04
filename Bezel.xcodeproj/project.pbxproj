@@ -2312,6 +2312,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bezel/Bezel-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					LOGGING_ENABLED,
+				);
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/Bezel/Third Party\"/**",
 				);
