@@ -600,6 +600,7 @@
 /* Begin PBXFileReference section */
 		CC033AB716965CC4007D9643 /* BZAdjustmentProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZAdjustmentProcessor.h; path = Controller/BZAdjustmentProcessor/BZAdjustmentProcessor.h; sourceTree = "<group>"; };
 		CC033AB816965CC4007D9643 /* BZAdjustmentProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZAdjustmentProcessor.m; path = Controller/BZAdjustmentProcessor/BZAdjustmentProcessor.m; sourceTree = "<group>"; };
+		CC13BF161697383B006BCEAE /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
 		CC16B97A1694CBF600027CC5 /* BZAdjustment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZAdjustment.h; path = Adjustments/BZAdjustment.h; sourceTree = "<group>"; };
 		CC16B97B1694CBF600027CC5 /* BZAdjustment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZAdjustment.m; path = Adjustments/BZAdjustment.m; sourceTree = "<group>"; };
 		CC16B97F1694CC1C00027CC5 /* BZSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BZSession.h; sourceTree = "<group>"; };
@@ -991,6 +992,15 @@
 			name = BZAdjustmentProcessor;
 			sourceTree = "<group>";
 		};
+		CC13BF151697383B006BCEAE /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				CC13BF161697383B006BCEAE /* Logging.h */,
+			);
+			name = Logging;
+			path = "Third Party/Logging";
+			sourceTree = "<group>";
+		};
 		CC19F7BC16954643001A3828 /* Session and Adjustments */ = {
 			isa = PBXGroup;
 			children = (
@@ -1274,6 +1284,7 @@
 				EFF44B3F1671BA720023FF70 /* EssentialImager */,
 				EFA088191671542400AA6992 /* FlipTransform */,
 				EF9B2D01167889F80012024E /* GCPagedScrollView */,
+				CC13BF151697383B006BCEAE /* Logging */,
 				EF501273167729A80033B574 /* MAConfirmButton */,
 				EF50121B167707A80033B574 /* RSColorPicker */,
 				EF160763167BB7E800EC21EB /* SVProgressHUD */,
