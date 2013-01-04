@@ -15,8 +15,13 @@
 @property (nonatomic, strong) UIImage *fullResolutionImage;
 @property (nonatomic, strong) UIImage *thumbnailImage;
 @property (nonatomic, strong) NSNumber *imageId;
-@property (nonatomic, strong) NSOrderedSet *adjustments;
+@property (nonatomic, strong, readonly) NSMutableArray *adjustments;
 
--(void)addAdjustment:(BZAdjustment *)adjustment;
+- (void)addAdjustment:(BZAdjustment *)adjustment;
+- (void)removeAdjustment:(BZAdjustment *)adjustment;
+
+- (BZAdjustment *)adjustmentWithIdentifier:(NSString *)identifier;
+
+- (BOOL)containsAdjustment:(BZAdjustment *)adjustment;
 
 @end

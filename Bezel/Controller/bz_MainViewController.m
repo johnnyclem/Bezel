@@ -597,6 +597,7 @@
 //    previewMaskLayer.frame = CGRectMake(0, 60, 320, 320);
 
     BZMaskAdjustment *maskAdjustment = [[BZMaskAdjustment alloc] init];
+    maskAdjustment.identifier = kBZMaskAdjustmentMaskShapeKey;
     maskAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: _photoMaskLayer, kBZMaskAdjustmentMaskShapeKey, nil];
     
     [self.session addAdjustment: maskAdjustment];

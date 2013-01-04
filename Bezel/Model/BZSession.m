@@ -10,43 +10,95 @@
 #import "BZAdjustment.h"
 
 @interface BZSession ()
+@property (strong, nonatomic) NSMutableArray *adjustments;
 @end
 
 @implementation BZSession
 
-static NSString *const kAdjustmentsKey = @"adjustments";
-
-@dynamic imageId;
-@synthesize adjustments = _adjustments;
-@synthesize fullResolutionImage;
-@synthesize thumbnailImage;
+- (id)init
+{
+    if (self = [super init]) {
+        self.adjustments = [[NSMutableArray alloc] initWithCapacity: 10];
+    }
+    
+    return self;
+}
 
 -(void)addAdjustment:(BZAdjustment *)adjustment
 {
-    // Grab a pointer to the current adjustment set
-    NSMutableOrderedSet *prev;
     BOOL success = TRUE;
     
-    @try {
-        // Make a mutable set to hold the additional adjustment
-        prev = [[NSMutableOrderedSet alloc] initWithCapacity:_adjustments.count+1];
-        
-        // Add the old adjustments
-        for (int i=0; i<=_adjustments.count; i++) {
-            [prev insertObject:adjustment atIndex:i];
+    @try
+    {
+        if ([self containsAdjustment: adjustment] && adjustment.duplicatesAllowed == FALSE)
+        {
+            [self removeAdjustment: [self adjustmentWithIdentifier: adjustment.identifier]];
         }
-        // Add the new adjustment
-        [prev addObject:adjustment];
+        
+        [self.adjustments addObject: adjustment];
     }
-    @catch (NSException *exception) {
+    @catch (NSException *exception)
+    {
         success = FALSE;
-        LogError(@"Failed to add adjustment to adjustments: %@", _adjustments);
+        LogError(@"Failed to add adjustment: %@ to adjustments: %@", adjustment.identifier, _adjustments);
     }
     @finally
     {
-        self.adjustments = prev;
         LogInfo(@"Adjustment %@ was %@", adjustment.identifier, success ? @"added" : @"not added");
     }
+}
+
+- (void)removeAdjustment:(BZAdjustment *)adjustment
+{
+    BOOL success = TRUE;
+    
+    @try
+    {
+        if ([self containsAdjustment: adjustment])
+        {
+            [self.adjustments removeObject: adjustment];
+        }
+        
+    }
+    @catch (NSException *exception)
+    {
+        success = FALSE;
+        LogError(@"Failed to remove adjustment: %@ from adjustments: %@", adjustment.identifier, _adjustments);
+    }
+    @finally
+    {
+        LogInfo(@"Adjustment %@ was %@", adjustment.identifier, success ? @"removed" : @"not removed");
+    }
+}
+
+- (BZAdjustment *)adjustmentWithIdentifier:(NSString *)identifier
+{
+    for (BZAdjustment *adj in _adjustments)
+    {
+        if ([identifier isEqualToString: adj.identifier])
+        {
+            return adj;
+        }
+    }
+    
+    return nil;
+}
+
+- (BOOL)containsAdjustment:(BZAdjustment *)adjustment
+{
+    BOOL contains = NO;
+    NSString *identifier = adjustment.identifier;
+    
+    for (BZAdjustment *adj in _adjustments)
+    {
+        if ([identifier isEqualToString: adj.identifier])
+        {
+            contains = YES;
+            break;
+        }
+    }
+    
+    return contains;
 }
 
 @end

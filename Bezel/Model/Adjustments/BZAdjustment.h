@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class BZSession;
-
 @interface BZAdjustment : NSObject
 
-@property (nonatomic, retain) NSString *identifier;
-@property (nonatomic, retain) id value;
-@property (nonatomic, retain) BZSession *session;
+@property (nonatomic, strong) NSString *identifier;
+@property (nonatomic, strong) id value;
+
+// This allows us to remove identical adjustments when adding new ones, when applicable. (like shape masks).
+@property (nonatomic, assign, readonly) BOOL duplicatesAllowed;
 
 - (UIImage *)processImage:(UIImage *)inImage;
 

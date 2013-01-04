@@ -13,8 +13,6 @@ NSString * const kBZMaskAdjustmentMaskShapeKey;
 
 @interface BZMaskAdjustment : BZAdjustment
 
-@property (nonatomic, retain) NSString *identifier;
 @property (nonatomic, retain) NSDictionary *value;
-@property (nonatomic, retain) BZSession *session;
 
 @end

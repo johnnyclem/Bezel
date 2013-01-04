@@ -10,9 +10,9 @@
 
 @implementation BZAdjustment
 
-@dynamic identifier;
-@dynamic value;
-@dynamic session;
+@synthesize identifier;
+@synthesize value;
+@synthesize duplicatesAllowed;
 
 - (UIImage *)processImage:(UIImage *)inImage
 {
