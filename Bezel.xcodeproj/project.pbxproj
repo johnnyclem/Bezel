@@ -170,23 +170,15 @@
 		CC821FCF167E531400445EAC /* GoldenHr.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF44B7B1671D5C70023FF70 /* GoldenHr.png */; };
 		CC821FD0167E531400445EAC /* oz.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF44B7C1671D5C70023FF70 /* oz.png */; };
 		CC821FD1167E531400445EAC /* Sepia.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF44B7D1671D5C70023FF70 /* Sepia.png */; };
-		CC821FD2167E531400445EAC /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9584B0167459F9006B042C /* heart.png */; };
-		CC821FD3167E531400445EAC /* hexagon.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9584B1167459F9006B042C /* hexagon.png */; };
-		CC821FD4167E531400445EAC /* square.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9584B2167459F9006B042C /* square.png */; };
 		CC821FD5167E531400445EAC /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9584B3167459F9006B042C /* triangle.png */; };
 		CC821FD6167E531400445EAC /* holidayPackPreview.png in Resources */ = {isa = PBXBuildFile; fileRef = EF50119E167579540033B574 /* holidayPackPreview.png */; };
 		CC821FD7167E531400445EAC /* colorPickerPreview.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5011A1167579FF0033B574 /* colorPickerPreview.png */; };
 		CC821FD9167E531400445EAC /* sim.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5011BB16766B880033B574 /* sim.png */; };
 		CC821FDA167E531400445EAC /* normal.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5011C416766F640033B574 /* normal.png */; };
-		CC821FDB167E531400445EAC /* heartMask.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5011C7167671FF0033B574 /* heartMask.png */; };
-		CC821FDC167E531400445EAC /* hexagonMask.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5011C8167671FF0033B574 /* hexagonMask.png */; };
-		CC821FDD167E531400445EAC /* squareMask.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5011CB167671FF0033B574 /* squareMask.png */; };
 		CC821FDE167E531400445EAC /* triangleMask.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5011D0167671FF0033B574 /* triangleMask.png */; };
 		CC821FDF167E531400445EAC /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF5011E5167673A00033B574 /* test.jpg */; };
 		CC821FE0167E531400445EAC /* patternBg.png in Resources */ = {isa = PBXBuildFile; fileRef = EF50125B16771B600033B574 /* patternBg.png */; };
 		CC821FE1167E531400445EAC /* bz_StoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFCF218E167741B100FDFAA2 /* bz_StoreView.xib */; };
-		CC821FE2167E531400445EAC /* ornament.png in Resources */ = {isa = PBXBuildFile; fileRef = EF6EBDD0167842E5001B25DD /* ornament.png */; };
-		CC821FE3167E531400445EAC /* ornamentMask.png in Resources */ = {isa = PBXBuildFile; fileRef = EF6EBDD1167842E5001B25DD /* ornamentMask.png */; };
 		CC821FE4167E531400445EAC /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = EF6EBDD2167842E5001B25DD /* star.png */; };
 		CC821FE5167E531400445EAC /* starMask.png in Resources */ = {isa = PBXBuildFile; fileRef = EF6EBDD3167842E5001B25DD /* starMask.png */; };
 		CC821FE6167E531400445EAC /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = EF6EBDD4167842E5001B25DD /* tree.png */; };
@@ -208,14 +200,6 @@
 		CC821FF7167E531400445EAC /* treeBG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF8FB90F167AA0D200B836C7 /* treeBG.jpg */; };
 		CC821FF8167E531400445EAC /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EF160764167BB7E800EC21EB /* SVProgressHUD.bundle */; };
 		CC821FF9167E531400445EAC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF16076E167BB8CE00EC21EB /* InfoPlist.strings */; };
-		CC821FFC167E531400445EAC /* heartMask_640.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF2CA2F167BD16400552880 /* heartMask_640.png */; };
-		CC821FFD167E531400445EAC /* heartMask_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF2CA30167BD16400552880 /* heartMask_1024.png */; };
-		CC821FFE167E531400445EAC /* hexagonMask_640.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF2CA31167BD16400552880 /* hexagonMask_640.png */; };
-		CC821FFF167E531400445EAC /* hexagonMask_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF2CA32167BD16400552880 /* hexagonMask_1024.png */; };
-		CC822000167E531400445EAC /* ornamentMask_640.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF2CA33167BD16400552880 /* ornamentMask_640.png */; };
-		CC822001167E531400445EAC /* ornamentMask_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF2CA34167BD16400552880 /* ornamentMask_1024.png */; };
-		CC822002167E531400445EAC /* squareMask_640.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF2CA35167BD16400552880 /* squareMask_640.png */; };
-		CC822003167E531400445EAC /* squareMask_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF2CA36167BD16400552880 /* squareMask_1024.png */; };
 		CC822004167E531400445EAC /* starMask_640.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF2CA37167BD16400552880 /* starMask_640.png */; };
 		CC822005167E531400445EAC /* starMask_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF2CA38167BD16400552880 /* starMask_1024.png */; };
 		CC822006167E531400445EAC /* treeMask_640.png in Resources */ = {isa = PBXBuildFile; fileRef = EFF2CA39167BD16400552880 /* treeMask_640.png */; };
@@ -1751,23 +1735,15 @@
 				CC821FCF167E531400445EAC /* GoldenHr.png in Resources */,
 				CC821FD0167E531400445EAC /* oz.png in Resources */,
 				CC821FD1167E531400445EAC /* Sepia.png in Resources */,
-				CC821FD2167E531400445EAC /* heart.png in Resources */,
-				CC821FD3167E531400445EAC /* hexagon.png in Resources */,
-				CC821FD4167E531400445EAC /* square.png in Resources */,
 				CC821FD5167E531400445EAC /* triangle.png in Resources */,
 				CC821FD6167E531400445EAC /* holidayPackPreview.png in Resources */,
 				CC821FD7167E531400445EAC /* colorPickerPreview.png in Resources */,
 				CC821FD9167E531400445EAC /* sim.png in Resources */,
 				CC821FDA167E531400445EAC /* normal.png in Resources */,
-				CC821FDB167E531400445EAC /* heartMask.png in Resources */,
-				CC821FDC167E531400445EAC /* hexagonMask.png in Resources */,
-				CC821FDD167E531400445EAC /* squareMask.png in Resources */,
 				CC821FDE167E531400445EAC /* triangleMask.png in Resources */,
 				CC821FDF167E531400445EAC /* test.jpg in Resources */,
 				CC821FE0167E531400445EAC /* patternBg.png in Resources */,
 				CC821FE1167E531400445EAC /* bz_StoreView.xib in Resources */,
-				CC821FE2167E531400445EAC /* ornament.png in Resources */,
-				CC821FE3167E531400445EAC /* ornamentMask.png in Resources */,
 				CC821FE4167E531400445EAC /* star.png in Resources */,
 				CC821FE5167E531400445EAC /* starMask.png in Resources */,
 				CC821FE6167E531400445EAC /* tree.png in Resources */,
@@ -1789,14 +1765,6 @@
 				CC821FF7167E531400445EAC /* treeBG.jpg in Resources */,
 				CC821FF8167E531400445EAC /* SVProgressHUD.bundle in Resources */,
 				CC821FF9167E531400445EAC /* InfoPlist.strings in Resources */,
-				CC821FFC167E531400445EAC /* heartMask_640.png in Resources */,
-				CC821FFD167E531400445EAC /* heartMask_1024.png in Resources */,
-				CC821FFE167E531400445EAC /* hexagonMask_640.png in Resources */,
-				CC821FFF167E531400445EAC /* hexagonMask_1024.png in Resources */,
-				CC822000167E531400445EAC /* ornamentMask_640.png in Resources */,
-				CC822001167E531400445EAC /* ornamentMask_1024.png in Resources */,
-				CC822002167E531400445EAC /* squareMask_640.png in Resources */,
-				CC822003167E531400445EAC /* squareMask_1024.png in Resources */,
 				CC822004167E531400445EAC /* starMask_640.png in Resources */,
 				CC822005167E531400445EAC /* starMask_1024.png in Resources */,
 				CC822006167E531400445EAC /* treeMask_640.png in Resources */,

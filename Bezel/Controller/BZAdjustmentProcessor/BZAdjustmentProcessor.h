@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class BZSession;
+
 @interface BZAdjustmentProcessor : NSObject
+
+@property (strong, nonatomic) BZSession *session;
+
+- (id)initWithSession:(BZSession *)aSession;
+
+- (UIImage *)processedThumbnailImage;
 
 @end

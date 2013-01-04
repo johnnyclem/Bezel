@@ -19,8 +19,7 @@ NSString * const kBZMaskAdjustmentMaskShapeKey = @"kBZMaskAdjustmentMaskShapeKey
 
 - (UIImage *)processImage:(UIImage *)inImage
 {
-    UIImage *outImage;
-    
+    UIImage *outImage = [inImage resizedImage:CGSizeMake(100.0, 100.0) interpolationQuality: kCGInterpolationNone];
     
     return outImage;
 }

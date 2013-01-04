@@ -22,6 +22,7 @@
 #import "BZSession.h"
 
 #import "BZMaskAdjustment.h"
+#import "BZAdjustmentProcessor.h"
 
 @interface bz_MainViewController ()
 {
@@ -604,8 +605,12 @@
     NSDictionary *maskInfo = [NSDictionary dictionaryWithObjectsAndKeys: _photoMaskLayer, kBZMaskAdjustmentMaskShapeKey, nil];
     maskAdjustment.value = maskInfo;
     
-    [self.session addAdjustmentsObject:[NSOrderedSet orderedSetWithObject:maskAdjustment]];    
+    [self.session addAdjustmentsObject: maskAdjustment];    
     [self.managedObjectContext save: nil];
+    
+    BZAdjustmentProcessor *proc = [[BZAdjustmentProcessor alloc] initWithSession: self.session];
+    
+    _sessionPreview.image = [proc processedThumbnailImage];
 
     if (!imageCameFromLibrary) {
         [_sessionPreview setImage:nil];
