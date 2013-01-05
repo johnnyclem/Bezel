@@ -140,7 +140,7 @@
     }
     else
     {
-        self.previewLayer = nil;
+        [self.previewLayer removeFromSuperlayer];
     }
 }
 
