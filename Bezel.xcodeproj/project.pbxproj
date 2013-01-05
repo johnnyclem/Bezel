@@ -2302,8 +2302,8 @@
 		CC82200C167E531400445EAC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Josh Buchacher (CP9EUHCPPP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Josh Buchacher (CP9EUHCPPP)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -2326,6 +2326,8 @@
 					"\"$(SRCROOT)/Bezel/Third Party\"/**",
 				);
 				PRODUCT_NAME = "Bezel-QA";
+				PROVISIONING_PROFILE = "7D69F6E0-D30A-402E-9CA2-A46FF53D751C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7D69F6E0-D30A-402E-9CA2-A46FF53D751C";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

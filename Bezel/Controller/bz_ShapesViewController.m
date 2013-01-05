@@ -23,6 +23,8 @@
     FlipView *container;
 }
 
+@property (strong, nonatomic) NSArray *shapeButtons;
+
 @end
 
 @implementation bz_ShapesViewController
@@ -33,7 +35,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -54,6 +55,8 @@
     triangle = [[bz_Button alloc] initWithFrame:CGRectMake(btnWidth*2, btnOffset, btnWidth, btnHeight)];
     hexagon  = [[bz_Button alloc] initWithFrame:CGRectMake(btnWidth*3, btnOffset, btnWidth, btnHeight)];
     heart    = [[bz_Button alloc] initWithFrame:CGRectMake(btnWidth*4, btnOffset, btnWidth, btnHeight)];
+    
+    self.shapeButtons = [NSArray arrayWithObjects: circle, square, triangle, hexagon, heart, nil];
 
     [circle setTag:3];
     [square setTag:4];
@@ -88,19 +91,11 @@
     [hexagon setNotificationName:@"hexagon"];
     [heart setNotificationName:@"heart"];
     [switchCam setNotificationName:@"switchCam"];
-    [switchShapes setNotificationName:@"switchShapes"];
     [camBtn setNotificationName:@"camBtn"];
 
     [switchShapes addTarget:self action:@selector(switchShapeSet:) forControlEvents:UIControlEventTouchUpInside];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(flipAnimationFinished:) name:@"flipAnimationFinished" object:nil];
-
-    [circle addTarget:self action:@selector(switchShape:) forControlEvents:UIControlEventTouchUpInside];
-    [square addTarget:self action:@selector(switchShape:) forControlEvents:UIControlEventTouchUpInside];
-    [triangle addTarget:self action:@selector(switchShape:) forControlEvents:UIControlEventTouchUpInside];
-    [hexagon addTarget:self action:@selector(switchShape:) forControlEvents:UIControlEventTouchUpInside];
-    [heart addTarget:self action:@selector(switchShape:) forControlEvents:UIControlEventTouchUpInside];
-
 }
 
 - (void)switchShapeSet:(id)sender {
@@ -184,13 +179,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)switchShape:(id)sender {
-    
-    NSDictionary* dict = [NSDictionary dictionaryWithObject:(bz_Button*)sender forKey:@"newShape"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"switchShape" object:self userInfo:dict];
-
 }
 
 - (void)switchCamera {

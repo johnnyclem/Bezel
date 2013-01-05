@@ -7,26 +7,14 @@
 //
 
 #import "bz_ScrollViewController.h"
-#import "bz_ScrollView.h"
-#import "bz_ShapesViewController.h"
-#import "bz_FilterViewController.h"
-#import "bz_AdjustmentViewController.h"
-#import "bz_BackgroundViewController.h"
-#import "bz_ShareViewController.h"
 #import "bz_MainViewController.h"
 #import "bz_Button.h"
 
 @interface bz_ScrollViewController ()
 {
     CGFloat scrollHeight;
-    bz_ShapesViewController *shapeVC;
-    bz_FilterViewController *filterVC;
-    bz_AdjustmentViewController *adjustmentVC;
-    bz_BackgroundViewController *backgroundVC;
-    bz_ShareViewController *shareVC;
 }
 
-@property(nonatomic, strong) IBOutlet bz_ScrollView *scrollView;
 @property(nonatomic, strong) bz_MainViewController *mainVC;
 
 @end
@@ -39,6 +27,15 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
+        scrollHeight = self.view.frame.size.height - 380.f;
+        CGRect scrollViewFrame = CGRectMake(0.0, 380.0, self.view.frame.size.width, scrollHeight);
+        _scrollView = [[bz_ScrollView alloc] initWithFrame: scrollViewFrame];
+        _scrollView.pagingEnabled = TRUE;
+        _scrollView.showsHorizontalScrollIndicator = FALSE;
+        _scrollView.showsVerticalScrollIndicator = FALSE;
+        
+        [self.view addSubview: _scrollView];
     }
     return self;
 }
@@ -46,8 +43,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self addObservers];
-    [self setupScrollViewChildren];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -59,8 +54,9 @@
     [super viewDidAppear:animated];
 }
 
-- (void)setupScrollViewChildren {
-    scrollHeight = self.view.frame.size.height - 380.f;
+- (void)setupScrollViewChildren
+{
+    [self addObservers];
     
     //setup scrollview
     NSUInteger numberOfPages = 5;
@@ -74,34 +70,34 @@
         pageFrame = CGRectMake(i * _scrollView.frame.size.width, 0.0f, _scrollView.frame.size.width, scrollHeight);
         switch (i) {
             case 0:
-                shapeVC = [[bz_ShapesViewController alloc] init];
-                shapeVC.scrollHeight = scrollHeight;
-                shapeVC.view.frame = pageFrame;
-                [_scrollView addSubview:shapeVC.view];
+                self.shapesViewController = [[bz_ShapesViewController alloc] init];
+                self.shapesViewController.scrollHeight = scrollHeight;
+                self.shapesViewController.view.frame = pageFrame;
+                [_scrollView addSubview: self.shapesViewController.view];
                 break;
             case 1:
-                filterVC = [[bz_FilterViewController alloc] init];
-                filterVC.scrollHeight = scrollHeight;
-                filterVC.view.frame = pageFrame;
-                [_scrollView addSubview:filterVC.view];
+                self.filterViewController = [[bz_FilterViewController alloc] init];
+                self.filterViewController.scrollHeight = scrollHeight;
+                self.filterViewController.view.frame = pageFrame;
+                [_scrollView addSubview: self.filterViewController.view];
                 break;
             case 2:
-                adjustmentVC = [[bz_AdjustmentViewController alloc] init];
-                adjustmentVC.scrollHeight = scrollHeight;
-                adjustmentVC.view.frame = pageFrame;
-                [_scrollView addSubview:adjustmentVC.view];
+                self.adjustmentViewController = [[bz_AdjustmentViewController alloc] init];
+                self.adjustmentViewController.scrollHeight = scrollHeight;
+                self.adjustmentViewController.view.frame = pageFrame;
+                [_scrollView addSubview: self.adjustmentViewController.view];
                 break;
             case 3:
-                backgroundVC = [[bz_BackgroundViewController alloc] init];
-                backgroundVC.scrollHeight = scrollHeight;
-                backgroundVC.view.frame = pageFrame;
-                [_scrollView addSubview:backgroundVC.view];
+                self.backgroundViewController = [[bz_BackgroundViewController alloc] init];
+                self.backgroundViewController.scrollHeight = scrollHeight;
+                self.backgroundViewController.view.frame = pageFrame;
+                [_scrollView addSubview: self.backgroundViewController.view];
                 break;
             case 4:
-                shareVC = [[bz_ShareViewController alloc] init];
-                shareVC.scrollHeight = scrollHeight;
-                shareVC.view.frame = pageFrame;
-                [_scrollView addSubview:shareVC.view];
+                self.shareViewController = [[bz_ShareViewController alloc] init];
+                self.shareViewController.scrollHeight = scrollHeight;
+                self.shareViewController.view.frame = pageFrame;
+                [_scrollView addSubview: self.shareViewController.view];
                 break;
                 
             default:
@@ -112,27 +108,26 @@
 
 - (void)tearDownScrollViewChildren {
 
-    [shapeVC.view removeFromSuperview];
-    [filterVC.view removeFromSuperview];
-    [adjustmentVC.view removeFromSuperview];
-    [backgroundVC.view removeFromSuperview];
-    [shareVC.view removeFromSuperview];
+    [self.shapesViewController.view removeFromSuperview];
+    [self.filterViewController.view removeFromSuperview];
+    [self.adjustmentViewController.view removeFromSuperview];
+    [self.backgroundViewController.view removeFromSuperview];
+    [self.shareViewController.view removeFromSuperview];
 
-    shapeVC = nil;
-    filterVC = nil;
-    adjustmentVC = nil;
-    backgroundVC = nil;
-    shareVC = nil;
-
+    self.shapesViewController = nil;
+    self.filterViewController = nil;
+    self.adjustmentViewController = nil;
+    self.backgroundViewController = nil;
+    self.shareViewController = nil;
 }
 
 - (void)removeChildrenImages;
 {
-    shapeVC.currentImage = nil;
-    filterVC.currentImage = nil;
-    adjustmentVC.currentImage = nil;
-    backgroundVC.currentImage = nil;
-    shareVC.currentImage = nil;
+    self.shapesViewController.currentImage = nil;
+    self.filterViewController.currentImage = nil;
+    self.adjustmentViewController.currentImage = nil;
+    self.backgroundViewController.currentImage = nil;
+    self.shareViewController.currentImage = nil;
 }
 
 - (void)addObservers {
@@ -176,15 +171,15 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:@"scrolledHome" object:self userInfo:dict];
         _scrollView.scrollEnabled = NO;
     } else if (aScrollView.contentOffset.x == 640) {
-        adjustmentVC.currentImage = mainVC.currentImage;
-        adjustmentVC.contrast   = 1.0;
-        adjustmentVC.exposure   = 0.0;
+        self.adjustmentViewController.currentImage = mainVC.currentImage;
+        self.adjustmentViewController.contrast   = 1.0;
+        self.adjustmentViewController.exposure   = 0.0;
     } else if (aScrollView.contentOffset.x == 960) {
-        backgroundVC.currentImage = adjustmentVC.currentImage;
-        backgroundVC.mainVC = self.mainVC;
-        [backgroundVC changeBackground:backgroundVC.blackBG];
+        self.backgroundViewController.currentImage = self.adjustmentViewController.currentImage;
+        self.backgroundViewController.mainVC = self.mainVC;
+        self.backgroundViewController changeBackground:backgroundVC.blackBG];
     } else if (aScrollView.contentOffset.x == 1280) {
-        shareVC.currentImage = backgroundVC.currentImage;
+        self.shareViewController.currentImage = self.backgroundViewController.currentImage;
     }
 
 }

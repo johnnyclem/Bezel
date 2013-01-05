@@ -9,6 +9,14 @@
 #import "bz_ViewController.h"
 #import "AnimationDelegate.h"
 
+@protocol BZShapesViewControllerDelegate <NSObject>
+- (void)shapeTouched:(bz_Button *)shape;
+@end
+
 @interface bz_ShapesViewController : bz_ViewController
+
+@property (weak) id <BZShapesViewControllerDelegate> delegate;
+
+@property (strong, nonatomic, readonly) NSArray *shapeButtons;
 
 @end

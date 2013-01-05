@@ -40,14 +40,15 @@
     BOOL keepPhoto;
 }
 
-@property (nonatomic, strong) IBOutlet UIView *cameraPreviewView;
+@property (weak, nonatomic) IBOutlet UIView *scrollContainerView;
+@property (weak, nonatomic) IBOutlet UIView *cameraPreviewView;
 @property (nonatomic, strong) UIView *cameraMaskView;
 @property (nonatomic, strong) UIView *photoMaskView;
 @property (nonatomic, strong) UIImageView *bgView;
 @property (nonatomic, strong) UIImage *saveMask;
 @property (nonatomic, strong) UIImage *maskedImage;
 @property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic, strong) bz_ScrollViewController *scrollVC;
+@property (nonatomic, strong) IBOutlet bz_ScrollViewController *scrollVC;
 @property (strong, atomic) ALAssetsLibrary* library;
 @property (nonatomic, strong) UIDocumentInteractionController *docController;
 @property (nonatomic) BOOL useLibrary;
@@ -87,6 +88,12 @@
     [super viewDidLoad];
 
     self.session = [[BZSession alloc] init];
+    
+    _scrollVC = [[bz_ScrollViewController alloc] init];
+    [_scrollVC setupScrollViewChildren];
+    [self.view addSubview: _scrollVC.scrollView];
+    
+    imageCameFromLibrary = NO;
 
     imageCameFromLibrary = NO;
     NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
@@ -102,14 +109,15 @@
 
     self.library = [[ALAssetsLibrary alloc] init];
 
+    for (bz_Button *button in _scrollVC.shapesViewController.shapeButtons) {
+        [button addTarget: self action: @selector(switchShape:) forControlEvents: UIControlEventTouchUpInside];
+    }
+    
     // Add event listeners
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(takePhoto) name:@"camBtn" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(switchShapes) name:@"switchShapes" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(switchShape:) name:@"switchShape" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(switchCamera) name:@"switchCam" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newPhotoArrived:) name:@"newImage" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newPhotoArrivedFromLibrary:) name:@"newImageFromLibrary" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scrollViewLoaded:) name:@"scrolledHome" object:NO];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(filterImage:) name:@"filterImage" object:NO];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addBackground:) name:@"newBackground" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sharePhoto:) name:@"sharePhoto" object:nil];
@@ -119,13 +127,6 @@
     
 }
 
-- (void)scrollViewLoaded:(NSNotification*)notification {
-    LogTrace(@"Receiving scroll view: %@", _scrollVC);
-    _scrollVC = [notification.userInfo objectForKey:@"scrollVC"];
-    imageCameFromLibrary = NO;
-    [self viewDidAppear:YES];
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:animated];
@@ -133,8 +134,11 @@
     NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
     
     if ([(NSString*)[standard objectForKey:BZ_SETTINGS_FIRST_LAUNCH_KEY] isEqualToString:@"FALSE"]) {
-        if (!keepPhoto) {
-            self.currentImage = nil;
+        if (!keepPhoto)
+        {
+            self.session.fullResolutionImage = nil;
+            self.session.thumbnailImage = nil;
+            
             if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
                 useLibrary = NO;
                 [self setupCamera];
@@ -240,8 +244,6 @@
                 dict = [NSDictionary dictionaryWithObject: thumb forKey:@"newImageKey"];
                 libraryPhoto = [NSNotification notificationWithName:@"newImage" object:self userInfo:dict];
                 [self newPhotoArrived:libraryPhoto];
-                
-                [[BZCaptureManager sharedManager] setPreviewLayerWithView: nil];
             }
         };
         
@@ -250,6 +252,7 @@
             
         };
         
+        [[BZCaptureManager sharedManager] setPreviewLayerWithView: nil];
         [[BZCaptureManager sharedManager] captureMediaWithType: BZCaptureTypePhoto
                                                   successBlock: successBlock
                                                   failureBlock: failureBlock];
@@ -329,23 +332,17 @@
     }
 }
 
--(void)switchShapes
+-(void)switchShape:(bz_Button *)button
 {
-    LogTrace(@"switching shape set");
-}
-
--(void)switchShape:(NSNotification*)notification {
-    
     bz_MaskShapeLayer *previewMaskLayer;
     
     NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
     holidayPackIsPurchased = [(NSNumber*)[standard objectForKey: BZ_HOLIDAY_PACK_PURCHASE_KEY] boolValue];
     proShapePackIsPurchased = [(NSNumber*)[standard objectForKey: BZ_PRO_SHAPE_PACK_PURCHASE_KEY] boolValue];
 
-    bz_Button *button = [notification.userInfo objectForKey:@"newShape"];
     CGSize imageSize;
     CGSize previewSize = CGSizeMake(320.f, 320.f);
-    switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
+    switch ([defaults integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
         case 1:
             imageSize = CGSizeMake(1024.f, 1024.f);
             break;
@@ -360,7 +357,7 @@
     if (button.tag <= 7) {
         switch (button.tag) {
             case 4:
-                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
+                switch ([defaults integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
                     case 1:
                         _saveMask  = [UIImage imageNamed:@"squareMask_1024.png"];
                         break;
@@ -375,7 +372,7 @@
                 _photoMaskLayer   = [[bz_MaskShapeLayer alloc] initWithSquareShapeAtSize:imageSize];
                 break;
             case 5:
-                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
+                switch ([defaults integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
                     case 1:
                         _saveMask  = [UIImage imageNamed:@"triangleMask_1024.png"];
                         break;
@@ -390,7 +387,7 @@
                 previewMaskLayer = [[bz_MaskShapeLayer alloc] initWithTriangleAtSize:previewSize];
                 break;
             case 6:
-                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
+                switch ([defaults integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
                     case 1:
                         _saveMask  = [UIImage imageNamed:@"hexagonMask_1024.png"];
                         break;
@@ -405,7 +402,7 @@
                 _photoMaskLayer   = [[bz_MaskShapeLayer alloc] initWithHexagonAtSize:imageSize];
                 break;
             case 7:
-                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
+                switch ([defaults integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
                     case 1:
                         _saveMask  = [UIImage imageNamed:@"heartMask_1024.png"];
                         break;
@@ -420,7 +417,7 @@
                 _photoMaskLayer   = [[bz_MaskShapeLayer alloc] initWithTriangleAtSize:imageSize];
                 break;
             default:
-                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
+                switch ([defaults integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
                     case 1:
                         _saveMask  = [UIImage imageNamed:@"circleMask_1024.png"];
                         break;
@@ -438,9 +435,11 @@
     }
 
     else if (button.tag >= 53 && button.tag <= 100 && holidayPackIsPurchased) {
-        switch ([(bz_Button*)[notification.userInfo objectForKey:@"newShape"] tag]) {
+        switch ([button tag]) {
+    else if (button.tag >= 53 && holidayPackIsPurchased) {
+        switch ([button tag]) {
             case 53:
-                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
+                switch ([defaults integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
                     case 1:
                         _saveMask  = [UIImage imageNamed:@"treeMask_1024.png"];
                         break;
@@ -454,7 +453,7 @@
                 _maskImage = [UIImage imageNamed:@"tree.png"];
                 break;
             case 55:
-                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
+                switch ([defaults integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
                     case 1:
                         _saveMask  = [UIImage imageNamed:@"starMask_1024.png"];
                         break;
@@ -468,7 +467,7 @@
                 _maskImage = [UIImage imageNamed:@"star.png"];
                 break;
             case 58:
-                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
+                switch ([defaults integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
                     case 1:
                         _saveMask  = [UIImage imageNamed:@"ornamentMask_1024.png"];
                         break;
@@ -574,7 +573,7 @@
         [buyProShapePack show];
     }
 
-//    switch ([standard integerForKey:bz_SettingsFullResolutionKey]) {
+//    switch ([defaults integerForKey:bz_SettingsFullResolutionKey]) {
 //        case 0:
 //            _maskImage = [_maskImage resizedImage:CGSizeMake(640, 640) interpolationQuality:kCGInterpolationHigh];
 //            _saveMask  = [_saveMask resizedImage:CGSizeMake(1024, 1024) interpolationQuality:kCGInterpolationHigh];
@@ -653,9 +652,9 @@
     UIImage *filteredImage = [notification.userInfo objectForKey:@"newFilteredImage"];
     
     _maskedImage = [self maskImage:filteredImage withMask:_saveMask];
-    self.currentImage = nil;
-    self.currentImage = filteredImage;
     
+//    self.session.thumbnailImage
+//    
     [_sessionPreview setImage:self.currentImage];
 
 }
@@ -776,6 +775,8 @@
                          LogTrace(@"completed animation");
                      }];
     
+    [[BZCaptureManager sharedManager] setPreviewLayerWithView: _sessionPreview];
+    
 }
 
 #pragma mark -
@@ -831,7 +832,6 @@
     
     BZAdjustmentProcessor *proc = [[BZAdjustmentProcessor alloc] initWithSession: self.session];
     UIImage *curImg = [proc processedFullResolutionImage];
-    
     
     [SVProgressHUD showWithStatus:@"Saving Image"];
     [self.library writeImageToSavedPhotosAlbum: curImg.CGImage metadata:nil completionBlock:^(NSURL *assetURL, NSError *error) {
@@ -971,11 +971,13 @@
             }
             break;
         case 50:
-            if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"No Thanks"]) {
+            if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"No Thanks"])
+            {
+                //TODO
                 
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"switchShapes" object:self userInfo:dict];
-                
-            } else if([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Go To Store"]) {
+            }
+            else if([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Go To Store"])
+            {
                 
                 [self openStoreView:nil];
                 

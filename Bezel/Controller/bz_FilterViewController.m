@@ -56,8 +56,8 @@
     
     // Top Row Buttons
     CGFloat width       = self.view.frame.size.width;
-    CGFloat btnWidth    = width/4.f;
-    CGFloat btnHeight   = _scrollHeight/2.f;
+    CGFloat btnWidth    = width/4.0f;
+    CGFloat btnHeight   = _scrollHeight/2.0f;
     UIImage *icon       = [UIImage imageNamed:@"Icon.png"];
     
     _filter1   = [[bz_Button alloc] initWithFrame:CGRectMake(0, 0, btnWidth, btnHeight) andTag:1000];

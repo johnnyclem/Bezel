@@ -66,64 +66,36 @@
                                     <segue destination="dEk-S9-x76" kind="modal" identifier="ShowSettings" modalTransitionStyle="coverVertical" id="kit-p8-nXG"/>
                                 </connections>
                             </button>
-                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zZZ-dP-OBT">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <connections>
-                                    <segue destination="SHz-Be-SzV" kind="embed" id="ogj-xx-NhF"/>
-                                </connections>
-                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uhD-s1-AZh" firstAttribute="bottom" secondItem="MKX-sc-VKk" secondAttribute="bottom" type="default" id="5wg-Zj-B1J"/>
                             <constraint firstItem="YpG-mC-5DO" firstAttribute="leading" secondItem="a4y-SG-5eH" secondAttribute="leading" type="default" id="86u-8K-QRo"/>
                             <constraint firstItem="ly7-th-fv8" firstAttribute="leading" secondItem="a4y-SG-5eH" secondAttribute="leading" type="default" id="CtX-a3-X3w"/>
-                            <constraint firstItem="zZZ-dP-OBT" firstAttribute="trailing" secondItem="a4y-SG-5eH" secondAttribute="trailing" type="default" id="Da0-Mb-chX"/>
                             <constraint firstItem="MKX-sc-VKk" firstAttribute="centerX" secondItem="YpG-mC-5DO" secondAttribute="centerX" type="default" id="VuQ-vG-KDU"/>
                             <constraint firstItem="uhD-s1-AZh" firstAttribute="top" secondItem="a4y-SG-5eH" secondAttribute="top" type="default" id="Y6M-0Q-miG"/>
                             <constraint firstItem="YpG-mC-5DO" firstAttribute="trailing" secondItem="a4y-SG-5eH" secondAttribute="trailing" type="default" id="YOH-G7-x6x"/>
                             <constraint firstItem="YpG-mC-5DO" firstAttribute="top" secondItem="a4y-SG-5eH" secondAttribute="top" constant="60" id="ZnJ-ek-u7l"/>
                             <constraint firstItem="MKX-sc-VKk" firstAttribute="bottom" secondItem="ly7-th-fv8" secondAttribute="bottom" type="default" id="akk-kK-rH8"/>
                             <constraint firstItem="ly7-th-fv8" firstAttribute="top" secondItem="a4y-SG-5eH" secondAttribute="top" type="default" id="bF2-oX-JZf"/>
-                            <constraint firstItem="zZZ-dP-OBT" firstAttribute="leading" secondItem="a4y-SG-5eH" secondAttribute="leading" type="default" id="bNw-lX-5fk"/>
                             <constraint firstItem="MKX-sc-VKk" firstAttribute="top" secondItem="a4y-SG-5eH" secondAttribute="top" type="default" id="cH5-LD-VOF"/>
-                            <constraint firstItem="zZZ-dP-OBT" firstAttribute="top" secondItem="a4y-SG-5eH" secondAttribute="top" constant="380" id="cjn-Uf-REl"/>
                             <constraint firstItem="uhD-s1-AZh" firstAttribute="trailing" secondItem="a4y-SG-5eH" secondAttribute="trailing" type="default" id="j85-Sh-zeu"/>
-                            <constraint firstItem="zZZ-dP-OBT" firstAttribute="bottom" secondItem="a4y-SG-5eH" secondAttribute="bottom" type="default" id="vAc-D3-lJy"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="cart" destination="ly7-th-fv8" id="MMg-EP-Vkf"/>
                         <outlet property="gallery" destination="MKX-sc-VKk" id="Vob-12-vOg"/>
+                        <outlet property="scrollVC" destination="acu-Qp-Fm6" id="WHz-9A-RWW"/>
                         <outlet property="sessionPreview" destination="YpG-mC-5DO" id="YQZ-z5-4eW"/>
                         <outlet property="settings" destination="uhD-s1-AZh" id="L1u-2g-sxr"/>
+                        <outlet property="view" destination="a4y-SG-5eH" id="Lnw-Mk-Jvw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZWy-Te-SBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="acu-Qp-Fm6" customClass="bz_ScrollViewController"/>
             </objects>
             <point key="canvasLocation" x="354" y="63"/>
-        </scene>
-        <!--Bz Scroll View Controller-->
-        <scene sceneID="sHl-9s-gAW">
-            <objects>
-                <viewController storyboardIdentifier="ScrollView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SHz-Be-SzV" customClass="bz_ScrollViewController" sceneMemberID="viewController">
-                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="gUh-Bt-Tf8" customClass="bz_ScrollView">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="delegate" destination="SHz-Be-SzV" id="9kC-kP-kYc"/>
-                        </connections>
-                    </scrollView>
-                    <toolbarItems/>
-                    <connections>
-                        <outlet property="scrollView" destination="gUh-Bt-Tf8" id="mhO-Zs-pm9"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sjA-SS-reT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="846" y="443"/>
         </scene>
         <!--Bz Settings View Controller-->
         <scene sceneID="ics-LB-cyG">
@@ -375,10 +347,14 @@
         <class className="bz_MainViewController" superclassName="bz_ViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/bz_MainViewController.h"/>
             <relationships>
+                <relationship kind="action" name="importFromLibrary:"/>
+                <relationship kind="action" name="openStoreView:"/>
                 <relationship kind="outlet" name="cameraPreviewView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="cart" candidateClass="bz_Button"/>
                 <relationship kind="outlet" name="gallery" candidateClass="bz_Button"/>
-                <relationship kind="outlet" name="imageView" candidateClass="bz_ImageView"/>
+                <relationship kind="outlet" name="scrollContainerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scrollVC" candidateClass="bz_ScrollViewController"/>
+                <relationship kind="outlet" name="sessionPreview" candidateClass="bz_ImageView"/>
                 <relationship kind="outlet" name="settings" candidateClass="bz_Button"/>
             </relationships>
         </class>
