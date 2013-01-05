@@ -980,7 +980,7 @@
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     int quality = [df integerForKey:@"full_resolution"];
     
-    CGSize imgSize;
+    CGSize imageSize;
     __block UIImage *takenImage;
 //    __block UIImage *thumbImage;
     __block NSDictionary* dict;
@@ -988,18 +988,18 @@
     
     switch (quality) {
         case 2: // User wants highest res image
-            imgSize = CGSizeMake(2048, 2048);
+            imageSize = CGSizeMake(2048, 2048);
             break;
         case 1: // User wants 1024x1024 res image
-            imgSize = CGSizeMake(1024, 1024);
+            imageSize = CGSizeMake(1024, 1024);
             break;
         case 0: // User wants 640x640 res image
-            imgSize = CGSizeMake(640, 640);
+            imageSize = CGSizeMake(640, 640);
             break;
         default:
             break;
     }
-    LogTrace(@"captured image at: %f, %f", imgSize.width, imgSize.height);
+    LogTrace(@"captured image at: %f, %f", imageSize.width, imageSize.height);
     
 //    void (^saveToCache)(void) = ^ {
 //
