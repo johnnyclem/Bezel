@@ -92,7 +92,6 @@
     for (bz_Button *button in self.filterButtons)
     {
         [button setImage:icon forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(applyFilter:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
     }
 }
@@ -113,8 +112,7 @@
     self.currentThumb = [self.currentImage resizedImage:CGSizeMake(160, 160) interpolationQuality:kCGInterpolationLow];
     
     if (self.currentImage != nil) {
-        
-        [self applyFilter:nil];
+
         
         for (int i=1000; i<1008; i++) {
             bz_Button *button = [self buttonFromTag:[NSNumber numberWithInt:i]];
@@ -172,54 +170,6 @@
         }
     }
 }
-
--(void)applyFilter:(UIButton*)sender {
-    
-    UIImage *inputImage;
-    
-    switch (sender.tag) {
-        case 1000:
-            inputImage = [UIImage imageNamed:@"B&W1.png"];
-            break;
-        case 1001:
-            inputImage = [UIImage imageNamed:@"B&W2.png"];
-            break;
-        case 1002:
-            inputImage = [UIImage imageNamed:@"blue.png"];
-            break;
-        case 1003:
-            inputImage = [UIImage imageNamed:@"DarkFade.png"];
-            break;
-        case 1004:
-            inputImage = [UIImage imageNamed:@"faded.png"];
-            break;
-        case 1005:
-            inputImage = [UIImage imageNamed:@"GoldenHr.png"];
-            break;
-        case 1006:
-            inputImage = [UIImage imageNamed:@"oz.png"];
-            break;
-        case 1007:
-            inputImage = [UIImage imageNamed:@"Sepia.png"];
-            break;
-        default:
-            inputImage = [UIImage imageNamed:@"normal.png"];
-            break;
-    }
-    
-    GPUImageLookupFilter *lookupFilter  = [[GPUImageLookupFilter alloc] init];
-    GPUImagePicture *stillImageSource   = [[GPUImagePicture alloc] initWithImage:inputImage];
-    GPUImagePicture *sourceImage        = [[GPUImagePicture alloc] initWithImage:self.currentImage];
-    
-    [sourceImage addTarget:lookupFilter];
-    [sourceImage processImage];
-    [stillImageSource addTarget:lookupFilter atTextureLocation:1];
-    [stillImageSource processImage];
-    
-    NSDictionary *newFilteredImage = [NSDictionary dictionaryWithObject:[lookupFilter imageFromCurrentlyProcessedOutput] forKey:@"newFilteredImage"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"filterImage" object:self userInfo:newFilteredImage];
-}
-
 
 - (void)didReceiveMemoryWarning
 {

@@ -57,6 +57,8 @@
 @property (nonatomic) CGSize imgSize;
 @property (strong, nonatomic) BZSession *session;
 
+@property (nonatomic, strong) UIImage *lastImage;
+
 @end
 
 @implementation bz_MainViewController
@@ -151,7 +153,6 @@
             self.session.thumbnailImage = nil;
             
             if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-                useLibrary = NO;
                 [self setupCamera];
             } else {
                 useLibrary = YES;
@@ -597,6 +598,11 @@
     [_sessionPreview setNeedsDisplay];
 }
 
+- (void)undoLastAdjustment
+{
+    [self.session removeAdjustment: [self.session.adjustments lastObject]];
+}
+
 - (void)buyHolidayPack {
     UIAlertView *buyHolidayPack = [[UIAlertView alloc] initWithTitle:@"Buy Holiday Pack?" message:@"The Candy Cane, Christmas Tree and Xmas Wallpaper backgrounds are part of the Bezel Holiday Pack. You can unlock all 3 holiday shapes and 3 holiday backgrounds in the Bezel Store" delegate:self cancelButtonTitle:@"No Thanks" otherButtonTitles:@"Go To Store", nil];
     buyHolidayPack.tag = 50;
@@ -635,6 +641,8 @@
 
 -(void)applyFilter:(bz_Button *)filterButton
 {
+    _lastImage = _sessionPreview.image;
+    
     BZFilterAdjustment *filterAdjustment = [[BZFilterAdjustment alloc] init];
     filterAdjustment.identifier = filterButton.buttonIdentifier;
     filterAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: filterButton.buttonIdentifier, kButtonIdentifier, nil];
@@ -649,7 +657,61 @@
     _sessionPreview.image = [filterAdjustment filteredImageWithImage: _sessionPreview.image];
     _sessionPreview.clipsToBounds = YES;
     [_sessionPreview setNeedsDisplay];
+    
+    UIView *confirm = [[UIView alloc] initWithFrame:CGRectMake(0, -60, 320, 60)];
+    confirm.backgroundColor = [UIColor blackColor];
+    yes = [[bz_Button alloc] initWithFrame:CGRectMake(25.f, (confirm.frame.size.height/2.f)-25.f, 50.f, 50.f)];
+    yes.tag = 33;
+    [yes addTarget:self action:@selector(keepFilteredImage:) forControlEvents:UIControlEventTouchUpInside];
+    
+    no = [[bz_Button alloc] initWithFrame:CGRectMake(245.f, (confirm.frame.size.height/2.f)-25.f, 50.f, 50.f)];
+    [no addTarget:self action:@selector(undoFilter:) forControlEvents:UIControlEventTouchUpInside];
+    no.tag = 34;
+    
+    [confirm addSubview:yes];
+    [confirm addSubview:no];
+    [self.view addSubview:confirm];
+    
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         confirm.frame = CGRectMake(0, 0, 320.f, 60.f);
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"completed animation");
+                     }];
 }
+
+-(void)undoFilter:(id)sender
+{    
+    UIView *confirm = (UIView*)[sender superview];
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         confirm.frame = CGRectMake(0, -60.f, 320.f, 60.f);
+                     }
+                     completion:^(BOOL finished){
+                         [confirm removeFromSuperview];
+                         useLibrary = NO;
+                         
+                         BZFilterAdjustment *adj = [self.session.adjustments lastObject];
+                         [self.session removeAdjustment: adj];
+                         
+                         _sessionPreview.image = [adj filteredImageWithImage: _lastImage];
+                         _sessionPreview.contentMode = UIViewContentModeScaleAspectFill;
+                         
+                     }];
+}
+
+-(void)keepFilteredImage:(id)sender {
+    
+    UIView *confirm = (UIView*)[sender superview];
+    [confirm removeFromSuperview];
+    
+    NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:2], @"scrollPosition", nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"keepPhoto" object:nil userInfo:dict];
+    
+    useLibrary = NO;
+}
+
 
 -(void)newPhotoArrived:(NSNotification*)notification {
     
@@ -658,9 +720,9 @@
     [NSThread detachNewThreadSelector:@selector(processNewImage:) toTarget:self withObject:newImage];
 }
 
--(void)newLibraryPhotoArrived:(NSNotification*)notification {
-    
-    keepPhoto = YES;
+-(void)newLibraryPhotoArrived:(NSNotification*)notification
+{    
+    // TODO keepPhoto = YES;
     self.currentImage = [notification.userInfo objectForKey:@"newImageKey"];
     [_sessionPreview setImage:self.currentImage];
     [NSThread detachNewThreadSelector:@selector(processNewLibraryImage:) toTarget:self withObject:nil];
@@ -702,6 +764,8 @@
 }
 
 -(void)processNewLibraryImage:(UIImage*)newImage {
+    [_sessionPreview setImage: newImage];
+    _sessionPreview.contentMode = UIViewContentModeScaleAspectFill;
     
     UIView *confirm = [[UIView alloc] initWithFrame:CGRectMake(0, UIScreen.mainScreen.bounds.size.height, 320, (UIScreen.mainScreen.bounds.size.height-380)/2)];
     confirm.backgroundColor = [UIColor blackColor];
@@ -1032,6 +1096,9 @@
     }
     LogTrace(@"captured image at: %f, %f", imageSize.width, imageSize.height);
 
+    self.session.thumbnailImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    self.session.fullResolutionImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    
     void (^saveFullRes)(void) = ^ {
     
         if (useLibrary) {
