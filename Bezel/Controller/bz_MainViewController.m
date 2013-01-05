@@ -22,6 +22,7 @@
 #import "BZSession.h"
 
 #import "BZMaskAdjustment.h"
+#import "BZFilterAdjustment.h"
 #import "BZAdjustmentProcessor.h"
 
 @interface bz_MainViewController ()
@@ -114,8 +115,14 @@
 
     self.library = [[ALAssetsLibrary alloc] init];
 
-    for (bz_Button *button in _scrollVC.shapesViewController.shapeButtons) {
+    for (bz_Button *button in _scrollVC.shapesViewController.shapeButtons)
+    {
         [button addTarget: self action: @selector(switchShape:) forControlEvents: UIControlEventTouchUpInside];
+    }
+    
+    for (bz_Button *button in _scrollVC.filterViewController.filterButtons)
+    {
+        [button addTarget:self action:@selector(applyFilter:) forControlEvents: UIControlEventTouchUpInside];
     }
     
     // Add event listeners
@@ -123,7 +130,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(switchCamera) name:@"switchCam" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newPhotoArrived:) name:@"newImage" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newPhotoArrivedFromLibrary:) name:@"newImageFromLibrary" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(filterImage:) name:@"filterImage" object:NO];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addBackground:) name:@"newBackground" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sharePhoto:) name:@"sharePhoto" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyColorPicker) name:@"buyColorPicker" object:nil];
@@ -577,7 +583,6 @@
 //    //        [buyHolidayPack show];
 //    //    }
     BZMaskAdjustment *maskAdjustment = [[BZMaskAdjustment alloc] init];
-    maskAdjustment.identifier = kBZMaskAdjustmentMaskShapeKey;
     maskAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: button.buttonIdentifier, kButtonIdentifier, nil];
     
     [self.session addAdjustment: maskAdjustment];
@@ -628,16 +633,22 @@
     return maskedImage;
 }
 
--(void)filterImage:(NSNotification*)notification {
+-(void)applyFilter:(bz_Button *)filterButton
+{
+    BZFilterAdjustment *filterAdjustment = [[BZFilterAdjustment alloc] init];
+    filterAdjustment.identifier = filterButton.buttonIdentifier;
+    filterAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: filterButton.buttonIdentifier, kButtonIdentifier, nil];
     
-    UIImage *filteredImage = [notification.userInfo objectForKey:@"newFilteredImage"];
+    [self.session addAdjustment: filterAdjustment];
     
-    _maskedImage = [self maskImage:filteredImage withMask:_saveMask];
+    if (!imageCameFromLibrary) {
+        [_sessionPreview setImage:nil];
+    }
     
-//    self.session.thumbnailImage
-//    
-    [_sessionPreview setImage:self.currentImage];
-
+    // set the preview layer mask to the adjusted mask.
+    _sessionPreview.image = [filterAdjustment filteredImageWithImage: _sessionPreview.image];
+    _sessionPreview.clipsToBounds = YES;
+    [_sessionPreview setNeedsDisplay];
 }
 
 -(void)newPhotoArrived:(NSNotification*)notification {
@@ -728,16 +739,23 @@
     NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:1], @"scrollPosition", self, @"mainVC", nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"keepPhoto" object:self userInfo:dict];
 
-//    [self sendImagetoFilterView:self.currentImage];
-    [self performSelectorInBackground:@selector(sendImagetoFilterView:) withObject:self.currentImage];
+    [self setupFilterThumbnails];
+    
     useLibrary = NO;
 }
 
--(void)sendImagetoFilterView:(UIImage*)image {
-    
-    NSDictionary* newImage = [NSDictionary dictionaryWithObjectsAndKeys:image, @"newImage", nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"setupFilterPreviews" object:self userInfo:newImage];
-
+-(void)setupFilterThumbnails
+{
+    UIImage *currentThumb = self.session.thumbnailImage;
+    for (bz_Button *button in _scrollVC.filterViewController.filterButtons)
+    {
+        BZFilterAdjustment *filterAdjustment = [[BZFilterAdjustment alloc] init];
+        filterAdjustment.identifier = button.buttonIdentifier;
+        filterAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: button.buttonIdentifier, kButtonIdentifier, nil];
+        
+        // set the preview layer mask to the adjusted mask.
+        button.imageView.image = [filterAdjustment filteredImageWithImage: currentThumb];
+    }
 }
 
 -(void)retakePhoto:(id)sender {

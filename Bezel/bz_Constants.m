@@ -34,5 +34,16 @@ NSString* const kButtonIdentifierTriangleMask = @"kButtonIdentifierTriangleMask"
 NSString* const kButtonIdentifierHexagonMask = @"kButtonIdentifierHexagonMask";
 NSString* const kButtonIdentifierHeartMask = @"kButtonIdentifierHeartMask";
 
+// Filter buttons
+NSString* const kButtonIdentifierFilterBW1 = @"kButtonIdentifierFilterBW1";
+NSString* const kButtonIdentifierFilterBW2 = @"kButtonIdentifierFilterBW2";
+NSString* const kButtonIdentifierFilterBlue = @"kButtonIdentifierFilterBlue";
+NSString* const kButtonIdentifierFilterDarkFade = @"kButtonIdentifierFilterDarkFade";
+NSString* const kButtonIdentifierFilterFaded = @"kButtonIdentifierFilterFaded";
+NSString* const kButtonIdentifierFilterGoldenHr = @"kButtonIdentifierFilterGoldenHr";
+NSString* const kButtonIdentifierFilterOz = @"kButtonIdentifierFilterOz";
+NSString* const kButtonIdentifierFilterSepia = @"kButtonIdentifierFilterSepia";
+NSString* const kButtonIdentifierFilterNormal = @"kButtonIdentifierFilterNormal";
+
 @implementation bz_Constants
 @end

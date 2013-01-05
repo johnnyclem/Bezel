@@ -29,12 +29,24 @@ NSString* const BZ_PROMOTION_VALUE_SEGMENTED_CONTROL_REUSE_IDENTIFIER;
 // Used as more meaningful Tags
 NSString* const kButtonIdentifier;
 
+// Mask buttons
 NSString* const kButtonIdentifierCircleMask;
 NSString* const kButtonIdentifierSquareMask;
 NSString* const kButtonIdentifierTriangleMask;
 NSString* const kButtonIdentifierHexagonMask;
 NSString* const kButtonIdentifierHeartMask;
 
+
+// Filter buttons
+NSString* const kButtonIdentifierFilterBW1;
+NSString* const kButtonIdentifierFilterBW2;
+NSString* const kButtonIdentifierFilterBlue;
+NSString* const kButtonIdentifierFilterDarkFade;
+NSString* const kButtonIdentifierFilterFaded;
+NSString* const kButtonIdentifierFilterGoldenHr;
+NSString* const kButtonIdentifierFilterOz;
+NSString* const kButtonIdentifierFilterSepia;
+NSString* const kButtonIdentifierFilterNormal;
 
 @interface bz_Constants : NSObject
 @end

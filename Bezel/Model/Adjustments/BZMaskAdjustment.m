@@ -15,9 +15,6 @@
 
 @implementation BZMaskAdjustment
 
-NSString * const kBZMaskAdjustmentMaskImageKey = @"kBZMaskAdjustmentMaskImageKey";
-NSString * const kBZMaskAdjustmentMaskShapeKey = @"kBZMaskAdjustmentMaskShapeKey";
-
 @synthesize identifier;
 @synthesize value;
 @synthesize duplicatesAllowed;

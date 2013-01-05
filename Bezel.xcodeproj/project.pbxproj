@@ -30,6 +30,9 @@
 		CC384CC4167E642800174786 /* bz_Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CC384CC3167E642800174786 /* bz_Constants.m */; };
 		CC384CC5167E642800174786 /* bz_Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CC384CC3167E642800174786 /* bz_Constants.m */; };
 		CC384CC6167E642800174786 /* bz_Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CC384CC3167E642800174786 /* bz_Constants.m */; };
+		CC3C08091697E04C00CF9B18 /* BZFilterAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3C08081697E04C00CF9B18 /* BZFilterAdjustment.m */; };
+		CC3C080A1697E04C00CF9B18 /* BZFilterAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3C08081697E04C00CF9B18 /* BZFilterAdjustment.m */; };
+		CC3C080B1697E04C00CF9B18 /* BZFilterAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3C08081697E04C00CF9B18 /* BZFilterAdjustment.m */; };
 		CC413CCC167D567100773B24 /* bz_Promotion.m in Sources */ = {isa = PBXBuildFile; fileRef = CC413CCB167D567100773B24 /* bz_Promotion.m */; };
 		CC55B6AD16949614006AD05A /* BZCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55B6AC16949614006AD05A /* BZCaptureManager.m */; };
 		CC55B6AE16949614006AD05A /* BZCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55B6AC16949614006AD05A /* BZCaptureManager.m */; };
@@ -629,6 +632,8 @@
 		CC384CB5167E5C0700174786 /* Bezel-QA-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bezel-QA-Info.plist"; sourceTree = "<group>"; };
 		CC384CC2167E642700174786 /* bz_Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bz_Constants.h; sourceTree = "<group>"; };
 		CC384CC3167E642800174786 /* bz_Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bz_Constants.m; sourceTree = "<group>"; };
+		CC3C08071697E04B00CF9B18 /* BZFilterAdjustment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZFilterAdjustment.h; path = Adjustments/BZFilterAdjustment.h; sourceTree = "<group>"; };
+		CC3C08081697E04C00CF9B18 /* BZFilterAdjustment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZFilterAdjustment.m; path = Adjustments/BZFilterAdjustment.m; sourceTree = "<group>"; };
 		CC413CCA167D567100773B24 /* bz_Promotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bz_Promotion.h; sourceTree = "<group>"; };
 		CC413CCB167D567100773B24 /* bz_Promotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bz_Promotion.m; sourceTree = "<group>"; };
 		CC55B6AB16949614006AD05A /* BZCaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BZCaptureManager.h; sourceTree = "<group>"; };
@@ -1008,6 +1013,8 @@
 				CC16B97B1694CBF600027CC5 /* BZAdjustment.m */,
 				CC19F7FE1695F56E001A3828 /* BZMaskAdjustment.h */,
 				CC19F7FF1695F56E001A3828 /* BZMaskAdjustment.m */,
+				CC3C08071697E04B00CF9B18 /* BZFilterAdjustment.h */,
+				CC3C08081697E04C00CF9B18 /* BZFilterAdjustment.m */,
 				CC16B97F1694CC1C00027CC5 /* BZSession.h */,
 				CC16B9801694CC1C00027CC5 /* BZSession.m */,
 			);
@@ -2088,6 +2095,7 @@
 				CC16B9821694CC1C00027CC5 /* BZSession.m in Sources */,
 				CC19F8011695F56E001A3828 /* BZMaskAdjustment.m in Sources */,
 				CC033ABA16965CC4007D9643 /* BZAdjustmentProcessor.m in Sources */,
+				CC3C080A1697E04C00CF9B18 /* BZFilterAdjustment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2170,6 +2178,7 @@
 				CC16B9811694CC1C00027CC5 /* BZSession.m in Sources */,
 				CC19F8001695F56E001A3828 /* BZMaskAdjustment.m in Sources */,
 				CC033AB916965CC4007D9643 /* BZAdjustmentProcessor.m in Sources */,
+				CC3C08091697E04C00CF9B18 /* BZFilterAdjustment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2251,6 +2260,7 @@
 				CC16B97E1694CBF600027CC5 /* BZAdjustment.m in Sources */,
 				CC16B9831694CC1C00027CC5 /* BZSession.m in Sources */,
 				CC19F8021695F56E001A3828 /* BZMaskAdjustment.m in Sources */,
+				CC3C080B1697E04C00CF9B18 /* BZFilterAdjustment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

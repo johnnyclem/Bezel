@@ -24,6 +24,8 @@
 @property (nonatomic, strong) bz_Button *filter7;
 @property (nonatomic, strong) bz_Button *filter8;
 
+@property (strong, nonatomic) NSMutableArray *filterButtons;
+
 @end
 
 @implementation bz_FilterViewController
@@ -61,41 +63,48 @@
     UIImage *icon       = [UIImage imageNamed:@"Icon.png"];
     
     _filter1   = [[bz_Button alloc] initWithFrame:CGRectMake(0, 0, btnWidth, btnHeight) andTag:1000];
-    _filter2   = [[bz_Button alloc] initWithFrame:CGRectMake(btnWidth, 0, btnWidth, btnHeight) andTag:1001];
-    _filter3   = [[bz_Button alloc] initWithFrame:CGRectMake(btnWidth*2, 0, btnWidth, btnHeight) andTag:1002];
-    _filter4   = [[bz_Button alloc] initWithFrame:CGRectMake(btnWidth*3, 0, btnWidth, btnHeight) andTag:1003];
-    _filter5   = [[bz_Button alloc] initWithFrame:CGRectMake(0, btnHeight, btnWidth, btnHeight) andTag:1004];
-    _filter6   = [[bz_Button alloc] initWithFrame:CGRectMake(btnWidth, btnHeight, btnWidth, btnHeight) andTag:1005];
-    _filter7   = [[bz_Button alloc] initWithFrame:CGRectMake(btnWidth*2, btnHeight, btnWidth, btnHeight) andTag:1006];
-    _filter8   = [[bz_Button alloc] initWithFrame:CGRectMake(btnWidth*3, btnHeight, btnWidth, btnHeight) andTag:1007];
+    _filter1.buttonIdentifier = kButtonIdentifierFilterBW1;
     
-    for (int i=1000; i<1008; i++) {
-        bz_Button *button = [self buttonFromTag:[NSNumber numberWithInt:i]];
+    _filter2   = [[bz_Button alloc] initWithFrame:CGRectMake(btnWidth, 0, btnWidth, btnHeight) andTag:1001];
+    _filter2.buttonIdentifier = kButtonIdentifierFilterBW2;
+    
+    _filter3   = [[bz_Button alloc] initWithFrame:CGRectMake(btnWidth*2, 0, btnWidth, btnHeight) andTag:1002];
+    _filter3.buttonIdentifier = kButtonIdentifierFilterDarkFade;
+    
+    _filter4   = [[bz_Button alloc] initWithFrame:CGRectMake(btnWidth*3, 0, btnWidth, btnHeight) andTag:1003];
+    _filter4.buttonIdentifier = kButtonIdentifierFilterFaded;
+    
+    _filter5   = [[bz_Button alloc] initWithFrame:CGRectMake(0, btnHeight, btnWidth, btnHeight) andTag:1004];
+    _filter5.buttonIdentifier = kButtonIdentifierFilterGoldenHr;
+    
+    _filter6   = [[bz_Button alloc] initWithFrame:CGRectMake(btnWidth, btnHeight, btnWidth, btnHeight) andTag:1005];
+    _filter6.buttonIdentifier = kButtonIdentifierFilterOz;
+    
+    _filter7   = [[bz_Button alloc] initWithFrame:CGRectMake(btnWidth*2, btnHeight, btnWidth, btnHeight) andTag:1006];
+    _filter7.buttonIdentifier = kButtonIdentifierFilterSepia;
+    
+    _filter8   = [[bz_Button alloc] initWithFrame:CGRectMake(btnWidth*3, btnHeight, btnWidth, btnHeight) andTag:1007];
+    _filter8.buttonIdentifier = kButtonIdentifierFilterNormal;
+    
+    
+    self.filterButtons = [NSMutableArray arrayWithObjects: _filter1, _filter2, _filter3, _filter4, _filter5, _filter6, _filter7, _filter8, nil];
+    
+    for (bz_Button *button in self.filterButtons)
+    {
         [button setImage:icon forState:UIControlStateNormal];
         [button addTarget:self action:@selector(applyFilter:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
     }
-
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupFilterPreviews:) name:@"setupFilterPreviews" object:nil];
-
 }
 
--(void)viewWillAppear:(BOOL)animated {
-
+-(void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
-
-//    for (int i=1000; i<1008; i++) {
-//        bz_Button *button = [self buttonFromTag:[NSNumber numberWithInt:i]];
-//        [button setImage:nil forState:UIControlStateNormal];
-//    }
-
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    
+-(void)viewDidAppear:(BOOL)animated
+{    
     [super viewDidAppear:animated];
-    
 }
 
 -(void)setupFilterPreviews:(NSNotification *)notification {

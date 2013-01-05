@@ -14,4 +14,6 @@
 @property (nonatomic, strong) UIImage *currentThumb;
 @property (nonatomic, strong) UIImage *currentMask;
 
+@property (strong, nonatomic, readonly) NSMutableArray *filterButtons;
+
 @end

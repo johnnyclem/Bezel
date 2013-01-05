@@ -8,9 +8,6 @@
 
 #import "BZAdjustment.h"
 
-NSString * const kBZMaskAdjustmentMaskImageKey;
-NSString * const kBZMaskAdjustmentMaskShapeKey;
-
 @interface BZMaskAdjustment : BZAdjustment
 
 @property (nonatomic, retain) NSDictionary *value;
