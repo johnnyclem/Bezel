@@ -130,11 +130,18 @@
 
 - (void) setPreviewLayerWithView:(UIView *)view
 {
-    self.previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession: self.currentSession];
-    [self.previewLayer setFrame: view.bounds];
-    [self.previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
-    [view.layer setMasksToBounds:YES];
-    [view.layer addSublayer: self.previewLayer];
+    if (view)
+    {
+        self.previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession: self.currentSession];
+        [self.previewLayer setFrame: view.bounds];
+        [self.previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
+        [view.layer setMasksToBounds:YES];
+        [view.layer addSublayer: self.previewLayer];
+    }
+    else
+    {
+        self.previewLayer = nil;
+    }
 }
 
 #pragma mark - Session Management

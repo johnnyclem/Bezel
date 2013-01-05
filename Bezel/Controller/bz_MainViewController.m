@@ -147,18 +147,18 @@
     NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
     
     if ([(NSString*)[standard objectForKey:BZ_SETTINGS_FIRST_LAUNCH_KEY] isEqualToString:@"FALSE"]) {
-        if (!keepPhoto)
+        if (!self.session.thumbnailImage || !self.session.fullResolutionImage)
         {
-            self.session.fullResolutionImage = nil;
-            self.session.thumbnailImage = nil;
-            
             if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
                 [self setupCamera];
             } else {
                 useLibrary = YES;
             }
         }
-        
+        else
+        {
+            _sessionPreview.image = self.session.thumbnailImage;
+        }
     } else {
         bz_TutorialViewController *tutorialView = [[bz_TutorialViewController alloc] init];
         [self presentViewController:tutorialView animated:YES completion:^(void) {
@@ -190,6 +190,8 @@
 }
 
 -(IBAction)importFromLibrary:(id)sender {
+    
+    [[BZCaptureManager sharedManager] setPreviewLayerWithView: nil];
     
     useLibrary = YES;
     
@@ -735,6 +737,46 @@
     self.currentImage = nil;
     self.currentImage = newImage;
     [_sessionPreview setImage:self.currentImage];
+
+}
+
+-(void)newLibraryPhotoArrived;
+{
+    _sessionPreview.image = self.session.thumbnailImage;
+    _sessionPreview.contentMode = UIViewContentModeScaleAspectFill;
+    
+    UIView *confirm = [[UIView alloc] initWithFrame:CGRectMake(0, UIScreen.mainScreen.bounds.size.height, 320, (UIScreen.mainScreen.bounds.size.height-380)/2)];
+    confirm.backgroundColor = [UIColor blackColor];
+    yes = [[bz_Button alloc] initWithFrame:CGRectMake(25.f, (confirm.frame.size.height/2.f)-25.f, 50.f, 50.f)];
+    yes.tag = 33;
+    [yes addTarget:self action:@selector(keepPhotoAndRemoveView:) forControlEvents:UIControlEventTouchUpInside];
+    
+    no = [[bz_Button alloc] initWithFrame:CGRectMake(245.f, (confirm.frame.size.height/2.f)-25.f, 50.f, 50.f)];
+    [no addTarget:self action:@selector(retakePhoto:) forControlEvents:UIControlEventTouchUpInside];
+    no.tag = 34;
+    
+    [confirm addSubview:yes];
+    [confirm addSubview:no];
+    
+    [self.view addSubview:confirm];
+    [SVProgressHUD dismiss];
+    
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         confirm.frame = CGRectMake(0, UIScreen.mainScreen.bounds.size.height-confirm.frame.size.height, 320.f, confirm.frame.size.height);
+                     }
+                     completion:^(BOOL finished){
+                         LogTrace(@"completed animation");
+                     }];
+}
+
+-(void)processNewImage:(UIImage*)newImage
+{
+    _maskImage = [bz_MaskShapeLayer maskImageFromShape:_photoMaskLayer atSize:CGSizeMake(1024.f, 1024.f)];
+    _maskedImage = [self maskImage:newImage withMask:_maskImage];
+    self.currentImage = nil;
+    self.currentImage = newImage;
+    [_sessionPreview setImage:self.currentImage];
     _sessionPreview.contentMode = UIViewContentModeScaleAspectFill;
 
     UIView *confirm = [[UIView alloc] initWithFrame:CGRectMake(0, UIScreen.mainScreen.bounds.size.height, 320, UIScreen.mainScreen.bounds.size.height-380)];
@@ -761,36 +803,6 @@
                          LogTrace(@"completed animation");
                      }];
 
-}
-
--(void)processNewLibraryImage:(UIImage*)newImage {
-    [_sessionPreview setImage: newImage];
-    _sessionPreview.contentMode = UIViewContentModeScaleAspectFill;
-    
-    UIView *confirm = [[UIView alloc] initWithFrame:CGRectMake(0, UIScreen.mainScreen.bounds.size.height, 320, (UIScreen.mainScreen.bounds.size.height-380)/2)];
-    confirm.backgroundColor = [UIColor blackColor];
-    yes = [[bz_Button alloc] initWithFrame:CGRectMake(25.f, (confirm.frame.size.height/2.f)-25.f, 50.f, 50.f)];
-    yes.tag = 33;
-    [yes addTarget:self action:@selector(keepPhotoAndRemoveView:) forControlEvents:UIControlEventTouchUpInside];
-    
-    no = [[bz_Button alloc] initWithFrame:CGRectMake(245.f, (confirm.frame.size.height/2.f)-25.f, 50.f, 50.f)];
-    [no addTarget:self action:@selector(retakePhoto:) forControlEvents:UIControlEventTouchUpInside];
-    no.tag = 34;
-    
-    [confirm addSubview:yes];
-    [confirm addSubview:no];
-    
-    [self.view addSubview:confirm];
-    [SVProgressHUD dismiss];
-    
-    [UIView animateWithDuration:0.5
-                     animations:^{
-                         confirm.frame = CGRectMake(0, UIScreen.mainScreen.bounds.size.height-confirm.frame.size.height, 320.f, confirm.frame.size.height);
-                     }
-                     completion:^(BOOL finished){
-                         LogTrace(@"completed animation");
-                     }];
-    
 }
 
 -(void)keepPhotoAndRemoveView:(id)sender {
@@ -834,7 +846,6 @@
                      completion:^(BOOL finished){
                          [confirm removeFromSuperview];
                          useLibrary = NO;
-                         [self viewDidAppear:NO];
                          LogTrace(@"completed animation");
                      }];
     
@@ -1066,18 +1077,11 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-//    // remove the image if previously saved
-//    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"savedImage"]) {
-//        NSString *cachedFilePath = [[NSUserDefaults standardUserDefaults] objectForKey:@"savedImage"];
-//        [[NSFileManager defaultManager] removeItemAtURL:[NSURL URLWithString:cachedFilePath] error:NULL];
-//    }
-    
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     int quality = [df integerForKey:@"full_resolution"];
     
     CGSize imageSize;
     __block UIImage *takenImage;
-//    __block UIImage *thumbImage;
     __block NSDictionary* dict;
     __block NSNotification *libraryPhoto;
     
@@ -1097,22 +1101,25 @@
     LogTrace(@"captured image at: %f, %f", imageSize.width, imageSize.height);
 
     self.session.thumbnailImage = [info objectForKey:UIImagePickerControllerEditedImage];
-    self.session.fullResolutionImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    self.session.fullResolutionImage = [info objectForKey: UIImagePickerControllerOriginalImage];
     
-    void (^saveFullRes)(void) = ^ {
-    
-        if (useLibrary) {
-            imageCameFromLibrary = YES;
-            [self dismissViewControllerAnimated:YES completion:^(void){
-                takenImage = [[info objectForKey:UIImagePickerControllerEditedImage] resizedImage:imgSize interpolationQuality:kCGInterpolationDefault];
-//            replace code below with
-//            saveToCache();
-                dict = [NSDictionary dictionaryWithObject:takenImage forKey:@"newImageKey"];
-                libraryPhoto = [NSNotification notificationWithName:@"newImage" object:self userInfo:dict];
-                useLibrary = NO;
-                [self newLibraryPhotoArrived:libraryPhoto];
-            }];
+    if (useLibrary)
+    {
+        imageCameFromLibrary = YES;
+        [self dismissViewControllerAnimated:YES completion:^(void){
+            useLibrary = NO;
+        }];
+        
+        [self newLibraryPhotoArrived];
+        
+    } else {
+        imageCameFromLibrary = NO;
+        GPUImageCropFilter *filter;
+        
+        if (self.view.frame.size.height == 480) {
+            filter = [[GPUImageCropFilter alloc] initWithCropRegion:CGRectMake(.140625, 0, .75, 1)];
         } else {
+<<<<<<< HEAD
             imageCameFromLibrary = NO;
             GPUImageCropFilter *filter;
 
@@ -1141,38 +1148,27 @@
             [self newPhotoArrived:libraryPhoto];
             [imagePickerController.view removeFromSuperview];
             imagePickerController = nil;
+=======
+            filter = [[GPUImageCropFilter alloc] initWithCropRegion:CGRectMake(.19218745, 0, .75, 1)];
+>>>>>>> Trying to fix self.session.thumbnailImage and self.session.fullResolutionImage disappearing randomly...
         }
-            
-    };
-    
-//work this in later
-//    
-//    void (^saveThumb)(void) = ^ {
-//        
-//        if (useLibrary) {
-//            [self dismissViewControllerAnimated:YES completion:^(void){
-//                takenImage = [[info objectForKey:UIImagePickerControllerEditedImage] resizedImage:CGSizeMake(640, 640) interpolationQuality:kCGInterpolationLow];
-//                dict = [NSDictionary dictionaryWithObject:takenImage forKey:@"newImageKey"];
-//                libraryPhoto = [NSNotification notificationWithName:@"newImage" object:self userInfo:dict];
-//                [self newPhotoArrived:libraryPhoto];
-//                imagePickerController = nil;
-//            }];
-//        } else {
-//            GPUImageCropFilter *filter = [[GPUImageCropFilter alloc] initWithCropRegion:CGRectMake(.140625, 0, .75, 1)];
-//            takenImage = [[filter imageByFilteringImage:[info objectForKey:UIImagePickerControllerOriginalImage]] resizedImage:CGSizeMake(640, 640) interpolationQuality:kCGInterpolationLow];
-//            dict = [NSDictionary dictionaryWithObject:takenImage forKey:@"newImageKey"];
-//            libraryPhoto = [NSNotification notificationWithName:@"newImage" object:self userInfo:dict];
-//            [self newPhotoArrived:libraryPhoto];
-//            [imagePickerController.view removeFromSuperview];
-//            imagePickerController = nil;
-//        }
-//                
-//    };
-//    
-//    saveThumb();
-    
-    saveFullRes();
-
+        
+        if ([df boolForKey:BZ_SETTINGS_SAVE_TO_CAMERA_ROLL_KEY] == TRUE) {
+            [self.library writeImageToSavedPhotosAlbum:[[info objectForKey:UIImagePickerControllerOriginalImage] CGImage] orientation:ALAssetOrientationRight completionBlock:^(NSURL *assetURL, NSError *error) {
+                if (error!=nil) {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error Saving Image" message:@"Bezel encountered an error while attempting to save image to Photo Library.  Please try saving again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    alert.tag = 0;
+                    [alert show];
+                }
+            }];
+        }
+        takenImage = [[filter imageByFilteringImage:[info objectForKey:UIImagePickerControllerOriginalImage] ] resizedImage:imgSize interpolationQuality:kCGInterpolationDefault];
+        dict = [NSDictionary dictionaryWithObject:takenImage forKey:@"newImageKey"];
+        libraryPhoto = [NSNotification notificationWithName:@"newImage" object:self userInfo:dict];
+        [self newPhotoArrived:libraryPhoto];
+        [imagePickerController.view removeFromSuperview];
+        imagePickerController = nil;
+    }
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -1181,7 +1177,6 @@
         useLibrary = NO;
         [_sessionPreview setImage:nil];
         self.currentImage = nil;
-        [self viewDidAppear:YES];
     }];
 }
 
