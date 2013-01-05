@@ -134,19 +134,41 @@
             [heart setNotificationName:@"ornamentFilled"];
             break;
         case 138:
+            [(bz_Button*)sender setTag:238];
+            NSLog(@"switching to pro shapes");
+            [container printText:@"" usingImage:[UIImage imageNamed:@"proShapes.png"] backgroundColor:[UIColor blackColor] textColor:[UIColor whiteColor]];
+            [container printText:@"" usingImage:[UIImage imageNamed:@"holidayShapes.png"] backgroundColor:[UIColor blackColor] textColor:[UIColor whiteColor]];
+            
+            [circle setTag:153];
+            [square setHidden:NO];
+            [square setTag:154];
+            [triangle setTag:155];
+            [hexagon setHidden:NO];
+            [hexagon setTag:156];
+            [heart setTag:157];
+            
+            [circle setNotificationName:@"cross"];
+            [square setNotificationName:@"teardrop"];
+            [triangle setNotificationName:@"lightning"];
+            [hexagon setNotificationName:@"anchor"];
+            [heart setNotificationName:@"arrow"];
+            break;
+        case 238:
             [(bz_Button*)sender setTag:38];
             NSLog(@"switching to standard shapes");
             [container printText:@"" usingImage:[UIImage imageNamed:@"standardShapes.png"] backgroundColor:[UIColor blackColor] textColor:[UIColor whiteColor]];
-            [container printText:@"" usingImage:[UIImage imageNamed:@"holidayShapes.png"] backgroundColor:[UIColor blackColor] textColor:[UIColor whiteColor]];
+            [container printText:@"" usingImage:[UIImage imageNamed:@"proShapes.png"] backgroundColor:[UIColor blackColor] textColor:[UIColor whiteColor]];
             
             [circle setTag:3];
-            [square setHidden:NO];
+            [square setTag:4];
             [triangle setTag:5];
-            [hexagon setHidden:NO];
+            [hexagon setTag:6];
             [heart setTag:7];
             
             [circle setNotificationName:@"circle"];
+            [square setNotificationName:@"square"];
             [triangle setNotificationName:@"triangle"];
+            [hexagon setNotificationName:@"hexagon"];
             [heart setNotificationName:@"heart"];
             break;
         default:

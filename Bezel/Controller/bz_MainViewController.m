@@ -31,6 +31,7 @@
     
     BOOL colorPickerIsPurchased;
     BOOL holidayPackIsPurchased;
+    BOOL proShapePackIsPurchased;
     BOOL imageCameFromLibrary;
     BOOL keepPhoto;
 }
@@ -77,11 +78,11 @@
 {
     [super viewDidLoad];
 
-    keepPhoto = NO;
     imageCameFromLibrary = NO;
     NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
-    holidayPackIsPurchased = [(NSNumber*)[standard objectForKey: BZ_HOLIDAY_PACK_PURCHASE_KEY] boolValue];
-    colorPickerIsPurchased = [(NSNumber*)[standard objectForKey: BZ_COLOR_PICKER_PURCHASE_KEY] boolValue];
+    holidayPackIsPurchased   = [(NSNumber*)[standard objectForKey: BZ_HOLIDAY_PACK_PURCHASE_KEY] boolValue];
+    proShapePackIsPurchased  = [(NSNumber*)[standard objectForKey: BZ_PRO_SHAPE_PACK_PURCHASE_KEY] boolValue];
+    colorPickerIsPurchased   = [(NSNumber*)[standard objectForKey: BZ_COLOR_PICKER_PURCHASE_KEY] boolValue];
 
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         useLibrary = NO;
@@ -109,6 +110,7 @@
 }
 
 - (void)scrollViewLoaded:(NSNotification*)notification {
+    keepPhoto = NO;
     NSLog(@"receiving scroll view: %@", _scrollVC);
     _scrollVC = [notification.userInfo objectForKey:@"scrollVC"];
     imageCameFromLibrary = NO;
@@ -147,7 +149,6 @@
 }
 
 -(IBAction)openStoreView:(id)sender {
-    keepPhoto = YES;
     bz_StoreViewController *storeVC = [[bz_StoreViewController alloc] initWithNibName:@"bz_StoreView" bundle:nil];
     [self presentViewController:storeVC animated:YES completion:nil];
 }
@@ -181,12 +182,6 @@
     [imagePickerController viewWillAppear:NO];
     [imagePickerController viewDidAppear:NO];
 
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"ShowSettings"]) {
-        keepPhoto = YES;
-    }
 }
 
 -(IBAction)importFromLibrary:(id)sender {
@@ -271,6 +266,7 @@
     
     NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
     holidayPackIsPurchased = [(NSNumber*)[standard objectForKey: BZ_HOLIDAY_PACK_PURCHASE_KEY] boolValue];
+    proShapePackIsPurchased = [(NSNumber*)[standard objectForKey: BZ_PRO_SHAPE_PACK_PURCHASE_KEY] boolValue];
 
     bz_Button *button = [notification.userInfo objectForKey:@"newShape"];
     NSLog(@"button tag is %i", button.tag);
@@ -364,7 +360,7 @@
         }
     }
 
-    else if (button.tag >= 53 && holidayPackIsPurchased) {
+    else if (button.tag >= 53 && button.tag <= 100 && holidayPackIsPurchased) {
         switch ([(bz_Button*)[notification.userInfo objectForKey:@"newShape"] tag]) {
             case 53:
                 switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
@@ -413,10 +409,92 @@
         }
     }
 
-    else if (button.tag >= 53 && !holidayPackIsPurchased) {
+    else if (button.tag >= 53 && button.tag <= 100 && !holidayPackIsPurchased) {
         UIAlertView *buyHolidayPack = [[UIAlertView alloc] initWithTitle:@"Buy Holiday Pack?" message:@"This shape is part of the Bezel Holiday Pack. You can unlock all 3 holiday shapes and 3 holiday backgrounds in the Bezel Store" delegate:self cancelButtonTitle:@"No Thanks" otherButtonTitles:@"Go To Store", nil];
         buyHolidayPack.tag = 50;
         [buyHolidayPack show];
+    }
+    else if (button.tag >= 153 && button.tag <= 200 && proShapePackIsPurchased) {
+        switch ([(bz_Button*)[notification.userInfo objectForKey:@"newShape"] tag]) {
+            case 153:
+                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
+                    case 1:
+                        _saveMask  = [UIImage imageNamed:@"crossMask_1024.png"];
+                        break;
+                    case 2:
+                        _saveMask  = [UIImage imageNamed:@"crossMask.png"];
+                        break;
+                    default:
+                        _saveMask  = [UIImage imageNamed:@"crossMask_640.png"];
+                        break;
+                }
+                _maskImage = [UIImage imageNamed:@"cross.png"];
+                break;
+            case 154:
+                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
+                    case 1:
+                        _saveMask  = [UIImage imageNamed:@"teardropMask_1024.png"];
+                        break;
+                    case 2:
+                        _saveMask  = [UIImage imageNamed:@"teardropMask.png"];
+                        break;
+                    default:
+                        _saveMask  = [UIImage imageNamed:@"teardropMask_640.png"];
+                        break;
+                }
+                _maskImage = [UIImage imageNamed:@"teardrop.png"];
+                break;
+            case 155:
+                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
+                    case 1:
+                        _saveMask  = [UIImage imageNamed:@"lightningMask_1024.png"];
+                        break;
+                    case 2:
+                        _saveMask  = [UIImage imageNamed:@"lightningMask.png"];
+                        break;
+                    default:
+                        _saveMask  = [UIImage imageNamed:@"lightningMask_640.png"];
+                        break;
+                }
+                _maskImage = [UIImage imageNamed:@"lightning.png"];
+                break;
+            case 156:
+                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
+                    case 1:
+                        _saveMask  = [UIImage imageNamed:@"anchorMask_1024.png"];
+                        break;
+                    case 2:
+                        _saveMask  = [UIImage imageNamed:@"anchorMask.png"];
+                        break;
+                    default:
+                        _saveMask  = [UIImage imageNamed:@"anchorMask_640.png"];
+                        break;
+                }
+                _maskImage = [UIImage imageNamed:@"anchor.png"];
+                break;
+            case 157:
+                switch ([standard integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY]) {
+                    case 1:
+                        _saveMask  = [UIImage imageNamed:@"arrowMask_1024.png"];
+                        break;
+                    case 2:
+                        _saveMask  = [UIImage imageNamed:@"arrowMask.png"];
+                        break;
+                    default:
+                        _saveMask  = [UIImage imageNamed:@"arrowMask_640.png"];
+                        break;
+                }
+                _maskImage = [UIImage imageNamed:@"arrow.png"];
+                break;
+            default:
+                break;
+        }
+    }
+    
+    else if (button.tag >= 153 && button.tag <= 200 && !proShapePackIsPurchased) {
+        UIAlertView *buyProShapePack = [[UIAlertView alloc] initWithTitle:@"Buy Pro Shape Pack?" message:@"This shape is part of the Bezel Pro Shapes Pack. You can unlock all 5 pro shapes in the Bezel Store" delegate:self cancelButtonTitle:@"No Thanks" otherButtonTitles:@"Go To Store", nil];
+        buyProShapePack.tag = 150;
+        [buyProShapePack show];
     }
 
 //    switch ([standard integerForKey:bz_SettingsFullResolutionKey]) {
@@ -454,14 +532,12 @@
 }
 
 - (void)buyHolidayPack {
-    keepPhoto = YES;
     UIAlertView *buyHolidayPack = [[UIAlertView alloc] initWithTitle:@"Buy Holiday Pack?" message:@"The Candy Cane, Christmas Tree and Xmas Wallpaper backgrounds are part of the Bezel Holiday Pack. You can unlock all 3 holiday shapes and 3 holiday backgrounds in the Bezel Store" delegate:self cancelButtonTitle:@"No Thanks" otherButtonTitles:@"Go To Store", nil];
     buyHolidayPack.tag = 50;
     [buyHolidayPack show];
 }
 
 - (void)buyColorPicker {
-    keepPhoto = YES;
     UIAlertView *buyColorPicker = [[UIAlertView alloc] initWithTitle:@"Buy Color Picker?" message:@"You must purchase the Bezel Color Picker to unlock this feature.  You can purchase the color picker to enable any background color in the Bezel Store" delegate:self cancelButtonTitle:@"No Thanks" otherButtonTitles:@"Go To Store", nil];
     buyColorPicker.tag = 50;
     [buyColorPicker show];
@@ -505,12 +581,14 @@
 
 -(void)newPhotoArrived:(NSNotification*)notification {
     
+    keepPhoto = YES;
     UIImage *newImage = [notification.userInfo objectForKey:@"newImageKey"];
     [NSThread detachNewThreadSelector:@selector(processNewImage:) toTarget:self withObject:newImage];
 }
 
 -(void)newLibraryPhotoArrived:(NSNotification*)notification {
     
+    keepPhoto = YES;
     self.currentImage = [notification.userInfo objectForKey:@"newImageKey"];
     [_imageView setImage:self.currentImage];
     [NSThread detachNewThreadSelector:@selector(processNewLibraryImage:) toTarget:self withObject:nil];
@@ -579,6 +657,7 @@
 
 -(void)keepPhotoAndRemoveView:(id)sender {
     
+    keepPhoto = YES;
     UIView *confirm = [(bz_Button*)sender superview];
     NSLog(@"confirm view is at: %f, %f", confirm.frame.origin.x, confirm.frame.origin.y);
     [confirm removeFromSuperview];
@@ -599,7 +678,8 @@
 }
 
 -(void)retakePhoto:(id)sender {
-        
+    
+    keepPhoto = NO;
     UIView *confirm = [(bz_Button*)sender superview];
 
     [UIView animateWithDuration:0.5
@@ -904,7 +984,9 @@
                     }
                 }];
             }
-            takenImage = [[filter imageByFilteringImage:[info objectForKey:UIImagePickerControllerOriginalImage] ] resizedImage:imgSize interpolationQuality:kCGInterpolationDefault];            
+            UIImage *originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+            UIImage *filteredImage = [filter imageByFilteringImage: originalImage];
+            takenImage = [filteredImage resizedImage:imgSize interpolationQuality:kCGInterpolationMedium];
 //            replace code below with
 //            saveToCache();
             dict = [NSDictionary dictionaryWithObject:takenImage forKey:@"newImageKey"];

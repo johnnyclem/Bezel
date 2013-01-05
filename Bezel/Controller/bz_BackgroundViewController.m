@@ -15,7 +15,6 @@
     UIView *dismissColorPickerView;
     
     bz_Button *whiteBG;
-    bz_Button *blackBG;
     bz_Button *clearBG;
     bz_Button *switchBG;
     
@@ -39,7 +38,7 @@
 @synthesize mainVC       = _mainVC;
 @synthesize bgColor      = _bgColor;
 @synthesize bgImage      = _bgImage;
-@synthesize bgIsColor;
+@synthesize bgIsColor, blackBG;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -208,7 +207,7 @@
             newBackground = [NSDictionary dictionaryWithObject:_bgImage forKey:@"newBGImage"];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"newBackground" object:self userInfo:newBackground];
         }
-    }
+    } 
 }
 
 -(void)switchBackgroundSet:(id)sender {

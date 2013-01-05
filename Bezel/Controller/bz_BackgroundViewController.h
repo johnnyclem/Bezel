@@ -19,6 +19,7 @@
 }
 
 @property(nonatomic, strong) bz_MainViewController *mainVC;
+@property(nonatomic, strong) bz_Button *blackBG;
 
 - (void)changeBackground:(id)sender;
 

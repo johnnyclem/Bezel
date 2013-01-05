@@ -15,9 +15,11 @@
     
     EBPurchase* holidayPackPurchase;
     EBPurchase* colorPickerPurchase;
+    EBPurchase* proShapePackPurchase;
     
     BOOL holidayPackIsPurchased;
     BOOL colorPickerIsPurchased;
+    BOOL proShapePackIsPurchased;
 
 }
 
@@ -25,9 +27,11 @@
 @property(nonatomic, strong) IBOutlet UINavigationBar *navBar;
 @property(nonatomic, strong) MAConfirmButton *buyHolidayPackButton;
 @property(nonatomic, strong) MAConfirmButton *buyColorPickerButton;
+@property(nonatomic, strong) MAConfirmButton *buyProShapePackButton;
 
 -(IBAction)purchaseHolidayPack;
 -(IBAction)purchaseColorPicker;
+-(IBAction)purchaseProShapePack;
 -(IBAction)restorePurchase;
 
 @end

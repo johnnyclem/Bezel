@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Bezel/Controller/bz_BackgroundViewController.m"
-         timestampString = "377135589.780807"
+         timestampString = "379021913.589575"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "267"
-         endingLineNumber = "267"
+         startingLineNumber = "266"
+         endingLineNumber = "266"
          landmarkName = "-animationDidFinish:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Bezel/Controller/bz_BackgroundViewController.m"
-         timestampString = "377135589.780807"
+         timestampString = "379021913.589575"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "223"
-         endingLineNumber = "223"
+         startingLineNumber = "222"
+         endingLineNumber = "222"
          landmarkName = "-switchBackgroundSet:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Bezel/Controller/bz_BackgroundViewController.m"
-         timestampString = "377300639.867041"
+         timestampString = "379021913.589575"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "120"
-         endingLineNumber = "120"
+         startingLineNumber = "119"
+         endingLineNumber = "119"
          landmarkName = "-changeBackground:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Bezel/Controller/bz_BackgroundViewController.m"
-         timestampString = "377300684.563402"
+         timestampString = "379021913.589575"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "132"
-         endingLineNumber = "132"
+         startingLineNumber = "131"
+         endingLineNumber = "131"
          landmarkName = "-changeBackground:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -99,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Bezel/Controller/bz_MainViewController.m"
-         timestampString = "377322845.983499"
+         timestampString = "379072741.493267"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "441"
-         endingLineNumber = "441"
+         startingLineNumber = "519"
+         endingLineNumber = "519"
          landmarkName = "-switchShape:"
          landmarkType = "5">
       </FileBreakpoint>

@@ -181,7 +181,8 @@
         adjustmentVC.exposure   = 0.0;
     } else if (aScrollView.contentOffset.x == 960) {
         backgroundVC.currentImage = adjustmentVC.currentImage;
-        backgroundVC.mainVC = self.mainVC;        
+        backgroundVC.mainVC = self.mainVC;
+        [backgroundVC changeBackground:backgroundVC.blackBG];
     } else if (aScrollView.contentOffset.x == 1280) {
         shareVC.currentImage = backgroundVC.currentImage;
     }

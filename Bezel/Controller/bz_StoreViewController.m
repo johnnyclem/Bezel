@@ -12,11 +12,13 @@
 
 #define HOLIDAY_PACK_ID @"bz_holidayPack"
 #define COLOR_PICKER_ID @"bz_colorPicker"
+#define PRO_SHAPE_PACK_ID @"bz_proShapePack"
 
 @interface bz_StoreViewController ()
 
 @property (nonatomic, strong) IBOutlet UIView *holidayBG;
 @property (nonatomic, strong) IBOutlet UIView *colorPickerBG;
+@property (nonatomic, strong) IBOutlet UIView *proShapeBG;
 @property (nonatomic, strong) IBOutlet UIPageControl *pageControl;
 
 @end
@@ -26,7 +28,7 @@
 @synthesize scrollView  = _scrollView;
 @synthesize navBar      = _navBar;
 @synthesize pageControl = _pageControl;
-@synthesize buyColorPickerButton, buyHolidayPackButton;
+@synthesize buyColorPickerButton, buyHolidayPackButton, buyProShapePackButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,30 +47,41 @@
     buyHolidayPackButton = [MAConfirmButton buttonWithTitle:@"installed" confirm:@"Buy Now"];
     [buyHolidayPackButton addTarget:self action:@selector(purchaseHolidayPack) forControlEvents:UIControlEventTouchUpInside];
     [buyHolidayPackButton setTintColor:[UIColor colorWithRed:0.3922 green:0.5686 blue:0.9333 alpha:1.0]];
-    [buyHolidayPackButton setAnchor:CGPointMake(290, 265)];
-    buyColorPickerButton.enabled = NO;
+    [buyHolidayPackButton setAnchor:CGPointMake(930, 265)];
+    buyHolidayPackButton.enabled = NO;
     [_scrollView addSubview:buyHolidayPackButton];
+
+    buyProShapePackButton = [MAConfirmButton buttonWithTitle:@"installed" confirm:@"Buy Now"];
+    [buyProShapePackButton addTarget:self action:@selector(purchaseProShapePack) forControlEvents:UIControlEventTouchUpInside];
+    [buyProShapePackButton setTintColor:[UIColor colorWithRed:0.3922 green:0.5686 blue:0.9333 alpha:1.0]];
+    [buyProShapePackButton setAnchor:CGPointMake(610, 265)];
+    buyProShapePackButton.enabled = NO;
+    [_scrollView addSubview:buyProShapePackButton];
 
     buyColorPickerButton = [MAConfirmButton buttonWithTitle:@"installed" confirm:@"Buy Now"];
     [buyColorPickerButton addTarget:self action:@selector(purchaseColorPicker) forControlEvents:UIControlEventTouchUpInside];
     [buyColorPickerButton setTintColor:[UIColor colorWithRed:0.3922 green:0.5686 blue:0.9333 alpha:1.0]];
-    [buyColorPickerButton setAnchor:CGPointMake(610, 265)];
+    [buyColorPickerButton setAnchor:CGPointMake(290, 265)];
     buyColorPickerButton.enabled = NO;
     [_scrollView addSubview:buyColorPickerButton];
 
 //    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"patternBG.png"]];
     _scrollView.frame = CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height-44);
-    [_scrollView setContentSize:CGSizeMake(_scrollView.frame.size.width*2, _scrollView.frame.size.height)];
+    [_scrollView setContentSize:CGSizeMake(_scrollView.frame.size.width*3, _scrollView.frame.size.height)];
     
     holidayPackPurchase = [[EBPurchase alloc] init];
     holidayPackPurchase.delegate = self;
     
     colorPickerPurchase = [[EBPurchase alloc] init];
     colorPickerPurchase.delegate = self;
-    
+
+    proShapePackPurchase = [[EBPurchase alloc] init];
+    proShapePackPurchase.delegate = self;
+
     NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
-    holidayPackIsPurchased = [(NSNumber*)[standard objectForKey: BZ_HOLIDAY_PACK_PURCHASE_KEY] boolValue];
-    colorPickerIsPurchased = [(NSNumber*)[standard objectForKey: BZ_COLOR_PICKER_PURCHASE_KEY] boolValue];
+    holidayPackIsPurchased   = [(NSNumber*)[standard objectForKey: BZ_HOLIDAY_PACK_PURCHASE_KEY] boolValue];
+    colorPickerIsPurchased   = [(NSNumber*)[standard objectForKey: BZ_COLOR_PICKER_PURCHASE_KEY] boolValue];
+    proShapePackIsPurchased  = [(NSNumber*)[standard objectForKey: BZ_PRO_SHAPE_PACK_PURCHASE_KEY] boolValue];
     
     
 }
@@ -89,6 +102,11 @@
         [buyColorPickerButton setTitle:@"0.99" forState:UIControlStateNormal];
         [colorPickerPurchase requestProduct:COLOR_PICKER_ID];
     }
+    if (!proShapePackIsPurchased) {
+        buyProShapePackButton.enabled = YES;
+        [buyProShapePackButton setTitle:@"0.99" forState:UIControlStateNormal];
+        [proShapePackPurchase requestProduct:PRO_SHAPE_PACK_ID];
+    }
 
 }
 
@@ -103,6 +121,9 @@
             break;
         case 320:
             [_pageControl setCurrentPage:1];
+            break;
+        case 640:
+            [_pageControl setCurrentPage:2];
             break;
         default:
             break;
@@ -127,6 +148,19 @@
     if (colorPickerPurchase.validProduct != nil)
     {
         if (![colorPickerPurchase purchaseProduct:colorPickerPurchase.validProduct])
+        {
+            // Returned NO, so notify user that In-App Purchase is Disabled in their Settings.
+            UIAlertView *settingsAlert = [[UIAlertView alloc] initWithTitle:@"Allow Purchases" message:@"You must first enable In-App Purchase in your iOS Settings before making this purchase." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [settingsAlert show];
+        }
+    }
+}
+
+-(void)purchaseProShapePack
+{
+    if (proShapePackPurchase.validProduct != nil)
+    {
+        if (![proShapePackPurchase purchaseProduct:proShapePackPurchase.validProduct])
         {
             // Returned NO, so notify user that In-App Purchase is Disabled in their Settings.
             UIAlertView *settingsAlert = [[UIAlertView alloc] initWithTitle:@"Allow Purchases" message:@"You must first enable In-App Purchase in your iOS Settings before making this purchase." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -195,7 +229,20 @@
             UIAlertView *unavailAlert = [[UIAlertView alloc] initWithTitle:@"Not Available" message:@"The Color Picker is not available in the App Store at this time. Please try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [unavailAlert show];
         }
+    } else if([productId isEqualToString:COLOR_PICKER_ID]) {
+    
+    if (productPrice != nil) {
+        [buyColorPickerButton setTitle:[@"" stringByAppendingString:productPrice] forState:UIControlStateNormal];
+        buyColorPickerButton.enabled = YES; // Enable buy button.
+    } else {
+        [buyColorPickerButton setTitle:@"Sold Out" forState:UIControlStateNormal];
+        buyColorPickerButton.enabled = NO; // Disable buy button.
+        
+        UIAlertView *unavailAlert = [[UIAlertView alloc] initWithTitle:@"Not Available" message:@"The Color Picker is not available in the App Store at this time. Please try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [unavailAlert show];
     }
+}
+
 }
 
 -(void) successfulPurchase:(EBPurchase*)ebp restored:(bool)isRestore identifier:(NSString*)productId receipt:(NSData*)transactionReceipt
@@ -227,22 +274,22 @@
             [updatedAlert show];
         }
     }
-    else if ([productId isEqualToString:COLOR_PICKER_ID]) {
-        if (!colorPickerIsPurchased)
+    else if ([productId isEqualToString:PRO_SHAPE_PACK_ID]) {
+        if (!proShapePackIsPurchased)
         {
-            colorPickerIsPurchased = YES;
+            proShapePackIsPurchased = YES;
             NSString *alertMessage;
             if (isRestore) {
                 // This was a Restore request.
-                alertMessage = @"Your purchase was restored and the Color Picker is now unlocked!";
+                alertMessage = @"Your purchase was restored and the Pro Shape Pack is now unlocked!";
                 
             } else {
                 // This was a Purchase request.
-                alertMessage = @"Your purchase was successful and the Color Picker is now unlocked!";
+                alertMessage = @"Your purchase was successful and the Pro Shape Pack is now unlocked!";
             }
 
             NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
-            [standard setObject:[NSNumber numberWithBool:TRUE] forKey: BZ_COLOR_PICKER_PURCHASE_KEY];
+            [standard setObject:[NSNumber numberWithBool:TRUE] forKey: BZ_PRO_SHAPE_PACK_PURCHASE_KEY];
             [standard synchronize];
             UIAlertView *updatedAlert = [[UIAlertView alloc] initWithTitle:@"Thank You!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [updatedAlert show];

@@ -6,7 +6,10 @@
 //  Copyright (c) 2012 Mind Diaper. All rights reserved.
 //
 
+extern NSString *const FBSessionStateChangedNotification;
+
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface bz_AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -18,5 +21,5 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
-
+- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
 @end

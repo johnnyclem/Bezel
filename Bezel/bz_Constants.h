@@ -15,6 +15,7 @@ NSString* const BZ_SETTINGS_LOAD_REMOTE_PROMOTIONS;
 // Defaults identifiers (in-app purchases, resolution settings, etc)
 NSString* const BZ_HOLIDAY_PACK_PURCHASE_KEY;
 NSString* const BZ_COLOR_PICKER_PURCHASE_KEY;
+NSString* const BZ_PRO_SHAPE_PACK_PURCHASE_KEY;
 NSString* const BZ_SETTINGS_FULL_RESOLUTION_KEY;
 NSString* const BZ_SETTINGS_FIRST_LAUNCH_KEY;
 NSString* const BZ_SETTINGS_SAVE_TO_CAMERA_ROLL_KEY;

@@ -8,6 +8,7 @@
 
 #import "bz_TutorialViewController.h"
 #import "GCPagedScrollView.h"
+#import "bz_AppDelegate.h"
 
 @interface bz_TutorialViewController ()
 
@@ -35,7 +36,7 @@
 
     self.scrollView.backgroundColor = [UIColor blackColor];
     
-    for (NSUInteger index = 0; index < 4; index ++) {
+    for (NSUInteger index = 0; index < 5; index ++) {
         //You add your content views here
         UIImage *image;
         switch (index) {
@@ -51,6 +52,9 @@
             case 3:
                 image = [UIImage imageNamed:@"tutorial4.jpg"];
                 break;                
+            case 4:
+                image = [UIImage imageNamed:@"tutorial5.jpg"];
+                break;
             default:
                 break;
         }
@@ -71,15 +75,26 @@
 
 - (UIView *)createViewAtIndex:(NSUInteger)index withImage:(UIImage*)image {
     UIImageView* view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-    if (index == 3) {
+    if (index == 4) {
         UIButton *close = [[UIButton alloc] initWithFrame:CGRectMake(0, 40, 320, 440)];
         [close setImage:image forState:UIControlStateNormal];
         [close addTarget:self action:@selector(closeTutorial) forControlEvents:UIControlEventTouchUpInside];
+        UIButton *connect = [[UIButton alloc] initWithFrame:CGRectMake(0, 200, 320, 55)];
+        [connect addTarget:self action:@selector(authButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [close addSubview:connect];
         return close;
     } else {
         [view setImage:image];
     }
     return view;
+}
+
+- (void)authButtonAction:(id)sender {
+    bz_AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    // The user has initiated a login, so call the openSession method
+    // and show the login UX if necessary.
+    [appDelegate openSessionWithAllowLoginUI:YES];
+    [self closeTutorial];
 }
 
 - (void)didReceiveMemoryWarning
