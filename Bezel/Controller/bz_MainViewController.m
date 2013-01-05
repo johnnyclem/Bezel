@@ -145,8 +145,6 @@
             } else {
                 useLibrary = YES;
             }
-            
-            [self switchShape:nil];
         }
         
     } else {
@@ -321,15 +319,7 @@
 
 -(void)switchCamera {
     LogTrace(@"switching camera");
-    if ([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront] && imagePickerController.cameraDevice == UIImagePickerControllerCameraDeviceRear) {
-        CGAffineTransform transform = CGAffineTransformScale(imagePickerController.cameraViewTransform, -1, 1);
-        [imagePickerController setCameraViewTransform:transform];
-        [imagePickerController setCameraDevice:UIImagePickerControllerCameraDeviceFront];
-    } else if(imagePickerController.cameraDevice == UIImagePickerControllerCameraDeviceFront) {
-        CGAffineTransform transform = CGAffineTransformScale(imagePickerController.cameraViewTransform, -1, 1);
-        [imagePickerController setCameraViewTransform:transform];
-        [imagePickerController setCameraDevice:UIImagePickerControllerCameraDeviceRear];
-    }
+    [[BZCaptureManager sharedManager] toggleCamera];
 }
 
 -(void)switchShape:(bz_Button *)button
@@ -572,28 +562,6 @@
         buyProShapePack.tag = 150;
         [buyProShapePack show];
     }
-
-//    switch ([defaults integerForKey:bz_SettingsFullResolutionKey]) {
-//        case 0:
-//            _maskImage = [_maskImage resizedImage:CGSizeMake(640, 640) interpolationQuality:kCGInterpolationHigh];
-//            _saveMask  = [_saveMask resizedImage:CGSizeMake(1024, 1024) interpolationQuality:kCGInterpolationHigh];
-//            break;
-//        case 1:
-//            _maskImage = [_maskImage resizedImage:CGSizeMake(640, 640) interpolationQuality:kCGInterpolationHigh];
-//            _saveMask  = [_saveMask resizedImage:CGSizeMake(1024, 1024) interpolationQuality:kCGInterpolationHigh];
-//            break;
-//        default:
-//            break;
-//    }
-
-//    previewMaskLayer = [[bz_MaskShapeLayer alloc] initWithShapeFromImage:_maskImage atSize:CGSizeMake(320, 320)];
-//    if (self.view.frame.size.height == 480) {
-//    } else {
-//        previewMaskLayer.frame = CGRectMake(0, 90, 320, 320);
-//    }
-
-//    photoMaskLayer = [[bz_MaskShapeLayer alloc] initWithShapeFromImage:_maskImage atSize:CGSizeMake(320, 320)];
-//    previewMaskLayer.frame = CGRectMake(0, 60, 320, 320);
 
     BZMaskAdjustment *maskAdjustment = [[BZMaskAdjustment alloc] init];
     maskAdjustment.identifier = kBZMaskAdjustmentMaskShapeKey;
