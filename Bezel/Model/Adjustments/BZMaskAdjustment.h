@@ -15,4 +15,6 @@ NSString * const kBZMaskAdjustmentMaskShapeKey;
 
 @property (nonatomic, retain) NSDictionary *value;
 
+- (CALayer *)layerMaskForView:(UIView *)view;
+
 @end

@@ -8,6 +8,8 @@
 
 #import "bz_Button.h"
 
+NSString * const kButtonIdentifierUndefined = @"kButtonIdentifierUndefined";
+
 @implementation bz_Button
 
 @synthesize notificationName = _notificationName;
@@ -16,6 +18,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.buttonIdentifier = kButtonIdentifierUndefined;
     }
     return self;
 }

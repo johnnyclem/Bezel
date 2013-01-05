@@ -7,6 +7,7 @@
 //
 
 #import "BZMaskAdjustment.h"
+#import "bz_MaskShapeLayer.h"
 
 @interface BZMaskAdjustment ()
 @property (nonatomic, assign) BOOL duplicatesAllowed;
@@ -32,9 +33,41 @@ NSString * const kBZMaskAdjustmentMaskShapeKey = @"kBZMaskAdjustmentMaskShapeKey
 
 - (UIImage *)processImage:(UIImage *)inImage
 {
-    UIImage *outImage = [inImage resizedImage:CGSizeMake(100.0, 100.0) interpolationQuality: kCGInterpolationNone];
-    
+    UIImage *outImage;
+
     return outImage;
+}
+
+- (CALayer *)layerMaskForView:(UIView *)view
+{
+    NSString *maskShape = [self.value objectForKey: kButtonIdentifier];
+    CGSize size = view.frame.size;
+
+    if ([maskShape isEqualToString: kButtonIdentifierCircleMask])
+    {
+        return [[bz_MaskShapeLayer alloc] initWithCircleShapeAtSize: size];
+    }
+    else if ([maskShape isEqualToString: kButtonIdentifierSquareMask])
+    {
+        return [[bz_MaskShapeLayer alloc] initWithSquareShapeAtSize: size];
+    }
+    else if ([maskShape isEqualToString: kButtonIdentifierTriangleMask])
+    {
+        return [[bz_MaskShapeLayer alloc] initWithTriangleAtSize: size];
+    }
+    else if ([maskShape isEqualToString: kButtonIdentifierHexagonMask])
+    {
+        return [[bz_MaskShapeLayer alloc] initWithHexagonAtSize: size];
+    }
+    else if ([maskShape isEqualToString: kButtonIdentifierHeartMask])
+    {
+        return [[bz_MaskShapeLayer alloc] initWithHeartAtSize: size];
+    }
+    else
+    {
+        // This is bad, no shape identifier!
+        return [CALayer layer];
+    }
 }
 
 @end

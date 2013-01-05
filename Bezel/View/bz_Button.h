@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+NSString * const kButtonIdentifierUndefined;
+
 @interface bz_Button : UIButton
 
 @property (nonatomic, strong) NSString *notificationName;
+@property (nonatomic, strong) NSString *buttonIdentifier;
 
 - (id)initWithFrame:(CGRect)frame andTag:(int)tag;
 

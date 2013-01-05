@@ -56,6 +56,12 @@
     hexagon  = [[bz_Button alloc] initWithFrame:CGRectMake(btnWidth*3, btnOffset, btnWidth, btnHeight)];
     heart    = [[bz_Button alloc] initWithFrame:CGRectMake(btnWidth*4, btnOffset, btnWidth, btnHeight)];
     
+    circle.buttonIdentifier = kButtonIdentifierCircleMask;
+    square.buttonIdentifier = kButtonIdentifierSquareMask;
+    triangle.buttonIdentifier = kButtonIdentifierTriangleMask;
+    hexagon.buttonIdentifier = kButtonIdentifierHexagonMask;
+    heart.buttonIdentifier = kButtonIdentifierHeartMask;
+    
     self.shapeButtons = [NSArray arrayWithObjects: circle, square, triangle, hexagon, heart, nil];
 
     [circle setTag:3];

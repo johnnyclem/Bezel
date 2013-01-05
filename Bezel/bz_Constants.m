@@ -25,5 +25,14 @@ NSString* const BZ_PROMOTION_VALUE_STEPPER_REUSE_IDENTIFIER = @"bz_PromotionView
 NSString* const BZ_PROMOTION_VALUE_SWITCH_REUSE_IDENTIFIER = @"bz_PromotionViewSwitch";
 NSString* const BZ_PROMOTION_VALUE_SEGMENTED_CONTROL_REUSE_IDENTIFIER = @"bz_PromotionViewSegmentedControl";
 
+// Used as more meaningful Tags
+NSString* const kButtonIdentifier = @"kButtonIdentifier";
+
+NSString* const kButtonIdentifierCircleMask = @"kButtonIdentifierCircleMask";
+NSString* const kButtonIdentifierSquareMask = @"kButtonIdentifierSquareMask";
+NSString* const kButtonIdentifierTriangleMask = @"kButtonIdentifierTriangleMask";
+NSString* const kButtonIdentifierHexagonMask = @"kButtonIdentifierHexagonMask";
+NSString* const kButtonIdentifierHeartMask = @"kButtonIdentifierHeartMask";
+
 @implementation bz_Constants
 @end

@@ -26,6 +26,15 @@ NSString* const BZ_PROMOTION_VALUE_STEPPER_REUSE_IDENTIFIER;
 NSString* const BZ_PROMOTION_VALUE_SWITCH_REUSE_IDENTIFIER;
 NSString* const BZ_PROMOTION_VALUE_SEGMENTED_CONTROL_REUSE_IDENTIFIER;
 
+// Used as more meaningful Tags
+NSString* const kButtonIdentifier;
+
+NSString* const kButtonIdentifierCircleMask;
+NSString* const kButtonIdentifierSquareMask;
+NSString* const kButtonIdentifierTriangleMask;
+NSString* const kButtonIdentifierHexagonMask;
+NSString* const kButtonIdentifierHeartMask;
+
 
 @interface bz_Constants : NSObject
 @end
