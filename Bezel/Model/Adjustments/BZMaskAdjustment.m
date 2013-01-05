@@ -38,10 +38,9 @@ NSString * const kBZMaskAdjustmentMaskShapeKey = @"kBZMaskAdjustmentMaskShapeKey
     return outImage;
 }
 
-- (CALayer *)layerMaskForView:(UIView *)view
+- (CALayer *)layerMaskForSize:(CGSize)size
 {
     NSString *maskShape = [self.value objectForKey: kButtonIdentifier];
-    CGSize size = view.frame.size;
 
     if ([maskShape isEqualToString: kButtonIdentifierCircleMask])
     {

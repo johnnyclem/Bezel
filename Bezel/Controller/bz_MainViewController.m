@@ -587,7 +587,7 @@
     }
     
     // set the preview layer mask to the adjusted mask.
-    _sessionPreview.layer.mask = [maskAdjustment layerMaskForView: _sessionPreview];
+    _sessionPreview.layer.mask = [maskAdjustment layerMaskForSize: _sessionPreview.frame.size];
     _sessionPreview.clipsToBounds = YES;
     [_sessionPreview setNeedsDisplay];
 }
