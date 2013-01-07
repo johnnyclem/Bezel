@@ -11,7 +11,6 @@
 #import "bz_MaskShapeLayer.h"
 #import "bz_ScrollViewController.h"
 #import "bz_TutorialViewController.h"
-#import "bz_CaptureManager.h"
 #import "UIImage+Utils.h"
 #import "UIImage+Resize.h"
 #import "UIImage+Storage.h"

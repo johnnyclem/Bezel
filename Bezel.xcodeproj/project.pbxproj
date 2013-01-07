@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC16B9771694CA2600027CC5 /* Bezel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC16B9751694CA2600027CC5 /* Bezel.xcdatamodeld */; };
+		CC16B9781694CA2600027CC5 /* Bezel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC16B9751694CA2600027CC5 /* Bezel.xcdatamodeld */; };
+		CC16B9791694CA2600027CC5 /* Bezel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC16B9751694CA2600027CC5 /* Bezel.xcdatamodeld */; };
+		CC16B97C1694CBF600027CC5 /* BZ_Adjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CC16B97B1694CBF600027CC5 /* BZ_Adjustment.m */; };
+		CC16B97D1694CBF600027CC5 /* BZ_Adjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CC16B97B1694CBF600027CC5 /* BZ_Adjustment.m */; };
+		CC16B97E1694CBF600027CC5 /* BZ_Adjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CC16B97B1694CBF600027CC5 /* BZ_Adjustment.m */; };
+		CC16B9811694CC1C00027CC5 /* BZ_Session.m in Sources */ = {isa = PBXBuildFile; fileRef = CC16B9801694CC1C00027CC5 /* BZ_Session.m */; };
+		CC16B9821694CC1C00027CC5 /* BZ_Session.m in Sources */ = {isa = PBXBuildFile; fileRef = CC16B9801694CC1C00027CC5 /* BZ_Session.m */; };
+		CC16B9831694CC1C00027CC5 /* BZ_Session.m in Sources */ = {isa = PBXBuildFile; fileRef = CC16B9801694CC1C00027CC5 /* BZ_Session.m */; };
 		CC2CF432167DB2A900A0EDA7 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF420167DB2A900A0EDA7 /* AFHTTPClient.m */; };
 		CC2CF433167DB2A900A0EDA7 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF422167DB2A900A0EDA7 /* AFHTTPRequestOperation.m */; };
 		CC2CF434167DB2A900A0EDA7 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF424167DB2A900A0EDA7 /* AFImageRequestOperation.m */; };
@@ -20,6 +29,9 @@
 		CC384CC5167E642800174786 /* bz_Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CC384CC3167E642800174786 /* bz_Constants.m */; };
 		CC384CC6167E642800174786 /* bz_Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CC384CC3167E642800174786 /* bz_Constants.m */; };
 		CC413CCC167D567100773B24 /* bz_Promotion.m in Sources */ = {isa = PBXBuildFile; fileRef = CC413CCB167D567100773B24 /* bz_Promotion.m */; };
+		CC55B6AD16949614006AD05A /* BZCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55B6AC16949614006AD05A /* BZCaptureManager.m */; };
+		CC55B6AE16949614006AD05A /* BZCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55B6AC16949614006AD05A /* BZCaptureManager.m */; };
+		CC55B6AF16949614006AD05A /* BZCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55B6AC16949614006AD05A /* BZCaptureManager.m */; };
 		CC821F3D167DBB4D00445EAC /* bz_PromotionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CC821F3C167DBB4D00445EAC /* bz_PromotionsTest.m */; };
 		CC821F3E167DBB8E00445EAC /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF420167DB2A900A0EDA7 /* AFHTTPClient.m */; };
 		CC821F3F167DBB8E00445EAC /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF422167DB2A900A0EDA7 /* AFHTTPRequestOperation.m */; };
@@ -47,7 +59,6 @@
 		CC821F5B167E52D700445EAC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5011A416757A390033B574 /* StoreKit.framework */; };
 		CC821F5C167E52D700445EAC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCEA680A167DB03F00BD08DE /* SystemConfiguration.framework */; };
 		CC821F61167E531400445EAC /* bz_AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587BB166EC66400A2225E /* bz_AppDelegate.m */; };
-		CC821F62167E531400445EAC /* Bezel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF2587C3166EC66400A2225E /* Bezel.xcdatamodeld */; };
 		CC821F63167E531400445EAC /* bz_View.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587E5166EC75F00A2225E /* bz_View.m */; };
 		CC821F64167E531400445EAC /* bz_SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587EA166EC78D00A2225E /* bz_SettingsViewController.m */; };
 		CC821F65167E531400445EAC /* bz_GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587EF166EC7A900A2225E /* bz_GalleryViewController.m */; };
@@ -214,9 +225,6 @@
 		CC822012167E5A8400445EAC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CC822011167E5A8400445EAC /* Settings.bundle */; };
 		CC866E3A167D1FF6001779CB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF25883F166ECC2B00A2225E /* Crashlytics.framework */; };
 		CC866E3D167D20A3001779CB /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC866E36167D1E3C001779CB /* libGPUImage.a */; };
-		CC8839A8167E9F7200374C63 /* bz_CaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839A7167E9F7200374C63 /* bz_CaptureManager.m */; };
-		CC8839A9167E9F7200374C63 /* bz_CaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839A7167E9F7200374C63 /* bz_CaptureManager.m */; };
-		CC8839AA167E9F7200374C63 /* bz_CaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839A7167E9F7200374C63 /* bz_CaptureManager.m */; };
 		CC8839AD167EA21D00374C63 /* bz_ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839AC167EA21D00374C63 /* bz_ImageView.m */; };
 		CC8839AE167EA21D00374C63 /* bz_ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839AC167EA21D00374C63 /* bz_ImageView.m */; };
 		CC8839AF167EA21D00374C63 /* bz_ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839AC167EA21D00374C63 /* bz_ImageView.m */; };
@@ -234,7 +242,6 @@
 		EF2587AE166EC66400A2225E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2587AD166EC66400A2225E /* CoreGraphics.framework */; };
 		EF2587B0166EC66400A2225E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2587AF166EC66400A2225E /* CoreData.framework */; };
 		EF2587BC166EC66400A2225E /* bz_AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587BB166EC66400A2225E /* bz_AppDelegate.m */; };
-		EF2587C5166EC66400A2225E /* Bezel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF2587C3166EC66400A2225E /* Bezel.xcdatamodeld */; };
 		EF2587CD166EC66400A2225E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2587CC166EC66400A2225E /* SenTestingKit.framework */; };
 		EF2587CE166EC66400A2225E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2587A9166EC66400A2225E /* UIKit.framework */; };
 		EF2587CF166EC66400A2225E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2587AB166EC66400A2225E /* Foundation.framework */; };
@@ -615,6 +622,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CC16B9761694CA2600027CC5 /* Bezel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bezel.xcdatamodel; sourceTree = "<group>"; };
+		CC16B97A1694CBF600027CC5 /* BZ_Adjustment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BZ_Adjustment.h; sourceTree = "<group>"; };
+		CC16B97B1694CBF600027CC5 /* BZ_Adjustment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BZ_Adjustment.m; sourceTree = "<group>"; };
+		CC16B97F1694CC1C00027CC5 /* BZ_Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BZ_Session.h; sourceTree = "<group>"; };
+		CC16B9801694CC1C00027CC5 /* BZ_Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BZ_Session.m; sourceTree = "<group>"; };
 		CC2CF41F167DB2A900A0EDA7 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		CC2CF420167DB2A900A0EDA7 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		CC2CF421167DB2A900A0EDA7 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -639,12 +651,12 @@
 		CC384CC3167E642800174786 /* bz_Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bz_Constants.m; sourceTree = "<group>"; };
 		CC413CCA167D567100773B24 /* bz_Promotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bz_Promotion.h; sourceTree = "<group>"; };
 		CC413CCB167D567100773B24 /* bz_Promotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bz_Promotion.m; sourceTree = "<group>"; };
+		CC55B6AB16949614006AD05A /* BZCaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BZCaptureManager.h; sourceTree = "<group>"; };
+		CC55B6AC16949614006AD05A /* BZCaptureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BZCaptureManager.m; sourceTree = "<group>"; };
 		CC821F3B167DBB4D00445EAC /* bz_PromotionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bz_PromotionsTest.h; sourceTree = "<group>"; };
 		CC821F3C167DBB4D00445EAC /* bz_PromotionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bz_PromotionsTest.m; sourceTree = "<group>"; };
 		CC82200E167E531400445EAC /* Bezel-QA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bezel-QA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC822011167E5A8400445EAC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Resources/Settings.bundle; sourceTree = "<group>"; };
-		CC8839A6167E9F7200374C63 /* bz_CaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_CaptureManager.h; path = Controller/bz_CaptureManager.h; sourceTree = "<group>"; };
-		CC8839A7167E9F7200374C63 /* bz_CaptureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_CaptureManager.m; path = Controller/bz_CaptureManager.m; sourceTree = "<group>"; };
 		CC8839AB167EA21D00374C63 /* bz_ImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_ImageView.h; path = View/bz_ImageView.h; sourceTree = "<group>"; };
 		CC8839AC167EA21D00374C63 /* bz_ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_ImageView.m; path = View/bz_ImageView.m; sourceTree = "<group>"; };
 		CCEA6807167DB00D00BD08DE /* promotion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = promotion.json; path = "Mock Data/promotion.json"; sourceTree = "<group>"; };
@@ -663,7 +675,6 @@
 		EF2587AF166EC66400A2225E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		EF2587BA166EC66400A2225E /* bz_AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bz_AppDelegate.h; sourceTree = "<group>"; };
 		EF2587BB166EC66400A2225E /* bz_AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bz_AppDelegate.m; sourceTree = "<group>"; };
-		EF2587C4166EC66400A2225E /* Bezel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bezel.xcdatamodel; sourceTree = "<group>"; };
 		EF2587CB166EC66400A2225E /* BezelTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BezelTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF2587CC166EC66400A2225E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		EF2587D5166EC66400A2225E /* BezelTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BezelTests-Info.plist"; sourceTree = "<group>"; };
@@ -1020,7 +1031,17 @@
 				CC2CF431167DB2A900A0EDA7 /* UIImageView+AFNetworking.m */,
 			);
 			name = AFNetworking;
-			path = "Third Party/AFNetworking/AFNetworking";
+			path = "Third Party/AFNetworking";
+			sourceTree = "<group>";
+		};
+		CC55B6AA16949614006AD05A /* BZCapture */ = {
+			isa = PBXGroup;
+			children = (
+				CC55B6AB16949614006AD05A /* BZCaptureManager.h */,
+				CC55B6AC16949614006AD05A /* BZCaptureManager.m */,
+			);
+			name = BZCapture;
+			path = "Third Party/BZCapture";
 			sourceTree = "<group>";
 		};
 		CC866E30167D1E3C001779CB /* Products */ = {
@@ -1196,8 +1217,6 @@
 				EF258888166F055F00A2225E /* bz_AdjustmentViewController.m */,
 				EF258893166F059500A2225E /* bz_BackgroundViewController.h */,
 				EF258894166F059800A2225E /* bz_BackgroundViewController.m */,
-				CC8839A6167E9F7200374C63 /* bz_CaptureManager.h */,
-				CC8839A7167E9F7200374C63 /* bz_CaptureManager.m */,
 				EF258883166F044D00A2225E /* bz_FilterViewController.h */,
 				EF258884166F044E00A2225E /* bz_FilterViewController.m */,
 				EF2587EE166EC7A900A2225E /* bz_GalleryViewController.h */,
@@ -1250,6 +1269,7 @@
 			isa = PBXGroup;
 			children = (
 				CC2CF41E167DB2A900A0EDA7 /* AFNetworking */,
+				CC55B6AA16949614006AD05A /* BZCapture */,
 				EF5011E81676E4080033B574 /* DACircularProgress */,
 				EF5011B116766AE50033B574 /* DMPageControl */,
 				EF5011B016766ADA0033B574 /* EBPurchase */,
@@ -1537,9 +1557,13 @@
 		EFE390481677F38C009F2AC9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EF2587C3166EC66400A2225E /* Bezel.xcdatamodeld */,
+				CC16B9751694CA2600027CC5 /* Bezel.xcdatamodeld */,
+				CC16B97A1694CBF600027CC5 /* BZ_Adjustment.h */,
+				CC16B97B1694CBF600027CC5 /* BZ_Adjustment.m */,
 				CC413CCA167D567100773B24 /* bz_Promotion.h */,
 				CC413CCB167D567100773B24 /* bz_Promotion.m */,
+				CC16B97F1694CC1C00027CC5 /* BZ_Session.h */,
+				CC16B9801694CC1C00027CC5 /* BZ_Session.m */,
 				EFE390491677F38C009F2AC9 /* bz_Setting.h */,
 				EFE3904A1677F38C009F2AC9 /* bz_Setting.m */,
 			);
@@ -2015,7 +2039,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC821F61167E531400445EAC /* bz_AppDelegate.m in Sources */,
-				CC821F62167E531400445EAC /* Bezel.xcdatamodeld in Sources */,
 				CC821F63167E531400445EAC /* bz_View.m in Sources */,
 				CC821F64167E531400445EAC /* bz_SettingsViewController.m in Sources */,
 				CC821F65167E531400445EAC /* bz_GalleryViewController.m in Sources */,
@@ -2084,8 +2107,11 @@
 				CC821FA6167E531400445EAC /* AFXMLRequestOperation.m in Sources */,
 				CC821FA7167E531400445EAC /* UIImageView+AFNetworking.m in Sources */,
 				CC384CC5167E642800174786 /* bz_Constants.m in Sources */,
-				CC8839A9167E9F7200374C63 /* bz_CaptureManager.m in Sources */,
 				CC8839AE167EA21D00374C63 /* bz_ImageView.m in Sources */,
+				CC55B6AE16949614006AD05A /* BZCaptureManager.m in Sources */,
+				CC16B9781694CA2600027CC5 /* Bezel.xcdatamodeld in Sources */,
+				CC16B97D1694CBF600027CC5 /* BZ_Adjustment.m in Sources */,
+				CC16B9821694CC1C00027CC5 /* BZ_Session.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2094,7 +2120,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF2587BC166EC66400A2225E /* bz_AppDelegate.m in Sources */,
-				EF2587C5166EC66400A2225E /* Bezel.xcdatamodeld in Sources */,
 				EF2587E6166EC75F00A2225E /* bz_View.m in Sources */,
 				EF2587EB166EC78D00A2225E /* bz_SettingsViewController.m in Sources */,
 				EF2587F0166EC7A900A2225E /* bz_GalleryViewController.m in Sources */,
@@ -2163,8 +2188,11 @@
 				CC2CF439167DB2A900A0EDA7 /* AFXMLRequestOperation.m in Sources */,
 				CC2CF43A167DB2A900A0EDA7 /* UIImageView+AFNetworking.m in Sources */,
 				CC384CC4167E642800174786 /* bz_Constants.m in Sources */,
-				CC8839A8167E9F7200374C63 /* bz_CaptureManager.m in Sources */,
 				CC8839AD167EA21D00374C63 /* bz_ImageView.m in Sources */,
+				CC55B6AD16949614006AD05A /* BZCaptureManager.m in Sources */,
+				CC16B9771694CA2600027CC5 /* Bezel.xcdatamodeld in Sources */,
+				CC16B97C1694CBF600027CC5 /* BZ_Adjustment.m in Sources */,
+				CC16B9811694CC1C00027CC5 /* BZ_Session.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2241,8 +2269,11 @@
 				CC821F45167DBB8E00445EAC /* AFXMLRequestOperation.m in Sources */,
 				CC821F46167DBB8E00445EAC /* UIImageView+AFNetworking.m in Sources */,
 				CC384CC6167E642800174786 /* bz_Constants.m in Sources */,
-				CC8839AA167E9F7200374C63 /* bz_CaptureManager.m in Sources */,
 				CC8839AF167EA21D00374C63 /* bz_ImageView.m in Sources */,
+				CC55B6AF16949614006AD05A /* BZCaptureManager.m in Sources */,
+				CC16B9791694CA2600027CC5 /* Bezel.xcdatamodeld in Sources */,
+				CC16B97E1694CBF600027CC5 /* BZ_Adjustment.m in Sources */,
+				CC16B9831694CC1C00027CC5 /* BZ_Session.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2294,7 +2325,8 @@
 		CC82200C167E531400445EAC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Josh Buchacher (CP9EUHCPPP)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -2312,7 +2344,6 @@
 					"\"$(SRCROOT)/Bezel/Third Party\"/**",
 				);
 				PRODUCT_NAME = "Bezel-QA";
-				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2320,8 +2351,8 @@
 		CC82200D167E531400445EAC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Josh Buchacher (CP9EUHCPPP)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mind Diaper, LLC";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -2339,8 +2370,6 @@
 					"\"$(SRCROOT)/Bezel/Third Party\"/**",
 				);
 				PRODUCT_NAME = "Bezel-QA";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CAF81F22-C7C5-4E75-9105-D953B78FD005";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -2398,6 +2427,8 @@
 		EF2587DF166EC66400A2225E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -2423,8 +2454,8 @@
 		EF2587E0166EC66400A2225E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mind Diaper, LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mind Diaper, LLC";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -2443,8 +2474,6 @@
 				);
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "CAF81F22-C7C5-4E75-9105-D953B78FD005";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CAF81F22-C7C5-4E75-9105-D953B78FD005";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -2545,14 +2574,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		EF2587C3166EC66400A2225E /* Bezel.xcdatamodeld */ = {
+		CC16B9751694CA2600027CC5 /* Bezel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				EF2587C4166EC66400A2225E /* Bezel.xcdatamodel */,
+				CC16B9761694CA2600027CC5 /* Bezel.xcdatamodel */,
 			);
-			currentVersion = EF2587C4166EC66400A2225E /* Bezel.xcdatamodel */;
-			name = Bezel.xcdatamodeld;
-			path = ../Bezel.xcdatamodeld;
+			currentVersion = CC16B9761694CA2600027CC5 /* Bezel.xcdatamodel */;
+			path = Bezel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

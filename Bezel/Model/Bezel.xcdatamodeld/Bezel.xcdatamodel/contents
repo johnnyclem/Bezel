@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="12C2034" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="BZ_Image" syncable="YES">
-        <attribute name="background" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="brightness" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="contrast" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="filter" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="original" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="preview" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="shape" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="thumbnail" optional="YES" attributeType="Binary" syncable="YES"/>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="12C3006" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="BZ_Adjustment" representedClassName="BZ_Adjustment" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="session" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BZ_Session" inverseName="adjustments" inverseEntity="BZ_Session" syncable="YES"/>
+    </entity>
+    <entity name="BZ_Session" representedClassName="BZ_Session" syncable="YES">
+        <attribute name="currentFullResolutionImage" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="currentThumbnailImage" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="imageId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="adjustments" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="BZ_Adjustment" inverseName="session" inverseEntity="BZ_Adjustment" syncable="YES"/>
     </entity>
     <elements>
-        <element name="BZ_Image" positionX="-2232" positionY="-630" width="128" height="165"/>
+        <element name="BZ_Session" positionX="-2232" positionY="-630" width="128" height="105"/>
+        <element name="BZ_Adjustment" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>
