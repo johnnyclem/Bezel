@@ -177,7 +177,7 @@
     } else if (aScrollView.contentOffset.x == 960) {
         self.backgroundViewController.currentImage = self.adjustmentViewController.currentImage;
         self.backgroundViewController.mainVC = self.mainVC;
-        self.backgroundViewController changeBackground:backgroundVC.blackBG];
+        [self.backgroundViewController changeBackground: self.backgroundViewController.blackBG];
     } else if (aScrollView.contentOffset.x == 1280) {
         self.shareViewController.currentImage = self.backgroundViewController.currentImage;
     }

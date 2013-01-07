@@ -722,24 +722,6 @@
     [NSThread detachNewThreadSelector:@selector(processNewImage:) toTarget:self withObject:newImage];
 }
 
--(void)newLibraryPhotoArrived:(NSNotification*)notification
-{    
-    // TODO keepPhoto = YES;
-    self.currentImage = [notification.userInfo objectForKey:@"newImageKey"];
-    [_sessionPreview setImage:self.currentImage];
-    [NSThread detachNewThreadSelector:@selector(processNewLibraryImage:) toTarget:self withObject:nil];
-}
-
--(void)processNewImage:(UIImage*)newImage {
-
-    _maskImage = [bz_MaskShapeLayer maskImageFromShape:_photoMaskLayer atSize:CGSizeMake(1024.f, 1024.f)];
-    _maskedImage = [self maskImage:newImage withMask:_maskImage];
-    self.currentImage = nil;
-    self.currentImage = newImage;
-    [_sessionPreview setImage:self.currentImage];
-
-}
-
 -(void)newLibraryPhotoArrived;
 {
     _sessionPreview.image = self.session.thumbnailImage;
@@ -802,7 +784,6 @@
                      completion:^(BOOL finished){
                          LogTrace(@"completed animation");
                      }];
-
 }
 
 -(void)keepPhotoAndRemoveView:(id)sender {
@@ -1119,7 +1100,6 @@
         if (self.view.frame.size.height == 480) {
             filter = [[GPUImageCropFilter alloc] initWithCropRegion:CGRectMake(.140625, 0, .75, 1)];
         } else {
-<<<<<<< HEAD
             imageCameFromLibrary = NO;
             GPUImageCropFilter *filter;
 
@@ -1148,9 +1128,7 @@
             [self newPhotoArrived:libraryPhoto];
             [imagePickerController.view removeFromSuperview];
             imagePickerController = nil;
-=======
             filter = [[GPUImageCropFilter alloc] initWithCropRegion:CGRectMake(.19218745, 0, .75, 1)];
->>>>>>> Trying to fix self.session.thumbnailImage and self.session.fullResolutionImage disappearing randomly...
         }
         
         if ([df boolForKey:BZ_SETTINGS_SAVE_TO_CAMERA_ROLL_KEY] == TRUE) {
