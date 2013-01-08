@@ -55,5 +55,16 @@
 	</array>
 	<key>UIViewEdgeAntialiasing</key>
 	<true/>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb485906821455873</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>485906821455873</string>
 </dict>
 </plist>

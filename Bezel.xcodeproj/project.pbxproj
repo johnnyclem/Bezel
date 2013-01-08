@@ -215,6 +215,12 @@
 		CC8839AD167EA21D00374C63 /* bz_ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839AC167EA21D00374C63 /* bz_ImageView.m */; };
 		CC8839AE167EA21D00374C63 /* bz_ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839AC167EA21D00374C63 /* bz_ImageView.m */; };
 		CC8839AF167EA21D00374C63 /* bz_ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839AC167EA21D00374C63 /* bz_ImageView.m */; };
+		CCE403F0169C8044001355A3 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CCE403EF169C8044001355A3 /* FacebookSDKResources.bundle */; };
+		CCE403F1169C8044001355A3 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CCE403EF169C8044001355A3 /* FacebookSDKResources.bundle */; };
+		CCE403F2169C8044001355A3 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CCE403EF169C8044001355A3 /* FacebookSDKResources.bundle */; };
+		CCE403F4169C807F001355A3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE403F3169C807F001355A3 /* libsqlite3.dylib */; };
+		CCE403F5169C8088001355A3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE403F3169C807F001355A3 /* libsqlite3.dylib */; };
+		CCE403F6169C8095001355A3 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2CDB431698055000DA1435 /* AdSupport.framework */; };
 		CCEA6808167DB00D00BD08DE /* promotion.json in Resources */ = {isa = PBXBuildFile; fileRef = CCEA6807167DB00D00BD08DE /* promotion.json */; };
 		CCEA6809167DB01100BD08DE /* promotion.json in Resources */ = {isa = PBXBuildFile; fileRef = CCEA6807167DB00D00BD08DE /* promotion.json */; };
 		CCEA680B167DB03F00BD08DE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCEA680A167DB03F00BD08DE /* SystemConfiguration.framework */; };
@@ -622,6 +628,8 @@
 		CC822011167E5A8400445EAC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Resources/Settings.bundle; sourceTree = "<group>"; };
 		CC8839AB167EA21D00374C63 /* bz_ImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_ImageView.h; path = View/bz_ImageView.h; sourceTree = "<group>"; };
 		CC8839AC167EA21D00374C63 /* bz_ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_ImageView.m; path = View/bz_ImageView.m; sourceTree = "<group>"; };
+		CCE403EF169C8044001355A3 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = "Bezel/Third Party/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle"; sourceTree = "<group>"; };
+		CCE403F3169C807F001355A3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		CCEA6807167DB00D00BD08DE /* promotion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = promotion.json; path = "Mock Data/promotion.json"; sourceTree = "<group>"; };
 		CCEA680A167DB03F00BD08DE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EF160764167BB7E800EC21EB /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
@@ -873,6 +881,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCE403F6169C8095001355A3 /* AdSupport.framework in Frameworks */,
+				CCE403F5169C8088001355A3 /* libsqlite3.dylib in Frameworks */,
 				CC821FA9167E531400445EAC /* MobileCoreServices.framework in Frameworks */,
 				CC821FAA167E531400445EAC /* SystemConfiguration.framework in Frameworks */,
 				CC821FAB167E531400445EAC /* libGPUImage.a in Frameworks */,
@@ -904,6 +914,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF2CDB441698055000DA1435 /* AdSupport.framework in Frameworks */,
+				CCE403F4169C807F001355A3 /* libsqlite3.dylib in Frameworks */,
 				EFDE980716755AD6006FB1AC /* MobileCoreServices.framework in Frameworks */,
 				CCEA680B167DB03F00BD08DE /* SystemConfiguration.framework in Frameworks */,
 				CC866E3D167D20A3001779CB /* libGPUImage.a in Frameworks */,
@@ -1103,9 +1114,11 @@
 				EFF44B141671A01C0023FF70 /* CoreVideo.framework */,
 				EF25883F166ECC2B00A2225E /* Crashlytics.framework */,
 				CC3C0854169B319B00CF9B18 /* FacebookSDK.framework */,
+				CCE403EF169C8044001355A3 /* FacebookSDKResources.bundle */,
 				EF2587AB166EC66400A2225E /* Foundation.framework */,
 				EFF44B1A1671A0660023FF70 /* GPUImage.xcodeproj */,
 				EFDE980416755ACC006FB1AC /* ImageIO.framework */,
+				CCE403F3169C807F001355A3 /* libsqlite3.dylib */,
 				EF258842166ECCCF00A2225E /* libz.dylib */,
 				EFDE980616755AD6006FB1AC /* MobileCoreServices.framework */,
 				EFF44B161671A0240023FF70 /* OpenGLES.framework */,
@@ -1781,6 +1794,7 @@
 				EF2CDB9F16981B4B00DA1435 /* teardropMask.png in Resources */,
 				EF2CDBA31698220E00DA1435 /* proShapes.png in Resources */,
 				EF2CDBA71698288500DA1435 /* proShapePackPreview.png in Resources */,
+				CCE403F1169C8044001355A3 /* FacebookSDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1865,6 +1879,7 @@
 				EF2CDB9E16981B4B00DA1435 /* teardropMask.png in Resources */,
 				EF2CDBA21698220E00DA1435 /* proShapes.png in Resources */,
 				EF2CDBA61698288500DA1435 /* proShapePackPreview.png in Resources */,
+				CCE403F0169C8044001355A3 /* FacebookSDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1944,6 +1959,7 @@
 				EF2CDBA016981B4B00DA1435 /* teardropMask.png in Resources */,
 				EF2CDBA41698220E00DA1435 /* proShapes.png in Resources */,
 				EF2CDBA81698288500DA1435 /* proShapePackPreview.png in Resources */,
+				CCE403F2169C8044001355A3 /* FacebookSDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2268,8 +2284,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/Bezel/Third Party\"/**",
-					"\"$(SRCROOT)/../../Documents/FacebookSDK\"",
-					"\"$(SRCROOT)/Bezel/Third Party\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bezel/Bezel-Prefix.pch";
@@ -2302,8 +2316,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/Bezel/Third Party\"/**",
-					"\"$(SRCROOT)/../../Documents/FacebookSDK\"",
-					"\"$(SRCROOT)/Bezel/Third Party\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bezel/Bezel-Prefix.pch";
@@ -2364,6 +2376,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -2379,8 +2392,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/Bezel/Third Party\"/**",
-					"\"$(SRCROOT)/../../Documents/FacebookSDK\"",
-					"\"$(SRCROOT)/Bezel/Third Party\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bezel/Bezel-Prefix.pch";
@@ -2391,7 +2402,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Bezel/Third Party\"/**",
-					"\"$(SRCROOT)/Bezel/Third Party/FacebookSDK.framework/Versions/A\"",
 				);
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2410,8 +2420,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/Bezel/Third Party\"/**",
-					"\"$(SRCROOT)/../../Documents/FacebookSDK\"",
-					"\"$(SRCROOT)/Bezel/Third Party\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bezel/Bezel-Prefix.pch";
@@ -2422,7 +2430,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Bezel/Third Party\"/**",
-					"\"$(SRCROOT)/Bezel/Third Party/FacebookSDK.framework/Versions/A\"",
 				);
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
