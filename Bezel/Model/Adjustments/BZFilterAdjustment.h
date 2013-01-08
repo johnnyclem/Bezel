@@ -10,7 +10,7 @@
 
 @interface BZFilterAdjustment : BZAdjustment
 
-@property (nonatomic, retain) NSDictionary *value;
+@property (nonatomic, strong) NSDictionary *value;
 
 - (UIImage *)filteredImageWithImage:(UIImage *)image;
 

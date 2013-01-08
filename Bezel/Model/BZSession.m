@@ -44,7 +44,8 @@
     }
     @finally
     {
-        LogInfo(@"Adjustment %@ was %@", adjustment.identifier, success ? @"added" : @"not added");
+        NSString *maskId = [adjustment.value objectForKey: kButtonIdentifier];
+        LogInfo(@"Adjustment %@ (%@) was %@", adjustment.identifier, maskId, success ? @"added" : @"not added");
     }
 }
 
@@ -67,13 +68,14 @@
     }
     @finally
     {
-        LogInfo(@"Adjustment %@ was %@", adjustment.identifier, success ? @"removed" : @"not removed");
+        NSString *maskId = [adjustment.value objectForKey: kButtonIdentifier];
+        LogInfo(@"Adjustment %@ (%@) was %@", adjustment.identifier, maskId, success ? @"removed" : @"not removed");
     }
 }
 
 - (BZAdjustment *)adjustmentWithIdentifier:(NSString *)identifier
 {
-    for (BZAdjustment *adj in _adjustments)
+    for (BZAdjustment *adj in self.adjustments)
     {
         if ([identifier isEqualToString: adj.identifier])
         {

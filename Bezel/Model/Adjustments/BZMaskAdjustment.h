@@ -10,7 +10,7 @@
 
 @interface BZMaskAdjustment : BZAdjustment
 
-@property (nonatomic, retain) NSDictionary *value;
+@property (nonatomic, strong) NSDictionary *value;
 
 - (CALayer *)layerMaskForSize:(CGSize)size;
 
