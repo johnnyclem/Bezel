@@ -25,6 +25,8 @@
 #import "BZFilterAdjustment.h"
 #import "BZAdjustmentProcessor.h"
 
+#import "bz_ImageView.h"
+
 @interface bz_MainViewController ()
 {
     IBOutlet bz_Button *cart;
@@ -37,110 +39,52 @@
     BOOL colorPickerIsPurchased;
     BOOL holidayPackIsPurchased;
     BOOL proShapePackIsPurchased;
-    BOOL imageCameFromLibrary;
     BOOL keepPhoto;
 }
-
+@property (strong, nonatomic) IBOutlet bz_ScrollViewController *scrollViewController;
 @property (weak, nonatomic) IBOutlet UIView *scrollContainerView;
-@property (weak, nonatomic) IBOutlet UIView *cameraPreviewView;
-@property (nonatomic, strong) UIView *cameraMaskView;
-@property (nonatomic, strong) UIView *photoMaskView;
-@property (nonatomic, strong) UIImageView *bgView;
-@property (nonatomic, strong) UIImage *saveMask;
-@property (nonatomic, strong) UIImage *maskedImage;
-@property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic, strong) IBOutlet bz_ScrollViewController *scrollVC;
-@property (strong, atomic) ALAssetsLibrary* library;
-@property (nonatomic, strong) UIDocumentInteractionController *docController;
-@property (nonatomic) BOOL useLibrary;
-@property (nonatomic) bz_MaskShapeLayer *photoMaskLayer;
-@property (nonatomic) CGSize imgSize;
-@property (strong, nonatomic) BZSession *session;
-
-@property (nonatomic, strong) UIImage *lastImage;
+@property (strong, nonatomic) ALAssetsLibrary* library;
+@property (strong, nonatomic) UIDocumentInteractionController *docController;
+@property (assign, nonatomic) BOOL useLibrary;
 
 @end
 
 @implementation bz_MainViewController
 
-@synthesize cameraMaskView  = _cameraMaskView;
-@synthesize photoMaskView   = _photoMaskView;
-@synthesize docController   = _docController;
-@synthesize bgView          = _bgView;
-@synthesize maskImage       = _maskImage;
-@synthesize saveMask        = _saveMask;
-@synthesize maskedImage     = _maskedImage;
-@synthesize bgColor         = _bgColor;
-@synthesize bgImage         = _bgImage;
-@synthesize timer           = _timer;
-@synthesize scrollVC        = _scrollVC;
-@synthesize photoMaskLayer  = _photoMaskLayer;
-@synthesize library, useLibrary, imgSize;
+@synthesize library, useLibrary;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        LogTrace(@"bz_MainViewController initialized.");
-    }
-    return self;
-}
+#define kDefaultCameraPreviewSize CGSizeMake(320.0, 320.0)
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
+    // Initialization
     self.session = [[BZSession alloc] init];
+    self.library = [[ALAssetsLibrary alloc] init];
     
-    _scrollVC = [[bz_ScrollViewController alloc] init];
-    [_scrollVC setupScrollViewChildren];
-    [self.view addSubview: _scrollVC.scrollView];
+    // Set up scroll view
+    self.scrollViewController = [[bz_ScrollViewController alloc] init];
+    [self.scrollViewController setupScrollViewChildren];
+    [self.view addSubview: self.scrollViewController.scrollView];
     
-    // Default to square mask around preview image.    
-    BZMaskAdjustment *maskAdjustment = [[BZMaskAdjustment alloc] init];
-    maskAdjustment.identifier = kButtonIdentifierSquareMask;
-    maskAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: kButtonIdentifierSquareMask, kButtonIdentifier, nil];
-    [self.session addAdjustment: maskAdjustment];
-    
-    _sessionPreview.layer.mask = [maskAdjustment layerMaskForSize: self.sessionPreview.frame.size];
-    
-    imageCameFromLibrary = NO;
-
-    imageCameFromLibrary = NO;
     NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
     holidayPackIsPurchased   = [(NSNumber*)[standard objectForKey: BZ_HOLIDAY_PACK_PURCHASE_KEY] boolValue];
     proShapePackIsPurchased  = [(NSNumber*)[standard objectForKey: BZ_PRO_SHAPE_PACK_PURCHASE_KEY] boolValue];
     colorPickerIsPurchased   = [(NSNumber*)[standard objectForKey: BZ_COLOR_PICKER_PURCHASE_KEY] boolValue];
 
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        useLibrary = NO;
-    } else {
-        useLibrary = YES;
-    }
+    // Use library if camera is *not* available.
+    useLibrary = ![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
 
-    self.library = [[ALAssetsLibrary alloc] init];
-
-    for (bz_Button *button in _scrollVC.shapesViewController.shapeButtons)
+    for (bz_Button *button in self.scrollViewController.shapesViewController.shapeButtons)
     {
         [button addTarget: self action: @selector(switchShape:) forControlEvents: UIControlEventTouchUpInside];
     }
     
-    for (bz_Button *button in _scrollVC.filterViewController.filterButtons)
+    for (bz_Button *button in self.scrollViewController.filterViewController.filterButtons)
     {
         [button addTarget:self action:@selector(applyFilter:) forControlEvents: UIControlEventTouchUpInside];
     }
-    
-    // Add event listeners
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(takePhoto) name:@"camBtn" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(switchCamera) name:@"switchCam" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newPhotoArrived:) name:@"newImage" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newPhotoArrivedFromLibrary:) name:@"newImageFromLibrary" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addBackground:) name:@"newBackground" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sharePhoto:) name:@"sharePhoto" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyColorPicker) name:@"buyColorPicker" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyHolidayPack) name:@"buyHolidayPack" object:nil];
-
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -160,7 +104,7 @@
         }
         else
         {
-            _sessionPreview.image = self.session.thumbnailImage;
+//            self.sessionPreview.image = self.session.thumbnailImage;
         }
     } else {
         bz_TutorialViewController *tutorialView = [[bz_TutorialViewController alloc] init];
@@ -182,14 +126,17 @@
 #pragma mark -
 #pragma mark Camera methods
 
--(void)setupCamera {
-
-    [_bgView removeFromSuperview];
-    _bgView     = nil;
-    _maskedImage = nil;
-    self.currentImage = nil;
+-(void)setupCamera
+{
+    [[BZCaptureManager sharedManager] setPreviewLayerWithView: self.cameraPreview];
     
-    [[BZCaptureManager sharedManager] setPreviewLayerWithView: _sessionPreview];
+    // Default to square mask around preview image.
+    BZMaskAdjustment *maskAdjustment = [[BZMaskAdjustment alloc] init];
+    maskAdjustment.identifier = kButtonIdentifierSquareMask;
+    maskAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: kButtonIdentifierSquareMask, kButtonIdentifier, nil];
+    [self.session addAdjustment: maskAdjustment];
+    
+    self.cameraPreview.layer.mask = [maskAdjustment layerMaskForSize: kDefaultCameraPreviewSize];
 }
 
 -(IBAction)importFromLibrary:(id)sender {
@@ -223,23 +170,21 @@
                 __block NSDictionary* dict;
                 __block NSNotification *libraryPhoto;
                 
-                imageCameFromLibrary = NO;
-                
                 int quality = [df integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY];
                 LogInfo(@"Image quality is set to: %i", quality);
-                switch (quality) {
-                    case 2: // User wants highest res image
-                        imgSize = CGSizeMake(2048, 2048);
-                        break;
-                    case 1: // User wants 1024x1024 res image
-                        imgSize = CGSizeMake(1024, 1024);
-                        break;
-                    case 0: // User wants 640x640 res image
-                        imgSize = CGSizeMake(640, 640);
-                        break;
-                    default:
-                        break;
-                }
+//                switch (quality) {
+//                    case 2: // User wants highest res image
+//                        imgSize = CGSizeMake(2048, 2048);
+//                        break;
+//                    case 1: // User wants 1024x1024 res image
+//                        imgSize = CGSizeMake(1024, 1024);
+//                        break;
+//                    case 0: // User wants 640x640 res image
+//                        imgSize = CGSizeMake(640, 640);
+//                        break;
+//                    default:
+//                        break;
+//                }
                 
                 if ([df boolForKey:BZ_SETTINGS_SAVE_TO_CAMERA_ROLL_KEY] == TRUE) {
                     [self.library writeImageToSavedPhotosAlbum: [img CGImage] orientation: img.imageOrientation completionBlock:^(NSURL *assetURL, NSError *error) {
@@ -303,34 +248,34 @@
     return scaledImage;
 }
 
--(void)addBackground:(NSNotification*)notification {
-    
-    [_sessionPreview.layer setMask:nil];
-
-    _bgColor = [notification.userInfo objectForKey:@"newBGColor"];
-    if (_bgColor != nil) {
-        _bgImage = [UIImage imageWithColor:_bgColor atSize:self.currentImage.size];
-    } else if([notification.userInfo objectForKey:@"newBGImage"] != nil){
-        _bgImage = [notification.userInfo objectForKey:@"newBGImage"];
-    } else {
-        _bgImage = [UIImage imageWithColor:[UIColor blackColor] atSize:self.currentImage.size];
-    }
-    
-    GPUImagePicture *border = [[GPUImagePicture alloc] initWithImage:_bgImage];
-
-    GPUImageAlphaBlendFilter *alpha = [[GPUImageAlphaBlendFilter alloc] init];
-    GPUImagePicture *imageToProcess = [[GPUImagePicture alloc] initWithImage:_maskedImage];
-    alpha.mix = 1.0f;
-    
-    [border addTarget:alpha];
-    [imageToProcess addTarget:alpha];
-
-    [border processImage];
-    [imageToProcess processImage];
-    
-    self.currentImage = nil;
-    self.currentImage = [alpha imageFromCurrentlyProcessedOutput];
-    [_sessionPreview setImage:self.currentImage];
+-(void)addBackground:(NSNotification*)notification
+{    
+//    [self.sessionPreview.layer setMask:nil];
+//
+//    _bgColor = [notification.userInfo objectForKey:@"newBGColor"];
+//    if (_bgColor != nil) {
+//        _bgImage = [UIImage imageWithColor:_bgColor atSize:self.currentImage.size];
+//    } else if([notification.userInfo objectForKey:@"newBGImage"] != nil){
+//        _bgImage = [notification.userInfo objectForKey:@"newBGImage"];
+//    } else {
+//        _bgImage = [UIImage imageWithColor:[UIColor blackColor] atSize:self.currentImage.size];
+//    }
+//    
+//    GPUImagePicture *border = [[GPUImagePicture alloc] initWithImage:_bgImage];
+//
+//    GPUImageAlphaBlendFilter *alpha = [[GPUImageAlphaBlendFilter alloc] init];
+//    GPUImagePicture *imageToProcess = [[GPUImagePicture alloc] initWithImage: nil];
+//    alpha.mix = 1.0f;
+//    
+//    [border addTarget:alpha];
+//    [imageToProcess addTarget:alpha];
+//
+//    [border processImage];
+//    [imageToProcess processImage];
+//    
+//    self.currentImage = nil;
+//    self.currentImage = [alpha imageFromCurrentlyProcessedOutput];
+//    [self.sessionPreview setImage:self.currentImage];
 
 }
 
@@ -347,14 +292,14 @@
     
     [self.session addAdjustment: maskAdjustment];
 
-    if (!imageCameFromLibrary) {
-        [_sessionPreview setImage:nil];
-    }
+//    if (!imageCameFromLibrary) {
+//        [self.sessionPreview setImage:nil];
+//    }
     
     // set the preview layer mask to the adjusted mask.
-    _sessionPreview.layer.mask = [maskAdjustment layerMaskForSize: _sessionPreview.frame.size];
-    _sessionPreview.clipsToBounds = YES;
-    [_sessionPreview setNeedsDisplay];
+    self.cameraPreview.layer.mask = [maskAdjustment layerMaskForSize: self.cameraPreview.frame.size];
+    self.cameraPreview.clipsToBounds = YES;
+    [self.cameraPreview setNeedsDisplay];
 }
 
 - (void)undoLastAdjustment
@@ -400,44 +345,44 @@
 
 -(void)applyFilter:(bz_Button *)filterButton
 {
-    _lastImage = _sessionPreview.image;
-    
-    BZFilterAdjustment *filterAdjustment = [[BZFilterAdjustment alloc] init];
-    filterAdjustment.identifier = filterButton.buttonIdentifier;
-    filterAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: filterButton.buttonIdentifier, kButtonIdentifier, nil];
-    
-    [self.session addAdjustment: filterAdjustment];
-    
-    if (!imageCameFromLibrary) {
-        [_sessionPreview setImage:nil];
-    }
-    
-    // set the preview layer mask to the adjusted mask.
-    _sessionPreview.image = [filterAdjustment filteredImageWithImage: _sessionPreview.image];
-    _sessionPreview.clipsToBounds = YES;
-    [_sessionPreview setNeedsDisplay];
-    
-    UIView *confirm = [[UIView alloc] initWithFrame:CGRectMake(0, -60, 320, 60)];
-    confirm.backgroundColor = [UIColor blackColor];
-    yes = [[bz_Button alloc] initWithFrame:CGRectMake(25.f, (confirm.frame.size.height/2.f)-25.f, 50.f, 50.f)];
-    yes.tag = 33;
-    [yes addTarget:self action:@selector(keepFilteredImage:) forControlEvents:UIControlEventTouchUpInside];
-    
-    no = [[bz_Button alloc] initWithFrame:CGRectMake(245.f, (confirm.frame.size.height/2.f)-25.f, 50.f, 50.f)];
-    [no addTarget:self action:@selector(undoFilter:) forControlEvents:UIControlEventTouchUpInside];
-    no.tag = 34;
-    
-    [confirm addSubview:yes];
-    [confirm addSubview:no];
-    [self.view addSubview:confirm];
-    
-    [UIView animateWithDuration:0.5
-                     animations:^{
-                         confirm.frame = CGRectMake(0, 0, 320.f, 60.f);
-                     }
-                     completion:^(BOOL finished){
-                         NSLog(@"completed animation");
-                     }];
+//    _lastImage = self.sessionPreview.image;
+//    
+//    BZFilterAdjustment *filterAdjustment = [[BZFilterAdjustment alloc] init];
+//    filterAdjustment.identifier = filterButton.buttonIdentifier;
+//    filterAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: filterButton.buttonIdentifier, kButtonIdentifier, nil];
+//    
+//    [self.session addAdjustment: filterAdjustment];
+//    
+//    if (!imageCameFromLibrary) {
+//        [self.sessionPreview setImage:nil];
+//    }
+//    
+//    // set the preview layer mask to the adjusted mask.
+//    self.sessionPreview.image = [filterAdjustment filteredImageWithImage: self.sessionPreview.image];
+//    self.sessionPreview.clipsToBounds = YES;
+//    [self.sessionPreview setNeedsDisplay];
+//    
+//    UIView *confirm = [[UIView alloc] initWithFrame:CGRectMake(0, -60, 320, 60)];
+//    confirm.backgroundColor = [UIColor blackColor];
+//    yes = [[bz_Button alloc] initWithFrame:CGRectMake(25.f, (confirm.frame.size.height/2.f)-25.f, 50.f, 50.f)];
+//    yes.tag = 33;
+//    [yes addTarget:self action:@selector(keepFilteredImage:) forControlEvents:UIControlEventTouchUpInside];
+//    
+//    no = [[bz_Button alloc] initWithFrame:CGRectMake(245.f, (confirm.frame.size.height/2.f)-25.f, 50.f, 50.f)];
+//    [no addTarget:self action:@selector(undoFilter:) forControlEvents:UIControlEventTouchUpInside];
+//    no.tag = 34;
+//    
+//    [confirm addSubview:yes];
+//    [confirm addSubview:no];
+//    [self.view addSubview:confirm];
+//    
+//    [UIView animateWithDuration:0.5
+//                     animations:^{
+//                         confirm.frame = CGRectMake(0, 0, 320.f, 60.f);
+//                     }
+//                     completion:^(BOOL finished){
+//                         NSLog(@"completed animation");
+//                     }];
 }
 
 -(void)undoFilter:(id)sender
@@ -454,8 +399,8 @@
                          BZFilterAdjustment *adj = [self.session.adjustments lastObject];
                          [self.session removeAdjustment: adj];
                          
-                         _sessionPreview.image = [adj filteredImageWithImage: _lastImage];
-                         _sessionPreview.contentMode = UIViewContentModeScaleAspectFill;
+//                         self.imageCanvas.image = [adj filteredImageWithImage: nil];
+//                         self.imageCanvas.contentMode = UIViewContentModeScaleAspectFill;
                          
                      }];
 }
@@ -481,8 +426,8 @@
 
 -(void)newLibraryPhotoArrived;
 {
-    _sessionPreview.image = self.session.thumbnailImage;
-    _sessionPreview.contentMode = UIViewContentModeScaleAspectFill;
+//    self.sessionPreview.image = self.session.thumbnailImage;
+//    self.sessionPreview.contentMode = UIViewContentModeScaleAspectFill;
     
     UIView *confirm = [[UIView alloc] initWithFrame:CGRectMake(0, UIScreen.mainScreen.bounds.size.height, 320, (UIScreen.mainScreen.bounds.size.height-380)/2)];
     confirm.backgroundColor = [UIColor blackColor];
@@ -511,12 +456,12 @@
 
 -(void)processNewImage:(UIImage*)newImage
 {
-    _maskImage = [bz_MaskShapeLayer maskImageFromShape:_photoMaskLayer atSize:CGSizeMake(1024.f, 1024.f)];
-    _maskedImage = [self maskImage:newImage withMask:_maskImage];
+//    _maskImage = [bz_MaskShapeLayer maskImageFromShape:_photoMaskLayer atSize:CGSizeMake(1024.f, 1024.f)];
+//    _maskedImage = [self maskImage:newImage withMask:_maskImage];
     self.currentImage = nil;
     self.currentImage = newImage;
-    [_sessionPreview setImage:self.currentImage];
-    _sessionPreview.contentMode = UIViewContentModeScaleAspectFill;
+//    [self.sessionPreview setImage:self.currentImage];
+//    self.sessionPreview.contentMode = UIViewContentModeScaleAspectFill;
 
     UIView *confirm = [[UIView alloc] initWithFrame:CGRectMake(0, UIScreen.mainScreen.bounds.size.height, 320, UIScreen.mainScreen.bounds.size.height-380)];
     confirm.backgroundColor = [UIColor blackColor];
@@ -561,7 +506,7 @@
 -(void)setupFilterThumbnails
 {
     UIImage *currentThumb = self.session.thumbnailImage;
-    for (bz_Button *button in _scrollVC.filterViewController.filterButtons)
+    for (bz_Button *button in self.scrollViewController.filterViewController.filterButtons)
     {
         BZFilterAdjustment *filterAdjustment = [[BZFilterAdjustment alloc] init];
         filterAdjustment.identifier = button.buttonIdentifier;
@@ -587,20 +532,19 @@
                          LogTrace(@"completed animation");
                      }];
     
-    [[BZCaptureManager sharedManager] setPreviewLayerWithView: _sessionPreview];
+//    [[BZCaptureManager sharedManager] setPreviewLayerWithView: self.sessionPreview];
     
 }
 
 #pragma mark -
 #pragma mark - Image Masking
 
--(void)addMaskedImageViewWithImage:(UIImage*)image {
-    
-    bz_MaskShapeLayer *maskLayer    = [[bz_MaskShapeLayer alloc] initWithCircleShapeAtSize:CGSizeMake(320, 320)];
-    [_sessionPreview setImage:image];
-    _sessionPreview.layer.mask = maskLayer;
-    _sessionPreview.clipsToBounds = YES;
-
+-(void)addMaskedImageViewWithImage:(UIImage*)image
+{
+//    bz_MaskShapeLayer *maskLayer    = [[bz_MaskShapeLayer alloc] initWithCircleShapeAtSize:CGSizeMake(320, 320)];
+//    [self.camer setImage:image];
+//    self.sessionPreview.layer.mask = maskLayer;
+//    self.sessionPreview.clipsToBounds = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -843,7 +787,6 @@
     
     if (useLibrary)
     {
-        imageCameFromLibrary = YES;
         [self dismissViewControllerAnimated:YES completion:^(void){
             useLibrary = NO;
         }];
@@ -851,13 +794,11 @@
         [self newLibraryPhotoArrived];
         
     } else {
-        imageCameFromLibrary = NO;
         GPUImageCropFilter *filter;
         
         if (self.view.frame.size.height == 480) {
             filter = [[GPUImageCropFilter alloc] initWithCropRegion:CGRectMake(.140625, 0, .75, 1)];
         } else {
-            imageCameFromLibrary = NO;
             GPUImageCropFilter *filter;
 
             if (self.view.frame.size.height == 480) {
@@ -877,7 +818,7 @@
             }
             UIImage *originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
             UIImage *filteredImage = [filter imageByFilteringImage: originalImage];
-            takenImage = [filteredImage resizedImage:imgSize interpolationQuality:kCGInterpolationMedium];
+            takenImage = [filteredImage resizedImage: kDefaultCameraPreviewSize interpolationQuality:kCGInterpolationMedium];
 //            replace code below with
 //            saveToCache();
             dict = [NSDictionary dictionaryWithObject:takenImage forKey:@"newImageKey"];
@@ -897,12 +838,12 @@
                 }
             }];
         }
-        takenImage = [[filter imageByFilteringImage:[info objectForKey:UIImagePickerControllerOriginalImage] ] resizedImage:imgSize interpolationQuality:kCGInterpolationDefault];
-        dict = [NSDictionary dictionaryWithObject:takenImage forKey:@"newImageKey"];
-        libraryPhoto = [NSNotification notificationWithName:@"newImage" object:self userInfo:dict];
-        [self newPhotoArrived:libraryPhoto];
-        [imagePickerController.view removeFromSuperview];
-        imagePickerController = nil;
+//        takenImage = [[filter imageByFilteringImage:[info objectForKey:UIImagePickerControllerOriginalImage] ] resizedImage:imgSize interpolationQuality:kCGInterpolationDefault];
+//        dict = [NSDictionary dictionaryWithObject:takenImage forKey:@"newImageKey"];
+//        libraryPhoto = [NSNotification notificationWithName:@"newImage" object:self userInfo:dict];
+//        [self newPhotoArrived:libraryPhoto];
+//        [imagePickerController.view removeFromSuperview];
+//        imagePickerController = nil;
     }
 }
 
@@ -910,7 +851,7 @@
 {
     [self dismissViewControllerAnimated:YES completion:^(void) {
         useLibrary = NO;
-        [_sessionPreview setImage:nil];
+        [self.imageCanvas setImage:nil];
         self.currentImage = nil;
     }];
 }

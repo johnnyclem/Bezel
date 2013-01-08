@@ -7,13 +7,15 @@
 //
 
 #import "bz_ViewController.h"
-#import "bz_ImageView.h"
+
+@class BZSession;
+@class bz_ImageView;
 
 @interface bz_MainViewController : bz_ViewController  <UIAlertViewDelegate, UIDocumentInteractionControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-@property (nonatomic, strong) IBOutlet bz_ImageView *sessionPreview;
-@property (nonatomic, strong) UIImage *maskImage;
-@property (nonatomic, strong) UIColor *bgColor;
-@property (nonatomic, strong) UIImage *bgImage;
+@property (strong, nonatomic) BZSession *session;
+
+@property (strong, nonatomic) IBOutlet UIView *cameraPreview;
+@property (strong, nonatomic) IBOutlet bz_ImageView *imageCanvas;
 
 @end
