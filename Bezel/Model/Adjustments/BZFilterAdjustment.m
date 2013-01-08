@@ -10,6 +10,11 @@
 
 @implementation BZFilterAdjustment
 
+- (UIImage *)processImage:(UIImage *)inImage
+{
+    return [self filteredImageWithImage: inImage];
+}
+
 - (UIImage *)filteredImageWithImage:(UIImage *)image
 {
     UIImage *filterImage;

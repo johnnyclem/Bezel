@@ -142,5 +142,32 @@
 	}
 }
 
++ (UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)targetSize
+{
+    //If scaleFactor is not touched, no scaling will occur
+    CGFloat scaleFactor = 1.0;
+    
+    //Deciding which factor to use to scale the image (factor = targetSize / imageSize)
+    if (image.size.width > targetSize.width || image.size.height > targetSize.height)
+        if (!((scaleFactor = (targetSize.width / image.size.width)) > (targetSize.height / image.size.height))) //scale to fit width, or
+            scaleFactor = targetSize.height / image.size.height; // scale to fit heigth.
+    
+    UIGraphicsBeginImageContext(targetSize);
+    
+    //Creating the rect where the scaled image is drawn in
+    CGRect rect = CGRectMake((targetSize.width - image.size.width * scaleFactor) / 2,
+                             (targetSize.height -  image.size.height * scaleFactor) / 2,
+                             image.size.width * scaleFactor, image.size.height * scaleFactor);
+    
+    //Draw the image into the rect
+    [image drawInRect:rect];
+    
+    //Saving the image, ending image context
+    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return scaledImage;
+}
+
 
 @end

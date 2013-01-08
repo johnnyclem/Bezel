@@ -221,6 +221,8 @@
 		CCE403F4169C807F001355A3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE403F3169C807F001355A3 /* libsqlite3.dylib */; };
 		CCE403F5169C8088001355A3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE403F3169C807F001355A3 /* libsqlite3.dylib */; };
 		CCE403F6169C8095001355A3 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2CDB431698055000DA1435 /* AdSupport.framework */; };
+		CCE40429169C96C3001355A3 /* bz_ConfirmView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE40428169C96C3001355A3 /* bz_ConfirmView.m */; };
+		CCE4042A169C96C3001355A3 /* bz_ConfirmView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE40428169C96C3001355A3 /* bz_ConfirmView.m */; };
 		CCEA6808167DB00D00BD08DE /* promotion.json in Resources */ = {isa = PBXBuildFile; fileRef = CCEA6807167DB00D00BD08DE /* promotion.json */; };
 		CCEA6809167DB01100BD08DE /* promotion.json in Resources */ = {isa = PBXBuildFile; fileRef = CCEA6807167DB00D00BD08DE /* promotion.json */; };
 		CCEA680B167DB03F00BD08DE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCEA680A167DB03F00BD08DE /* SystemConfiguration.framework */; };
@@ -630,6 +632,8 @@
 		CC8839AC167EA21D00374C63 /* bz_ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_ImageView.m; path = View/bz_ImageView.m; sourceTree = "<group>"; };
 		CCE403EF169C8044001355A3 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = "Bezel/Third Party/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle"; sourceTree = "<group>"; };
 		CCE403F3169C807F001355A3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		CCE40427169C96C3001355A3 /* bz_ConfirmView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_ConfirmView.h; path = View/bz_ConfirmView.h; sourceTree = "<group>"; };
+		CCE40428169C96C3001355A3 /* bz_ConfirmView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_ConfirmView.m; path = View/bz_ConfirmView.m; sourceTree = "<group>"; };
 		CCEA6807167DB00D00BD08DE /* promotion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = promotion.json; path = "Mock Data/promotion.json"; sourceTree = "<group>"; };
 		CCEA680A167DB03F00BD08DE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EF160764167BB7E800EC21EB /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
@@ -1191,6 +1195,8 @@
 			children = (
 				EF25887B166EEE4500A2225E /* bz_Button.h */,
 				EF25887C166EEE4500A2225E /* bz_Button.m */,
+				CCE40427169C96C3001355A3 /* bz_ConfirmView.h */,
+				CCE40428169C96C3001355A3 /* bz_ConfirmView.m */,
 				CC8839AB167EA21D00374C63 /* bz_ImageView.h */,
 				CC8839AC167EA21D00374C63 /* bz_ImageView.m */,
 				EF9449A21672AB350068663F /* bz_MaskShapeLayer.h */,
@@ -2062,6 +2068,7 @@
 				CC19F8011695F56E001A3828 /* BZMaskAdjustment.m in Sources */,
 				CC033ABA16965CC4007D9643 /* BZAdjustmentProcessor.m in Sources */,
 				CC3C080A1697E04C00CF9B18 /* BZFilterAdjustment.m in Sources */,
+				CCE4042A169C96C3001355A3 /* bz_ConfirmView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2145,6 +2152,7 @@
 				CC19F8001695F56E001A3828 /* BZMaskAdjustment.m in Sources */,
 				CC033AB916965CC4007D9643 /* BZAdjustmentProcessor.m in Sources */,
 				CC3C08091697E04C00CF9B18 /* BZFilterAdjustment.m in Sources */,
+				CCE40429169C96C3001355A3 /* bz_ConfirmView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

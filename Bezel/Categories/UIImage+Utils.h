@@ -14,5 +14,6 @@
 + (UIImage *)imageWithColor:(UIColor *)color atSize:(CGSize)size;
 + (UIImage*)loadImageFromDocs:(NSString *)fileName;
 + (void)saveImage:(UIImage*)image ToDocs:(NSString *)fileName;
++ (UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)targetSize;
 
 @end

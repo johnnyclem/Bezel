@@ -30,9 +30,12 @@
 
 - (UIImage *)processImage:(UIImage *)inImage
 {
-    UIImage *outImage;
-
-    return outImage;
+//    UIGraphicsBeginImageContext(inImage.size);
+//    [inImage renderInContext:UIGraphicsGetCurrentContext()];
+//    UIImage* maskImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+    
+    return inImage;
 }
 
 - (CALayer *)layerMaskForSize:(CGSize)size

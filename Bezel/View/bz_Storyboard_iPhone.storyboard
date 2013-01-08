@@ -86,8 +86,6 @@
                     <connections>
                         <outlet property="cart" destination="ly7-th-fv8" id="MMg-EP-Vkf"/>
                         <outlet property="gallery" destination="MKX-sc-VKk" id="Vob-12-vOg"/>
-                        <outlet property="scrollVC" destination="acu-Qp-Fm6" id="WHz-9A-RWW"/>
-                        <outlet property="sessionPreview" destination="YpG-mC-5DO" id="YQZ-z5-4eW"/>
                         <outlet property="settings" destination="uhD-s1-AZh" id="L1u-2g-sxr"/>
                         <outlet property="view" destination="a4y-SG-5eH" id="Lnw-Mk-Jvw"/>
                     </connections>
@@ -347,14 +345,11 @@
         <class className="bz_MainViewController" superclassName="bz_ViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/bz_MainViewController.h"/>
             <relationships>
-                <relationship kind="action" name="importFromLibrary:"/>
-                <relationship kind="action" name="openStoreView:"/>
-                <relationship kind="outlet" name="cameraPreviewView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="cameraPreview" candidateClass="UIView"/>
                 <relationship kind="outlet" name="cart" candidateClass="bz_Button"/>
                 <relationship kind="outlet" name="gallery" candidateClass="bz_Button"/>
-                <relationship kind="outlet" name="scrollContainerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="scrollVC" candidateClass="bz_ScrollViewController"/>
-                <relationship kind="outlet" name="sessionPreview" candidateClass="bz_ImageView"/>
+                <relationship kind="outlet" name="imageCanvas" candidateClass="bz_ImageView"/>
+                <relationship kind="outlet" name="scrollViewController" candidateClass="bz_ScrollViewController"/>
                 <relationship kind="outlet" name="settings" candidateClass="bz_Button"/>
             </relationships>
         </class>

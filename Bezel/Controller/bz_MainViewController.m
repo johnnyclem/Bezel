@@ -26,14 +26,14 @@
 #import "BZAdjustmentProcessor.h"
 
 #import "bz_ImageView.h"
+#import "bz_ConfirmView.h"
 
 @interface bz_MainViewController ()
 {
     IBOutlet bz_Button *cart;
     IBOutlet bz_Button *gallery;
     IBOutlet bz_Button *settings;
-    bz_Button *yes;
-    bz_Button *no;
+
     UIImagePickerController *imagePickerController;
     
     BOOL colorPickerIsPurchased;
@@ -41,19 +41,20 @@
     BOOL proShapePackIsPurchased;
     BOOL keepPhoto;
 }
-@property (strong, nonatomic) IBOutlet bz_ScrollViewController *scrollViewController;
-@property (weak, nonatomic) IBOutlet UIView *scrollContainerView;
-@property (strong, nonatomic) ALAssetsLibrary* library;
+@property (strong, nonatomic) bz_ScrollViewController *scrollViewController;
 @property (strong, nonatomic) UIDocumentInteractionController *docController;
+@property (strong, nonatomic) bz_ConfirmView *confirmView;
+@property (strong, nonatomic) ALAssetsLibrary* library;
 @property (assign, nonatomic) BOOL useLibrary;
 
 @end
 
 @implementation bz_MainViewController
 
-@synthesize library, useLibrary;
+@synthesize useLibrary;
 
 #define kDefaultCameraPreviewSize CGSizeMake(320.0, 320.0)
+#define kDefaultThumbnailSize CGSizeMake(640.0, 640.0)
 
 - (void)viewDidLoad
 {
@@ -62,65 +63,82 @@
     // Initialization
     self.session = [[BZSession alloc] init];
     self.library = [[ALAssetsLibrary alloc] init];
+    self.confirmView = [[bz_ConfirmView alloc] init];
+    
+    // Set up NSUserDefaults values
+    [self setUpDefaults];
     
     // Set up scroll view
     self.scrollViewController = [[bz_ScrollViewController alloc] init];
     [self.scrollViewController setupScrollViewChildren];
     [self.view addSubview: self.scrollViewController.scrollView];
     
-    NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
-    holidayPackIsPurchased   = [(NSNumber*)[standard objectForKey: BZ_HOLIDAY_PACK_PURCHASE_KEY] boolValue];
-    proShapePackIsPurchased  = [(NSNumber*)[standard objectForKey: BZ_PRO_SHAPE_PACK_PURCHASE_KEY] boolValue];
-    colorPickerIsPurchased   = [(NSNumber*)[standard objectForKey: BZ_COLOR_PICKER_PURCHASE_KEY] boolValue];
-
     // Use library if camera is *not* available.
     useLibrary = ![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
 
-    for (bz_Button *button in self.scrollViewController.shapesViewController.shapeButtons)
-    {
-        [button addTarget: self action: @selector(switchShape:) forControlEvents: UIControlEventTouchUpInside];
-    }
-    
-    for (bz_Button *button in self.scrollViewController.filterViewController.filterButtons)
-    {
-        [button addTarget:self action:@selector(applyFilter:) forControlEvents: UIControlEventTouchUpInside];
-    }
+    [self setUpButtonTargets];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    
+- (void)viewDidAppear:(BOOL)animated
+{    
     [super viewDidAppear:animated];
 
-    NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    if ([(NSString*)[standard objectForKey:BZ_SETTINGS_FIRST_LAUNCH_KEY] isEqualToString:@"FALSE"]) {
+    if ([defaults boolForKey:BZ_SETTINGS_FIRST_LAUNCH_KEY] == FALSE)
+    {
+        // If there isn't currently an image, setup the camera. Otherwise, get confirmation from user.
         if (!self.session.thumbnailImage || !self.session.fullResolutionImage)
         {
-            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+            {
                 [self setupCamera];
-            } else {
+            }
+            else
+            {
                 useLibrary = YES;
             }
         }
         else
         {
-//            self.sessionPreview.image = self.session.thumbnailImage;
+            self.imageCanvas.image = self.session.thumbnailImage;
         }
-    } else {
+    }
+    else
+    {
         bz_TutorialViewController *tutorialView = [[bz_TutorialViewController alloc] init];
-        [self presentViewController:tutorialView animated:YES completion:^(void) {
-            [standard setObject:@"FALSE" forKey: BZ_SETTINGS_FIRST_LAUNCH_KEY];
-            [standard synchronize];
-            LogInfo(@"first launch bool value: %@", (NSString*)[standard stringForKey: BZ_SETTINGS_FIRST_LAUNCH_KEY]);
+        [self presentViewController:tutorialView animated:YES completion:^(void)
+        {
+            [defaults setBool: FALSE forKey: BZ_SETTINGS_FIRST_LAUNCH_KEY];
+            [defaults synchronize];
+            LogTrace(@"%@", [defaults boolForKey: BZ_SETTINGS_FIRST_LAUNCH_KEY] ? @"FIRST LAUNCH." : @"NOT FIRST LAUNCH.");
         }];
     }
-
-    keepPhoto = NO;
 }
 
--(IBAction)openStoreView:(id)sender {
-    bz_StoreViewController *storeVC = [[bz_StoreViewController alloc] initWithNibName:@"bz_StoreView" bundle:nil];
-    [self presentViewController:storeVC animated:YES completion:nil];
+- (void)setUpDefaults
+{
+    NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
+    holidayPackIsPurchased   = [(NSNumber*)[standard objectForKey: BZ_HOLIDAY_PACK_PURCHASE_KEY] boolValue];
+    proShapePackIsPurchased  = [(NSNumber*)[standard objectForKey: BZ_PRO_SHAPE_PACK_PURCHASE_KEY] boolValue];
+    colorPickerIsPurchased   = [(NSNumber*)[standard objectForKey: BZ_COLOR_PICKER_PURCHASE_KEY] boolValue];
+}
+
+- (void)setUpButtonTargets
+{
+    // Shape masks
+    for (bz_Button *button in self.scrollViewController.shapesViewController.shapeButtons)
+    {
+        [button addTarget: self action: @selector(switchShape:) forControlEvents: UIControlEventTouchUpInside];
+    }
+    
+    // Filters
+    for (bz_Button *button in self.scrollViewController.filterViewController.filterButtons)
+    {
+        [button addTarget:self action:@selector(applyFilter:) forControlEvents: UIControlEventTouchUpInside];
+    }
+    
+    // Backgrounds
 }
 
 #pragma mark -
@@ -139,9 +157,14 @@
     self.cameraPreview.layer.mask = [maskAdjustment layerMaskForSize: kDefaultCameraPreviewSize];
 }
 
--(IBAction)importFromLibrary:(id)sender {
-    
+- (void)stopUpdatingPreviewLayer
+{
     [[BZCaptureManager sharedManager] setPreviewLayerWithView: nil];
+}
+
+-(IBAction)importFromLibrary:(id)sender
+{    
+    [self stopUpdatingPreviewLayer];
     
     useLibrary = YES;
     
@@ -154,98 +177,70 @@
     imagePickerController.allowsEditing = YES;
 
     [self presentViewController:imagePickerController animated:YES completion:nil];
-
 }
 
--(void)takePhoto {
+-(void)takePhoto
+{
+    [SVProgressHUD showWithStatus:@"Saving Image"];
     
-    void (^takePhoto)(void) = ^ {
-        
-        void (^successBlock)(id obj) = ^(id obj)
+    void (^successBlock)(id obj) = ^(id obj)
+    {
+        if ([obj isKindOfClass:[UIImage class]])
         {
-            if ([obj isKindOfClass:[UIImage class]])
+            UIImage *img = (UIImage *)obj;
+            NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
+            
+            if ([df boolForKey:BZ_SETTINGS_SAVE_TO_CAMERA_ROLL_KEY] == TRUE)
             {
-                UIImage *img = (UIImage *)obj;
-                NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
-                __block NSDictionary* dict;
-                __block NSNotification *libraryPhoto;
-                
                 int quality = [df integerForKey:BZ_SETTINGS_FULL_RESOLUTION_KEY];
                 LogInfo(@"Image quality is set to: %i", quality);
-//                switch (quality) {
-//                    case 2: // User wants highest res image
-//                        imgSize = CGSizeMake(2048, 2048);
-//                        break;
-//                    case 1: // User wants 1024x1024 res image
-//                        imgSize = CGSizeMake(1024, 1024);
-//                        break;
-//                    case 0: // User wants 640x640 res image
-//                        imgSize = CGSizeMake(640, 640);
-//                        break;
-//                    default:
-//                        break;
-//                }
                 
-                if ([df boolForKey:BZ_SETTINGS_SAVE_TO_CAMERA_ROLL_KEY] == TRUE) {
-                    [self.library writeImageToSavedPhotosAlbum: [img CGImage] orientation: img.imageOrientation completionBlock:^(NSURL *assetURL, NSError *error) {
-                        if (error!=nil) {
-                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error Saving Image" message:@"Bezel encountered an error while attempting to save image to Photo Library.  Please try saving again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                            alert.tag = 0;
-                            [alert show];
-                        }
-                    }];
+                CGSize outputSize;
+                switch (quality)
+                {
+                    case 2: // User wants highest res image
+                        outputSize = CGSizeMake(2048, 2048);
+                        break;
+                    case 1: // User wants 1024x1024 res image
+                        outputSize = CGSizeMake(1024, 1024);
+                        break;
+                    case 0: // User wants 640x640 res image
+                        outputSize = CGSizeMake(640, 640);
+                        break;
+                    default:
+                        break;
                 }
                 
-                UIImage *thumb   = [self scaleImage: img toSize: CGSizeMake(640.f, 640.f)];
+                // Scale down per user's settings.
+                img = [UIImage scaleImage: img toSize: outputSize];
                 
-                [self.session setThumbnailImage: thumb];
-                [self.session setFullResolutionImage: img];
-                
-                dict = [NSDictionary dictionaryWithObject: thumb forKey:@"newImageKey"];
-                libraryPhoto = [NSNotification notificationWithName:@"newImage" object:self userInfo:dict];
-                [self newPhotoArrived:libraryPhoto];
+                [self.library writeImageToSavedPhotosAlbum: [img CGImage] orientation: img.imageOrientation completionBlock:^(NSURL *assetURL, NSError *error) {
+                    if (error!=nil)
+                    {
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error Saving Image" message:@"Bezel encountered an error while attempting to save image to Photo Library.  Please try saving again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                        [alert show];
+                    }
+                }];
             }
-        };
-        
-        void (^failureBlock)(NSError *err) = ^(NSError *err)
-        {
             
-        };
-        
-        [[BZCaptureManager sharedManager] setPreviewLayerWithView: nil];
-        [[BZCaptureManager sharedManager] captureMediaWithType: BZCaptureTypePhoto
-                                                  successBlock: successBlock
-                                                  failureBlock: failureBlock];
+            UIImage *thumb   = [UIImage scaleImage: img toSize: kDefaultThumbnailSize];
+            
+            [self.session setThumbnailImage: thumb];
+            [self.session setFullResolutionImage: img];
+            
+            [self processNewImage];
+        }
     };
+    
+    void (^failureBlock)(NSError *err) = ^(NSError *err)
+    {
         
-    [SVProgressHUD showWithStatus:@"Saving Image"];
-    takePhoto();
-}
-
--(UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)targetSize {
-    //If scaleFactor is not touched, no scaling will occur
-    CGFloat scaleFactor = 1.0;
+    };
     
-    //Deciding which factor to use to scale the image (factor = targetSize / imageSize)
-    if (image.size.width > targetSize.width || image.size.height > targetSize.height)
-        if (!((scaleFactor = (targetSize.width / image.size.width)) > (targetSize.height / image.size.height))) //scale to fit width, or
-            scaleFactor = targetSize.height / image.size.height; // scale to fit heigth.
-    
-    UIGraphicsBeginImageContext(targetSize);
-    
-    //Creating the rect where the scaled image is drawn in
-    CGRect rect = CGRectMake((targetSize.width - image.size.width * scaleFactor) / 2,
-                             (targetSize.height -  image.size.height * scaleFactor) / 2,
-                             image.size.width * scaleFactor, image.size.height * scaleFactor);
-    
-    //Draw the image into the rect
-    [image drawInRect:rect];
-    
-    //Saving the image, ending image context
-    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return scaledImage;
+    [self stopUpdatingPreviewLayer];
+    [[BZCaptureManager sharedManager] captureMediaWithType: BZCaptureTypePhoto
+                                              successBlock: successBlock
+                                              failureBlock: failureBlock];
 }
 
 -(void)addBackground:(NSNotification*)notification
@@ -429,63 +424,20 @@
 //    self.sessionPreview.image = self.session.thumbnailImage;
 //    self.sessionPreview.contentMode = UIViewContentModeScaleAspectFill;
     
-    UIView *confirm = [[UIView alloc] initWithFrame:CGRectMake(0, UIScreen.mainScreen.bounds.size.height, 320, (UIScreen.mainScreen.bounds.size.height-380)/2)];
-    confirm.backgroundColor = [UIColor blackColor];
-    yes = [[bz_Button alloc] initWithFrame:CGRectMake(25.f, (confirm.frame.size.height/2.f)-25.f, 50.f, 50.f)];
-    yes.tag = 33;
-    [yes addTarget:self action:@selector(keepPhotoAndRemoveView:) forControlEvents:UIControlEventTouchUpInside];
-    
-    no = [[bz_Button alloc] initWithFrame:CGRectMake(245.f, (confirm.frame.size.height/2.f)-25.f, 50.f, 50.f)];
-    [no addTarget:self action:@selector(retakePhoto:) forControlEvents:UIControlEventTouchUpInside];
-    no.tag = 34;
-    
-    [confirm addSubview:yes];
-    [confirm addSubview:no];
-    
-    [self.view addSubview:confirm];
+
     [SVProgressHUD dismiss];
     
-    [UIView animateWithDuration:0.5
-                     animations:^{
-                         confirm.frame = CGRectMake(0, UIScreen.mainScreen.bounds.size.height-confirm.frame.size.height, 320.f, confirm.frame.size.height);
-                     }
-                     completion:^(BOOL finished){
-                         LogTrace(@"completed animation");
-                     }];
+
 }
 
--(void)processNewImage:(UIImage*)newImage
+-(void)processNewImage
 {
-//    _maskImage = [bz_MaskShapeLayer maskImageFromShape:_photoMaskLayer atSize:CGSizeMake(1024.f, 1024.f)];
-//    _maskedImage = [self maskImage:newImage withMask:_maskImage];
-    self.currentImage = nil;
-    self.currentImage = newImage;
-//    [self.sessionPreview setImage:self.currentImage];
-//    self.sessionPreview.contentMode = UIViewContentModeScaleAspectFill;
+    [self.imageCanvas setImage: self.session.thumbnailImage];
+    self.imageCanvas.contentMode = UIViewContentModeScaleAspectFill;
 
-    UIView *confirm = [[UIView alloc] initWithFrame:CGRectMake(0, UIScreen.mainScreen.bounds.size.height, 320, UIScreen.mainScreen.bounds.size.height-380)];
-    confirm.backgroundColor = [UIColor blackColor];
-    yes = [[bz_Button alloc] initWithFrame:CGRectMake(25.f, (confirm.frame.size.height/2.f)-25.f, 50.f, 50.f)];
-    yes.tag = 33;
-    [yes addTarget:self action:@selector(keepPhotoAndRemoveView:) forControlEvents:UIControlEventTouchUpInside];
-    
-    no = [[bz_Button alloc] initWithFrame:CGRectMake(245.f, (confirm.frame.size.height/2.f)-25.f, 50.f, 50.f)];
-    [no addTarget:self action:@selector(retakePhoto:) forControlEvents:UIControlEventTouchUpInside];
-    no.tag = 34;
-    
-    [confirm addSubview:yes];
-    [confirm addSubview:no];
-    
-    [self.view addSubview:confirm];
     [SVProgressHUD dismiss];
-
-    [UIView animateWithDuration:0.5
-                     animations:^{
-                         confirm.frame = CGRectMake(0, UIScreen.mainScreen.bounds.size.height-confirm.frame.size.height, 320.f, confirm.frame.size.height);
-                     }
-                     completion:^(BOOL finished){
-                         LogTrace(@"completed animation");
-                     }];
+    
+    [self.confirmView presentConfirmationFromEdge: CGRectMaxXEdge forViewController: self];
 }
 
 -(void)keepPhotoAndRemoveView:(id)sender {
@@ -531,9 +483,6 @@
                          useLibrary = NO;
                          LogTrace(@"completed animation");
                      }];
-    
-//    [[BZCaptureManager sharedManager] setPreviewLayerWithView: self.sessionPreview];
-    
 }
 
 #pragma mark -
@@ -752,6 +701,11 @@
 - (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)interactionController
 {
     return self; //_sharedContainer;
+}
+
+-(IBAction)openStoreView:(id)sender {
+    bz_StoreViewController *storeVC = [[bz_StoreViewController alloc] initWithNibName:@"bz_StoreView" bundle:nil];
+    [self presentViewController:storeVC animated:YES completion:nil];
 }
 
 #pragma mark -
