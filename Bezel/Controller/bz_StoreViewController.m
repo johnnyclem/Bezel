@@ -229,16 +229,16 @@
             UIAlertView *unavailAlert = [[UIAlertView alloc] initWithTitle:@"Not Available" message:@"The Color Picker is not available in the App Store at this time. Please try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [unavailAlert show];
         }
-    } else if([productId isEqualToString:COLOR_PICKER_ID]) {
+    } else if([productId isEqualToString:PRO_SHAPE_PACK_ID]) {
     
     if (productPrice != nil) {
-        [buyColorPickerButton setTitle:[@"" stringByAppendingString:productPrice] forState:UIControlStateNormal];
-        buyColorPickerButton.enabled = YES; // Enable buy button.
+        [buyProShapePackButton setTitle:[@"" stringByAppendingString:productPrice] forState:UIControlStateNormal];
+        buyProShapePackButton.enabled = YES; // Enable buy button.
     } else {
-        [buyColorPickerButton setTitle:@"Sold Out" forState:UIControlStateNormal];
-        buyColorPickerButton.enabled = NO; // Disable buy button.
+        [buyProShapePackButton setTitle:@"Sold Out" forState:UIControlStateNormal];
+        buyProShapePackButton.enabled = NO; // Disable buy button.
         
-        UIAlertView *unavailAlert = [[UIAlertView alloc] initWithTitle:@"Not Available" message:@"The Color Picker is not available in the App Store at this time. Please try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *unavailAlert = [[UIAlertView alloc] initWithTitle:@"Not Available" message:@"The Pro Shape Pack is not available in the App Store at this time. Please try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [unavailAlert show];
     }
 }
@@ -272,6 +272,28 @@
             [standard synchronize];
             UIAlertView *updatedAlert = [[UIAlertView alloc] initWithTitle:@"Thank You!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [updatedAlert show];
+        }
+    }
+    else if ([productId isEqualToString:COLOR_PICKER_ID]) {
+        if (!colorPickerIsPurchased)
+        {
+            colorPickerIsPurchased = YES;
+            NSString *alertMessage;
+            if (isRestore) {
+                // This was a Restore request.
+                alertMessage = @"Your purchase was restored and the Color Picker is now unlocked!";
+                
+            } else {
+                // This was a Purchase request.
+                alertMessage = @"Your purchase was successful and the Color Picker is now unlocked!";
+            }
+            
+            NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
+            [standard setObject:[NSNumber numberWithBool:TRUE] forKey: BZ_COLOR_PICKER_PURCHASE_KEY];
+            [standard synchronize];
+            UIAlertView *updatedAlert = [[UIAlertView alloc] initWithTitle:@"Thank You!" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [updatedAlert show];
+            
         }
     }
     else if ([productId isEqualToString:PRO_SHAPE_PACK_ID]) {
