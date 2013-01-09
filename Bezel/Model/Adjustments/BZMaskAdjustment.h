@@ -8,6 +8,8 @@
 
 #import "BZAdjustment.h"
 
+NSString* const kAdjustmentTypeMask;
+
 @interface BZMaskAdjustment : BZAdjustment
 
 @property (nonatomic, strong) NSDictionary *value;

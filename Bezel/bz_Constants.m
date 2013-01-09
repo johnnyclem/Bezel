@@ -28,7 +28,6 @@ NSString* const BZ_PROMOTION_VALUE_SEGMENTED_CONTROL_REUSE_IDENTIFIER = @"bz_Pro
 // Used as more meaningful Tags
 NSString* const kButtonIdentifier = @"kButtonIdentifier";
 
-NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
 NSString* const kButtonIdentifierCircleMask = @"kButtonIdentifierCircleMask";
 NSString* const kButtonIdentifierSquareMask = @"kButtonIdentifierSquareMask";
 NSString* const kButtonIdentifierTriangleMask = @"kButtonIdentifierTriangleMask";

@@ -73,6 +73,8 @@
     [self.scrollViewController setupScrollViewChildren];
     [self.view addSubview: self.scrollViewController.scrollView];
     
+    [self.confirmView presentConfirmationFromEdge: CGRectMinYEdge forViewController: self];
+    
     // Use library if camera is *not* available.
     useLibrary = ![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
 
@@ -340,44 +342,26 @@
 
 -(void)applyFilter:(bz_Button *)filterButton
 {
-//    _lastImage = self.sessionPreview.image;
-//    
-//    BZFilterAdjustment *filterAdjustment = [[BZFilterAdjustment alloc] init];
-//    filterAdjustment.identifier = filterButton.buttonIdentifier;
-//    filterAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: filterButton.buttonIdentifier, kButtonIdentifier, nil];
-//    
-//    [self.session addAdjustment: filterAdjustment];
-//    
-//    if (!imageCameFromLibrary) {
-//        [self.sessionPreview setImage:nil];
-//    }
-//    
-//    // set the preview layer mask to the adjusted mask.
-//    self.sessionPreview.image = [filterAdjustment filteredImageWithImage: self.sessionPreview.image];
-//    self.sessionPreview.clipsToBounds = YES;
-//    [self.sessionPreview setNeedsDisplay];
-//    
-//    UIView *confirm = [[UIView alloc] initWithFrame:CGRectMake(0, -60, 320, 60)];
-//    confirm.backgroundColor = [UIColor blackColor];
-//    yes = [[bz_Button alloc] initWithFrame:CGRectMake(25.f, (confirm.frame.size.height/2.f)-25.f, 50.f, 50.f)];
-//    yes.tag = 33;
-//    [yes addTarget:self action:@selector(keepFilteredImage:) forControlEvents:UIControlEventTouchUpInside];
-//    
-//    no = [[bz_Button alloc] initWithFrame:CGRectMake(245.f, (confirm.frame.size.height/2.f)-25.f, 50.f, 50.f)];
-//    [no addTarget:self action:@selector(undoFilter:) forControlEvents:UIControlEventTouchUpInside];
-//    no.tag = 34;
-//    
-//    [confirm addSubview:yes];
-//    [confirm addSubview:no];
-//    [self.view addSubview:confirm];
-//    
-//    [UIView animateWithDuration:0.5
-//                     animations:^{
-//                         confirm.frame = CGRectMake(0, 0, 320.f, 60.f);
-//                     }
-//                     completion:^(BOOL finished){
-//                         NSLog(@"completed animation");
-//                     }];
+    BZFilterAdjustment *filterAdjustment = [[BZFilterAdjustment alloc] init];
+    filterAdjustment.identifier = kAdjustmentTypeFilter;
+    filterAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: filterButton.buttonIdentifier, kButtonIdentifier, nil];
+    
+    // set the preview layer mask to the adjusted mask.
+    self.imageCanvas.image = [filterAdjustment filteredImageWithImage: self.session.thumbnailImage];
+
+    self.confirmView.completionBlock = ^(BOOL response)
+    {
+        if (response == TRUE)
+        {
+            [self.session addAdjustment: filterAdjustment];
+        }
+        else
+        {
+            self.imageCanvas.image = self.session.thumbnailImage;
+        }
+    };
+    [self.confirmView presentConfirmationFromEdge: CGRectMinXEdge forViewController: self];
+    
 }
 
 -(void)undoFilter:(id)sender

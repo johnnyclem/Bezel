@@ -9,6 +9,8 @@
 #import "BZMaskAdjustment.h"
 #import "bz_MaskShapeLayer.h"
 
+NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
+
 @interface BZMaskAdjustment ()
 @property (nonatomic, assign) BOOL duplicatesAllowed;
 @end

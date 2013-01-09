@@ -30,7 +30,6 @@ NSString* const BZ_PROMOTION_VALUE_SEGMENTED_CONTROL_REUSE_IDENTIFIER;
 NSString* const kButtonIdentifier;
 
 // Mask buttons
-NSString* const kAdjustmentTypeMask;
 NSString* const kButtonIdentifierCircleMask;
 NSString* const kButtonIdentifierSquareMask;
 NSString* const kButtonIdentifierTriangleMask;

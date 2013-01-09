@@ -8,6 +8,8 @@
 
 #import "BZFilterAdjustment.h"
 
+NSString* const kAdjustmentTypeFilter = @"kAdjustmentTypeFilter";
+
 @implementation BZFilterAdjustment
 
 - (UIImage *)processImage:(UIImage *)inImage

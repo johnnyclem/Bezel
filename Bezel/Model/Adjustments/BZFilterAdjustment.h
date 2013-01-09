@@ -8,6 +8,8 @@
 
 #import "BZAdjustment.h"
 
+NSString* const kAdjustmentTypeFilter;
+
 @interface BZFilterAdjustment : BZAdjustment
 
 @property (nonatomic, strong) NSDictionary *value;
