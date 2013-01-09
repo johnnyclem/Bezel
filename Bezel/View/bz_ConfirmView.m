@@ -29,12 +29,12 @@
         
         bz_Button *yes = [[bz_Button alloc] initWithFrame: CGRectMake(0.0, 0.0, 50.0, 50.0)];
         yes.frame = centerRectInRect(yes.frame, yesRect);
-        yes.buttonIdentifier = @"YES";
+        yes.buttonIdentifier = @"TRUE";
         [yes addTarget:self action:@selector(responseTapped:) forControlEvents:UIControlEventTouchUpInside];
         
         bz_Button *no = [[bz_Button alloc] initWithFrame: CGRectMake(0.0, 0.0, 50.0, 50.0)];
         no.frame = centerRectInRect(no.frame, noRect);
-        yes.buttonIdentifier = @"NO";
+        no.buttonIdentifier = @"FALSE";
         [no addTarget:self action:@selector(responseTapped:) forControlEvents:UIControlEventTouchUpInside];
         
         yes.tag = 33;

@@ -66,26 +66,35 @@
                                     <segue destination="dEk-S9-x76" kind="modal" identifier="ShowSettings" modalTransitionStyle="coverVertical" id="kit-p8-nXG"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lxg-Np-Fmp">
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uhD-s1-AZh" firstAttribute="bottom" secondItem="MKX-sc-VKk" secondAttribute="bottom" type="default" id="5wg-Zj-B1J"/>
+                            <constraint firstItem="lxg-Np-Fmp" firstAttribute="top" secondItem="YpG-mC-5DO" secondAttribute="top" type="default" id="6Mc-sR-oFt"/>
                             <constraint firstItem="YpG-mC-5DO" firstAttribute="leading" secondItem="a4y-SG-5eH" secondAttribute="leading" type="default" id="86u-8K-QRo"/>
+                            <constraint firstItem="lxg-Np-Fmp" firstAttribute="leading" secondItem="a4y-SG-5eH" secondAttribute="leading" type="default" id="9He-Of-Skl"/>
                             <constraint firstItem="ly7-th-fv8" firstAttribute="leading" secondItem="a4y-SG-5eH" secondAttribute="leading" type="default" id="CtX-a3-X3w"/>
-                            <constraint firstItem="MKX-sc-VKk" firstAttribute="centerX" secondItem="YpG-mC-5DO" secondAttribute="centerX" type="default" id="VuQ-vG-KDU"/>
+                            <constraint firstItem="lxg-Np-Fmp" firstAttribute="trailing" secondItem="a4y-SG-5eH" secondAttribute="trailing" type="default" id="S3B-YX-X2g"/>
+                            <constraint firstItem="lxg-Np-Fmp" firstAttribute="top" secondItem="a4y-SG-5eH" secondAttribute="top" constant="60" id="SJZ-Pl-8XL"/>
                             <constraint firstItem="uhD-s1-AZh" firstAttribute="top" secondItem="a4y-SG-5eH" secondAttribute="top" type="default" id="Y6M-0Q-miG"/>
                             <constraint firstItem="YpG-mC-5DO" firstAttribute="trailing" secondItem="a4y-SG-5eH" secondAttribute="trailing" type="default" id="YOH-G7-x6x"/>
-                            <constraint firstItem="YpG-mC-5DO" firstAttribute="top" secondItem="a4y-SG-5eH" secondAttribute="top" constant="60" id="ZnJ-ek-u7l"/>
                             <constraint firstItem="MKX-sc-VKk" firstAttribute="bottom" secondItem="ly7-th-fv8" secondAttribute="bottom" type="default" id="akk-kK-rH8"/>
                             <constraint firstItem="ly7-th-fv8" firstAttribute="top" secondItem="a4y-SG-5eH" secondAttribute="top" type="default" id="bF2-oX-JZf"/>
                             <constraint firstItem="MKX-sc-VKk" firstAttribute="top" secondItem="a4y-SG-5eH" secondAttribute="top" type="default" id="cH5-LD-VOF"/>
+                            <constraint firstItem="lxg-Np-Fmp" firstAttribute="bottom" secondItem="YpG-mC-5DO" secondAttribute="bottom" type="default" id="hZm-4K-g5g"/>
                             <constraint firstItem="uhD-s1-AZh" firstAttribute="trailing" secondItem="a4y-SG-5eH" secondAttribute="trailing" type="default" id="j85-Sh-zeu"/>
+                            <constraint firstItem="lxg-Np-Fmp" firstAttribute="centerX" secondItem="MKX-sc-VKk" secondAttribute="centerX" type="default" id="mTv-OV-d8a"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="cameraPreview" destination="lxg-Np-Fmp" id="xu5-LA-vr9"/>
                         <outlet property="cart" destination="ly7-th-fv8" id="MMg-EP-Vkf"/>
                         <outlet property="gallery" destination="MKX-sc-VKk" id="Vob-12-vOg"/>
+                        <outlet property="imageCanvas" destination="YpG-mC-5DO" id="5KG-h2-t6b"/>
                         <outlet property="settings" destination="uhD-s1-AZh" id="L1u-2g-sxr"/>
                         <outlet property="view" destination="a4y-SG-5eH" id="Lnw-Mk-Jvw"/>
                     </connections>
@@ -349,7 +358,6 @@
                 <relationship kind="outlet" name="cart" candidateClass="bz_Button"/>
                 <relationship kind="outlet" name="gallery" candidateClass="bz_Button"/>
                 <relationship kind="outlet" name="imageCanvas" candidateClass="bz_ImageView"/>
-                <relationship kind="outlet" name="scrollViewController" candidateClass="bz_ScrollViewController"/>
                 <relationship kind="outlet" name="settings" candidateClass="bz_Button"/>
             </relationships>
         </class>

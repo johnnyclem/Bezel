@@ -24,6 +24,7 @@
 }
 
 @property (strong, nonatomic) NSArray *shapeButtons;
+@property (strong, nonatomic) bz_Button *takePhotoButton;
 
 @end
 
@@ -78,26 +79,16 @@
     
     // Bottom Row Buttons
     bz_Button *switchCam   = [[bz_Button alloc] initWithFrame:CGRectMake(0, btnOnset, 106, btnHeight)];
-    bz_Button *camBtn   = [[bz_Button alloc] initWithFrame:CGRectMake(106, btnOnset, 108, btnHeight)];
+    self.takePhotoButton = [[bz_Button alloc] initWithFrame:CGRectMake(106, btnOnset, 108, btnHeight)];
     switchShapes = [[bz_Button alloc] initWithFrame:CGRectMake(214, btnOnset, 106, btnHeight)];
 
     [switchCam setTag:32];
-    [camBtn setTag:1];
+    [self.takePhotoButton  setTag:1];
     [switchShapes setTag:38];
 
     [self.view addSubview:switchCam];
-    [self.view addSubview:camBtn];
+    [self.view addSubview: self.takePhotoButton ];
     [self.view addSubview:switchShapes];
-    
-    
-    // Assign button actions
-    [circle setNotificationName:@"circle"];
-    [square setNotificationName:@"square"];
-    [triangle setNotificationName:@"triangle"];
-    [hexagon setNotificationName:@"hexagon"];
-    [heart setNotificationName:@"heart"];
-    [switchCam setNotificationName:@"switchCam"];
-    [camBtn setNotificationName:@"camBtn"];
 
     [switchShapes addTarget:self action:@selector(switchShapeSet:) forControlEvents:UIControlEventTouchUpInside];
     

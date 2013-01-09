@@ -7,7 +7,6 @@
 //
 
 #import "bz_ViewController.h"
-#import "bz_ImageViewController.h"
 #import "bz_AppDelegate.h"
 
 @interface bz_ViewController ()

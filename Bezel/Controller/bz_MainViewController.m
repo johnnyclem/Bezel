@@ -43,6 +43,7 @@
 }
 @property (strong, nonatomic) bz_ScrollViewController *scrollViewController;
 @property (strong, nonatomic) UIDocumentInteractionController *docController;
+@property (strong, nonatomic) BZAdjustmentProcessor *adjustmentProcessor;
 @property (strong, nonatomic) bz_ConfirmView *confirmView;
 @property (strong, nonatomic) ALAssetsLibrary* library;
 @property (assign, nonatomic) BOOL useLibrary;
@@ -64,6 +65,7 @@
     self.session = [[BZSession alloc] init];
     self.library = [[ALAssetsLibrary alloc] init];
     self.confirmView = [[bz_ConfirmView alloc] init];
+    self.adjustmentProcessor = [[BZAdjustmentProcessor alloc] initWithSession: self.session];
     
     // Set up NSUserDefaults values
     [self setUpDefaults];
@@ -73,11 +75,15 @@
     [self.scrollViewController setupScrollViewChildren];
     [self.view addSubview: self.scrollViewController.scrollView];
     
-    [self.confirmView presentConfirmationFromEdge: CGRectMinYEdge forViewController: self];
-    
     // Use library if camera is *not* available.
     useLibrary = ![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
 
+    // View defaults
+    self.cameraPreview.clipsToBounds = YES;
+    self.imageCanvas.clipsToBounds = YES;
+    
+    self.imageCanvas.contentMode = UIViewContentModeScaleAspectFill;
+    
     [self setUpButtonTargets];
 }
 
@@ -128,6 +134,8 @@
 
 - (void)setUpButtonTargets
 {
+    [self.scrollViewController.shapesViewController.takePhotoButton addTarget: self action:@selector(takePhoto) forControlEvents:UIControlEventTouchUpInside];
+    
     // Shape masks
     for (bz_Button *button in self.scrollViewController.shapesViewController.shapeButtons)
     {
@@ -148,7 +156,9 @@
 
 -(void)setupCamera
 {
-    [[BZCaptureManager sharedManager] setPreviewLayerWithView: self.cameraPreview];
+    self.imageCanvas.hidden = TRUE;
+    
+    [self startUpdatingPreviewLayer];
     
     // Default to square mask around preview image.
     BZMaskAdjustment *maskAdjustment = [[BZMaskAdjustment alloc] init];
@@ -157,11 +167,19 @@
     [self.session addAdjustment: maskAdjustment];
     
     self.cameraPreview.layer.mask = [maskAdjustment layerMaskForSize: kDefaultCameraPreviewSize];
+    self.imageCanvas.layer.mask = [maskAdjustment layerMaskForSize: kDefaultCameraPreviewSize];
+}
+
+- (void)startUpdatingPreviewLayer
+{
+    [[BZCaptureManager sharedManager] setPreviewLayerWithView: self.cameraPreview];
+    self.cameraPreview.hidden = FALSE;
 }
 
 - (void)stopUpdatingPreviewLayer
 {
     [[BZCaptureManager sharedManager] setPreviewLayerWithView: nil];
+    self.cameraPreview.hidden = TRUE;
 }
 
 -(IBAction)importFromLibrary:(id)sender
@@ -227,10 +245,34 @@
             
             UIImage *thumb   = [UIImage scaleImage: img toSize: kDefaultThumbnailSize];
             
-            [self.session setThumbnailImage: thumb];
-            [self.session setFullResolutionImage: img];
+            [self stopUpdatingPreviewLayer];
             
-            [self processNewImage];
+            self.imageCanvas.hidden = FALSE;
+            self.imageCanvas.image = thumb;
+            
+            __weak id weakSelf = self;
+            
+            self.confirmView.completionBlock = ^(BOOL response)
+            {
+                if (response == TRUE)
+                {
+                    [self.session setThumbnailImage: thumb];
+                    [self.session setFullResolutionImage: img];
+                    
+                    [self.scrollViewController scrollToViewControllerAtIndex: 1];
+                    
+                    [weakSelf setupFilterThumbnails];
+                }
+                else
+                {
+                    [weakSelf startUpdatingPreviewLayer];
+                    self.imageCanvas.image = nil;
+                    self.imageCanvas.hidden = TRUE;
+                }
+            };
+            
+            [SVProgressHUD dismiss];
+            [self.confirmView presentConfirmationFromEdge: CGRectMaxYEdge forViewController: self];
         }
     };
     
@@ -288,15 +330,9 @@
     maskAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: button.buttonIdentifier, kButtonIdentifier, nil];
     
     [self.session addAdjustment: maskAdjustment];
-
-//    if (!imageCameFromLibrary) {
-//        [self.sessionPreview setImage:nil];
-//    }
     
-    // set the preview layer mask to the adjusted mask.
     self.cameraPreview.layer.mask = [maskAdjustment layerMaskForSize: self.cameraPreview.frame.size];
-    self.cameraPreview.clipsToBounds = YES;
-    [self.cameraPreview setNeedsDisplay];
+    self.imageCanvas.layer.mask = [maskAdjustment layerMaskForSize: self.imageCanvas.frame.size];
 }
 
 - (void)undoLastAdjustment
@@ -357,7 +393,7 @@
         }
         else
         {
-            self.imageCanvas.image = self.session.thumbnailImage;
+            self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
         }
     };
     [self.confirmView presentConfirmationFromEdge: CGRectMinXEdge forViewController: self];
@@ -382,61 +418,6 @@
 //                         self.imageCanvas.contentMode = UIViewContentModeScaleAspectFill;
                          
                      }];
-}
-
--(void)keepFilteredImage:(id)sender {
-    
-    UIView *confirm = (UIView*)[sender superview];
-    [confirm removeFromSuperview];
-    
-    NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:2], @"scrollPosition", nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"keepPhoto" object:nil userInfo:dict];
-    
-    useLibrary = NO;
-}
-
-
--(void)newPhotoArrived:(NSNotification*)notification {
-    
-    keepPhoto = YES;
-    UIImage *newImage = [notification.userInfo objectForKey:@"newImageKey"];
-    [NSThread detachNewThreadSelector:@selector(processNewImage:) toTarget:self withObject:newImage];
-}
-
--(void)newLibraryPhotoArrived;
-{
-//    self.sessionPreview.image = self.session.thumbnailImage;
-//    self.sessionPreview.contentMode = UIViewContentModeScaleAspectFill;
-    
-
-    [SVProgressHUD dismiss];
-    
-
-}
-
--(void)processNewImage
-{
-    [self.imageCanvas setImage: self.session.thumbnailImage];
-    self.imageCanvas.contentMode = UIViewContentModeScaleAspectFill;
-
-    [SVProgressHUD dismiss];
-    
-    [self.confirmView presentConfirmationFromEdge: CGRectMaxXEdge forViewController: self];
-}
-
--(void)keepPhotoAndRemoveView:(id)sender {
-    
-    keepPhoto = YES;
-    UIView *confirm = [(bz_Button*)sender superview];
-    LogTrace(@"confirm view is at: %f, %f", confirm.frame.origin.x, confirm.frame.origin.y);
-    [confirm removeFromSuperview];
-
-    NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:1], @"scrollPosition", self, @"mainVC", nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"keepPhoto" object:self userInfo:dict];
-
-    [self setupFilterThumbnails];
-    
-    useLibrary = NO;
 }
 
 -(void)setupFilterThumbnails
@@ -517,10 +498,9 @@
     
 }
 
-- (void)saveToCameraRoll {
-    
-    BZAdjustmentProcessor *proc = [[BZAdjustmentProcessor alloc] initWithSession: self.session];
-    UIImage *curImg = [proc processedFullResolutionImage];
+- (void)saveToCameraRoll
+{    
+    UIImage *curImg = [self.adjustmentProcessor processedFullResolutionImage];
     
     [SVProgressHUD showWithStatus:@"Saving Image"];
     [self.library writeImageToSavedPhotosAlbum: curImg.CGImage metadata:nil completionBlock:^(NSURL *assetURL, NSError *error) {
@@ -729,7 +709,7 @@
             useLibrary = NO;
         }];
         
-        [self newLibraryPhotoArrived];
+        //[self newLibraryPhotoArrived];
         
     } else {
         GPUImageCropFilter *filter;
@@ -761,7 +741,7 @@
 //            saveToCache();
             dict = [NSDictionary dictionaryWithObject:takenImage forKey:@"newImageKey"];
             libraryPhoto = [NSNotification notificationWithName:@"newImage" object:self userInfo:dict];
-            [self newPhotoArrived:libraryPhoto];
+            // [self newPhotoArrived:libraryPhoto];
             [imagePickerController.view removeFromSuperview];
             imagePickerController = nil;
             filter = [[GPUImageCropFilter alloc] initWithCropRegion:CGRectMake(.19218745, 0, .75, 1)];

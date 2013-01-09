@@ -201,14 +201,14 @@
     _scrollView.scrollEnabled = YES;
 }
 
-- (void)scrollToView:(NSNotification*)notification {
-    
-    NSNumber *viewIndex = [notification.userInfo objectForKey:@"scrollPosition"];
-    [self.scrollView setContentOffset:CGPointMake(320*viewIndex.intValue, 0) animated:YES];
-    
-    if ([notification.userInfo objectForKey:@"mainVC"]) {
-        mainVC = [notification.userInfo objectForKey:@"mainVC"];
-    }
+- (void)scrollToView:(NSNotification*)notification
+{
+
+}
+
+- (void)scrollToViewControllerAtIndex:(NSInteger)index
+{
+    [self.scrollView setContentOffset:CGPointMake(320*index, 0) animated:YES];
 }
 
 

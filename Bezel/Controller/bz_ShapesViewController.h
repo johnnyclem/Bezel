@@ -18,5 +18,6 @@
 @property (weak) id <BZShapesViewControllerDelegate> delegate;
 
 @property (strong, nonatomic, readonly) NSArray *shapeButtons;
+@property (strong, nonatomic, readonly) bz_Button *takePhotoButton;
 
 @end

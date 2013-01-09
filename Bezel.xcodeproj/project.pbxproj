@@ -70,7 +70,6 @@
 		CC821F64167E531400445EAC /* bz_SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587EA166EC78D00A2225E /* bz_SettingsViewController.m */; };
 		CC821F65167E531400445EAC /* bz_GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587EF166EC7A900A2225E /* bz_GalleryViewController.m */; };
 		CC821F66167E531400445EAC /* bz_StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587F3166EC7B300A2225E /* bz_StoreViewController.m */; };
-		CC821F68167E531400445EAC /* bz_ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587FB166EC7CC00A2225E /* bz_ImageViewController.m */; };
 		CC821F69167E531400445EAC /* bz_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587FF166EC7DF00A2225E /* bz_ViewController.m */; };
 		CC821F6B167E531400445EAC /* DMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258846166ECF2D00A2225E /* DMPageControl.m */; };
 		CC821F6C167E531400445EAC /* bz_ScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258854166EDB0400A2225E /* bz_ScrollView.m */; };
@@ -251,8 +250,6 @@
 		EF2587F1166EC7A900A2225E /* bz_GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587EF166EC7A900A2225E /* bz_GalleryViewController.m */; };
 		EF2587F4166EC7B300A2225E /* bz_StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587F3166EC7B300A2225E /* bz_StoreViewController.m */; };
 		EF2587F5166EC7B300A2225E /* bz_StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587F3166EC7B300A2225E /* bz_StoreViewController.m */; };
-		EF2587FC166EC7CC00A2225E /* bz_ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587FB166EC7CC00A2225E /* bz_ImageViewController.m */; };
-		EF2587FD166EC7CC00A2225E /* bz_ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587FB166EC7CC00A2225E /* bz_ImageViewController.m */; };
 		EF258800166EC7DF00A2225E /* bz_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587FF166EC7DF00A2225E /* bz_ViewController.m */; };
 		EF258801166EC7DF00A2225E /* bz_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587FF166EC7DF00A2225E /* bz_ViewController.m */; };
 		EF258803166EC83700A2225E /* bz_Storyboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF258802166EC83700A2225E /* bz_Storyboard_iPhone.storyboard */; };
@@ -664,8 +661,6 @@
 		EF2587EF166EC7A900A2225E /* bz_GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_GalleryViewController.m; path = Controller/bz_GalleryViewController.m; sourceTree = "<group>"; };
 		EF2587F2166EC7B300A2225E /* bz_StoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_StoreViewController.h; path = Controller/bz_StoreViewController.h; sourceTree = "<group>"; };
 		EF2587F3166EC7B300A2225E /* bz_StoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_StoreViewController.m; path = Controller/bz_StoreViewController.m; sourceTree = "<group>"; };
-		EF2587FA166EC7CC00A2225E /* bz_ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_ImageViewController.h; path = Controller/bz_ImageViewController.h; sourceTree = "<group>"; };
-		EF2587FB166EC7CC00A2225E /* bz_ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_ImageViewController.m; path = Controller/bz_ImageViewController.m; sourceTree = "<group>"; };
 		EF2587FE166EC7DF00A2225E /* bz_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_ViewController.h; path = Controller/bz_ViewController.h; sourceTree = "<group>"; };
 		EF2587FF166EC7DF00A2225E /* bz_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_ViewController.m; path = Controller/bz_ViewController.m; sourceTree = "<group>"; };
 		EF258802166EC83700A2225E /* bz_Storyboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = bz_Storyboard_iPhone.storyboard; path = View/bz_Storyboard_iPhone.storyboard; sourceTree = "<group>"; };
@@ -1227,8 +1222,6 @@
 				EF258884166F044E00A2225E /* bz_FilterViewController.m */,
 				EF2587EE166EC7A900A2225E /* bz_GalleryViewController.h */,
 				EF2587EF166EC7A900A2225E /* bz_GalleryViewController.m */,
-				EF2587FA166EC7CC00A2225E /* bz_ImageViewController.h */,
-				EF2587FB166EC7CC00A2225E /* bz_ImageViewController.m */,
 				EF258877166EDDA100A2225E /* bz_MainViewController.h */,
 				EF258878166EDDA100A2225E /* bz_MainViewController.m */,
 				EF258873166EDC5200A2225E /* bz_ScrollViewController.h */,
@@ -1997,7 +1990,6 @@
 				CC821F64167E531400445EAC /* bz_SettingsViewController.m in Sources */,
 				CC821F65167E531400445EAC /* bz_GalleryViewController.m in Sources */,
 				CC821F66167E531400445EAC /* bz_StoreViewController.m in Sources */,
-				CC821F68167E531400445EAC /* bz_ImageViewController.m in Sources */,
 				CC821F69167E531400445EAC /* bz_ViewController.m in Sources */,
 				CC821F6B167E531400445EAC /* DMPageControl.m in Sources */,
 				CC821F6C167E531400445EAC /* bz_ScrollView.m in Sources */,
@@ -2081,7 +2073,6 @@
 				EF2587EB166EC78D00A2225E /* bz_SettingsViewController.m in Sources */,
 				EF2587F0166EC7A900A2225E /* bz_GalleryViewController.m in Sources */,
 				EF2587F4166EC7B300A2225E /* bz_StoreViewController.m in Sources */,
-				EF2587FC166EC7CC00A2225E /* bz_ImageViewController.m in Sources */,
 				EF258800166EC7DF00A2225E /* bz_ViewController.m in Sources */,
 				EF258847166ECF2D00A2225E /* DMPageControl.m in Sources */,
 				EF258855166EDB0400A2225E /* bz_ScrollView.m in Sources */,
@@ -2165,7 +2156,6 @@
 				EF2587EC166EC78D00A2225E /* bz_SettingsViewController.m in Sources */,
 				EF2587F1166EC7A900A2225E /* bz_GalleryViewController.m in Sources */,
 				EF2587F5166EC7B300A2225E /* bz_StoreViewController.m in Sources */,
-				EF2587FD166EC7CC00A2225E /* bz_ImageViewController.m in Sources */,
 				EF258801166EC7DF00A2225E /* bz_ViewController.m in Sources */,
 				EF258848166ECF2D00A2225E /* DMPageControl.m in Sources */,
 				EF258856166EDB0400A2225E /* bz_ScrollView.m in Sources */,

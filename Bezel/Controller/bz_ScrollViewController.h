@@ -28,4 +28,6 @@
 - (void)tearDownScrollViewChildren;
 - (void)removeChildrenImages;
 
+- (void)scrollToViewControllerAtIndex:(NSInteger)index;
+
 @end
