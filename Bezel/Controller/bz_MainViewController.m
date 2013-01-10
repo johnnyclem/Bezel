@@ -37,10 +37,6 @@
 
 @interface bz_MainViewController ()
 {
-    IBOutlet bz_Button *cart;
-    IBOutlet bz_Button *gallery;
-    IBOutlet bz_Button *settings;
-
     UIImagePickerController *imagePickerController;
     
     BOOL colorPickerIsPurchased;
@@ -48,14 +44,18 @@
     BOOL proShapePackIsPurchased;
     BOOL keepPhoto;
 }
-@property (strong, nonatomic) bz_ScrollViewController *scrollViewController;
+
 @property (strong, nonatomic) UIDocumentInteractionController *docController;
+@property (strong, nonatomic) ALAssetsLibrary* library;
+
+@property (strong, nonatomic) bz_ScrollViewController *scrollViewController;
 @property (strong, nonatomic) BZAdjustmentProcessor *adjustmentProcessor;
 @property (strong, nonatomic) bz_ConfirmView *confirmView;
-@property (strong, nonatomic) ALAssetsLibrary* library;
+
 @property (assign, nonatomic) BOOL useLibrary;
 
 @end
+
 
 @implementation bz_MainViewController
 
@@ -398,8 +398,22 @@
     
     if (adj)
     {
-        exposure = [[adj.value valueForKey: kAdjustmentTypeBrightness] floatValue] + kExposureDefaultStep;
-        contrast = [[adj.value valueForKey: kAdjustmentTypeContrast] floatValue] + kContrastDefaultStep;
+        if ([adjustmentButton.buttonIdentifier isEqualToString: kButtonIdentifierBrightnessUp])
+        {
+            exposure = [[adj.value valueForKey: kAdjustmentTypeBrightness] floatValue] + kExposureDefaultStep;
+        }
+        else if ([adjustmentButton.buttonIdentifier isEqualToString: kButtonIdentifierBrightnessDown])
+        {
+            exposure = [[adj.value valueForKey: kAdjustmentTypeBrightness] floatValue] - kExposureDefaultStep;
+        }
+        else if ([adjustmentButton.buttonIdentifier isEqualToString: kButtonIdentifierContrastUp])
+        {
+            contrast = [[adj.value valueForKey: kAdjustmentTypeContrast] floatValue] + kContrastDefaultStep;
+        }
+        else if ([adjustmentButton.buttonIdentifier isEqualToString: kButtonIdentifierContrastDown])
+        {
+            contrast = [[adj.value valueForKey: kAdjustmentTypeContrast] floatValue] - kContrastDefaultStep;
+        }
     }
     else
     {

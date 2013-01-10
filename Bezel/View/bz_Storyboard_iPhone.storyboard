@@ -92,10 +92,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="cameraPreview" destination="lxg-Np-Fmp" id="xu5-LA-vr9"/>
-                        <outlet property="cart" destination="ly7-th-fv8" id="MMg-EP-Vkf"/>
-                        <outlet property="gallery" destination="MKX-sc-VKk" id="Vob-12-vOg"/>
                         <outlet property="imageCanvas" destination="YpG-mC-5DO" id="5KG-h2-t6b"/>
-                        <outlet property="settings" destination="uhD-s1-AZh" id="L1u-2g-sxr"/>
                         <outlet property="view" destination="a4y-SG-5eH" id="Lnw-Mk-Jvw"/>
                     </connections>
                 </viewController>
@@ -354,11 +351,10 @@
         <class className="bz_MainViewController" superclassName="bz_ViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/bz_MainViewController.h"/>
             <relationships>
+                <relationship kind="action" name="importFromLibrary:"/>
+                <relationship kind="action" name="openStoreView:"/>
                 <relationship kind="outlet" name="cameraPreview" candidateClass="UIView"/>
-                <relationship kind="outlet" name="cart" candidateClass="bz_Button"/>
-                <relationship kind="outlet" name="gallery" candidateClass="bz_Button"/>
                 <relationship kind="outlet" name="imageCanvas" candidateClass="bz_ImageView"/>
-                <relationship kind="outlet" name="settings" candidateClass="bz_Button"/>
             </relationships>
         </class>
         <class className="bz_PromotionView" superclassName="UICollectionReusableView">
