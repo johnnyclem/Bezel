@@ -6,28 +6,34 @@
 //  Copyright (c) 2012 Mind Diaper. All rights reserved.
 //
 
+#import <Accounts/Accounts.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+#import <Social/Social.h>
+
+// View controllers
 #import "bz_MainViewController.h"
 #import "bz_StoreViewController.h"
 #import "bz_MaskShapeLayer.h"
 #import "bz_ScrollViewController.h"
 #import "bz_TutorialViewController.h"
+
+// View related
 #import "UIImage+Utils.h"
 #import "UIImage+Resize.h"
 #import "UIImage+Storage.h"
-#import <AssetsLibrary/AssetsLibrary.h>
-#import <Social/Social.h>
-#import <Accounts/Accounts.h>
+#import "bz_ImageView.h"
+#import "bz_ConfirmView.h"
 #import "SVProgressHUD.h"
+
+// Capturing
 #import "BZCaptureManager.h"
 #import "BZSession.h"
 
+// Adjustments
+#import "BZAdjustmentProcessor.h"
 #import "BZMaskAdjustment.h"
 #import "BZFilterAdjustment.h"
 #import "BZBrightnessContrastAdjustment.h"
-#import "BZAdjustmentProcessor.h"
-
-#import "bz_ImageView.h"
-#import "bz_ConfirmView.h"
 
 @interface bz_MainViewController ()
 {
