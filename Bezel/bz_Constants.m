@@ -45,5 +45,11 @@ NSString* const kButtonIdentifierFilterOz = @"kButtonIdentifierFilterOz";
 NSString* const kButtonIdentifierFilterSepia = @"kButtonIdentifierFilterSepia";
 NSString* const kButtonIdentifierFilterNormal = @"kButtonIdentifierFilterNormal";
 
+// BrightnessContrastButtons
+NSString* const kButtonIdentifierBrightnessUp = @"kButtonIdentifierBrightnessUp";
+NSString* const kButtonIdentifierBrightnessDown = @"kButtonIdentifierBrightnessDown";
+NSString* const kButtonIdentifierContrastUp = @"kButtonIdentifierContrastUp";
+NSString* const kButtonIdentifierContrastDown = @"kButtonIdentifierContrastDown";
+
 @implementation bz_Constants
 @end

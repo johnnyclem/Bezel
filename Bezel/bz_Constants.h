@@ -36,7 +36,6 @@ NSString* const kButtonIdentifierTriangleMask;
 NSString* const kButtonIdentifierHexagonMask;
 NSString* const kButtonIdentifierHeartMask;
 
-
 // Filter buttons
 NSString* const kButtonIdentifierFilterBW1;
 NSString* const kButtonIdentifierFilterBW2;
@@ -47,6 +46,12 @@ NSString* const kButtonIdentifierFilterGoldenHr;
 NSString* const kButtonIdentifierFilterOz;
 NSString* const kButtonIdentifierFilterSepia;
 NSString* const kButtonIdentifierFilterNormal;
+
+// BrightnessContrastButtons
+NSString* const kButtonIdentifierBrightnessUp;
+NSString* const kButtonIdentifierBrightnessDown;
+NSString* const kButtonIdentifierContrastUp;
+NSString* const kButtonIdentifierContrastDown;
 
 @interface bz_Constants : NSObject
 @end

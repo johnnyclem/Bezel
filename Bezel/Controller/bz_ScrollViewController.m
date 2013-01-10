@@ -172,8 +172,6 @@
         _scrollView.scrollEnabled = NO;
     } else if (aScrollView.contentOffset.x == 640) {
         self.adjustmentViewController.currentImage = mainVC.currentImage;
-        self.adjustmentViewController.contrast   = 1.0;
-        self.adjustmentViewController.exposure   = 0.0;
     } else if (aScrollView.contentOffset.x == 960) {
         self.backgroundViewController.currentImage = self.adjustmentViewController.currentImage;
         self.backgroundViewController.mainVC = self.mainVC;

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96F39875169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F39874169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m */; };
+		96F39876169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F39874169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m */; };
+		96F39877169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F39874169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m */; };
 		CC033AB916965CC4007D9643 /* BZAdjustmentProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = CC033AB816965CC4007D9643 /* BZAdjustmentProcessor.m */; };
 		CC033ABA16965CC4007D9643 /* BZAdjustmentProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = CC033AB816965CC4007D9643 /* BZAdjustmentProcessor.m */; };
 		CC16B97C1694CBF600027CC5 /* BZAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CC16B97B1694CBF600027CC5 /* BZAdjustment.m */; };
@@ -583,6 +586,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		96F39873169E800F0017D3A8 /* BZBrightnessContrastAdjustment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZBrightnessContrastAdjustment.h; path = Adjustments/BZBrightnessContrastAdjustment.h; sourceTree = "<group>"; };
+		96F39874169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZBrightnessContrastAdjustment.m; path = Adjustments/BZBrightnessContrastAdjustment.m; sourceTree = "<group>"; };
 		CC033AB716965CC4007D9643 /* BZAdjustmentProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZAdjustmentProcessor.h; path = Controller/BZAdjustmentProcessor/BZAdjustmentProcessor.h; sourceTree = "<group>"; };
 		CC033AB816965CC4007D9643 /* BZAdjustmentProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZAdjustmentProcessor.m; path = Controller/BZAdjustmentProcessor/BZAdjustmentProcessor.m; sourceTree = "<group>"; };
 		CC13BF161697383B006BCEAE /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
@@ -995,6 +1000,8 @@
 			children = (
 				CC16B97A1694CBF600027CC5 /* BZAdjustment.h */,
 				CC16B97B1694CBF600027CC5 /* BZAdjustment.m */,
+				96F39873169E800F0017D3A8 /* BZBrightnessContrastAdjustment.h */,
+				96F39874169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m */,
 				CC19F7FE1695F56E001A3828 /* BZMaskAdjustment.h */,
 				CC19F7FF1695F56E001A3828 /* BZMaskAdjustment.m */,
 				CC3C08071697E04B00CF9B18 /* BZFilterAdjustment.h */,
@@ -2061,6 +2068,7 @@
 				CC033ABA16965CC4007D9643 /* BZAdjustmentProcessor.m in Sources */,
 				CC3C080A1697E04C00CF9B18 /* BZFilterAdjustment.m in Sources */,
 				CCE4042A169C96C3001355A3 /* bz_ConfirmView.m in Sources */,
+				96F39876169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2144,6 +2152,7 @@
 				CC033AB916965CC4007D9643 /* BZAdjustmentProcessor.m in Sources */,
 				CC3C08091697E04C00CF9B18 /* BZFilterAdjustment.m in Sources */,
 				CCE40429169C96C3001355A3 /* bz_ConfirmView.m in Sources */,
+				96F39875169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2225,6 +2234,7 @@
 				CC16B9831694CC1C00027CC5 /* BZSession.m in Sources */,
 				CC19F8021695F56E001A3828 /* BZMaskAdjustment.m in Sources */,
 				CC3C080B1697E04C00CF9B18 /* BZFilterAdjustment.m in Sources */,
+				96F39877169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

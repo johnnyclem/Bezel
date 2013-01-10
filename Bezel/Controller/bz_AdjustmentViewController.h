@@ -10,7 +10,6 @@
 
 @interface bz_AdjustmentViewController : bz_ViewController
 
-@property float contrast;
-@property float exposure;
+@property (strong, nonatomic, readonly) NSArray *adjustmentButtons;
 
 @end

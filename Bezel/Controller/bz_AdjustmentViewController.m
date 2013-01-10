@@ -10,15 +10,13 @@
 #import "GPUImageExposure+Contrast.h"
 
 @interface bz_AdjustmentViewController ()
-
+@property (strong, nonatomic) NSArray *adjustmentButtons;
 @end
 
 @implementation bz_AdjustmentViewController
 
 @synthesize scrollHeight = _scrollHeight;
 @synthesize currentImage = _currentImage;
-@synthesize contrast     = _contrast;
-@synthesize exposure     = _exposure;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,6 +43,13 @@
     bz_Button *contUp   = [[bz_Button alloc] initWithFrame:CGRectMake(rightBar.center.x-80, rightBar.center.y-(btnOffset+22), btnWidth, 44)];
     bz_Button *contDown = [[bz_Button alloc] initWithFrame:CGRectMake(rightBar.center.x-80, rightBar.center.y+22, btnWidth, 44)];
     
+    self.adjustmentButtons = [NSArray arrayWithObjects: expUp, expDown, contUp, contDown, nil];
+    
+    expUp.buttonIdentifier = kButtonIdentifierBrightnessUp;
+    expDown.buttonIdentifier = kButtonIdentifierBrightnessDown;
+    contUp.buttonIdentifier = kButtonIdentifierContrastUp;
+    contDown.buttonIdentifier = kButtonIdentifierContrastDown;
+    
     [expUp setTag:17];
     [expDown setTag:18];
     [contUp setTag:19];
@@ -63,13 +68,6 @@
     [self.view addSubview:contDown];
     [self.view addSubview:leftBar];
     [self.view addSubview:rightBar];
-        
-    [expUp addTarget:self action:@selector(adjustImage:) forControlEvents:UIControlEventTouchUpInside];
-    [expDown addTarget:self action:@selector(adjustImage:) forControlEvents:UIControlEventTouchUpInside];
-    [contUp addTarget:self action:@selector(adjustImage:) forControlEvents:UIControlEventTouchUpInside];
-    [contDown addTarget:self action:@selector(adjustImage:) forControlEvents:UIControlEventTouchUpInside];
-
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,34 +79,6 @@
 -(void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
-}
-
--(void)adjustImage:(bz_Button*)sender {
-    
-    switch (sender.tag) {
-        case 17:
-            _exposure = _exposure + 0.125;
-            break;
-        case 18:
-            _exposure = _exposure - 0.125;
-            break;
-        case 19:
-            _contrast = _contrast + 0.125;
-            break;
-        case 20:
-            _contrast = _contrast - 0.125;
-            break;
-        default:
-            
-            break;
-    }
-    
-    GPUImageExposure_Contrast *filter = [[GPUImageExposure_Contrast alloc] initWithContrast:_contrast andExposure:_exposure];
-    UIImage *adjustedImage = [filter imageByFilteringImage:self.currentImage];
-    NSDictionary *newFilteredImage = [NSDictionary dictionaryWithObject:adjustedImage forKey:@"newFilteredImage"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"filterImage" object:self userInfo:newFilteredImage];
-
-    
 }
 
 @end

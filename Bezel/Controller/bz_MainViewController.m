@@ -23,6 +23,7 @@
 
 #import "BZMaskAdjustment.h"
 #import "BZFilterAdjustment.h"
+#import "BZBrightnessContrastAdjustment.h"
 #import "BZAdjustmentProcessor.h"
 
 #import "bz_ImageView.h"
@@ -147,6 +148,12 @@
     {
         [button addTarget:self action:@selector(applyFilter:) forControlEvents: UIControlEventTouchUpInside];
     }
+    
+    // Adjustments
+    for (bz_Button *button in self.scrollViewController.adjustmentViewController.adjustmentButtons)
+    {
+        [button addTarget: self action:@selector(adjustImage:) forControlEvents: UIControlEventTouchUpInside];
+    } 
     
     // Backgrounds
 }
@@ -352,30 +359,6 @@
     [buyColorPicker show];
 }
 
-- (UIImage*) maskImage:(UIImage *) image withMask:(UIImage *) mask
-{
-    CGImageRef imageReference = image.CGImage;
-    CGImageRef maskReference = mask.CGImage;
-    
-    CGImageRef imageMask = CGImageMaskCreate(CGImageGetWidth(maskReference),
-                                             CGImageGetHeight(maskReference),
-                                             CGImageGetBitsPerComponent(maskReference),
-                                             CGImageGetBitsPerPixel(maskReference),
-                                             CGImageGetBytesPerRow(maskReference),
-                                             CGImageGetDataProvider(maskReference),
-                                             NULL, // Decode is null
-                                             YES // Should interpolate
-                                             );
-    
-    CGImageRef maskedReference = CGImageCreateWithMask(imageReference, imageMask);
-    CGImageRelease(imageMask);
-    
-    UIImage *maskedImage = [UIImage imageWithCGImage:maskedReference];
-    CGImageRelease(maskedReference);
-    
-    return maskedImage;
-}
-
 -(void)applyFilter:(bz_Button *)filterButton
 {
     BZFilterAdjustment *filterAdjustment = [[BZFilterAdjustment alloc] init];
@@ -390,34 +373,45 @@
         if (response == TRUE)
         {
             [self.session addAdjustment: filterAdjustment];
+            [self.scrollViewController scrollToViewControllerAtIndex:2];
         }
         else
         {
             self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
         }
     };
-    [self.confirmView presentConfirmationFromEdge: CGRectMinXEdge forViewController: self];
     
+    [self.confirmView presentConfirmationFromEdge: CGRectMinYEdge forViewController: self];
 }
 
--(void)undoFilter:(id)sender
-{    
-    UIView *confirm = (UIView*)[sender superview];
-    [UIView animateWithDuration:0.5
-                     animations:^{
-                         confirm.frame = CGRectMake(0, -60.f, 320.f, 60.f);
-                     }
-                     completion:^(BOOL finished){
-                         [confirm removeFromSuperview];
-                         useLibrary = NO;
-                         
-                         BZFilterAdjustment *adj = [self.session.adjustments lastObject];
-                         [self.session removeAdjustment: adj];
-                         
-//                         self.imageCanvas.image = [adj filteredImageWithImage: nil];
-//                         self.imageCanvas.contentMode = UIViewContentModeScaleAspectFill;
-                         
-                     }];
+- (void)adjustImage:(bz_Button *)adjustmentButton
+{
+    float exposure, contrast;
+    
+    BZAdjustment *adj = [self.session adjustmentWithIdentifier: kAdjustmentTypeBrightnessOrContrast];
+    
+    if (adj)
+    {
+        exposure = [[adj.value valueForKey: kAdjustmentTypeBrightness] floatValue] + kExposureDefaultStep;
+        contrast = [[adj.value valueForKey: kAdjustmentTypeContrast] floatValue] + kContrastDefaultStep;
+    }
+    else
+    {
+        exposure = 1.0;
+        contrast = 1.0;
+    }
+    
+    BZBrightnessContrastAdjustment *brightnessContrastAdjustment = [[BZBrightnessContrastAdjustment alloc] init];
+    brightnessContrastAdjustment.identifier = kAdjustmentTypeBrightnessOrContrast;
+    brightnessContrastAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          adjustmentButton.buttonIdentifier, kButtonIdentifier,
+                                          exposure, kAdjustmentTypeBrightness,
+                                          contrast, kAdjustmentTypeContrast, nil];
+    
+    [self.session addAdjustment: brightnessContrastAdjustment];
+    
+    // set the preview layer mask to the adjusted mask.
+    self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
 }
 
 -(void)setupFilterThumbnails
@@ -432,38 +426,6 @@
         // set the preview layer mask to the adjusted mask.
         button.imageView.image = [filterAdjustment filteredImageWithImage: currentThumb];
     }
-}
-
--(void)retakePhoto:(id)sender {
-    
-    keepPhoto = NO;
-    UIView *confirm = [(bz_Button*)sender superview];
-
-    [UIView animateWithDuration:0.5
-                     animations:^{
-                         confirm.frame = CGRectMake(0, UIScreen.mainScreen.bounds.size.height, 320.f, confirm.frame.size.height);
-                     }
-                     completion:^(BOOL finished){
-                         [confirm removeFromSuperview];
-                         useLibrary = NO;
-                         LogTrace(@"completed animation");
-                     }];
-}
-
-#pragma mark -
-#pragma mark - Image Masking
-
--(void)addMaskedImageViewWithImage:(UIImage*)image
-{
-//    bz_MaskShapeLayer *maskLayer    = [[bz_MaskShapeLayer alloc] initWithCircleShapeAtSize:CGSizeMake(320, 320)];
-//    [self.camer setImage:image];
-//    self.sessionPreview.layer.mask = maskLayer;
-//    self.sessionPreview.clipsToBounds = YES;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 }
 
 #pragma mark -
