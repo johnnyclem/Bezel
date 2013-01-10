@@ -82,9 +82,6 @@
     [self.scrollViewController setupScrollViewChildren];
     [self.view addSubview: self.scrollViewController.scrollView];
     
-    // Use library if camera is *not* available.
-    useLibrary = ![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
-
     // View defaults
     self.cameraPreview.clipsToBounds = YES;
     self.imageCanvas.clipsToBounds = YES;
@@ -198,16 +195,10 @@
 -(IBAction)importFromLibrary:(id)sender
 {    
     [self stopUpdatingPreviewLayer];
-    
-    useLibrary = YES;
-    
-    [imagePickerController.view removeFromSuperview];
-    imagePickerController = nil;
-    
+
     imagePickerController = [[UIImagePickerController alloc] init];
     imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     imagePickerController.delegate = self;
-    imagePickerController.allowsEditing = YES;
 
     [self presentViewController:imagePickerController animated:YES completion:nil];
 }
@@ -350,6 +341,7 @@
 
 - (void)undoLastAdjustment
 {
+    // TODO finish undo
     [self.session removeAdjustment: [self.session.adjustments lastObject]];
 }
 
@@ -663,93 +655,49 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
-    int quality = [df integerForKey:@"full_resolution"];
+    UIImage *fullRes = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImage *thumb   = [UIImage scaleImage: fullRes
+                                    toSize: kDefaultThumbnailSize];
     
-    CGSize imageSize;
-    __block UIImage *takenImage;
-    __block NSDictionary* dict;
-    __block NSNotification *libraryPhoto;
+    [self stopUpdatingPreviewLayer];
     
-    switch (quality) {
-        case 2: // User wants highest res image
-            imageSize = CGSizeMake(2048, 2048);
-            break;
-        case 1: // User wants 1024x1024 res image
-            imageSize = CGSizeMake(1024, 1024);
-            break;
-        case 0: // User wants 640x640 res image
-            imageSize = CGSizeMake(640, 640);
-            break;
-        default:
-            break;
-    }
-    LogTrace(@"captured image at: %f, %f", imageSize.width, imageSize.height);
-
-    self.session.thumbnailImage = [info objectForKey:UIImagePickerControllerEditedImage];
-    self.session.fullResolutionImage = [info objectForKey: UIImagePickerControllerOriginalImage];
+    self.imageCanvas.hidden = FALSE;
+    self.imageCanvas.image = thumb;
     
-    if (useLibrary)
+    __weak id weakSelf = self;
+    
+    self.confirmView.completionBlock = ^(BOOL response)
     {
-        [self dismissViewControllerAnimated:YES completion:^(void){
-            useLibrary = NO;
-        }];
-        
-        //[self newLibraryPhotoArrived];
-        
-    } else {
-        GPUImageCropFilter *filter;
-        
-        if (self.view.frame.size.height == 480) {
-            filter = [[GPUImageCropFilter alloc] initWithCropRegion:CGRectMake(.140625, 0, .75, 1)];
-        } else {
-            GPUImageCropFilter *filter;
-
-            if (self.view.frame.size.height == 480) {
-                filter = [[GPUImageCropFilter alloc] initWithCropRegion:CGRectMake(.140625, 0, .75, 1)];
-            } else {
-                filter = [[GPUImageCropFilter alloc] initWithCropRegion:CGRectMake(.19218745, 0, .75, 1)];
-            }
+        if (response == TRUE)
+        {
+            [self.session setThumbnailImage: thumb];
+            [self.session setFullResolutionImage: fullRes];
             
-            if ([df boolForKey:BZ_SETTINGS_SAVE_TO_CAMERA_ROLL_KEY] == TRUE) {
-                [self.library writeImageToSavedPhotosAlbum:[[info objectForKey:UIImagePickerControllerOriginalImage] CGImage] orientation:ALAssetOrientationRight completionBlock:^(NSURL *assetURL, NSError *error) {
-                    if (error!=nil) {
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error Saving Image" message:@"Bezel encountered an error while attempting to save image to Photo Library.  Please try saving again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                        alert.tag = 0;
-                        [alert show];
-                    }
-                }];
-            }
-            UIImage *originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-            UIImage *filteredImage = [filter imageByFilteringImage: originalImage];
-            takenImage = [filteredImage resizedImage: kDefaultCameraPreviewSize interpolationQuality:kCGInterpolationMedium];
-//            replace code below with
-//            saveToCache();
-            dict = [NSDictionary dictionaryWithObject:takenImage forKey:@"newImageKey"];
-            libraryPhoto = [NSNotification notificationWithName:@"newImage" object:self userInfo:dict];
-            // [self newPhotoArrived:libraryPhoto];
-            [imagePickerController.view removeFromSuperview];
-            imagePickerController = nil;
-            filter = [[GPUImageCropFilter alloc] initWithCropRegion:CGRectMake(.19218745, 0, .75, 1)];
+            [self.scrollViewController scrollToViewControllerAtIndex: 1];
+            
+            [weakSelf setupFilterThumbnails];
         }
-        
-        if ([df boolForKey:BZ_SETTINGS_SAVE_TO_CAMERA_ROLL_KEY] == TRUE) {
-            [self.library writeImageToSavedPhotosAlbum:[[info objectForKey:UIImagePickerControllerOriginalImage] CGImage] orientation:ALAssetOrientationRight completionBlock:^(NSURL *assetURL, NSError *error) {
-                if (error!=nil) {
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error Saving Image" message:@"Bezel encountered an error while attempting to save image to Photo Library.  Please try saving again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                    alert.tag = 0;
-                    [alert show];
-                }
-            }];
+        else
+        {
+            [weakSelf startUpdatingPreviewLayer];
+            self.imageCanvas.image = nil;
+            self.imageCanvas.hidden = TRUE;
         }
-    }
+    };
+    
+    [SVProgressHUD dismiss];
+    [self.confirmView presentConfirmationFromEdge: CGRectMaxYEdge forViewController: self];
+    
+    [imagePickerController.view removeFromSuperview];
+    imagePickerController = nil;    
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    [self dismissViewControllerAnimated:YES completion:^(void)
+    __weak id weakSelf = self;
+    [self dismissViewControllerAnimated:TRUE completion:^(void)
     {
-        [self.imageCanvas setImage:nil];
+        [weakSelf startUpdatingPreviewLayer];
     }];
 }
 
