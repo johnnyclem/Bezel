@@ -1029,7 +1029,7 @@
 				CC2CF431167DB2A900A0EDA7 /* UIImageView+AFNetworking.m */,
 			);
 			name = AFNetworking;
-			path = "Third Party/AFNetworking";
+			path = "Third Party/AFNetworking/AFNetworking";
 			sourceTree = "<group>";
 		};
 		CC55B6AA16949614006AD05A /* BZCapture */ = {
