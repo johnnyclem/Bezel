@@ -16,7 +16,6 @@
 @implementation bz_AdjustmentViewController
 
 @synthesize scrollHeight = _scrollHeight;
-@synthesize currentImage = _currentImage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

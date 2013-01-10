@@ -17,8 +17,8 @@ NSString* const kAdjustmentTypeContrast = @"kAdjustmentTypeContrast";
 
 - (UIImage *)processImage:(UIImage *)inImage
 {
-    float contrast = [[self.value valueForKey: kAdjustmentTypeContrast] floatValue];
-    float exposure = [[self.value valueForKey: kAdjustmentTypeBrightness] floatValue];
+    float contrast = [[self.value objectForKey: kAdjustmentTypeContrast] floatValue];
+    float exposure = [[self.value objectForKey: kAdjustmentTypeBrightness] floatValue];
     
     GPUImageExposure_Contrast *filter = [[GPUImageExposure_Contrast alloc] initWithContrast: contrast andExposure: exposure];
     return [filter imageByFilteringImage: inImage];

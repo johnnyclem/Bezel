@@ -12,6 +12,5 @@
 @interface bz_ViewController : UIViewController
 
 @property(nonatomic) CGFloat scrollHeight;
-@property (nonatomic, strong) UIImage *currentImage;
 
 @end

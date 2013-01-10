@@ -32,8 +32,6 @@
 
 
 @synthesize scrollHeight    = _scrollHeight;
-@synthesize currentThumb    = _currentThumb;
-@synthesize currentMask     = _currentMask;
 @synthesize filter1         = _filter1;
 @synthesize filter2         = _filter2;
 @synthesize filter3         = _filter3;
@@ -106,100 +104,10 @@
     [super viewDidAppear:animated];
 }
 
--(void)setupFilterPreviews:(NSNotification *)notification {
-    
-    self.currentImage = [notification.userInfo objectForKey:@"newImage"];
-    self.currentThumb = [self.currentImage resizedImage:CGSizeMake(160, 160) interpolationQuality:kCGInterpolationLow];
-    
-    if (self.currentImage != nil) {
-
-        
-        for (int i=1000; i<1008; i++) {
-            bz_Button *button = [self buttonFromTag:[NSNumber numberWithInt:i]];
-            bz_FilterViewController *this = self;
-            __block UIImage *filteredImage;
-
-            void (^filterThumb)(void) = ^ {
-                UIImage *inputImage;
-                
-                switch (i) {
-                    case 1000:
-                        inputImage = [UIImage imageNamed:@"B&W1.png"];
-                        break;
-                    case 1001:
-                        inputImage = [UIImage imageNamed:@"B&W2.png"];
-                        break;
-                    case 1002:
-                        inputImage = [UIImage imageNamed:@"blue.png"];
-                        break;
-                    case 1003:
-                        inputImage = [UIImage imageNamed:@"DarkFade.png"];
-                        break;
-                    case 1004:
-                        inputImage = [UIImage imageNamed:@"faded.png"];
-                        break;
-                    case 1005:
-                        inputImage = [UIImage imageNamed:@"GoldenHr.png"];
-                        break;
-                    case 1006:
-                        inputImage = [UIImage imageNamed:@"oz.png"];
-                        break;
-                    case 1007:
-                        inputImage = [UIImage imageNamed:@"Sepia.png"];
-                        break;
-                    default:
-                        inputImage = [UIImage imageNamed:@"normal.png"];
-                        break;
-                }
-
-                GPUImageLookupFilter *lookupFilter  = [[GPUImageLookupFilter alloc] init];
-                GPUImagePicture *stillImageSource   = [[GPUImagePicture alloc] initWithImage:inputImage];
-                GPUImagePicture *sourceImage        = [[GPUImagePicture alloc] initWithImage:this.currentThumb];
-                
-                [sourceImage addTarget:lookupFilter];
-                [sourceImage processImage];
-                [stillImageSource addTarget:lookupFilter atTextureLocation:1];
-                [stillImageSource processImage];
-                filteredImage = [lookupFilter imageFromCurrentlyProcessedOutput];
-                [button setImage:filteredImage forState:UIControlStateNormal];
-                [button.imageView setContentMode:UIViewContentModeScaleAspectFit];
-            };
-            
-            filterThumb();
-            [button setNeedsDisplay];
-        }
-    }
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (bz_Button*)buttonFromTag:(NSNumber*)tag {
-    
-    switch ([tag intValue]) {
-        case 1000:
-            return _filter1;
-        case 1001:
-            return _filter2;
-        case 1002:
-            return _filter3;
-        case 1003:
-            return _filter4;
-        case 1004:
-            return _filter5;
-        case 1005:
-            return _filter6;
-        case 1006:
-            return _filter7;
-        case 1007:
-            return _filter8;
-        default:
-            return _filter1;
-    }
-
 }
 
 @end

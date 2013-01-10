@@ -392,7 +392,8 @@
 
 - (void)adjustImage:(bz_Button *)adjustmentButton
 {
-    float exposure, contrast;
+    float exposure = 1.0;
+    float contrast = 1.0;
     
     BZAdjustment *adj = [self.session adjustmentWithIdentifier: kAdjustmentTypeBrightnessOrContrast];
     
@@ -401,6 +402,7 @@
         if ([adjustmentButton.buttonIdentifier isEqualToString: kButtonIdentifierBrightnessUp])
         {
             exposure = [[adj.value valueForKey: kAdjustmentTypeBrightness] floatValue] + kExposureDefaultStep;
+            contrast = [[adj.value valueForKey: kAdjustmentTypeContrast] floatValue];
         }
         else if ([adjustmentButton.buttonIdentifier isEqualToString: kButtonIdentifierBrightnessDown])
         {
@@ -415,18 +417,13 @@
             contrast = [[adj.value valueForKey: kAdjustmentTypeContrast] floatValue] - kContrastDefaultStep;
         }
     }
-    else
-    {
-        exposure = 1.0;
-        contrast = 1.0;
-    }
-    
+
     BZBrightnessContrastAdjustment *brightnessContrastAdjustment = [[BZBrightnessContrastAdjustment alloc] init];
     brightnessContrastAdjustment.identifier = kAdjustmentTypeBrightnessOrContrast;
     brightnessContrastAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys:
                                           adjustmentButton.buttonIdentifier, kButtonIdentifier,
-                                          exposure, kAdjustmentTypeBrightness,
-                                          contrast, kAdjustmentTypeContrast, nil];
+                                          [NSNumber numberWithFloat: exposure], kAdjustmentTypeBrightness,
+                                          [NSNumber numberWithFloat: contrast], kAdjustmentTypeContrast, nil];
     
     [self.session addAdjustment: brightnessContrastAdjustment];
     
@@ -530,7 +527,9 @@
         
         [controller setInitialText:@"Created with Bezel for iOS"];
         [controller addURL:[NSURL URLWithString:@"http://minddiaper.com/bezel"]];
-        [controller addImage:self.currentImage];
+
+        // Set processed image here.
+//        [controller addImage:self.currentImage];
         
         [self presentViewController:controller animated:YES completion:Nil];
         
@@ -562,7 +561,9 @@
         
         [controller setInitialText:@"Created with Bezel for iOS"];
         [controller addURL:[NSURL URLWithString:@"http://minddiaper.com/bezel"]];
-        [controller addImage:self.currentImage];
+
+        // Set processed image here.
+        //        [controller addImage:self.currentImage];
         
         [self presentViewController:controller animated:YES completion:Nil];
         
@@ -579,7 +580,10 @@
     if ([[UIApplication sharedApplication] canOpenURL:instagramURL]) {
         NSString *documentsDirectory    = [self applicationDocumentsDirectory];
         NSString *savedImagePath        = [documentsDirectory stringByAppendingPathComponent:@"image.igo"];
-        NSData   *imageData             = UIImageJPEGRepresentation(self.currentImage, 0.85);
+        
+        // Set processed image here.
+        UIImage *img = self.session.thumbnailImage;
+        NSData   *imageData             = UIImageJPEGRepresentation(img, 0.85);
         
         [imageData writeToFile:savedImagePath atomically:YES];
         NSURL    *imageURL              = [NSURL fileURLWithPath:savedImagePath];
@@ -738,21 +742,14 @@
                 }
             }];
         }
-//        takenImage = [[filter imageByFilteringImage:[info objectForKey:UIImagePickerControllerOriginalImage] ] resizedImage:imgSize interpolationQuality:kCGInterpolationDefault];
-//        dict = [NSDictionary dictionaryWithObject:takenImage forKey:@"newImageKey"];
-//        libraryPhoto = [NSNotification notificationWithName:@"newImage" object:self userInfo:dict];
-//        [self newPhotoArrived:libraryPhoto];
-//        [imagePickerController.view removeFromSuperview];
-//        imagePickerController = nil;
     }
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    [self dismissViewControllerAnimated:YES completion:^(void) {
-        useLibrary = NO;
+    [self dismissViewControllerAnimated:YES completion:^(void)
+    {
         [self.imageCanvas setImage:nil];
-        self.currentImage = nil;
     }];
 }
 

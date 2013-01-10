@@ -40,24 +40,8 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    
-    [super viewDidAppear:animated];
-}
-
 - (void)setupScrollViewChildren
 {
-    [self addObservers];
-    
     //setup scrollview
     NSUInteger numberOfPages = 5;
     [_scrollView setContentSize: CGSizeMake(_scrollView.frame.size.width * numberOfPages, scrollHeight)] ;
@@ -121,32 +105,6 @@
     self.shareViewController = nil;
 }
 
-- (void)removeChildrenImages;
-{
-    self.shapesViewController.currentImage = nil;
-    self.filterViewController.currentImage = nil;
-    self.adjustmentViewController.currentImage = nil;
-    self.backgroundViewController.currentImage = nil;
-    self.shareViewController.currentImage = nil;
-}
-
-- (void)addObservers {
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scrollToView:) name:@"keepPhoto" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scrollToView:) name:@"StartOver" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disableScroll) name:@"disableScroll" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enableScroll) name:@"enableScroll" object:nil];
-
-}
-
-- (void)removeObservers {
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"keepPhoto" object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"StartOver" object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"disableScroll" object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"enableScroll" object:nil];    
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -170,14 +128,19 @@
         NSDictionary* dict = [NSDictionary dictionaryWithObject:self forKey:@"scrollVC"];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"scrolledHome" object:self userInfo:dict];
         _scrollView.scrollEnabled = NO;
-    } else if (aScrollView.contentOffset.x == 640) {
-        self.adjustmentViewController.currentImage = mainVC.currentImage;
-    } else if (aScrollView.contentOffset.x == 960) {
-        self.backgroundViewController.currentImage = self.adjustmentViewController.currentImage;
+    }
+    else if (aScrollView.contentOffset.x == 640)
+    {
+        
+    }
+    else if (aScrollView.contentOffset.x == 960)
+    {
         self.backgroundViewController.mainVC = self.mainVC;
         [self.backgroundViewController changeBackground: self.backgroundViewController.blackBG];
-    } else if (aScrollView.contentOffset.x == 1280) {
-        self.shareViewController.currentImage = self.backgroundViewController.currentImage;
+    }
+    else if (aScrollView.contentOffset.x == 1280)
+    {
+        
     }
 
 }
@@ -187,21 +150,12 @@
     
 }
 
-- (void)pageControlClicked:(id)sender {
-    
-}
-
 - (void)disableScroll {
     _scrollView.scrollEnabled = NO;
 }
 
 - (void)enableScroll {
     _scrollView.scrollEnabled = YES;
-}
-
-- (void)scrollToView:(NSNotification*)notification
-{
-
 }
 
 - (void)scrollToViewControllerAtIndex:(NSInteger)index
