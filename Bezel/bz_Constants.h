@@ -53,5 +53,11 @@ NSString* const kButtonIdentifierBrightnessDown;
 NSString* const kButtonIdentifierContrastUp;
 NSString* const kButtonIdentifierContrastDown;
 
+// Background Buttons
+NSString* const kButtonIdentifierBlackBackground;
+NSString* const kButtonIdentifierWhiteBackground;
+NSString* const kButtonIdentifierClearBackground;
+NSString* const kButtonIdentifierSwitchBackground;
+
 @interface bz_Constants : NSObject
 @end

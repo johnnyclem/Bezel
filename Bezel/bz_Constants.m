@@ -51,5 +51,12 @@ NSString* const kButtonIdentifierBrightnessDown = @"kButtonIdentifierBrightnessD
 NSString* const kButtonIdentifierContrastUp = @"kButtonIdentifierContrastUp";
 NSString* const kButtonIdentifierContrastDown = @"kButtonIdentifierContrastDown";
 
+// Background Buttons
+NSString* const kButtonIdentifierBlackBackground = @"kButtonIdentifierBlackBackground";
+NSString* const kButtonIdentifierWhiteBackground = @"kButtonIdentifierWhiteBackground";
+NSString* const kButtonIdentifierClearBackground = @"kButtonIdentifierClearBackground";
+NSString* const kButtonIdentifierSwitchBackground = @"kButtonIdentifierSwitchBackground";
+
+
 @implementation bz_Constants
 @end

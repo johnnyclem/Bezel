@@ -12,15 +12,10 @@
 #import "bz_MainViewController.h"
 #import "AnimationDelegate.h"
 
-@interface bz_BackgroundViewController : bz_ViewController <RSColorPickerViewDelegate>
+@interface bz_BackgroundViewController : bz_ViewController
 {
-    RSColorPickerView *colorPicker;
-	RSBrightnessSlider *brightnessSlider;
 }
 
-@property(nonatomic, strong) bz_MainViewController *mainVC;
-@property(nonatomic, strong) bz_Button *blackBG;
-
-- (void)changeBackground:(id)sender;
+@property (strong, nonatomic) NSArray *backgroundButtons;
 
 @end

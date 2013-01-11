@@ -129,33 +129,11 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:@"scrolledHome" object:self userInfo:dict];
         _scrollView.scrollEnabled = NO;
     }
-    else if (aScrollView.contentOffset.x == 640)
-    {
-        
-    }
-    else if (aScrollView.contentOffset.x == 960)
-    {
-        self.backgroundViewController.mainVC = self.mainVC;
-        [self.backgroundViewController changeBackground: self.backgroundViewController.blackBG];
-    }
-    else if (aScrollView.contentOffset.x == 1280)
-    {
-        
-    }
-
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)aScrollView
 {
     
-}
-
-- (void)disableScroll {
-    _scrollView.scrollEnabled = NO;
-}
-
-- (void)enableScroll {
-    _scrollView.scrollEnabled = YES;
 }
 
 - (void)scrollToViewControllerAtIndex:(NSInteger)index

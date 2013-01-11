@@ -32,12 +32,24 @@ NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
 
 - (UIImage *)processImage:(UIImage *)inImage
 {
-//    UIGraphicsBeginImageContext(inImage.size);
-//    [inImage renderInContext:UIGraphicsGetCurrentContext()];
-//    UIImage* maskImage = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
+    UIGraphicsBeginImageContext(inImage.size);
+    [[self layerMaskForSize: inImage.size] renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *maskImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     
-    return inImage;
+    CGImageRef maskRef = maskImage.CGImage;
+    
+	CGImageRef mask = CGImageMaskCreate(CGImageGetWidth(maskRef),
+                                        CGImageGetHeight(maskRef),
+                                        CGImageGetBitsPerComponent(maskRef),
+                                        CGImageGetBitsPerPixel(maskRef),
+                                        CGImageGetBytesPerRow(maskRef),
+                                        CGImageGetDataProvider(maskRef), NULL, false);
+    
+	CGImageRef masked = CGImageCreateWithMask([inImage CGImage], mask);
+    UIImage *img = [UIImage imageWithCGImage:masked];
+    
+	return img;
 }
 
 - (CALayer *)layerMaskForSize:(CGSize)size

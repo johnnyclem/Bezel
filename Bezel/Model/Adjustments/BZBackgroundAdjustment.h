@@ -8,6 +8,9 @@
 
 #import "BZAdjustment.h"
 
+NSString* const kAdjustmentTypeBackgroundColor;
+NSString* const kAdjustmentTypeBackgroundImage;
+
 @interface BZBackgroundAdjustment : BZAdjustment
 
 @property (strong, nonatomic) NSDictionary *value;

@@ -31,6 +31,7 @@
 
 // Adjustments
 #import "BZAdjustmentProcessor.h"
+#import "BZBackgroundAdjustment.h"
 #import "BZBrightnessContrastAdjustment.h"
 #import "BZFilterAdjustment.h"
 #import "BZMaskAdjustment.h"
@@ -165,6 +166,10 @@
     } 
     
     // Backgrounds
+    for (bz_Button *button in self.scrollViewController.backgroundViewController.backgroundButtons)
+    {
+        [button addTarget: self action:@selector(switchBackground:) forControlEvents: UIControlEventTouchUpInside];
+    }
 }
 
 #pragma mark -
@@ -178,7 +183,7 @@
     
     // Default to square mask around preview image.
     BZMaskAdjustment *maskAdjustment = [[BZMaskAdjustment alloc] init];
-    maskAdjustment.identifier = kButtonIdentifierSquareMask;
+    maskAdjustment.identifier = kAdjustmentTypeMask;
     maskAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: kButtonIdentifierSquareMask, kButtonIdentifier, nil];
     [self.session addAdjustment: maskAdjustment];
     
@@ -317,34 +322,41 @@
 //}
 
 
--(void)addBackground:(NSNotification*)notification
+-(void)switchBackground:(bz_Button *)button
 {    
-//    [self.sessionPreview.layer setMask:nil];
-//
-//    _bgColor = [notification.userInfo objectForKey:@"newBGColor"];
-//    if (_bgColor != nil) {
-//        _bgImage = [UIImage imageWithColor:_bgColor atSize:self.currentImage.size];
-//    } else if([notification.userInfo objectForKey:@"newBGImage"] != nil){
-//        _bgImage = [notification.userInfo objectForKey:@"newBGImage"];
-//    } else {
-//        _bgImage = [UIImage imageWithColor:[UIColor blackColor] atSize:self.currentImage.size];
-//    }
-//    
-//    GPUImagePicture *border = [[GPUImagePicture alloc] initWithImage:_bgImage];
-//
-//    GPUImageAlphaBlendFilter *alpha = [[GPUImageAlphaBlendFilter alloc] init];
-//    GPUImagePicture *imageToProcess = [[GPUImagePicture alloc] initWithImage: nil];
-//    alpha.mix = 1.0f;
-//    
-//    [border addTarget:alpha];
-//    [imageToProcess addTarget:alpha];
-//
-//    [border processImage];
-//    [imageToProcess processImage];
-//    
-//    self.currentImage = nil;
-//    self.currentImage = [alpha imageFromCurrentlyProcessedOutput];
-//    [self.sessionPreview setImage:self.currentImage];
+    BZBackgroundAdjustment *backgroundAdjustment = [[BZBackgroundAdjustment alloc] init];
+
+    NSString *value = button.buttonIdentifier;
+    
+    if ([value isEqualToString: kButtonIdentifierBlackBackground])
+    {
+        backgroundAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      button.buttonIdentifier, kButtonIdentifier,
+                                      [UIColor blackColor], kAdjustmentTypeBackgroundColor, nil];
+        backgroundAdjustment.identifier = kAdjustmentTypeBackgroundColor;
+    }
+    else if ([value isEqualToString: kButtonIdentifierWhiteBackground])
+    {
+        backgroundAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      button.buttonIdentifier, kButtonIdentifier,
+                                      [UIColor whiteColor], kAdjustmentTypeBackgroundColor, nil];
+        backgroundAdjustment.identifier = kAdjustmentTypeBackgroundColor;
+    }
+    else if ([value isEqualToString: kButtonIdentifierClearBackground])
+    {
+        backgroundAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      button.buttonIdentifier, kButtonIdentifier,
+                                      [UIColor clearColor], kAdjustmentTypeBackgroundColor, nil];
+        backgroundAdjustment.identifier = kAdjustmentTypeBackgroundColor;
+    }
+    else
+    {
+        // Haven't implemented background images yet.
+    }
+    
+    [self.session addAdjustment: backgroundAdjustment];
+
+    self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
 }
 
 -(void)switchShape:(bz_Button *)button
@@ -618,23 +630,27 @@
     [alert show];
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-
-    NSDictionary* dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:0] forKey:@"scrollPosition"];
-
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
     switch (alertView.tag) {
         case 10:
-            if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Discard Photo"]) {
-                keepPhoto = NO;
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"StartOver" object:nil userInfo:dict];
+            if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Discard Photo"])
+            {
+                self.session = nil;
+                self.session = [[BZSession alloc] init];
+                [self.scrollViewController scrollToViewControllerAtIndex: 0];
+                [self startUpdatingPreviewLayer];
             }
             break;
         case 20:
             break;
         case 30:
-            if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Start Over"]) {
-                keepPhoto = NO;
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"StartOver" object:nil userInfo:dict];
+            if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Start Over"])
+            {
+                self.session = nil;
+                self.session = [[BZSession alloc] init];
+                [self.scrollViewController scrollToViewControllerAtIndex: 0];
+                [self startUpdatingPreviewLayer];
             }
             break;
         case 50:
