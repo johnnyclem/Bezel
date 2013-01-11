@@ -32,27 +32,32 @@ NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
 
 - (UIImage *)processImage:(UIImage *)inImage
 {
-    UIGraphicsBeginImageContext(inImage.size);
-    [[self layerMaskForSize: inImage.size] renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *maskImage = UIGraphicsGetImageFromCurrentImageContext();
+    CGRect rect = CGRectZero;
+    rect.size = inImage.size;
+    UIGraphicsBeginImageContextWithOptions(rect.size, YES, 0.0); {
+        [[UIColor blackColor] setFill];
+        UIRectFill(rect);
+        [[UIColor whiteColor] setFill];
+        UIBezierPath *path = [[UIBezierPath alloc] init];
+        path.CGPath = [self layerMaskForSize: rect.size].path;
+        [path fill];
+    }
+    
+    UIImage *mask = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    CGImageRef maskRef = maskImage.CGImage;
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0.0); {
+        CGContextClipToMask(UIGraphicsGetCurrentContext(), rect, mask.CGImage);
+        [inImage drawAtPoint:CGPointZero];
+    }
+    UIImage *maskedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     
-	CGImageRef mask = CGImageMaskCreate(CGImageGetWidth(maskRef),
-                                        CGImageGetHeight(maskRef),
-                                        CGImageGetBitsPerComponent(maskRef),
-                                        CGImageGetBitsPerPixel(maskRef),
-                                        CGImageGetBytesPerRow(maskRef),
-                                        CGImageGetDataProvider(maskRef), NULL, false);
+    return maskedImage;
     
-	CGImageRef masked = CGImageCreateWithMask([inImage CGImage], mask);
-    UIImage *img = [UIImage imageWithCGImage:masked];
-    
-	return img;
 }
 
-- (CALayer *)layerMaskForSize:(CGSize)size
+- (CAShapeLayer *)layerMaskForSize:(CGSize)size
 {
     NSString *maskShape = [self.value objectForKey: kButtonIdentifier];
 

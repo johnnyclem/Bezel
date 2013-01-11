@@ -87,13 +87,12 @@
     // View defaults
     self.cameraPreview.clipsToBounds = YES;
     self.imageCanvas.clipsToBounds = YES;
+    self.imageCanvas.contentMode = UIViewContentModeScaleAspectFit;
     
 //    UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget: self action: @selector(handlePinch:)];
 //    pinchGesture.delegate = self;
 //    [self.imageCanvas addGestureRecognizer: pinchGesture];
 //    self.imageCanvas.userInteractionEnabled = TRUE;
-    
-    self.imageCanvas.contentMode = UIViewContentModeCenter;
     
     [self setUpButtonTargets];
 }
@@ -258,11 +257,13 @@
                 }];
             }
             
-            UIImage *thumb   = [UIImage scaleImage: img toSize: kDefaultThumbnailSize];
+            UIImage *thumb = [UIImage scaleImage: img toSize: kDefaultThumbnailSize];
             
             [self stopUpdatingPreviewLayer];
             
             self.imageCanvas.hidden = FALSE;
+            
+            self.imageCanvas.layer.mask = [(BZMaskAdjustment *)[self.session adjustmentWithIdentifier: kAdjustmentTypeMask] layerMaskForSize: kDefaultCameraPreviewSize];
             self.imageCanvas.image = thumb;
             
             __weak id weakSelf = self;
@@ -274,6 +275,9 @@
                     [self.session setThumbnailImage: thumb];
                     [self.session setFullResolutionImage: img];
                     
+                    self.imageCanvas.layer.mask = nil;
+                    self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
+                    
                     [self.scrollViewController scrollToViewControllerAtIndex: 1];
                     
                     [weakSelf setupFilterThumbnails];
@@ -281,6 +285,7 @@
                 else
                 {
                     [weakSelf startUpdatingPreviewLayer];
+                    self.imageCanvas.layer.mask = nil;
                     self.imageCanvas.image = nil;
                     self.imageCanvas.hidden = TRUE;
                 }
@@ -368,7 +373,7 @@
     [self.session addAdjustment: maskAdjustment];
     
     self.cameraPreview.layer.mask = [maskAdjustment layerMaskForSize: self.cameraPreview.frame.size];
-    self.imageCanvas.layer.mask = [maskAdjustment layerMaskForSize: self.imageCanvas.frame.size];
+    self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
 }
 
 - (void)undoLastAdjustment
@@ -396,7 +401,7 @@
     filterAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: filterButton.buttonIdentifier, kButtonIdentifier, nil];
     
     // set the preview layer mask to the adjusted mask.
-    self.imageCanvas.image = [filterAdjustment filteredImageWithImage: self.session.thumbnailImage];
+    self.imageCanvas.image = [filterAdjustment filteredImageWithImage: [self.adjustmentProcessor processedThumbnailImage]];
 
     self.confirmView.completionBlock = ^(BOOL response)
     {
