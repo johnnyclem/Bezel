@@ -208,6 +208,9 @@
 		CC8839AD167EA21D00374C63 /* bz_ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839AC167EA21D00374C63 /* bz_ImageView.m */; };
 		CC8839AE167EA21D00374C63 /* bz_ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839AC167EA21D00374C63 /* bz_ImageView.m */; };
 		CC8839AF167EA21D00374C63 /* bz_ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839AC167EA21D00374C63 /* bz_ImageView.m */; };
+		CCC95F3116A073FE006DE78B /* BZBackgroundAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC95F3016A073FE006DE78B /* BZBackgroundAdjustment.m */; };
+		CCC95F3216A073FE006DE78B /* BZBackgroundAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC95F3016A073FE006DE78B /* BZBackgroundAdjustment.m */; };
+		CCC95F3316A073FE006DE78B /* BZBackgroundAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC95F3016A073FE006DE78B /* BZBackgroundAdjustment.m */; };
 		CCE24F81169F2AF600606BF6 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF420167DB2A900A0EDA7 /* AFHTTPClient.m */; };
 		CCE24F82169F2AF600606BF6 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF422167DB2A900A0EDA7 /* AFHTTPRequestOperation.m */; };
 		CCE24F83169F2AF600606BF6 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF424167DB2A900A0EDA7 /* AFImageRequestOperation.m */; };
@@ -635,6 +638,8 @@
 		CC822011167E5A8400445EAC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Resources/Settings.bundle; sourceTree = "<group>"; };
 		CC8839AB167EA21D00374C63 /* bz_ImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_ImageView.h; path = View/bz_ImageView.h; sourceTree = "<group>"; };
 		CC8839AC167EA21D00374C63 /* bz_ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_ImageView.m; path = View/bz_ImageView.m; sourceTree = "<group>"; };
+		CCC95F2F16A073FE006DE78B /* BZBackgroundAdjustment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZBackgroundAdjustment.h; path = Adjustments/BZBackgroundAdjustment.h; sourceTree = "<group>"; };
+		CCC95F3016A073FE006DE78B /* BZBackgroundAdjustment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZBackgroundAdjustment.m; path = Adjustments/BZBackgroundAdjustment.m; sourceTree = "<group>"; };
 		CCE24F9A169F60AC00606BF6 /* BZScaleAdjustment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZScaleAdjustment.h; path = Adjustments/BZScaleAdjustment.h; sourceTree = "<group>"; };
 		CCE24F9B169F60AC00606BF6 /* BZScaleAdjustment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZScaleAdjustment.m; path = Adjustments/BZScaleAdjustment.m; sourceTree = "<group>"; };
 		CCE403EF169C8044001355A3 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = "Bezel/Third Party/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle"; sourceTree = "<group>"; };
@@ -1005,6 +1010,8 @@
 			children = (
 				CC16B97A1694CBF600027CC5 /* BZAdjustment.h */,
 				CC16B97B1694CBF600027CC5 /* BZAdjustment.m */,
+				CCC95F2F16A073FE006DE78B /* BZBackgroundAdjustment.h */,
+				CCC95F3016A073FE006DE78B /* BZBackgroundAdjustment.m */,
 				96F39873169E800F0017D3A8 /* BZBrightnessContrastAdjustment.h */,
 				96F39874169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m */,
 				CC3C08071697E04B00CF9B18 /* BZFilterAdjustment.h */,
@@ -2077,6 +2084,7 @@
 				CCE24F88169F2AF600606BF6 /* AFXMLRequestOperation.m in Sources */,
 				CCE24F89169F2AF600606BF6 /* UIImageView+AFNetworking.m in Sources */,
 				CCE24F9D169F60AC00606BF6 /* BZScaleAdjustment.m in Sources */,
+				CCC95F3216A073FE006DE78B /* BZBackgroundAdjustment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2162,6 +2170,7 @@
 				CCE40429169C96C3001355A3 /* bz_ConfirmView.m in Sources */,
 				96F39875169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m in Sources */,
 				CCE24F9C169F60AC00606BF6 /* BZScaleAdjustment.m in Sources */,
+				CCC95F3116A073FE006DE78B /* BZBackgroundAdjustment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2245,6 +2254,7 @@
 				CC3C080B1697E04C00CF9B18 /* BZFilterAdjustment.m in Sources */,
 				96F39877169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m in Sources */,
 				CCE24F9E169F60AC00606BF6 /* BZScaleAdjustment.m in Sources */,
+				CCC95F3316A073FE006DE78B /* BZBackgroundAdjustment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
