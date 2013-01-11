@@ -217,6 +217,9 @@
 		CCE24F87169F2AF600606BF6 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF42D167DB2A900A0EDA7 /* AFURLConnectionOperation.m */; };
 		CCE24F88169F2AF600606BF6 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF42F167DB2A900A0EDA7 /* AFXMLRequestOperation.m */; };
 		CCE24F89169F2AF600606BF6 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF431167DB2A900A0EDA7 /* UIImageView+AFNetworking.m */; };
+		CCE24F9C169F60AC00606BF6 /* BZScaleAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE24F9B169F60AC00606BF6 /* BZScaleAdjustment.m */; };
+		CCE24F9D169F60AC00606BF6 /* BZScaleAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE24F9B169F60AC00606BF6 /* BZScaleAdjustment.m */; };
+		CCE24F9E169F60AC00606BF6 /* BZScaleAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE24F9B169F60AC00606BF6 /* BZScaleAdjustment.m */; };
 		CCE403F0169C8044001355A3 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CCE403EF169C8044001355A3 /* FacebookSDKResources.bundle */; };
 		CCE403F1169C8044001355A3 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CCE403EF169C8044001355A3 /* FacebookSDKResources.bundle */; };
 		CCE403F2169C8044001355A3 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CCE403EF169C8044001355A3 /* FacebookSDKResources.bundle */; };
@@ -632,6 +635,8 @@
 		CC822011167E5A8400445EAC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Resources/Settings.bundle; sourceTree = "<group>"; };
 		CC8839AB167EA21D00374C63 /* bz_ImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_ImageView.h; path = View/bz_ImageView.h; sourceTree = "<group>"; };
 		CC8839AC167EA21D00374C63 /* bz_ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_ImageView.m; path = View/bz_ImageView.m; sourceTree = "<group>"; };
+		CCE24F9A169F60AC00606BF6 /* BZScaleAdjustment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZScaleAdjustment.h; path = Adjustments/BZScaleAdjustment.h; sourceTree = "<group>"; };
+		CCE24F9B169F60AC00606BF6 /* BZScaleAdjustment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZScaleAdjustment.m; path = Adjustments/BZScaleAdjustment.m; sourceTree = "<group>"; };
 		CCE403EF169C8044001355A3 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = "Bezel/Third Party/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle"; sourceTree = "<group>"; };
 		CCE403F3169C807F001355A3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		CCE40427169C96C3001355A3 /* bz_ConfirmView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_ConfirmView.h; path = View/bz_ConfirmView.h; sourceTree = "<group>"; };
@@ -1002,10 +1007,12 @@
 				CC16B97B1694CBF600027CC5 /* BZAdjustment.m */,
 				96F39873169E800F0017D3A8 /* BZBrightnessContrastAdjustment.h */,
 				96F39874169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m */,
-				CC19F7FE1695F56E001A3828 /* BZMaskAdjustment.h */,
-				CC19F7FF1695F56E001A3828 /* BZMaskAdjustment.m */,
 				CC3C08071697E04B00CF9B18 /* BZFilterAdjustment.h */,
 				CC3C08081697E04C00CF9B18 /* BZFilterAdjustment.m */,
+				CC19F7FE1695F56E001A3828 /* BZMaskAdjustment.h */,
+				CC19F7FF1695F56E001A3828 /* BZMaskAdjustment.m */,
+				CCE24F9A169F60AC00606BF6 /* BZScaleAdjustment.h */,
+				CCE24F9B169F60AC00606BF6 /* BZScaleAdjustment.m */,
 				CC16B97F1694CC1C00027CC5 /* BZSession.h */,
 				CC16B9801694CC1C00027CC5 /* BZSession.m */,
 			);
@@ -2069,6 +2076,7 @@
 				CCE24F87169F2AF600606BF6 /* AFURLConnectionOperation.m in Sources */,
 				CCE24F88169F2AF600606BF6 /* AFXMLRequestOperation.m in Sources */,
 				CCE24F89169F2AF600606BF6 /* UIImageView+AFNetworking.m in Sources */,
+				CCE24F9D169F60AC00606BF6 /* BZScaleAdjustment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2153,6 +2161,7 @@
 				CC3C08091697E04C00CF9B18 /* BZFilterAdjustment.m in Sources */,
 				CCE40429169C96C3001355A3 /* bz_ConfirmView.m in Sources */,
 				96F39875169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m in Sources */,
+				CCE24F9C169F60AC00606BF6 /* BZScaleAdjustment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2235,6 +2244,7 @@
 				CC19F8021695F56E001A3828 /* BZMaskAdjustment.m in Sources */,
 				CC3C080B1697E04C00CF9B18 /* BZFilterAdjustment.m in Sources */,
 				96F39877169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m in Sources */,
+				CCE24F9E169F60AC00606BF6 /* BZScaleAdjustment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

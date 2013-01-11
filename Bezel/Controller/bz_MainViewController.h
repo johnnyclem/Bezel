@@ -11,7 +11,7 @@
 @class BZSession;
 @class bz_ImageView;
 
-@interface bz_MainViewController : bz_ViewController  <UIAlertViewDelegate, UIDocumentInteractionControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface bz_MainViewController : bz_ViewController  <UIAlertViewDelegate, UIDocumentInteractionControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) BZSession *session;
 

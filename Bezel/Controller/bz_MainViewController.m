@@ -31,9 +31,10 @@
 
 // Adjustments
 #import "BZAdjustmentProcessor.h"
-#import "BZMaskAdjustment.h"
-#import "BZFilterAdjustment.h"
 #import "BZBrightnessContrastAdjustment.h"
+#import "BZFilterAdjustment.h"
+#import "BZMaskAdjustment.h"
+//#import "BZScaleAdjustment.h"
 
 @interface bz_MainViewController ()
 {
@@ -86,7 +87,12 @@
     self.cameraPreview.clipsToBounds = YES;
     self.imageCanvas.clipsToBounds = YES;
     
-    self.imageCanvas.contentMode = UIViewContentModeScaleAspectFill;
+//    UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget: self action: @selector(handlePinch:)];
+//    pinchGesture.delegate = self;
+//    [self.imageCanvas addGestureRecognizer: pinchGesture];
+//    self.imageCanvas.userInteractionEnabled = TRUE;
+    
+    self.imageCanvas.contentMode = UIViewContentModeCenter;
     
     [self setUpButtonTargets];
 }
@@ -291,6 +297,26 @@
                                               failureBlock: failureBlock];
 }
 
+-(void)switchCamera {
+    LogTrace(@"switching camera");
+    [[BZCaptureManager sharedManager] toggleCamera];
+}
+
+//#pragma mark - UIGestureRecognizer Pinch Handling
+//- (IBAction)handlePinch:(UIPinchGestureRecognizer *)recognizer
+//{
+//    BZScaleAdjustment *scaleAdj = [[BZScaleAdjustment alloc] init];
+//    scaleAdj.value = [NSDictionary dictionaryWithObjectsAndKeys:
+//                      [NSNumber numberWithFloat: recognizer.scale], kAdjustmentTypeScale, nil];
+//    
+//    [self.session addAdjustment: scaleAdj];
+//    
+//    self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
+//    
+//    recognizer.scale = 1.0;
+//}
+
+
 -(void)addBackground:(NSNotification*)notification
 {    
 //    [self.sessionPreview.layer setMask:nil];
@@ -319,12 +345,6 @@
 //    self.currentImage = nil;
 //    self.currentImage = [alpha imageFromCurrentlyProcessedOutput];
 //    [self.sessionPreview setImage:self.currentImage];
-
-}
-
--(void)switchCamera {
-    LogTrace(@"switching camera");
-    [[BZCaptureManager sharedManager] toggleCamera];
 }
 
 -(void)switchShape:(bz_Button *)button
