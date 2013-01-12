@@ -380,7 +380,7 @@
     BZBrightnessContrastAdjustment *brightnessContrastAdjustment = [[BZBrightnessContrastAdjustment alloc] init];
     brightnessContrastAdjustment.identifier = kAdjustmentTypeBrightnessOrContrast;
     brightnessContrastAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys:
-                                          adjustmentButton.buttonIdentifier, kButtonIdentifier,
+                                          kAdjustmentTypeBrightnessOrContrast, kButtonIdentifier,
                                           [NSNumber numberWithFloat: exposure], kAdjustmentTypeBrightness,
                                           [NSNumber numberWithFloat: contrast], kAdjustmentTypeContrast, nil];
     

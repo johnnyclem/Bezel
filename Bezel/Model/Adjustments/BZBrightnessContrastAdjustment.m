@@ -13,7 +13,21 @@ NSString* const kAdjustmentTypeBrightnessOrContrast = @"kAdjustmentTypeBrightnes
 NSString* const kAdjustmentTypeBrightness = @"kAdjustmentTypeBrightness";
 NSString* const kAdjustmentTypeContrast = @"kAdjustmentTypeContrast";
 
+@interface BZBrightnessContrastAdjustment ()
+@property (nonatomic, assign) BOOL duplicatesAllowed;
+@end
+
 @implementation BZBrightnessContrastAdjustment
+
+- (id)init
+{
+    if (self = [super init])
+    {
+        self.duplicatesAllowed = FALSE;
+    }
+    
+    return self;
+}
 
 - (UIImage *)processImage:(UIImage *)inImage
 {
