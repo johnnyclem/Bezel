@@ -169,6 +169,12 @@
     {
         [button addTarget: self action:@selector(switchBackground:) forControlEvents: UIControlEventTouchUpInside];
     }
+    
+    // Shapes
+    for (bz_Button *button in self.scrollViewController.shareViewController.shareButtons)
+    {
+        [button addTarget: self action:@selector(sharePhoto:) forControlEvents: UIControlEventTouchUpInside];
+    }
 }
 
 #pragma mark -
@@ -477,156 +483,112 @@
 #pragma mark -
 #pragma mark - sharing services
 
-- (void)sharePhoto:(NSNotification*)notification {
-    
-//    // Need to add code here to run the higher-resolution image through the filter chain if not using the "Low" quality setting
-//    UIImage *highRes = [self scaleImage:self.session.fullResolutionImage toSize:imgSize];
-//    self.currentImage = highRes;
-    
-    int i = [(NSNumber*)[notification.userInfo objectForKey:@"sharePhotoTag"] intValue];
-    switch (i) {
-        case 26:
-            [self shareToFacebook];
-            break;
-        case 27:
-            [self shareToTwitter];
-            break;
-        case 28:
-            [self shareToInstagram];
-            break;
-        case 29:
-            [self saveToCameraRoll];
-            break;
-        case 30:
-            [self deletePhoto];
-            break;
-        default:
-            break;
+- (void)sharePhoto:(bz_Button *)button
+{
+    NSString *type = button.buttonIdentifier;
+    // Delete photo. Shouldn't be here but not worrying about it right now.
+    if ([type isEqualToString: kButtonIdentifierTrash])
+    {
+        [self deletePhoto];
     }
     
-}
-
-- (void)saveToCameraRoll
-{    
-    UIImage *curImg = [self.adjustmentProcessor processedFullResolutionImage];
+    UIImage *image = [self.adjustmentProcessor processedFullResolutionImage];
     
     [SVProgressHUD showWithStatus:@"Saving Image"];
-    [self.library writeImageToSavedPhotosAlbum: curImg.CGImage metadata:nil completionBlock:^(NSURL *assetURL, NSError *error) {
-        if (error!=nil) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error Saving Image" message:@"Bezel encountered an error while attempting to save image to Photo Library.  Please try saving again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            alert.tag = 0;
-            [SVProgressHUD dismiss];
-            [alert show];
-        } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Image Saved" message:@"Image was saved successfully to your Photo Library" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Start Over", nil];
-            alert.tag = 30;
-            alert.delegate = self;
-            [SVProgressHUD dismiss];
-            [alert show];
-        }
-    }];
     
+    if ([type isEqualToString: kButtonIdentifierCameraRoll])
+    {
+        [self.library writeImageToSavedPhotosAlbum: image.CGImage metadata:nil completionBlock:^(NSURL *assetURL, NSError *error)
+        {
+            if (error!=nil)
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error Saving Image" message:@"Bezel encountered an error while attempting to save image to Photo Library.  Please try saving again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [SVProgressHUD dismiss];
+                [alert show];
+            }
+            else
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Image Saved" message:@"Image was saved successfully to your Photo Library" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Start Over", nil];
+                alert.tag = 30;
+                alert.delegate = self;
+                [SVProgressHUD dismiss];
+                [alert show];
+            }
+        }];
+    }
+    else if ([type isEqualToString: kButtonIdentifierInstagram])
+    {
+        NSURL *instagramURL = [NSURL URLWithString:@"instagram://location?id=1"];
+        if ([[UIApplication sharedApplication] canOpenURL:instagramURL])
+        {
+            NSString *documentsDirectory    = [self applicationDocumentsDirectory];
+            NSString *savedImagePath        = [documentsDirectory stringByAppendingPathComponent:@"image.igo"];
+            
+            // Set processed image here.
+            UIImage *img = [self.adjustmentProcessor processedFullResolutionImage];
+            NSData   *imageData             = UIImageJPEGRepresentation(img, 0.85);
+            
+            [imageData writeToFile:savedImagePath atomically:YES];
+            NSURL    *imageURL              = [NSURL fileURLWithPath:savedImagePath];
+            _docController                   = [[UIDocumentInteractionController alloc] init];
+            _docController.delegate          = self;
+            _docController.UTI               = @"com.instagram.exclusivegram";
+            _docController.URL               = imageURL;
+            [_docController presentOpenInMenuFromRect:self.view.frame inView:self.view animated:YES];
+            
+        }
+        else
+        {
+            LogError(@"Instagram not available.");
+            UIAlertView *instagramError     = [[UIAlertView alloc] initWithTitle:@"Instagram not available" message:@"To share photos to Instagram, you first need to install Instagram on your iOS device" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [instagramError show];
+        }
+    }
+    else
+    {
+        NSString *svcType;
+        if ([type isEqualToString: kButtonIdentifierFacebook]) svcType = SLServiceTypeFacebook;
+        else if ([type isEqualToString: kButtonIdentifierTwitter]) svcType = SLServiceTypeTwitter;
+        else LogError(@"Share type not provided!");
+        
+        if ([SLComposeViewController isAvailableForServiceType: svcType])
+        {
+            SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType: svcType];
+            
+            SLComposeViewControllerCompletionHandler completion = ^(SLComposeViewControllerResult result)
+            {
+                if (result == SLComposeViewControllerResultCancelled)
+                {    
+                    LogTrace(@"%@ sharing cancelled.", svcType);
+                }
+                else
+                {
+                    LogTrace(@"%@ sharing completed successfully", svcType);
+                }
+                
+                [controller dismissViewControllerAnimated:YES completion:Nil];    
+            };
+            
+            controller.completionHandler = completion;
+            
+            [controller setInitialText:@"Created with Bezel for iOS"];
+            [controller addURL: [NSURL URLWithString:@"http://minddiaper.com/bezel"]];
+            [controller addImage: image];
+            
+            [self presentViewController:controller animated:YES completion:Nil];
+            
+        }
+        else
+        {
+            LogError(@"Facebook Unavailable");
+        }
+    }
 }
 
 - (void)deletePhoto {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Discard Photo?" message:@"Do you really want to discard this photo and lose any unsaved changes?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Discard Photo", nil];
     alert.tag = 10;
     [alert show];
-}
-
-- (void)shareToFacebook {
-    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
-        
-        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        
-        SLComposeViewControllerCompletionHandler myBlock = ^(SLComposeViewControllerResult result){
-            if (result == SLComposeViewControllerResultCancelled) {
-                
-                LogTrace(@"Facebook sharing cancelled.");
-                
-            } else
-                
-            {
-                LogTrace(@"Facebook sharing Done");
-            }
-            
-            [controller dismissViewControllerAnimated:YES completion:Nil];
-        };
-        controller.completionHandler =myBlock;
-        
-        [controller setInitialText:@"Created with Bezel for iOS"];
-        [controller addURL:[NSURL URLWithString:@"http://minddiaper.com/bezel"]];
-
-        // Set processed image here.
-//        [controller addImage:self.currentImage];
-        
-        [self presentViewController:controller animated:YES completion:Nil];
-        
-    }
-    else{
-        LogError(@"Facebook Unavailable");
-    }
-}
-
-- (void)shareToTwitter {
-    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
-        
-        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        
-        SLComposeViewControllerCompletionHandler myBlock = ^(SLComposeViewControllerResult result){
-            if (result == SLComposeViewControllerResultCancelled) {
-                
-                LogTrace(@"Twitter sharing cancelled");
-                
-            } else
-                
-            {
-                LogTrace(@"Twitter sharing done");
-            }
-            
-            [controller dismissViewControllerAnimated:YES completion:Nil];
-        };
-        controller.completionHandler =myBlock;
-        
-        [controller setInitialText:@"Created with Bezel for iOS"];
-        [controller addURL:[NSURL URLWithString:@"http://minddiaper.com/bezel"]];
-
-        // Set processed image here.
-        //        [controller addImage:self.currentImage];
-        
-        [self presentViewController:controller animated:YES completion:Nil];
-        
-    }
-    else{
-        LogError(@"Twitter sharing unavailable");
-    }
-    
-}
-
-- (void)shareToInstagram {
-    
-    NSURL *instagramURL = [NSURL URLWithString:@"instagram://location?id=1"];
-    if ([[UIApplication sharedApplication] canOpenURL:instagramURL]) {
-        NSString *documentsDirectory    = [self applicationDocumentsDirectory];
-        NSString *savedImagePath        = [documentsDirectory stringByAppendingPathComponent:@"image.igo"];
-        
-        // Set processed image here.
-        UIImage *img = self.session.thumbnailImage;
-        NSData   *imageData             = UIImageJPEGRepresentation(img, 0.85);
-        
-        [imageData writeToFile:savedImagePath atomically:YES];
-        NSURL    *imageURL              = [NSURL fileURLWithPath:savedImagePath];
-        _docController                   = [[UIDocumentInteractionController alloc] init];
-        _docController.delegate          = self;
-        _docController.UTI               = @"com.instagram.exclusivegram";
-        _docController.URL               = imageURL;
-        [_docController presentOpenInMenuFromRect:self.view.frame inView:self.view animated:YES];
-        //        [docController presentOpenInMenuFromRect:self.view.frame inView:_sharedContainer.view animated:YES];
-    } else {
-        LogError(@"Instagram not available.");
-        UIAlertView *instagramError     = [[UIAlertView alloc] initWithTitle:@"Instagram not available" message:@"To share photos to Instagram, you first need to install Instagram on your iOS device" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [instagramError show];
-    }
 }
 
 - (void)savedSuccessfully {
@@ -662,13 +624,10 @@
             if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"No Thanks"])
             {
                 //TODO
-                
             }
             else if([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Go To Store"])
             {
-                
-                [self openStoreView:nil];
-                
+                [self openStoreView:nil];   
             }
             break;
         default:

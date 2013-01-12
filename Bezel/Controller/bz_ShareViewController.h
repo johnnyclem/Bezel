@@ -10,4 +10,6 @@
 
 @interface bz_ShareViewController : bz_ViewController
 
+@property (strong, nonatomic, readonly) NSArray *shareButtons;
+
 @end

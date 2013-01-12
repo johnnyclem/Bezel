@@ -57,6 +57,12 @@ NSString* const kButtonIdentifierWhiteBackground = @"kButtonIdentifierWhiteBackg
 NSString* const kButtonIdentifierClearBackground = @"kButtonIdentifierClearBackground";
 NSString* const kButtonIdentifierSwitchBackground = @"kButtonIdentifierSwitchBackground";
 
+// Sharing Buttons
+NSString* const kButtonIdentifierFacebook = @"kButtonIdentifierFacebook";
+NSString* const kButtonIdentifierTwitter = @"kButtonIdentifierTwitter";
+NSString* const kButtonIdentifierInstagram = @"kButtonIdentifierInstagram";
+NSString* const kButtonIdentifierCameraRoll = @"kButtonIdentifierCameraRoll";
+NSString* const kButtonIdentifierTrash = @"kButtonIdentifierTrash";
 
 @implementation bz_Constants
 @end

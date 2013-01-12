@@ -59,5 +59,12 @@ NSString* const kButtonIdentifierWhiteBackground;
 NSString* const kButtonIdentifierClearBackground;
 NSString* const kButtonIdentifierSwitchBackground;
 
+// Sharing Buttons
+NSString* const kButtonIdentifierFacebook;
+NSString* const kButtonIdentifierTwitter;
+NSString* const kButtonIdentifierInstagram;
+NSString* const kButtonIdentifierCameraRoll;
+NSString* const kButtonIdentifierTrash;
+
 @interface bz_Constants : NSObject
 @end

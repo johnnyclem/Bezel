@@ -9,7 +9,7 @@
 #import "bz_ShareViewController.h"
 
 @interface bz_ShareViewController ()
-
+@property (strong, nonatomic) NSArray *shareButtons;
 @end
 
 @implementation bz_ShareViewController
@@ -40,6 +40,14 @@
     bz_Button *instagram    = [[bz_Button alloc] initWithFrame:CGRectMake(btnWidth*2, btnOffset, btnWidth, btnHeight)];
     bz_Button *cameraRoll   = [[bz_Button alloc] initWithFrame:CGRectMake(btnWidth*3, btnOffset, btnWidth, btnHeight)];
     bz_Button *trash        = [[bz_Button alloc] initWithFrame:CGRectMake(btnWidth*4, btnOffset, btnWidth, btnHeight)];
+    
+    facebook.buttonIdentifier = kButtonIdentifierFacebook;
+    twitter.buttonIdentifier = kButtonIdentifierTwitter;
+    instagram.buttonIdentifier = kButtonIdentifierInstagram;
+    cameraRoll.buttonIdentifier = kButtonIdentifierCameraRoll;
+    trash.buttonIdentifier = kButtonIdentifierTrash;
+    
+    self.shareButtons = [NSArray arrayWithObjects: facebook, twitter, instagram, cameraRoll, trash, nil];
     
     [facebook setTag:26];
     [twitter setTag:27];
