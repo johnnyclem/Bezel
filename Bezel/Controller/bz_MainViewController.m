@@ -44,7 +44,6 @@
     BOOL colorPickerIsPurchased;
     BOOL holidayPackIsPurchased;
     BOOL proShapePackIsPurchased;
-    BOOL keepPhoto;
 }
 
 @property (strong, nonatomic) UIDocumentInteractionController *docController;
@@ -54,14 +53,9 @@
 @property (strong, nonatomic) BZAdjustmentProcessor *adjustmentProcessor;
 @property (strong, nonatomic) bz_ConfirmView *confirmView;
 
-@property (assign, nonatomic) BOOL useLibrary;
-
 @end
 
-
 @implementation bz_MainViewController
-
-@synthesize useLibrary;
 
 #define kDefaultCameraPreviewSize CGSizeMake(320.0, 320.0)
 #define kDefaultThumbnailSize CGSizeMake(640.0, 640.0)
@@ -114,7 +108,8 @@
             }
             else
             {
-                useLibrary = YES;
+                // We should inform the user to import at this point: or set the imageCanvas image to
+                // an informative image.
             }
         }
         else
@@ -131,49 +126,6 @@
             [defaults synchronize];
             LogTrace(@"%@", [defaults boolForKey: BZ_SETTINGS_FIRST_LAUNCH_KEY] ? @"FIRST LAUNCH." : @"NOT FIRST LAUNCH.");
         }];
-    }
-}
-
-- (void)setUpDefaults
-{
-    NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
-    holidayPackIsPurchased   = [(NSNumber*)[standard objectForKey: BZ_HOLIDAY_PACK_PURCHASE_KEY] boolValue];
-    proShapePackIsPurchased  = [(NSNumber*)[standard objectForKey: BZ_PRO_SHAPE_PACK_PURCHASE_KEY] boolValue];
-    colorPickerIsPurchased   = [(NSNumber*)[standard objectForKey: BZ_COLOR_PICKER_PURCHASE_KEY] boolValue];
-}
-
-- (void)setUpButtonTargets
-{
-    [self.scrollViewController.shapesViewController.takePhotoButton addTarget: self action:@selector(takePhoto) forControlEvents:UIControlEventTouchUpInside];
-    
-    // Shape masks
-    for (bz_Button *button in self.scrollViewController.shapesViewController.shapeButtons)
-    {
-        [button addTarget: self action: @selector(switchShape:) forControlEvents: UIControlEventTouchUpInside];
-    }
-    
-    // Filters
-    for (bz_Button *button in self.scrollViewController.filterViewController.filterButtons)
-    {
-        [button addTarget:self action:@selector(applyFilter:) forControlEvents: UIControlEventTouchUpInside];
-    }
-    
-    // Adjustments
-    for (bz_Button *button in self.scrollViewController.adjustmentViewController.adjustmentButtons)
-    {
-        [button addTarget: self action:@selector(adjustImage:) forControlEvents: UIControlEventTouchUpInside];
-    } 
-    
-    // Backgrounds
-    for (bz_Button *button in self.scrollViewController.backgroundViewController.backgroundButtons)
-    {
-        [button addTarget: self action:@selector(switchBackground:) forControlEvents: UIControlEventTouchUpInside];
-    }
-    
-    // Shapes
-    for (bz_Button *button in self.scrollViewController.shareViewController.shareButtons)
-    {
-        [button addTarget: self action:@selector(sharePhoto:) forControlEvents: UIControlEventTouchUpInside];
     }
 }
 
@@ -206,17 +158,6 @@
 {
     [[BZCaptureManager sharedManager] setPreviewLayerWithView: nil];
     self.cameraPreview.hidden = TRUE;
-}
-
--(IBAction)importFromLibrary:(id)sender
-{    
-    [self stopUpdatingPreviewLayer];
-
-    imagePickerController = [[UIImagePickerController alloc] init];
-    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    imagePickerController.delegate = self;
-
-    [self presentViewController:imagePickerController animated:YES completion:nil];
 }
 
 -(void)takePhoto
@@ -318,20 +259,7 @@
     [[BZCaptureManager sharedManager] toggleCamera];
 }
 
-//#pragma mark - UIGestureRecognizer Pinch Handling
-//- (IBAction)handlePinch:(UIPinchGestureRecognizer *)recognizer
-//{
-//    BZScaleAdjustment *scaleAdj = [[BZScaleAdjustment alloc] init];
-//    scaleAdj.value = [NSDictionary dictionaryWithObjectsAndKeys:
-//                      [NSNumber numberWithFloat: recognizer.scale], kAdjustmentTypeScale, nil];
-//    
-//    [self.session addAdjustment: scaleAdj];
-//    
-//    self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
-//    
-//    recognizer.scale = 1.0;
-//}
-
+#pragma mark - Adjustments
 
 -(void)switchBackground:(bz_Button *)button
 {    
@@ -382,23 +310,19 @@
     self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
 }
 
-- (void)undoLastAdjustment
-{
-    // TODO finish undo
-    [self.session removeAdjustment: [self.session.adjustments lastObject]];
-}
-
-- (void)buyHolidayPack {
-    UIAlertView *buyHolidayPack = [[UIAlertView alloc] initWithTitle:@"Buy Holiday Pack?" message:@"The Candy Cane, Christmas Tree and Xmas Wallpaper backgrounds are part of the Bezel Holiday Pack. You can unlock all 3 holiday shapes and 3 holiday backgrounds in the Bezel Store" delegate:self cancelButtonTitle:@"No Thanks" otherButtonTitles:@"Go To Store", nil];
-    buyHolidayPack.tag = 50;
-    [buyHolidayPack show];
-}
-
-- (void)buyColorPicker {
-    UIAlertView *buyColorPicker = [[UIAlertView alloc] initWithTitle:@"Buy Color Picker?" message:@"You must purchase the Bezel Color Picker to unlock this feature.  You can purchase the color picker to enable any background color in the Bezel Store" delegate:self cancelButtonTitle:@"No Thanks" otherButtonTitles:@"Go To Store", nil];
-    buyColorPicker.tag = 50;
-    [buyColorPicker show];
-}
+//#pragma mark - UIGestureRecognizer Pinch Handling
+//- (IBAction)handlePinch:(UIPinchGestureRecognizer *)recognizer
+//{
+//    BZScaleAdjustment *scaleAdj = [[BZScaleAdjustment alloc] init];
+//    scaleAdj.value = [NSDictionary dictionaryWithObjectsAndKeys:
+//                      [NSNumber numberWithFloat: recognizer.scale], kAdjustmentTypeScale, nil];
+//
+//    [self.session addAdjustment: scaleAdj];
+//
+//    self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
+//
+//    recognizer.scale = 1.0;
+//}
 
 -(void)applyFilter:(bz_Button *)filterButton
 {
@@ -466,22 +390,27 @@
     self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
 }
 
--(void)setupFilterThumbnails
+- (void)undoLastAdjustment
 {
-    UIImage *currentThumb = self.session.thumbnailImage;
-    for (bz_Button *button in self.scrollViewController.filterViewController.filterButtons)
-    {
-        BZFilterAdjustment *filterAdjustment = [[BZFilterAdjustment alloc] init];
-        filterAdjustment.identifier = button.buttonIdentifier;
-        filterAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: button.buttonIdentifier, kButtonIdentifier, nil];
-        
-        // set the preview layer mask to the adjusted mask.
-        button.imageView.image = [filterAdjustment filteredImageWithImage: currentThumb];
-    }
+    // TODO finish undo
+    [self.session removeAdjustment: [self.session.adjustments lastObject]];
 }
 
-#pragma mark -
-#pragma mark - sharing services
+#pragma mark - Importing
+
+-(IBAction)importFromLibrary:(id)sender
+{
+    [self stopUpdatingPreviewLayer];
+    
+    imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePickerController.delegate = self;
+    
+    [self presentViewController:imagePickerController animated:YES completion:nil];
+}
+
+
+#pragma mark - Sharing
 
 - (void)sharePhoto:(bz_Button *)button
 {
@@ -635,23 +564,26 @@
     }
 }
 
-- (NSString *)applicationDocumentsDirectory
-{
-	return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-}
-
-- (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)interactionController
-{
-    return self; //_sharedContainer;
-}
+#pragma mark - In-App Purchases / Store
 
 -(IBAction)openStoreView:(id)sender {
     bz_StoreViewController *storeVC = [[bz_StoreViewController alloc] initWithNibName:@"bz_StoreView" bundle:nil];
     [self presentViewController:storeVC animated:YES completion:nil];
 }
 
-#pragma mark -
-#pragma mark - Library Import
+- (void)buyHolidayPack {
+    UIAlertView *buyHolidayPack = [[UIAlertView alloc] initWithTitle:@"Buy Holiday Pack?" message:@"The Candy Cane, Christmas Tree and Xmas Wallpaper backgrounds are part of the Bezel Holiday Pack. You can unlock all 3 holiday shapes and 3 holiday backgrounds in the Bezel Store" delegate:self cancelButtonTitle:@"No Thanks" otherButtonTitles:@"Go To Store", nil];
+    buyHolidayPack.tag = 50;
+    [buyHolidayPack show];
+}
+
+- (void)buyColorPicker {
+    UIAlertView *buyColorPicker = [[UIAlertView alloc] initWithTitle:@"Buy Color Picker?" message:@"You must purchase the Bezel Color Picker to unlock this feature.  You can purchase the color picker to enable any background color in the Bezel Store" delegate:self cancelButtonTitle:@"No Thanks" otherButtonTitles:@"Go To Store", nil];
+    buyColorPicker.tag = 50;
+    [buyColorPicker show];
+}
+
+#pragma mark - Image Picker Delegate (Library Importing)
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -699,6 +631,75 @@
     {
         [weakSelf startUpdatingPreviewLayer];
     }];
+}
+
+#pragma mark - Convenience
+
+- (void)setUpDefaults
+{
+    NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
+    holidayPackIsPurchased   = [(NSNumber*)[standard objectForKey: BZ_HOLIDAY_PACK_PURCHASE_KEY] boolValue];
+    proShapePackIsPurchased  = [(NSNumber*)[standard objectForKey: BZ_PRO_SHAPE_PACK_PURCHASE_KEY] boolValue];
+    colorPickerIsPurchased   = [(NSNumber*)[standard objectForKey: BZ_COLOR_PICKER_PURCHASE_KEY] boolValue];
+}
+
+- (void)setUpButtonTargets
+{
+    [self.scrollViewController.shapesViewController.takePhotoButton addTarget: self action:@selector(takePhoto) forControlEvents:UIControlEventTouchUpInside];
+    
+    // Shape masks
+    for (bz_Button *button in self.scrollViewController.shapesViewController.shapeButtons)
+    {
+        [button addTarget: self action: @selector(switchShape:) forControlEvents: UIControlEventTouchUpInside];
+    }
+    
+    // Filters
+    for (bz_Button *button in self.scrollViewController.filterViewController.filterButtons)
+    {
+        [button addTarget:self action:@selector(applyFilter:) forControlEvents: UIControlEventTouchUpInside];
+    }
+    
+    // Adjustments
+    for (bz_Button *button in self.scrollViewController.adjustmentViewController.adjustmentButtons)
+    {
+        [button addTarget: self action:@selector(adjustImage:) forControlEvents: UIControlEventTouchUpInside];
+    }
+    
+    // Backgrounds
+    for (bz_Button *button in self.scrollViewController.backgroundViewController.backgroundButtons)
+    {
+        [button addTarget: self action:@selector(switchBackground:) forControlEvents: UIControlEventTouchUpInside];
+    }
+    
+    // Sharing
+    for (bz_Button *button in self.scrollViewController.shareViewController.shareButtons)
+    {
+        [button addTarget: self action:@selector(sharePhoto:) forControlEvents: UIControlEventTouchUpInside];
+    }
+}
+
+-(void)setupFilterThumbnails
+{
+    UIImage *currentThumb = self.session.thumbnailImage;
+    for (bz_Button *button in self.scrollViewController.filterViewController.filterButtons)
+    {
+        BZFilterAdjustment *filterAdjustment = [[BZFilterAdjustment alloc] init];
+        filterAdjustment.identifier = button.buttonIdentifier;
+        filterAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: button.buttonIdentifier, kButtonIdentifier, nil];
+        
+        // set the preview layer mask to the adjusted mask.
+        button.imageView.image = [filterAdjustment filteredImageWithImage: currentThumb];
+    }
+}
+
+- (NSString *)applicationDocumentsDirectory
+{
+	return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+}
+
+- (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)interactionController
+{
+    return self; //_sharedContainer;
 }
 
 @end
