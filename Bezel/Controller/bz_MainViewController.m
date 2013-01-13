@@ -307,9 +307,12 @@
     [self.session addAdjustment: maskAdjustment];
     
     self.cameraPreview.layer.mask = [maskAdjustment layerMaskForSize: self.cameraPreview.frame.size];
+    self.imageCanvas.layer.mask = [maskAdjustment layerMaskForSize: self.cameraPreview.frame.size];
+
     self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
 }
 
+#pragma mark - jclem Pinch Handling
 //#pragma mark - UIGestureRecognizer Pinch Handling
 //- (IBAction)handlePinch:(UIPinchGestureRecognizer *)recognizer
 //{
@@ -349,32 +352,38 @@
     [self.confirmView presentConfirmationFromEdge: CGRectMinYEdge forViewController: self];
 }
 
+#pragma mark - jclem adjustImage
 - (void)adjustImage:(bz_Button *)adjustmentButton
 {
-    float exposure = 1.0;
-    float contrast = 1.0;
+    float exposure;
+    float contrast;
     
     BZAdjustment *adj = [self.session adjustmentWithIdentifier: kAdjustmentTypeBrightnessOrContrast];
     
     if (adj)
     {
+        exposure = [[adj.value valueForKey: kAdjustmentTypeBrightness] floatValue];
+        contrast = [[adj.value valueForKey: kAdjustmentTypeContrast] floatValue];
+        
         if ([adjustmentButton.buttonIdentifier isEqualToString: kButtonIdentifierBrightnessUp])
         {
-            exposure = [[adj.value valueForKey: kAdjustmentTypeBrightness] floatValue] + kExposureDefaultStep;
-            contrast = [[adj.value valueForKey: kAdjustmentTypeContrast] floatValue];
+            exposure += kExposureDefaultStep;
         }
         else if ([adjustmentButton.buttonIdentifier isEqualToString: kButtonIdentifierBrightnessDown])
         {
-            exposure = [[adj.value valueForKey: kAdjustmentTypeBrightness] floatValue] - kExposureDefaultStep;
+            exposure -= kExposureDefaultStep;
         }
         else if ([adjustmentButton.buttonIdentifier isEqualToString: kButtonIdentifierContrastUp])
         {
-            contrast = [[adj.value valueForKey: kAdjustmentTypeContrast] floatValue] + kContrastDefaultStep;
+            contrast += kContrastDefaultStep;
         }
         else if ([adjustmentButton.buttonIdentifier isEqualToString: kButtonIdentifierContrastDown])
         {
-            contrast = [[adj.value valueForKey: kAdjustmentTypeContrast] floatValue] - kContrastDefaultStep;
+            contrast -= kContrastDefaultStep;
         }
+    } else {
+        exposure = 0.f;
+        contrast = 1.f;
     }
 
     BZBrightnessContrastAdjustment *brightnessContrastAdjustment = [[BZBrightnessContrastAdjustment alloc] init];
@@ -384,6 +393,7 @@
                                           [NSNumber numberWithFloat: exposure], kAdjustmentTypeBrightness,
                                           [NSNumber numberWithFloat: contrast], kAdjustmentTypeContrast, nil];
     
+    NSLog(@"adjusting contrast and exposure to %f and %f", contrast, exposure);
     [self.session addAdjustment: brightnessContrastAdjustment];
     
     // set the preview layer mask to the adjusted mask.
@@ -404,6 +414,7 @@
     
     imagePickerController = [[UIImagePickerController alloc] init];
     imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePickerController.allowsEditing = YES;
     imagePickerController.delegate = self;
     
     [self presentViewController:imagePickerController animated:YES completion:nil];
@@ -587,23 +598,19 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    UIImage *fullRes = [info objectForKey:UIImagePickerControllerOriginalImage];
-    UIImage *thumb   = [UIImage scaleImage: fullRes
-                                    toSize: kDefaultThumbnailSize];
-    
-    [self stopUpdatingPreviewLayer];
-    
-    self.imageCanvas.hidden = FALSE;
-    self.imageCanvas.image = thumb;
-    
+
+    __block UIImage *fullRes;
+    __block UIImage *thumb;
     __weak id weakSelf = self;
     
     self.confirmView.completionBlock = ^(BOOL response)
     {
         if (response == TRUE)
         {
-            [self.session setThumbnailImage: thumb];
-            [self.session setFullResolutionImage: fullRes];
+            [self.session setFullResolutionImage:fullRes];
+            
+            self.imageCanvas.layer.mask = nil;
+            self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
             
             [self.scrollViewController scrollToViewControllerAtIndex: 1];
             
@@ -612,16 +619,26 @@
         else
         {
             [weakSelf startUpdatingPreviewLayer];
+            self.imageCanvas.layer.mask = nil;
             self.imageCanvas.image = nil;
             self.imageCanvas.hidden = TRUE;
         }
     };
     
-    [SVProgressHUD dismiss];
-    [self.confirmView presentConfirmationFromEdge: CGRectMaxYEdge forViewController: self];
-    
-    [imagePickerController.view removeFromSuperview];
-    imagePickerController = nil;    
+    [imagePickerController dismissViewControllerAnimated:YES completion:^(void){
+        
+        fullRes = [info objectForKey:UIImagePickerControllerEditedImage];
+        thumb   = [UIImage scaleImage: fullRes
+                               toSize: kDefaultThumbnailSize];
+        
+        [[(bz_MainViewController*)weakSelf session] setThumbnailImage: thumb];
+        [[(bz_MainViewController*)weakSelf imageCanvas] setHidden:FALSE];
+        [[[(bz_MainViewController*)weakSelf imageCanvas] layer] setMask:[(BZMaskAdjustment *)[self.session adjustmentWithIdentifier: kAdjustmentTypeMask] layerMaskForSize: kDefaultCameraPreviewSize]];
+        [[(bz_MainViewController*)weakSelf imageCanvas] setImage:thumb];
+        [[(bz_MainViewController*)weakSelf confirmView] presentConfirmationFromEdge: CGRectMaxYEdge forViewController: self];
+        
+    }];
+
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
