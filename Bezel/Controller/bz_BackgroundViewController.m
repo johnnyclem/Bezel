@@ -133,6 +133,50 @@
     
 }
 
+//if (!colorPickerIsPurchased) {
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"buyColorPicker" object:nil userInfo:nil];
+//} else {
+//    LogTrace(@"Color picker is purchased");
+//    colorPicker = [[RSColorPickerView alloc] initWithFrame:CGRectMake(0, 0, mWidth, mWidth)];
+//    colorPicker.delegate = self;
+//    [colorPicker setCropToCircle:NO];
+//    colorPickerView = [[UIView alloc] initWithFrame:CGRectMake(0, mWidth, 320, mWidth)];
+//    [colorPickerView setOpaque:YES];
+//    colorPickerView.backgroundColor = [UIColor blackColor];
+//    
+//    brightnessSlider = [[RSBrightnessSlider alloc] initWithFrame:CGRectMake(mWidth+10, (mWidth-30)/2, 300-mWidth, 30)];
+//    [brightnessSlider setColorPicker:colorPicker];
+//    [brightnessSlider setUseCustomSlider:YES];
+//    
+//    dismissColorPickerView = [[UIView alloc] initWithFrame:CGRectMake(0, -60, 320, 60)];
+//    dismissColorPickerView.backgroundColor = [UIColor blackColor];
+//    
+//    colorPickerView.center = CGPointMake(colorPickerView.center.x, colorPickerView.center.y+mWidth);
+//    [self.view addSubview:colorPickerView];
+//    [_mainVC.view addSubview:dismissColorPickerView];
+//    [colorPickerView addSubview:colorPicker];
+//    [colorPickerView addSubview:brightnessSlider];
+//    
+//    bz_Button *yes = [[bz_Button alloc] initWithFrame:CGRectMake(25.f, 5.f, 50.f, 50.f)];
+//    yes.tag = 33;
+//    [yes addTarget:self action:@selector(keepNewColor) forControlEvents:UIControlEventTouchUpInside];
+//    
+//    bz_Button *no = [[bz_Button alloc] initWithFrame:CGRectMake(245.f, 5.f, 50.f, 50.f)];
+//    [no addTarget:self action:@selector(revertBackground) forControlEvents:UIControlEventTouchUpInside];
+//    no.tag = 34;
+//    
+//    [dismissColorPickerView addSubview:yes];
+//    [dismissColorPickerView addSubview:no];
+//    
+//    [UIView animateWithDuration:0.5
+//                     animations:^{
+//                         colorPickerView.frame = CGRectMake(0, 0, 320, mWidth);
+//                         dismissColorPickerView.frame = CGRectMake(0, 0, 320, 60);
+//                     }
+//                     completion:^(BOOL finished){
+//                         [[NSNotificationCenter defaultCenter] postNotificationName:@"disableScroll" object:nil];
+//                     }];
+//}
 
 //-(void)colorPickerDidChangeSelection:(RSColorPickerView *)cp {
 //	_bgColor = [cp selectionColor];
