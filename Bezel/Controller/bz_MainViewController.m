@@ -545,6 +545,10 @@
             {
                 self.session = nil;
                 self.session = [[BZSession alloc] init];
+                
+                self.adjustmentProcessor = nil;
+                self.adjustmentProcessor = [[BZAdjustmentProcessor alloc] initWithSession: self.session];
+                
                 [self.scrollViewController scrollToViewControllerAtIndex: 0];
                 [self startUpdatingPreviewLayer];
             }
