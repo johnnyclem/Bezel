@@ -36,7 +36,7 @@
 
 - (UIImage *)processedFullResolutionImage
 {
-    UIImage *outImage = self.session.thumbnailImage;
+    UIImage *outImage = self.session.fullResolutionImage;
   
     NSTimeInterval _startAllAdj = [NSDate timeIntervalSinceReferenceDate];
     
