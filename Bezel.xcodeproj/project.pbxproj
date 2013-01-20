@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96F1CFF116ACA87B00A0A9A7 /* BezierCurve1.svg in Resources */ = {isa = PBXBuildFile; fileRef = 96F1CFEB16ACA87B00A0A9A7 /* BezierCurve1.svg */; };
+		96F1CFF216ACA87B00A0A9A7 /* BezierCurve1.svg in Resources */ = {isa = PBXBuildFile; fileRef = 96F1CFEB16ACA87B00A0A9A7 /* BezierCurve1.svg */; };
+		96F1CFF316ACA87B00A0A9A7 /* BezierCurve1.svg in Resources */ = {isa = PBXBuildFile; fileRef = 96F1CFEB16ACA87B00A0A9A7 /* BezierCurve1.svg */; };
+		96F1CFF416ACA87B00A0A9A7 /* BezierCurve2.svg in Resources */ = {isa = PBXBuildFile; fileRef = 96F1CFEC16ACA87B00A0A9A7 /* BezierCurve2.svg */; };
+		96F1CFF516ACA87B00A0A9A7 /* BezierCurve2.svg in Resources */ = {isa = PBXBuildFile; fileRef = 96F1CFEC16ACA87B00A0A9A7 /* BezierCurve2.svg */; };
+		96F1CFF616ACA87B00A0A9A7 /* BezierCurve2.svg in Resources */ = {isa = PBXBuildFile; fileRef = 96F1CFEC16ACA87B00A0A9A7 /* BezierCurve2.svg */; };
+		96F1CFF716ACA87B00A0A9A7 /* BezierCurve3.svg in Resources */ = {isa = PBXBuildFile; fileRef = 96F1CFED16ACA87B00A0A9A7 /* BezierCurve3.svg */; };
+		96F1CFF816ACA87B00A0A9A7 /* BezierCurve3.svg in Resources */ = {isa = PBXBuildFile; fileRef = 96F1CFED16ACA87B00A0A9A7 /* BezierCurve3.svg */; };
+		96F1CFF916ACA87B00A0A9A7 /* BezierCurve3.svg in Resources */ = {isa = PBXBuildFile; fileRef = 96F1CFED16ACA87B00A0A9A7 /* BezierCurve3.svg */; };
+		96F1CFFA16ACA87B00A0A9A7 /* PocketSVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F1CFEF16ACA87B00A0A9A7 /* PocketSVG.m */; };
+		96F1CFFB16ACA87B00A0A9A7 /* PocketSVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F1CFEF16ACA87B00A0A9A7 /* PocketSVG.m */; };
+		96F1CFFC16ACA87B00A0A9A7 /* PocketSVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F1CFEF16ACA87B00A0A9A7 /* PocketSVG.m */; };
+		96F1CFFD16ACA87B00A0A9A7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 96F1CFF016ACA87B00A0A9A7 /* README.md */; };
+		96F1CFFE16ACA87B00A0A9A7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 96F1CFF016ACA87B00A0A9A7 /* README.md */; };
+		96F1CFFF16ACA87B00A0A9A7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 96F1CFF016ACA87B00A0A9A7 /* README.md */; };
 		96F39875169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F39874169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m */; };
 		96F39876169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F39874169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m */; };
 		96F39877169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F39874169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m */; };
@@ -592,6 +607,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		96F1CFEB16ACA87B00A0A9A7 /* BezierCurve1.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BezierCurve1.svg; sourceTree = "<group>"; };
+		96F1CFEC16ACA87B00A0A9A7 /* BezierCurve2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BezierCurve2.svg; sourceTree = "<group>"; };
+		96F1CFED16ACA87B00A0A9A7 /* BezierCurve3.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BezierCurve3.svg; sourceTree = "<group>"; };
+		96F1CFEE16ACA87B00A0A9A7 /* PocketSVG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PocketSVG.h; sourceTree = "<group>"; };
+		96F1CFEF16ACA87B00A0A9A7 /* PocketSVG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PocketSVG.m; sourceTree = "<group>"; };
+		96F1CFF016ACA87B00A0A9A7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		96F39873169E800F0017D3A8 /* BZBrightnessContrastAdjustment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZBrightnessContrastAdjustment.h; path = Adjustments/BZBrightnessContrastAdjustment.h; sourceTree = "<group>"; };
 		96F39874169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZBrightnessContrastAdjustment.m; path = Adjustments/BZBrightnessContrastAdjustment.m; sourceTree = "<group>"; };
 		CC033AB716965CC4007D9643 /* BZAdjustmentProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZAdjustmentProcessor.h; path = Controller/BZAdjustmentProcessor/BZAdjustmentProcessor.h; sourceTree = "<group>"; };
@@ -987,6 +1008,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		96F1CFEA16ACA87B00A0A9A7 /* PocketSVG */ = {
+			isa = PBXGroup;
+			children = (
+				96F1CFEB16ACA87B00A0A9A7 /* BezierCurve1.svg */,
+				96F1CFEC16ACA87B00A0A9A7 /* BezierCurve2.svg */,
+				96F1CFED16ACA87B00A0A9A7 /* BezierCurve3.svg */,
+				96F1CFEE16ACA87B00A0A9A7 /* PocketSVG.h */,
+				96F1CFEF16ACA87B00A0A9A7 /* PocketSVG.m */,
+				96F1CFF016ACA87B00A0A9A7 /* README.md */,
+			);
+			name = PocketSVG;
+			path = "Bezel/Third Party/PocketSVG";
+			sourceTree = "<group>";
+		};
 		CC033AB616965C85007D9643 /* BZAdjustmentProcessor */ = {
 			isa = PBXGroup;
 			children = (
@@ -1142,6 +1177,7 @@
 				EF258842166ECCCF00A2225E /* libz.dylib */,
 				EFDE980616755AD6006FB1AC /* MobileCoreServices.framework */,
 				EFF44B161671A0240023FF70 /* OpenGLES.framework */,
+				96F1CFEA16ACA87B00A0A9A7 /* PocketSVG */,
 				EFA08801167025A400AA6992 /* QuartzCore.framework */,
 				EF2587CC166EC66400A2225E /* SenTestingKit.framework */,
 				EF9449EC1673F74F0068663F /* Social.framework */,
@@ -1815,6 +1851,10 @@
 				EF2CDBA31698220E00DA1435 /* proShapes.png in Resources */,
 				EF2CDBA71698288500DA1435 /* proShapePackPreview.png in Resources */,
 				CCE403F1169C8044001355A3 /* FacebookSDKResources.bundle in Resources */,
+				96F1CFF216ACA87B00A0A9A7 /* BezierCurve1.svg in Resources */,
+				96F1CFF516ACA87B00A0A9A7 /* BezierCurve2.svg in Resources */,
+				96F1CFF816ACA87B00A0A9A7 /* BezierCurve3.svg in Resources */,
+				96F1CFFE16ACA87B00A0A9A7 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1900,6 +1940,10 @@
 				EF2CDBA21698220E00DA1435 /* proShapes.png in Resources */,
 				EF2CDBA61698288500DA1435 /* proShapePackPreview.png in Resources */,
 				CCE403F0169C8044001355A3 /* FacebookSDKResources.bundle in Resources */,
+				96F1CFF116ACA87B00A0A9A7 /* BezierCurve1.svg in Resources */,
+				96F1CFF416ACA87B00A0A9A7 /* BezierCurve2.svg in Resources */,
+				96F1CFF716ACA87B00A0A9A7 /* BezierCurve3.svg in Resources */,
+				96F1CFFD16ACA87B00A0A9A7 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1980,6 +2024,10 @@
 				EF2CDBA41698220E00DA1435 /* proShapes.png in Resources */,
 				EF2CDBA81698288500DA1435 /* proShapePackPreview.png in Resources */,
 				CCE403F2169C8044001355A3 /* FacebookSDKResources.bundle in Resources */,
+				96F1CFF316ACA87B00A0A9A7 /* BezierCurve1.svg in Resources */,
+				96F1CFF616ACA87B00A0A9A7 /* BezierCurve2.svg in Resources */,
+				96F1CFF916ACA87B00A0A9A7 /* BezierCurve3.svg in Resources */,
+				96F1CFFF16ACA87B00A0A9A7 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2085,6 +2133,7 @@
 				CCE24F89169F2AF600606BF6 /* UIImageView+AFNetworking.m in Sources */,
 				CCE24F9D169F60AC00606BF6 /* BZScaleAdjustment.m in Sources */,
 				CCC95F3216A073FE006DE78B /* BZBackgroundAdjustment.m in Sources */,
+				96F1CFFB16ACA87B00A0A9A7 /* PocketSVG.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2171,6 +2220,7 @@
 				96F39875169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m in Sources */,
 				CCE24F9C169F60AC00606BF6 /* BZScaleAdjustment.m in Sources */,
 				CCC95F3116A073FE006DE78B /* BZBackgroundAdjustment.m in Sources */,
+				96F1CFFA16ACA87B00A0A9A7 /* PocketSVG.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2255,6 +2305,7 @@
 				96F39877169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m in Sources */,
 				CCE24F9E169F60AC00606BF6 /* BZScaleAdjustment.m in Sources */,
 				CCC95F3316A073FE006DE78B /* BZBackgroundAdjustment.m in Sources */,
+				96F1CFFC16ACA87B00A0A9A7 /* PocketSVG.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
