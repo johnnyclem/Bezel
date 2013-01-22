@@ -40,6 +40,18 @@ NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
         UIRectFill(rect);
         [[UIColor whiteColor] setFill];
         UIBezierPath *path = [[PocketSVG alloc] initFromSVGFileNamed: [self svgFilename]].bezier;
+        
+        CGSize aSize = inImage.size;
+        
+        CGSize bezierSize = path.bounds.size;
+        CGFloat xScale = aSize.width / bezierSize.width;
+        CGFloat yScale = aSize.height / bezierSize.height;
+        
+        CGAffineTransform transform = CGAffineTransformMakeScale(xScale, yScale);
+        CGPathRef intermediatePath = CGPathCreateCopyByTransformingPath(path.CGPath,
+                                                                        &transform);
+        
+        path.CGPath = intermediatePath;
         [path fill];
     }
     
