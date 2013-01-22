@@ -226,6 +226,8 @@
 		CCC95F3116A073FE006DE78B /* BZBackgroundAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC95F3016A073FE006DE78B /* BZBackgroundAdjustment.m */; };
 		CCC95F3216A073FE006DE78B /* BZBackgroundAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC95F3016A073FE006DE78B /* BZBackgroundAdjustment.m */; };
 		CCC95F3316A073FE006DE78B /* BZBackgroundAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC95F3016A073FE006DE78B /* BZBackgroundAdjustment.m */; };
+		CCCBCD8216AD08CC00AD7A13 /* teardrop.svg in Resources */ = {isa = PBXBuildFile; fileRef = CCCBCD8116AD08CC00AD7A13 /* teardrop.svg */; };
+		CCCBCD8316AD08CC00AD7A13 /* teardrop.svg in Resources */ = {isa = PBXBuildFile; fileRef = CCCBCD8116AD08CC00AD7A13 /* teardrop.svg */; };
 		CCE24F81169F2AF600606BF6 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF420167DB2A900A0EDA7 /* AFHTTPClient.m */; };
 		CCE24F82169F2AF600606BF6 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF422167DB2A900A0EDA7 /* AFHTTPRequestOperation.m */; };
 		CCE24F83169F2AF600606BF6 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF424167DB2A900A0EDA7 /* AFImageRequestOperation.m */; };
@@ -661,6 +663,7 @@
 		CC8839AC167EA21D00374C63 /* bz_ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_ImageView.m; path = View/bz_ImageView.m; sourceTree = "<group>"; };
 		CCC95F2F16A073FE006DE78B /* BZBackgroundAdjustment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZBackgroundAdjustment.h; path = Adjustments/BZBackgroundAdjustment.h; sourceTree = "<group>"; };
 		CCC95F3016A073FE006DE78B /* BZBackgroundAdjustment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZBackgroundAdjustment.m; path = Adjustments/BZBackgroundAdjustment.m; sourceTree = "<group>"; };
+		CCCBCD8116AD08CC00AD7A13 /* teardrop.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = teardrop.svg; path = "Resources/Raw Art Assets/SVG/teardrop.svg"; sourceTree = "<group>"; };
 		CCE24F9A169F60AC00606BF6 /* BZScaleAdjustment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZScaleAdjustment.h; path = Adjustments/BZScaleAdjustment.h; sourceTree = "<group>"; };
 		CCE24F9B169F60AC00606BF6 /* BZScaleAdjustment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZScaleAdjustment.m; path = Adjustments/BZScaleAdjustment.m; sourceTree = "<group>"; };
 		CCE403EF169C8044001355A3 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = "Bezel/Third Party/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle"; sourceTree = "<group>"; };
@@ -1302,6 +1305,7 @@
 		EF258809166ECA0200A2225E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CCCBCD8116AD08CC00AD7A13 /* teardrop.svg */,
 				EF5011B716766B3D0033B574 /* Shapes */,
 				EF5011B616766B380033B574 /* LUTs */,
 				EF5011B516766B2D0033B574 /* Images */,
@@ -1855,6 +1859,7 @@
 				96F1CFF516ACA87B00A0A9A7 /* BezierCurve2.svg in Resources */,
 				96F1CFF816ACA87B00A0A9A7 /* BezierCurve3.svg in Resources */,
 				96F1CFFE16ACA87B00A0A9A7 /* README.md in Resources */,
+				CCCBCD8316AD08CC00AD7A13 /* teardrop.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1944,6 +1949,7 @@
 				96F1CFF416ACA87B00A0A9A7 /* BezierCurve2.svg in Resources */,
 				96F1CFF716ACA87B00A0A9A7 /* BezierCurve3.svg in Resources */,
 				96F1CFFD16ACA87B00A0A9A7 /* README.md in Resources */,
+				CCCBCD8216AD08CC00AD7A13 /* teardrop.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

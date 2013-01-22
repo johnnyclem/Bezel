@@ -8,6 +8,7 @@
 
 #import "BZMaskAdjustment.h"
 #import "bz_MaskShapeLayer.h"
+#import "PocketSVG.h"
 
 NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
 
@@ -38,8 +39,7 @@ NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
         [[UIColor blackColor] setFill];
         UIRectFill(rect);
         [[UIColor whiteColor] setFill];
-        UIBezierPath *path = [[UIBezierPath alloc] init];
-        path.CGPath = [self layerMaskForSize: rect.size].path;
+        UIBezierPath *path = [[PocketSVG alloc] initFromSVGFileNamed: [self svgFilename]].bezier;
         [path fill];
     }
     
@@ -54,7 +54,11 @@ NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
     UIGraphicsEndImageContext();
     
     return maskedImage;
-    
+}
+
+- (NSString *)svgFilename
+{
+    return @"teardrop";
 }
 
 - (CAShapeLayer *)layerMaskForSize:(CGSize)size
