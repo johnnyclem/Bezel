@@ -14,6 +14,8 @@ NSString* const kAdjustmentTypeMask;
 
 @property (nonatomic, strong) NSDictionary *value;
 
+- (id)initWithDictionary:(NSDictionary *)dict;
+
 - (CAShapeLayer *)layerMaskForSize:(CGSize)size;
 
 @end

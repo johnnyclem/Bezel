@@ -23,7 +23,7 @@ NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
 @synthesize value;
 @synthesize duplicatesAllowed;
 
-- (id)init
+- (id)initWithDictionary:(NSDictionary *)dict
 {
     if (self = [super init])
     {
@@ -32,6 +32,12 @@ NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
     }
     
     return self;
+}
+
+- (id)init
+{
+    NSAssert(FALSE, @"BZMaskAdjustment must be initialized with a dictionary of all required values.");
+    return nil;
 }
 
 - (UIImage *)processImage:(UIImage *)inImage
