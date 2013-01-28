@@ -11,14 +11,14 @@
 			<string>PSGroupSpecifier</string>
 		</dict>
 		<dict>
-			<key>DefaultValue</key>
-			<true/>
-			<key>Key</key>
-			<string>bz_load_remote_promotions</string>
-			<key>Title</key>
-			<string>Load Remote Promotions</string>
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Load Remote Promotions</string>
+			<key>Key</key>
+			<string>bz_load_remote_promotions</string>
+			<key>DefaultValue</key>
+			<false/>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -34,7 +34,7 @@
 			<key>Key</key>
 			<string>bz_load_remote_shapes</string>
 			<key>DefaultValue</key>
-			<true/>
+			<false/>
 		</dict>
 	</array>
 	<key>StringsTable</key>

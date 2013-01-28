@@ -34,6 +34,69 @@
                "shape_accessibility_hint": "hint",
                "shape_svg_remote_href": "http://www..com",
                "shape_svg_local_filename": "Heart"
-               }
+               },
+               {
+               "shape_name": "Tree",
+               "shape_accessibility_label": "label",
+               "shape_accessibility_hint": "hint",
+               "shape_svg_remote_href": "http://www..com",
+               "shape_svg_local_filename": "Tree"
+               },
+               {
+               "shape_name": "Star",
+               "shape_accessibility_label": "label",
+               "shape_accessibility_hint": "hint",
+               "shape_svg_remote_href": "http://www..com",
+               "shape_svg_local_filename": "Star"
+               },
+               {
+               "shape_name": "Ornament",
+               "shape_accessibility_label": "label",
+               "shape_accessibility_hint": "hint",
+               "shape_svg_remote_href": "http://www..com",
+               "shape_svg_local_filename": "Ornament"
+               },
+               {
+               "shape_name": "Cross",
+               "shape_accessibility_label": "label",
+               "shape_accessibility_hint": "hint",
+               "shape_svg_remote_href": "http://www..com",
+               "shape_svg_local_filename": "Cross"
+               },
+               {
+               "shape_name": "Teardrop",
+               "shape_accessibility_label": "label",
+               "shape_accessibility_hint": "hint",
+               "shape_svg_remote_href": "http://www..com",
+               "shape_svg_local_filename": "Teardrop"
+               },
+               {
+               "shape_name": "Lightning",
+               "shape_accessibility_label": "label",
+               "shape_accessibility_hint": "hint",
+               "shape_svg_remote_href": "http://www..com",
+               "shape_svg_local_filename": "Lightning"
+               },
+               {
+               "shape_name": "Anchor",
+               "shape_accessibility_label": "label",
+               "shape_accessibility_hint": "hint",
+               "shape_svg_remote_href": "http://www..com",
+               "shape_svg_local_filename": "Anchor"
+               },
+               {
+               "shape_name": "Arrow",
+               "shape_accessibility_label": "label",
+               "shape_accessibility_hint": "hint",
+               "shape_svg_remote_href": "http://www..com",
+               "shape_svg_local_filename": "Arrow"
+               },
+               {
+               "shape_name": "Oval",
+               "shape_accessibility_label": "label",
+               "shape_accessibility_hint": "hint",
+               "shape_svg_remote_href": "http://www..com",
+               "shape_svg_local_filename": "Oval"
+               } 
                ]
 }

@@ -25,14 +25,21 @@ NSString *const FBSessionStateChangedNotification =
     [Crashlytics startWithAPIKey:@"3c4f5213fd594dc8cb9435c1b4710e2fb2cbe1e6"];
     
     // Register Defaults
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    BOOL loadRemote = TRUE; // Default to loading remote shapes unless running QA build.
+#ifdef DEBUG
+    loadRemote = FALSE;
+#endif
+    
     NSDictionary *defaultPrefs = [NSDictionary dictionaryWithObjectsAndKeys:
                                   [NSNumber numberWithInt: 0], BZ_SETTINGS_FULL_RESOLUTION_KEY,
                                   [NSNumber numberWithBool:FALSE], BZ_COLOR_PICKER_PURCHASE_KEY,
                                   [NSNumber numberWithBool:FALSE], BZ_HOLIDAY_PACK_PURCHASE_KEY,
                                   [NSNumber numberWithBool:FALSE], BZ_PRO_SHAPE_PACK_PURCHASE_KEY,
-                                  [NSNumber numberWithBool:TRUE], BZ_SETTINGS_LOAD_REMOTE_PROMOTIONS,
-                                  [NSNumber numberWithBool:TRUE], BZ_SETTINGS_LOAD_REMOTE_SHAPES,
+                                  loadRemote, BZ_SETTINGS_LOAD_REMOTE_PROMOTIONS,
+                                  loadRemote, BZ_SETTINGS_LOAD_REMOTE_SHAPES,
                                   [NSNumber numberWithBool:TRUE], BZ_SETTINGS_SAVE_TO_CAMERA_ROLL_KEY, nil];
     [defaults registerDefaults: defaultPrefs];
     [defaults synchronize];

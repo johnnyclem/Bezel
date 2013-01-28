@@ -39,14 +39,28 @@
 {
     [super viewWillAppear: animated];
     
-    CGRect shapesCollectionViewFrame = CGRectMake(0.0, 0.0, 320.0, 50.0);
+    CGRect shapesCollectionViewFrame = CGRectMake(0.0, 0.0, 265.0, 50.0);
+    CGRect shapesCollectionViewShowMoreButtonFrame = CGRectMake(270.0, 0.0, 50.0, 50.0);
+    
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    [layout setItemSize:CGSizeMake(50.0, 50.0)];
+    layout.minimumInteritemSpacing = 0;
+    layout.itemSize = CGSizeMake(50.0, 50.0);
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     
     self.shapesCollectionView = [[UICollectionView alloc] initWithFrame: shapesCollectionViewFrame collectionViewLayout: layout];
-    self.shapesCollectionView.contentInset = UIEdgeInsetsMake(0.0, 5.0, 0.0, 5.0);
     self.shapesCollectionView.dataSource = self;
     self.shapesCollectionView.delegate = self;
+    self.shapesCollectionView.contentInset = UIEdgeInsetsMake(0.0, 5.0, 0.0, 5.0);
+    self.shapesCollectionView.scrollEnabled = FALSE;
+    
+    UIButton *showMoreButton = [UIButton buttonWithType: UIButtonTypeCustom];
+    showMoreButton.frame = shapesCollectionViewShowMoreButtonFrame;
+    showMoreButton.titleLabel.text = @"HI";
+    showMoreButton.titleLabel.font = [UIFont boldSystemFontOfSize: [UIFont systemFontSize]];
+    showMoreButton.titleLabel.textColor = [UIColor whiteColor];
+    showMoreButton.backgroundColor = [UIColor redColor];
+    [showMoreButton addTarget: self action: @selector(showMoreShapes) forControlEvents: UIControlEventTouchUpInside];
+    [self.view addSubview: showMoreButton];
     
     UINib *nib = [UINib nibWithNibName:@"BZMaskAdjustmentCollectionViewCell" bundle: [NSBundle mainBundle]];
     [self.shapesCollectionView registerNib: nib forCellWithReuseIdentifier: BZ_MASK_ADJUSTMENT_CELL_REUSE_IDENTIFIER];
@@ -67,6 +81,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Button actions
+
+- (void)showMoreShapes
+{
+    self.showAllShapes = TRUE;
+    [self.shapesCollectionView reloadData];
+    
+    [UIView animateWithDuration: 1.0 animations: ^(void) {
+        self.shapesCollectionView.frame = self.view.frame;
+     } completion: ^(BOOL completion) {
+    }];
+}
+
 #pragma mark - BZMaskAdjustment fetching
 
 - (void)fetchShapes
@@ -79,7 +106,8 @@
     }
 #endif
     
-    NSURL *url = [NSURL URLWithString:@"http://minddiaper.com/ads/bezel.json"];
+    // TODO Need URL for shapes feed. We should have a whole directory for bezel feeds.
+    NSURL *url = [NSURL URLWithString:@"http://www.minddiaper.com"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     AFJSONRequestOperation *fetchPromotions = [AFJSONRequestOperation
@@ -154,12 +182,20 @@
 {
     BZMaskAdjustmentCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: BZ_MASK_ADJUSTMENT_CELL_REUSE_IDENTIFIER forIndexPath: indexPath];
     
-    BZMaskAdjustment *mask = [self.shapes objectAtIndex: indexPath.row];
-    
-    cell.backgroundColor = [UIColor whiteColor];
-    
-    cell.layer.mask = [mask layerMaskForSize: cell.frame.size];
-    
+    // Protect against array out of bounds since we might not be finished loading all of them in.
+    if (self.shapes.count >= indexPath.row)
+    {
+        BZMaskAdjustment *mask = [self.shapes objectAtIndex: indexPath.row];
+        
+        // Layout, UI
+        cell.backgroundColor = [UIColor whiteColor];
+        cell.layer.mask = [mask layerMaskForSize: cell.frame.size];
+        
+        // Accesibility
+        cell.accessibilityLabel = mask.shapeAccessibilityLabel;
+        cell.accessibilityHint = mask.shapeAccessibilityHint;
+    }
+
     return cell;
 }
 
@@ -171,7 +207,8 @@
     }
     else
     {
-        return 4.0; // default amount to show
+        // Show 4 default shapes, as long as there are shapes to show!
+        return (self.shapes.count >= 5) ? 5.0 : 0.0; // default amount to show
     }
 }
 
@@ -184,6 +221,17 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.showAllShapes)
+    {
+        self.showAllShapes = FALSE;
+        
+        [UIView animateWithDuration: 1.0 animations: ^(void) {
+            self.shapesCollectionView.frame = CGRectMake(0.0, 0.0, 265.0, 50.0);
+        } completion: ^(BOOL completion) {
+            [self.shapesCollectionView reloadData];
+        }];
+    }
+    
     self.switchShapeBlock([self.shapes objectAtIndex: indexPath.row]);
 }
 
