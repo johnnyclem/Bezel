@@ -1,0 +1,39 @@
+{
+    "shapes": [
+               {
+               "shape_name": "Circle",
+               "shape_accessibility_label": "label",
+               "shape_accessibility_hint": "hint",
+               "shape_svg_remote_href": "http://www..com",
+               "shape_svg_local_filename": "Circle"
+               },
+               {
+               "shape_name": "Square",
+               "shape_accessibility_label": "label",
+               "shape_accessibility_hint": "hint",
+               "shape_svg_remote_href": "http://www..com",
+               "shape_svg_local_filename": "Square"
+               },
+               {
+               "shape_name": "Triangle",
+               "shape_accessibility_label": "label",
+               "shape_accessibility_hint": "hint",
+               "shape_svg_remote_href": "http://www..com",
+               "shape_svg_local_filename": "Triangle"
+               },
+               {
+               "shape_name": "Hexagon",
+               "shape_accessibility_label": "label",
+               "shape_accessibility_hint": "hint",
+               "shape_svg_remote_href": "http://www..com",
+               "shape_svg_local_filename": "Hexagon"
+               },
+               {
+               "shape_name": "Heart",
+               "shape_accessibility_label": "label",
+               "shape_accessibility_hint": "hint",
+               "shape_svg_remote_href": "http://www..com",
+               "shape_svg_local_filename": "Heart"
+               }
+               ]
+}

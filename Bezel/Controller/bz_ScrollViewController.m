@@ -55,7 +55,6 @@
         switch (i) {
             case 0:
                 self.shapesViewController = [[bz_ShapesViewController alloc] init];
-                self.shapesViewController.scrollHeight = scrollHeight;
                 self.shapesViewController.view.frame = pageFrame;
                 [_scrollView addSubview: self.shapesViewController.view];
                 break;

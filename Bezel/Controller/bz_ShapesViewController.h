@@ -9,15 +9,13 @@
 #import "bz_ViewController.h"
 #import "AnimationDelegate.h"
 
-@protocol BZShapesViewControllerDelegate <NSObject>
-- (void)shapeTouched:(bz_Button *)shape;
-@end
+@class BZMaskAdjustment;
 
-@interface bz_ShapesViewController : bz_ViewController
+@interface bz_ShapesViewController : bz_ViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property (weak) id <BZShapesViewControllerDelegate> delegate;
+@property (strong, nonatomic) UICollectionView *shapesCollectionView;
+@property (strong, nonatomic) UIButton *takePhotoButton;
 
-@property (strong, nonatomic, readonly) NSArray *shapeButtons;
-@property (strong, nonatomic, readonly) bz_Button *takePhotoButton;
+@property (nonatomic, copy) void (^switchShapeBlock)(BZMaskAdjustment *adj);
 
 @end

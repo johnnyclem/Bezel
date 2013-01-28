@@ -11,6 +11,7 @@
 
 // Settings bundle identifiers (for QA build only currently)
 NSString* const BZ_SETTINGS_LOAD_REMOTE_PROMOTIONS;
+NSString* const BZ_SETTINGS_LOAD_REMOTE_SHAPES;
 
 // Defaults identifiers (in-app purchases, resolution settings, etc)
 NSString* const BZ_HOLIDAY_PACK_PURCHASE_KEY;
@@ -25,16 +26,10 @@ NSString* const BZ_PROMOTION_VIEW_REUSE_IDENTIFIER;
 NSString* const BZ_PROMOTION_VALUE_STEPPER_REUSE_IDENTIFIER;
 NSString* const BZ_PROMOTION_VALUE_SWITCH_REUSE_IDENTIFIER;
 NSString* const BZ_PROMOTION_VALUE_SEGMENTED_CONTROL_REUSE_IDENTIFIER;
+NSString* const BZ_MASK_ADJUSTMENT_CELL_REUSE_IDENTIFIER;
 
 // Used as more meaningful Tags
 NSString* const kButtonIdentifier;
-
-// Mask buttons
-NSString* const kButtonIdentifierCircleMask;
-NSString* const kButtonIdentifierSquareMask;
-NSString* const kButtonIdentifierTriangleMask;
-NSString* const kButtonIdentifierHexagonMask;
-NSString* const kButtonIdentifierHeartMask;
 
 // Filter buttons
 NSString* const kButtonIdentifierFilterBW1;

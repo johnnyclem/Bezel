@@ -10,11 +10,25 @@
 #import "bz_MaskShapeLayer.h"
 #import "PocketSVG.h"
 
+NSString *BZ_SHAPE_NAME_KEY = @"shape_name";
+NSString *BZ_SHAPE_ACCESSIBILITY_LABEL = @"shape_accessibility_label";
+NSString *BZ_SHAPE_ACCESSIBILITY_HINT = @"shape_accessibility_hint";
+NSString *BZ_SHAPE_SVG_REMOTE_HREF_KEY = @"shape_svg_remote_href";
+NSString *BZ_SHAPE_SVG_LOCAL_FILENAME_KEY = @"shape_svg_local_filename";
+
 NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
 
 @interface BZMaskAdjustment ()
+
 @property (nonatomic, assign) BOOL duplicatesAllowed;
 @property (strong, nonatomic) NSMutableDictionary *cachedMasks;
+
+@property (strong, nonatomic) NSString *shapeName;
+@property (strong, nonatomic) NSString *shapeAccessibilityLabel;
+@property (strong, nonatomic) NSString *shapeAccessibilityHint;
+@property (strong, nonatomic) NSString *shapeSvgRemoteHref;
+@property (strong, nonatomic) NSString *shapeSvgLocalFilename;
+
 @end
 
 @implementation BZMaskAdjustment
@@ -29,6 +43,13 @@ NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
     {
         self.cachedMasks = [NSMutableArray array];
         self.duplicatesAllowed = FALSE;
+        
+        // Serialize model object from dictionary.
+        self.shapeName = [dict valueForKey: BZ_SHAPE_NAME_KEY];
+        self.shapeAccessibilityLabel = [dict valueForKey: BZ_SHAPE_ACCESSIBILITY_LABEL];
+        self.shapeAccessibilityHint = [dict valueForKey: BZ_SHAPE_ACCESSIBILITY_HINT];
+        self.shapeSvgRemoteHref = [dict valueForKey: BZ_SHAPE_SVG_REMOTE_HREF_KEY];
+        self.shapeSvgLocalFilename = [dict valueForKey: BZ_SHAPE_SVG_LOCAL_FILENAME_KEY];
     }
     
     return self;
@@ -50,7 +71,7 @@ NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
     CGRect rect = CGRectZero;
     rect.size = inImage.size;
     
-    UIImage *mask = [self maskFromImageNamed:[self svgFilename]];
+    UIImage *mask = [self maskFromImageNamed: self.shapeSvgLocalFilename];
     
     UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0.0); {
         CGContextClipToMask(UIGraphicsGetCurrentContext(), rect, mask.CGImage);
@@ -109,52 +130,22 @@ NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
     }
 }
 
-- (NSString *)svgFilename
-{
-    // TODO Remove this and use real filenames...
-    return @"test_square";
-    
-    NSString *maskShape = [self.value objectForKey: kButtonIdentifier];
-    
-    if ([maskShape isEqualToString: kButtonIdentifierCircleMask])
-    {
-        return @"";
-    }
-    else if ([maskShape isEqualToString: kButtonIdentifierSquareMask])
-    {
-        return @"";
-    }
-    else if ([maskShape isEqualToString: kButtonIdentifierTriangleMask])
-    {
-        return @"";
-    }
-    else if ([maskShape isEqualToString: kButtonIdentifierHexagonMask])
-    {
-        return @"";
-    }
-    else if ([maskShape isEqualToString: kButtonIdentifierHeartMask])
-    {
-        return @"";
-    }
-    else
-    {
-        // This is bad, no shape identifier!
-        return @"";
-    }
-}
-
 - (CAShapeLayer *)layerMaskForSize:(CGSize)size
 {
     CAShapeLayer *layer = [CAShapeLayer layer];
     layer.frame = CGRectMake(0.0, 0.0, size.width, size.height);
     
-    UIBezierPath *path = [[PocketSVG alloc] initFromSVGFileNamed: [self svgFilename]].bezier;
+    UIBezierPath *path = [[PocketSVG alloc] initFromSVGFileNamed: self.shapeSvgLocalFilename].bezier;
     
-    // TODO: Scale to correct value regardless of input image sizes.
-    CGAffineTransform transform = CGAffineTransformMakeScale(0.5, 0.5);
+    CGSize bezierSize = path.bounds.size;
+    CGFloat xScale = size.width / bezierSize.width;
+    CGFloat yScale = size.height / bezierSize.height;
+    
+    CGAffineTransform transform = CGAffineTransformMakeScale(xScale, yScale);
     CGPathRef intermediatePath = CGPathCreateCopyByTransformingPath(path.CGPath,
                                                                     &transform);
-    layer.path = intermediatePath;
+    path.CGPath = intermediatePath;
+    layer.path = path.CGPath;
     
     return layer;
 }

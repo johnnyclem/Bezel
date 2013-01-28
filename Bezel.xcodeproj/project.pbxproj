@@ -52,6 +52,15 @@
 		9630989816B6142800B53257 /* Teardrop.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986B16B6142000B53257 /* Teardrop.svg */; };
 		9630989916B6142800B53257 /* Tree.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986C16B6142000B53257 /* Tree.svg */; };
 		9630989A16B6142800B53257 /* Triangle.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986D16B6142000B53257 /* Triangle.svg */; };
+		963098A816B619B000B53257 /* shapes.json in Resources */ = {isa = PBXBuildFile; fileRef = 963098A716B619B000B53257 /* shapes.json */; };
+		963098A916B619B000B53257 /* shapes.json in Resources */ = {isa = PBXBuildFile; fileRef = 963098A716B619B000B53257 /* shapes.json */; };
+		963098AA16B619B000B53257 /* shapes.json in Resources */ = {isa = PBXBuildFile; fileRef = 963098A716B619B000B53257 /* shapes.json */; };
+		963098B616B6256A00B53257 /* BZMaskAdjustmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963098B516B6256A00B53257 /* BZMaskAdjustmentCollectionViewCell.xib */; };
+		963098B716B6256A00B53257 /* BZMaskAdjustmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963098B516B6256A00B53257 /* BZMaskAdjustmentCollectionViewCell.xib */; };
+		963098B816B6256A00B53257 /* BZMaskAdjustmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963098B516B6256A00B53257 /* BZMaskAdjustmentCollectionViewCell.xib */; };
+		963098BB16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 963098BA16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m */; };
+		963098BC16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 963098BA16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m */; };
+		963098BD16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 963098BA16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m */; };
 		96F1CFF116ACA87B00A0A9A7 /* BezierCurve1.svg in Resources */ = {isa = PBXBuildFile; fileRef = 96F1CFEB16ACA87B00A0A9A7 /* BezierCurve1.svg */; };
 		96F1CFF216ACA87B00A0A9A7 /* BezierCurve1.svg in Resources */ = {isa = PBXBuildFile; fileRef = 96F1CFEB16ACA87B00A0A9A7 /* BezierCurve1.svg */; };
 		96F1CFF316ACA87B00A0A9A7 /* BezierCurve1.svg in Resources */ = {isa = PBXBuildFile; fileRef = 96F1CFEB16ACA87B00A0A9A7 /* BezierCurve1.svg */; };
@@ -569,6 +578,10 @@
 		9630986B16B6142000B53257 /* Teardrop.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Teardrop.svg; path = Resources/Shapes/Teardrop.svg; sourceTree = "<group>"; };
 		9630986C16B6142000B53257 /* Tree.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Tree.svg; path = Resources/Shapes/Tree.svg; sourceTree = "<group>"; };
 		9630986D16B6142000B53257 /* Triangle.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Triangle.svg; path = Resources/Shapes/Triangle.svg; sourceTree = "<group>"; };
+		963098A716B619B000B53257 /* shapes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = shapes.json; path = "Mock Data/shapes.json"; sourceTree = "<group>"; };
+		963098B516B6256A00B53257 /* BZMaskAdjustmentCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BZMaskAdjustmentCollectionViewCell.xib; path = View/BZMaskAdjustmentCollectionViewCell.xib; sourceTree = "<group>"; };
+		963098B916B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZMaskAdjustmentCollectionViewCell.h; path = View/BZMaskAdjustmentCollectionViewCell.h; sourceTree = "<group>"; };
+		963098BA16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZMaskAdjustmentCollectionViewCell.m; path = View/BZMaskAdjustmentCollectionViewCell.m; sourceTree = "<group>"; };
 		96F1CFEB16ACA87B00A0A9A7 /* BezierCurve1.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BezierCurve1.svg; sourceTree = "<group>"; };
 		96F1CFEC16ACA87B00A0A9A7 /* BezierCurve2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BezierCurve2.svg; sourceTree = "<group>"; };
 		96F1CFED16ACA87B00A0A9A7 /* BezierCurve3.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BezierCurve3.svg; sourceTree = "<group>"; };
@@ -1025,6 +1038,7 @@
 			isa = PBXGroup;
 			children = (
 				CCEA6807167DB00D00BD08DE /* promotion.json */,
+				963098A716B619B000B53257 /* shapes.json */,
 			);
 			name = "Mock Data";
 			sourceTree = "<group>";
@@ -1177,6 +1191,9 @@
 				EF258802166EC83700A2225E /* bz_Storyboard_iPhone.storyboard */,
 				EF2587E4166EC75F00A2225E /* bz_View.h */,
 				EF2587E5166EC75F00A2225E /* bz_View.m */,
+				963098B916B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.h */,
+				963098BA16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m */,
+				963098B516B6256A00B53257 /* BZMaskAdjustmentCollectionViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1719,6 +1736,8 @@
 				9630988716B6142000B53257 /* Teardrop.svg in Resources */,
 				9630988916B6142000B53257 /* Tree.svg in Resources */,
 				9630988B16B6142000B53257 /* Triangle.svg in Resources */,
+				963098A916B619B000B53257 /* shapes.json in Resources */,
+				963098B716B6256A00B53257 /* BZMaskAdjustmentCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1791,6 +1810,8 @@
 				9630988616B6142000B53257 /* Teardrop.svg in Resources */,
 				9630988816B6142000B53257 /* Tree.svg in Resources */,
 				9630988A16B6142000B53257 /* Triangle.svg in Resources */,
+				963098A816B619B000B53257 /* shapes.json in Resources */,
+				963098B616B6256A00B53257 /* BZMaskAdjustmentCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1856,6 +1877,8 @@
 				9630989816B6142800B53257 /* Teardrop.svg in Resources */,
 				9630989916B6142800B53257 /* Tree.svg in Resources */,
 				9630989A16B6142800B53257 /* Triangle.svg in Resources */,
+				963098AA16B619B000B53257 /* shapes.json in Resources */,
+				963098B816B6256A00B53257 /* BZMaskAdjustmentCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1962,6 +1985,7 @@
 				CCE24F9D169F60AC00606BF6 /* BZScaleAdjustment.m in Sources */,
 				CCC95F3216A073FE006DE78B /* BZBackgroundAdjustment.m in Sources */,
 				96F1CFFB16ACA87B00A0A9A7 /* PocketSVG.m in Sources */,
+				963098BC16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2049,6 +2073,7 @@
 				CCE24F9C169F60AC00606BF6 /* BZScaleAdjustment.m in Sources */,
 				CCC95F3116A073FE006DE78B /* BZBackgroundAdjustment.m in Sources */,
 				96F1CFFA16ACA87B00A0A9A7 /* PocketSVG.m in Sources */,
+				963098BB16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2134,6 +2159,7 @@
 				CCE24F9E169F60AC00606BF6 /* BZScaleAdjustment.m in Sources */,
 				CCC95F3316A073FE006DE78B /* BZBackgroundAdjustment.m in Sources */,
 				96F1CFFC16ACA87B00A0A9A7 /* PocketSVG.m in Sources */,
+				963098BD16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

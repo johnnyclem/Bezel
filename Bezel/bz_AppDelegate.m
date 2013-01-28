@@ -32,6 +32,7 @@ NSString *const FBSessionStateChangedNotification =
                                   [NSNumber numberWithBool:FALSE], BZ_HOLIDAY_PACK_PURCHASE_KEY,
                                   [NSNumber numberWithBool:FALSE], BZ_PRO_SHAPE_PACK_PURCHASE_KEY,
                                   [NSNumber numberWithBool:TRUE], BZ_SETTINGS_LOAD_REMOTE_PROMOTIONS,
+                                  [NSNumber numberWithBool:TRUE], BZ_SETTINGS_LOAD_REMOTE_SHAPES,
                                   [NSNumber numberWithBool:TRUE], BZ_SETTINGS_SAVE_TO_CAMERA_ROLL_KEY, nil];
     [defaults registerDefaults: defaultPrefs];
     [defaults synchronize];

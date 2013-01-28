@@ -138,14 +138,14 @@
     
     [self startUpdatingPreviewLayer];
     
-    // Default to square mask around preview image.
-    BZMaskAdjustment *maskAdjustment = [[BZMaskAdjustment alloc] init];
-    maskAdjustment.identifier = kAdjustmentTypeMask;
-    maskAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: kButtonIdentifierSquareMask, kButtonIdentifier, nil];
-    [self.session addAdjustment: maskAdjustment];
-    
-    self.cameraPreview.layer.mask = [maskAdjustment layerMaskForSize: kDefaultCameraPreviewSize];
-    self.imageCanvas.layer.mask = [maskAdjustment layerMaskForSize: kDefaultCameraPreviewSize];
+//    // Default to square mask around preview image.
+//    BZMaskAdjustment *maskAdjustment = [[BZMaskAdjustment alloc] init];
+//    maskAdjustment.identifier = kAdjustmentTypeMask;
+//    maskAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: kButtonIdentifierSquareMask, kButtonIdentifier, nil];
+//    [self.session addAdjustment: maskAdjustment];
+//    
+//    self.cameraPreview.layer.mask = [maskAdjustment layerMaskForSize: kDefaultCameraPreviewSize];
+//    self.imageCanvas.layer.mask = [maskAdjustment layerMaskForSize: kDefaultCameraPreviewSize];
 }
 
 - (void)startUpdatingPreviewLayer
@@ -298,16 +298,14 @@
     self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
 }
 
--(void)switchShape:(bz_Button *)button
+-(void)switchShape:(BZMaskAdjustment *)adj
 {
-    BZMaskAdjustment *maskAdjustment = [[BZMaskAdjustment alloc] init];
-    maskAdjustment.identifier = kAdjustmentTypeMask;
-    maskAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: button.buttonIdentifier, kButtonIdentifier, nil];
+    adj.identifier = kAdjustmentTypeMask;
     
-    [self.session addAdjustment: maskAdjustment];
+    [self.session addAdjustment: adj];
     
-    self.cameraPreview.layer.mask = [maskAdjustment layerMaskForSize: self.cameraPreview.frame.size];
-    self.imageCanvas.layer.mask = [maskAdjustment layerMaskForSize: self.cameraPreview.frame.size];
+    self.cameraPreview.layer.mask = [adj layerMaskForSize: self.cameraPreview.frame.size];
+    self.imageCanvas.layer.mask = [adj layerMaskForSize: self.cameraPreview.frame.size];
 
     self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
 }
@@ -666,13 +664,14 @@
 
 - (void)setUpButtonTargets
 {
+    __weak id weakSelf = self;
+    
     [self.scrollViewController.shapesViewController.takePhotoButton addTarget: self action:@selector(takePhoto) forControlEvents:UIControlEventTouchUpInside];
     
-    // Shape masks
-    for (bz_Button *button in self.scrollViewController.shapesViewController.shapeButtons)
+    self.scrollViewController.shapesViewController.switchShapeBlock = ^(BZMaskAdjustment *adj)
     {
-        [button addTarget: self action: @selector(switchShape:) forControlEvents: UIControlEventTouchUpInside];
-    }
+        [weakSelf switchShape: adj];
+    };
     
     // Filters
     for (bz_Button *button in self.scrollViewController.filterViewController.filterButtons)

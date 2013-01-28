@@ -10,6 +10,7 @@
 
 // Settings bundle identifiers (for QA build only currently)
 NSString* const BZ_SETTINGS_LOAD_REMOTE_PROMOTIONS = @"bz_load_remote_promotions";
+NSString* const BZ_SETTINGS_LOAD_REMOTE_SHAPES = @"bz_load_remote_shapes";
 
 // Defaults identifiers (in-app purchases, resolution settings, etc)
 NSString* const BZ_HOLIDAY_PACK_PURCHASE_KEY = @"holiday_pack";
@@ -24,15 +25,10 @@ NSString* const BZ_PROMOTION_VIEW_REUSE_IDENTIFIER = @"bz_PromotionView";
 NSString* const BZ_PROMOTION_VALUE_STEPPER_REUSE_IDENTIFIER = @"bz_PromotionViewStepper";
 NSString* const BZ_PROMOTION_VALUE_SWITCH_REUSE_IDENTIFIER = @"bz_PromotionViewSwitch";
 NSString* const BZ_PROMOTION_VALUE_SEGMENTED_CONTROL_REUSE_IDENTIFIER = @"bz_PromotionViewSegmentedControl";
+NSString* const BZ_MASK_ADJUSTMENT_CELL_REUSE_IDENTIFIER = @"BZMaskAdjustmentReuseIdentifier";
 
 // Used as more meaningful Tags
 NSString* const kButtonIdentifier = @"kButtonIdentifier";
-
-NSString* const kButtonIdentifierCircleMask = @"kButtonIdentifierCircleMask";
-NSString* const kButtonIdentifierSquareMask = @"kButtonIdentifierSquareMask";
-NSString* const kButtonIdentifierTriangleMask = @"kButtonIdentifierTriangleMask";
-NSString* const kButtonIdentifierHexagonMask = @"kButtonIdentifierHexagonMask";
-NSString* const kButtonIdentifierHeartMask = @"kButtonIdentifierHeartMask";
 
 // Filter buttons
 NSString* const kButtonIdentifierFilterBW1 = @"kButtonIdentifierFilterBW1";
