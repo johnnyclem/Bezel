@@ -12,7 +12,7 @@
 #pragma mark - Private Properties / Methods
 @interface BZCaptureManager()
 @property (strong, nonatomic) AVCaptureSession *currentSession;
-@property (weak, nonatomic) AVCaptureVideoPreviewLayer *previewLayer;
+@property (strong, nonatomic) AVCaptureVideoPreviewLayer *previewLayer;
 @property (strong, nonatomic) AVCaptureDeviceInput *videoInput;
 @property (strong, nonatomic) AVCaptureDeviceInput *audioInput;
 @property (strong, nonatomic) AVCaptureStillImageOutput *stillImageOutput;

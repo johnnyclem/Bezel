@@ -195,7 +195,7 @@
         if (currentDirection == kDirectionForward) {
             rotationAfterDirection = M_PI * rotationModifier;
             targetLayer = [currentFrame.animationImages lastObject];
-        } else if (currentDirection == kDirectionBackward) {
+        } else {
             rotationAfterDirection = -M_PI * rotationModifier;
             targetLayer = [currentFrame.animationImages objectAtIndex:0];
         }
@@ -267,7 +267,7 @@
     
     if (currentDirection == kDirectionForward) {
         targetLayer = [currentFrame.animationImages lastObject];
-    } else if (currentDirection == kDirectionBackward) {
+    } else {
         targetLayer = [currentFrame.animationImages objectAtIndex:0];
     }
     
@@ -380,7 +380,7 @@
     if (currentDirection == kDirectionForward) {
         rotationAfterDirection = M_PI * rotationModifier;
         targetLayer = [currentFrame.animationImages lastObject];
-    } else if (currentDirection == kDirectionBackward) {
+    } else {
         rotationAfterDirection = -M_PI * rotationModifier;
         targetLayer = [currentFrame.animationImages objectAtIndex:0];
     }

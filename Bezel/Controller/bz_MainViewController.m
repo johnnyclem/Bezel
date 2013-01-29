@@ -213,28 +213,28 @@
             self.imageCanvas.layer.mask = [(BZMaskAdjustment *)[self.session adjustmentWithIdentifier: kAdjustmentTypeMask] layerMaskForSize: kDefaultCameraPreviewSize];
             self.imageCanvas.image = thumb;
             
-            __weak id weakSelf = self;
+            __weak bz_MainViewController *weakSelf = self;
             
             self.confirmView.completionBlock = ^(BOOL response)
             {
                 if (response == TRUE)
                 {
-                    [self.session setThumbnailImage: thumb];
-                    [self.session setFullResolutionImage: img];
+                    [weakSelf.session setThumbnailImage: thumb];
+                    [weakSelf.session setFullResolutionImage: img];
                     
-                    self.imageCanvas.layer.mask = nil;
-                    self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
+                    weakSelf.imageCanvas.layer.mask = nil;
+                    weakSelf.imageCanvas.image = [weakSelf.adjustmentProcessor processedThumbnailImage];
                     
-                    [self.scrollViewController scrollToViewControllerAtIndex: 1];
+                    [weakSelf.scrollViewController scrollToViewControllerAtIndex: 1];
                     
                     [weakSelf setupFilterThumbnails];
                 }
                 else
                 {
                     [weakSelf startUpdatingPreviewLayer];
-                    self.imageCanvas.layer.mask = nil;
-                    self.imageCanvas.image = nil;
-                    self.imageCanvas.hidden = TRUE;
+                    weakSelf.imageCanvas.layer.mask = nil;
+                    weakSelf.imageCanvas.image = nil;
+                    weakSelf.imageCanvas.hidden = TRUE;
                 }
             };
             
@@ -334,16 +334,17 @@
     // set the preview layer mask to the adjusted mask.
     self.imageCanvas.image = [filterAdjustment filteredImageWithImage: [self.adjustmentProcessor processedThumbnailImage]];
 
+    __weak bz_MainViewController *weakSelf = self;
     self.confirmView.completionBlock = ^(BOOL response)
     {
         if (response == TRUE)
         {
-            [self.session addAdjustment: filterAdjustment];
-            [self.scrollViewController scrollToViewControllerAtIndex:2];
+            [weakSelf.session addAdjustment: filterAdjustment];
+            [weakSelf.scrollViewController scrollToViewControllerAtIndex:2];
         }
         else
         {
-            self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
+            weakSelf.imageCanvas.image = [weakSelf.adjustmentProcessor processedThumbnailImage];
         }
     };
     
@@ -603,27 +604,27 @@
 
     __block UIImage *fullRes;
     __block UIImage *thumb;
-    __weak id weakSelf = self;
+    __weak bz_MainViewController *weakSelf = self;
     
     self.confirmView.completionBlock = ^(BOOL response)
     {
         if (response == TRUE)
         {
-            [self.session setFullResolutionImage:fullRes];
+            [weakSelf.session setFullResolutionImage:fullRes];
             
-            self.imageCanvas.layer.mask = nil;
-            self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
+            weakSelf.imageCanvas.layer.mask = nil;
+            weakSelf.imageCanvas.image = [weakSelf.adjustmentProcessor processedThumbnailImage];
             
-            [self.scrollViewController scrollToViewControllerAtIndex: 1];
+            [weakSelf.scrollViewController scrollToViewControllerAtIndex: 1];
             
             [weakSelf setupFilterThumbnails];
         }
         else
         {
             [weakSelf startUpdatingPreviewLayer];
-            self.imageCanvas.layer.mask = nil;
-            self.imageCanvas.image = nil;
-            self.imageCanvas.hidden = TRUE;
+            weakSelf.imageCanvas.layer.mask = nil;
+            weakSelf.imageCanvas.image = nil;
+            weakSelf.imageCanvas.hidden = TRUE;
         }
     };
     
@@ -633,11 +634,11 @@
         thumb   = [UIImage scaleImage: fullRes
                                toSize: kDefaultThumbnailSize];
         
-        [[(bz_MainViewController*)weakSelf session] setThumbnailImage: thumb];
-        [[(bz_MainViewController*)weakSelf imageCanvas] setHidden:FALSE];
-        [[[(bz_MainViewController*)weakSelf imageCanvas] layer] setMask:[(BZMaskAdjustment *)[self.session adjustmentWithIdentifier: kAdjustmentTypeMask] layerMaskForSize: kDefaultCameraPreviewSize]];
-        [[(bz_MainViewController*)weakSelf imageCanvas] setImage:thumb];
-        [[(bz_MainViewController*)weakSelf confirmView] presentConfirmationFromEdge: CGRectMaxYEdge forViewController: self];
+        [[weakSelf session] setThumbnailImage: thumb];
+        [[weakSelf imageCanvas] setHidden:FALSE];
+        [[[weakSelf imageCanvas] layer] setMask:[(BZMaskAdjustment *)[self.session adjustmentWithIdentifier: kAdjustmentTypeMask] layerMaskForSize: kDefaultCameraPreviewSize]];
+        [[weakSelf imageCanvas] setImage:thumb];
+        [[weakSelf confirmView] presentConfirmationFromEdge: CGRectMaxYEdge forViewController: self];
         
     }];
 

@@ -51,7 +51,7 @@ typedef void (^BZCaptureManagerFailureBlock)(NSError *err);
  ** User Interface related properties, used by view controllers to specify
  ** which views should be used for previewing capture input, etc.
  *******************************************************************************/
-@property (weak, nonatomic, readonly) AVCaptureVideoPreviewLayer *previewLayer;
+@property (strong, nonatomic, readonly) AVCaptureVideoPreviewLayer *previewLayer;
 
 
 /******************************************************************************** 

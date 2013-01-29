@@ -45,7 +45,7 @@ BMPixel pixelFromHSV(CGFloat H, CGFloat S, CGFloat V) {
 
 void HSVFromPixel(BMPixel pixel, CGFloat* h, CGFloat* s, CGFloat* v) {
     CGFloat rgb_min, rgb_max;
-    CGFloat hsv_hue, hsv_val, hsv_sat;
+    CGFloat hsv_hue = 0.0, hsv_val, hsv_sat;
     rgb_min = MY_MIN3(pixel.red, pixel.green, pixel.blue);
     rgb_max = MY_MAX3(pixel.red, pixel.green, pixel.blue);
     
