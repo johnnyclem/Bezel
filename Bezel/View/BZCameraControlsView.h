@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *takePhoto;
 @property (weak, nonatomic) IBOutlet UIButton *switchCamera;
+@property (weak, nonatomic) IBOutlet UIButton *importFromLibrary;
 
 @end

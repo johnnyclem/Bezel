@@ -17,12 +17,24 @@
     {
         self.takePhoto = [UIButton buttonWithType: UIButtonTypeCustom];
         self.takePhoto.backgroundColor = [UIColor blackColor];
-        [self.takePhoto setBackgroundImage:[UIImage imageNamed:@"takephoto"] forState: UIControlStateNormal];
+        
         self.switchCamera = [UIButton buttonWithType: UIButtonTypeCustom];
         self.switchCamera.backgroundColor = [UIColor blackColor];
         
+        self.importFromLibrary = [UIButton buttonWithType: UIButtonTypeCustom];
+        self.importFromLibrary.backgroundColor = [UIColor blackColor];
+        
+        // TODO replace these with images.
+        [self.takePhoto setTitle:@"shoot" forState: UIControlStateNormal];
+        [self.takePhoto setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
+        [self.switchCamera setTitle:@"switch" forState: UIControlStateNormal];
+        [self.switchCamera setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
+        [self.importFromLibrary setTitle:@"import" forState: UIControlStateNormal];
+        [self.importFromLibrary setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
+        
         [self addSubview: self.takePhoto];
         [self addSubview: self.switchCamera];
+        [self addSubview: self.importFromLibrary];
     }
     return self;
 }
@@ -33,6 +45,7 @@
     CGRectDivide(self.bounds, &left, &center, floorf(self.frame.size.width / 3), CGRectMinXEdge);
     CGRectDivide(center, &center, &right, floorf(self.frame.size.width / 3), CGRectMinXEdge);
     
+    self.importFromLibrary.frame = left;
     self.takePhoto.frame = center;
     self.switchCamera.frame = right;
     
