@@ -13,19 +13,29 @@
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
+    if (self)
+    {
+        self.takePhoto = [UIButton buttonWithType: UIButtonTypeCustom];
+        self.takePhoto.backgroundColor = [UIColor blackColor];
+        [self.takePhoto setBackgroundImage:[UIImage imageNamed:@"takephoto"] forState: UIControlStateNormal];
+        self.switchCamera = [UIButton buttonWithType: UIButtonTypeCustom];
+        self.switchCamera.backgroundColor = [UIColor blackColor];
+        
+        [self addSubview: self.takePhoto];
+        [self addSubview: self.switchCamera];
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void)layoutSubviews
 {
-    // Drawing code
+    CGRect left, center, right;
+    CGRectDivide(self.bounds, &left, &center, floorf(self.frame.size.width / 3), CGRectMinXEdge);
+    CGRectDivide(center, &center, &right, floorf(self.frame.size.width / 3), CGRectMinXEdge);
+    
+    self.takePhoto.frame = center;
+    self.switchCamera.frame = right;
+    
 }
-*/
 
 @end

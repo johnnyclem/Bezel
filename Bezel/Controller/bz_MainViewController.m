@@ -137,17 +137,18 @@
 -(void)setupCamera
 {
     self.imageCanvas.hidden = TRUE;
-//    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
-//    CGRect controlsFrame = CGRectMake(0.0, screenHeight, 320.0, 50.0);
-//    
-//    self.cameraControlsView = [[BZCameraControlsView alloc] initWithFrame: controlsFrame];
-//    [self.view addSubview: self.cameraControlsView];
-//    [self.view bringSubviewToFront: self.cameraControlsView];
-//    
-//    [UIView animateWithDuration: 0.5 animations: ^(void){
-//        self.cameraControlsView.frame = CGRectMake(0.0, screenHeight - 50.0, 320.0, 50.0);
-//    }];
-//    
+    
+    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    CGRect controlsFrame = CGRectMake(0.0, screenHeight, 320.0, 100.0);
+    
+    self.cameraControlsView = [[BZCameraControlsView alloc] initWithFrame: controlsFrame];
+    [self.view addSubview: self.cameraControlsView];
+    [self.view bringSubviewToFront: self.cameraControlsView];
+    
+    [UIView animateWithDuration: 1.0 animations: ^(void){
+        self.cameraControlsView.frame = CGRectMake(0.0, screenHeight - 100.0, 320.0, 100.0);
+    }];
+    
     [self startUpdatingPreviewLayer];
     
 //    // Default to square mask around preview image.
