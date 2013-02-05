@@ -9,6 +9,8 @@
 #import "BZMaskAdjustment.h"
 #import "bz_MaskShapeLayer.h"
 #import "PocketSVG.h"
+#import "UIBezierPath+Shapes.h"
+#import "UIImage+DrawRect.h"
 
 NSString *BZ_SHAPE_NAME_KEY = @"shape_name";
 NSString *BZ_SHAPE_ACCESSIBILITY_LABEL = @"shape_accessibility_label";
@@ -68,10 +70,12 @@ NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
         return nil;
     }
     
-    CGRect rect = CGRectZero;
-    rect.size = inImage.size;
-    
-    UIImage *mask = [self maskFromImageNamed: self.shapeSvgLocalFilename];
+    CGRect rect = CGRectMake(0.0, 0.0, inImage.size.width, inImage.size.height);
+    UIImage *mask = [UIImage imageForSize:rect.size opaque:TRUE withDrawingBlock:^(void)
+    {
+        UIBezierPath* path = [UIBezierPath pathForSize: rect.size withIdentifier: self.shapeName];
+        [path fill];
+    }];
     
     UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0.0); {
         CGContextClipToMask(UIGraphicsGetCurrentContext(), rect, mask.CGImage);
@@ -83,10 +87,10 @@ NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
     return maskedImage;
 }
 
-- (UIImage *)maskFromImageNamed:(NSString *)filename
+- (UIImage *)maskFromImageNamed:(NSString *)filename inRect:(CGRect)rect
 {
     NSAssert(![filename isEqualToString:@""], @"filename must not be nil!");
-    
+
     if ([self.cachedMasks objectForKey: filename])
     {
         LogInfo(@"Image mask for filename: %@ pulled from cache", filename);
@@ -94,28 +98,12 @@ NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
     }
     else
     {   
-        // TODO fix hardcoded values here
-        CGRect rect = CGRectMake(0.0, 0.0, 640.0, 640.0);
-        
         UIGraphicsBeginImageContextWithOptions(rect.size, YES, 0.0);
         {
             [[UIColor blackColor] setFill];
             UIRectFill(rect);
             [[UIColor whiteColor] setFill];
-            UIBezierPath *path = [[PocketSVG alloc] initFromSVGFileNamed: filename].bezier;
-
-//          CGSize aSize = inImage.size;
-//
-//          CGSize bezierSize = path.bounds.size;
-//          CGFloat xScale = aSize.width / bezierSize.width;
-//          CGFloat yScale = aSize.height / bezierSize.height;
-//
-//          CGAffineTransform transform = CGAffineTransformMakeScale(xScale, yScale);
-//          CGPathRef intermediatePath = CGPathCreateCopyByTransformingPath(path.CGPath,
-//                                                                        &transform);
-//
-//          path.CGPath = intermediatePath;
-            
+            UIBezierPath *path = [[PocketSVG alloc] initFromSVGFileNamed: filename].bezier;            
             [path fill];
         }
         
@@ -134,19 +122,10 @@ NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
 {
     CAShapeLayer *layer = [CAShapeLayer layer];
     layer.frame = CGRectMake(0.0, 0.0, size.width, size.height);
-    
-    UIBezierPath *path = [[PocketSVG alloc] initFromSVGFileNamed: self.shapeSvgLocalFilename].bezier;
-    
-    CGSize bezierSize = path.bounds.size;
-    CGFloat xScale = size.width / bezierSize.width;
-    CGFloat yScale = size.height / bezierSize.height;
-    
-    CGAffineTransform transform = CGAffineTransformMakeScale(xScale, yScale);
-    CGPathRef intermediatePath = CGPathCreateCopyByTransformingPath(path.CGPath,
-                                                                    &transform);
-    path.CGPath = intermediatePath;
+    UIBezierPath *path = [UIBezierPath pathForSize:size withIdentifier:self.shapeSvgLocalFilename];    
     layer.path = path.CGPath;
     
+    NSLog(@"creating mask for: %@", self.shapeSvgLocalFilename);
     return layer;
 }
 

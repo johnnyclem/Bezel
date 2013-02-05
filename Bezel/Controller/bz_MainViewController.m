@@ -87,10 +87,6 @@
     [self.view addSubview: self.cameraControlsView];
     [self.view bringSubviewToFront: self.cameraControlsView];
     
-    [UIView animateWithDuration: 1.0 animations: ^(void){
-        self.cameraControlsView.frame = CGRectMake(0.0, screenHeight - 100.0, 320.0, 100.0);
-    }];
-    
     // View defaults
     self.cameraPreview.clipsToBounds = YES;
     self.imageCanvas.clipsToBounds = YES;
