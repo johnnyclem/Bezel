@@ -21,7 +21,7 @@ NSString *const FBSessionStateChangedNotification =
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Setup TestFlight and Crashlytics
-    [TestFlight takeOff:@"beb817405ba8a063e0481992119b00bf_MzY1NzkyMDExLTEwLTI0IDE3OjA4OjE1LjI2NTQwNg"];
+    //[TestFlight takeOff:@"beb817405ba8a063e0481992119b00bf_MzY1NzkyMDExLTEwLTI0IDE3OjA4OjE1LjI2NTQwNg"];
     [Crashlytics startWithAPIKey:@"3c4f5213fd594dc8cb9435c1b4710e2fb2cbe1e6"];
     
     // Register Defaults

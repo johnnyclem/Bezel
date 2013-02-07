@@ -76,17 +76,14 @@
     [self setUpDefaults];
     
     // Set up scroll view
+    __weak bz_MainViewController *weakSelf = self;
     self.scrollViewController = [[bz_ScrollViewController alloc] init];
+    self.scrollViewController.scrolledToIndexCallback = ^(NSInteger idx) {
+        [weakSelf scrollViewControllerScrolledToIndex: idx];
+    };
     [self.scrollViewController setupScrollViewChildren];
     [self.view addSubview: self.scrollViewController.scrollView];
-    
-    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
-    CGRect controlsFrame = CGRectMake(0.0, screenHeight, 320.0, 100.0);
-    
-    self.cameraControlsView = [[BZCameraControlsView alloc] initWithFrame: controlsFrame];
-    [self.view addSubview: self.cameraControlsView];
-    [self.view bringSubviewToFront: self.cameraControlsView];
-    
+
     // View defaults
     self.cameraPreview.clipsToBounds = YES;
     self.imageCanvas.clipsToBounds = YES;
@@ -144,18 +141,8 @@
 -(void)setupCamera
 {
     self.imageCanvas.hidden = TRUE;
-    
-    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
-    CGRect controlsFrame = CGRectMake(0.0, screenHeight, 320.0, 100.0);
-    
-    self.cameraControlsView = [[BZCameraControlsView alloc] initWithFrame: controlsFrame];
-    [self.view addSubview: self.cameraControlsView];
-    [self.view bringSubviewToFront: self.cameraControlsView];
-    
-    [UIView animateWithDuration: 1.0 animations: ^(void){
-        self.cameraControlsView.frame = CGRectMake(0.0, screenHeight - 100.0, 320.0, 100.0);
-    }];
-    
+
+    [self presentCameraControls];
     [self startUpdatingPreviewLayer];
     
 //    // Default to square mask around preview image.
@@ -178,6 +165,35 @@
 {
     [[BZCaptureManager sharedManager] setPreviewLayerWithView: nil];
     self.cameraPreview.hidden = TRUE;
+}
+
+- (void)presentCameraControls
+{
+    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    CGRect controlsFrame = CGRectMake(0.0, screenHeight, 320.0, 100.0);
+    
+    if (self.cameraControlsView == nil)
+    {
+        self.cameraControlsView = [[BZCameraControlsView alloc] initWithFrame: controlsFrame];
+        [self.cameraControlsView.takePhoto addTarget: self action: @selector(takePhoto) forControlEvents: UIControlEventTouchUpInside];
+        [self.cameraControlsView.switchCamera addTarget: self action: @selector(switchCamera) forControlEvents: UIControlEventTouchUpInside];
+        [self.cameraControlsView.importFromLibrary addTarget: self action: @selector(importFromLibrary:) forControlEvents: UIControlEventTouchUpInside];
+    }
+
+    [self.view addSubview: self.cameraControlsView];
+    [self.view bringSubviewToFront: self.cameraControlsView];
+    
+    [UIView animateWithDuration: 1.0 animations: ^(void){
+        self.cameraControlsView.frame = CGRectMake(0.0, screenHeight - 100.0, 320.0, 100.0);
+    }];
+}
+
+- (void)dismissCameraControls
+{
+    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    [UIView animateWithDuration: 1.0 animations: ^(void){
+        self.cameraControlsView.frame = CGRectMake(0.0, screenHeight, 320.0, 100.0);
+    }];
 }
 
 -(void)takePhoto
@@ -244,6 +260,8 @@
                     
                     weakSelf.imageCanvas.layer.mask = nil;
                     weakSelf.imageCanvas.image = [weakSelf.adjustmentProcessor processedThumbnailImage];
+                    
+                    [weakSelf dismissCameraControls];
                     
                     [weakSelf.scrollViewController scrollToViewControllerAtIndex: 1];
                     
@@ -621,7 +639,6 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-
     __block UIImage *fullRes;
     __block UIImage *thumb;
     __weak bz_MainViewController *weakSelf = self;
@@ -634,6 +651,8 @@
             
             weakSelf.imageCanvas.layer.mask = nil;
             weakSelf.imageCanvas.image = [weakSelf.adjustmentProcessor processedThumbnailImage];
+            
+            [weakSelf dismissCameraControls];
             
             [weakSelf.scrollViewController scrollToViewControllerAtIndex: 1];
             
@@ -687,10 +706,6 @@
 {
     __weak id weakSelf = self;
     
-    [self.cameraControlsView.takePhoto addTarget: self action: @selector(takePhoto) forControlEvents: UIControlEventTouchUpInside];
-    [self.cameraControlsView.switchCamera addTarget: self action: @selector(switchCamera) forControlEvents: UIControlEventTouchUpInside];
-    [self.cameraControlsView.importFromLibrary addTarget: self action: @selector(importFromLibrary:) forControlEvents: UIControlEventTouchUpInside];
-    
     [self.scrollViewController.shapesViewController.takePhotoButton addTarget: self action:@selector(takePhoto) forControlEvents:UIControlEventTouchUpInside];
     
     self.scrollViewController.shapesViewController.switchShapeBlock = ^(BZMaskAdjustment *adj)
@@ -723,6 +738,25 @@
     }
 }
 
+- (void)scrollViewControllerScrolledToIndex:(NSInteger)idx
+{
+    bz_ScrollView *scrollView = self.scrollViewController.scrollView;
+    // Handle view controller changing here...
+    [scrollView setContentOffset: CGPointMake(scrollView.contentOffset.x, 0)];
+    scrollView.scrollEnabled = YES;
+    
+    switch (idx) {
+        case 0: // first view controller (camera)
+        {
+            scrollView.scrollEnabled = FALSE;
+            [self setupCamera];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
 -(void)setupFilterThumbnails
 {
     UIImage *currentThumb = self.session.thumbnailImage;
@@ -733,7 +767,7 @@
         filterAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: button.buttonIdentifier, kButtonIdentifier, nil];
         
         // set the preview layer mask to the adjusted mask.
-        button.imageView.image = [filterAdjustment filteredImageWithImage: currentThumb];
+        [button setImage:[filterAdjustment filteredImageWithImage: currentThumb] forState:UIControlStateNormal];
     }
 }
 

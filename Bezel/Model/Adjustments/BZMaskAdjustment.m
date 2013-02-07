@@ -8,7 +8,6 @@
 
 #import "BZMaskAdjustment.h"
 #import "bz_MaskShapeLayer.h"
-#import "PocketSVG.h"
 #import "UIBezierPath+Shapes.h"
 #import "UIImage+DrawRect.h"
 
@@ -98,14 +97,14 @@ NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
     }
     else
     {   
-        UIGraphicsBeginImageContextWithOptions(rect.size, YES, 0.0);
-        {
-            [[UIColor blackColor] setFill];
-            UIRectFill(rect);
-            [[UIColor whiteColor] setFill];
-            UIBezierPath *path = [[PocketSVG alloc] initFromSVGFileNamed: filename].bezier;            
-            [path fill];
-        }
+//        UIGraphicsBeginImageContextWithOptions(rect.size, YES, 0.0);
+//        {
+//            [[UIColor blackColor] setFill];
+//            UIRectFill(rect);
+//            [[UIColor whiteColor] setFill];
+//            UIBezierPath *path = [[PocketSVG alloc] initFromSVGFileNamed: filename].bezier;            
+//            [path fill];
+//        }
         
         UIImage *mask = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();

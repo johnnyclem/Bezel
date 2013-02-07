@@ -118,15 +118,12 @@
 #pragma mark UIScrollView delegate methods
 
 - (void)scrollViewDidScroll:(UIScrollView *)aScrollView
-{
-    [aScrollView setContentOffset: CGPointMake(aScrollView.contentOffset.x, 0)];
-    _scrollView.scrollEnabled = YES;
-    
-    if (aScrollView.contentOffset.x == 0) {
-        LogTrace(@"Scroll view is at original position.");
-        NSDictionary* dict = [NSDictionary dictionaryWithObject:self forKey:@"scrollVC"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"scrolledHome" object:self userInfo:dict];
-        _scrollView.scrollEnabled = NO;
+{    
+    // Mmmmmmmmm ...odulo.
+    int offSetX = floorf(aScrollView.contentOffset.x);
+    int width = floorf(aScrollView.frame.size.width);
+    if ((offSetX % width) == 0) {
+        self.scrolledToIndexCallback(floorf(offSetX/width));
     }
 }
 

@@ -24,6 +24,8 @@
 @property (strong, nonatomic) bz_BackgroundViewController *backgroundViewController;
 @property (strong, nonatomic) bz_ShareViewController *shareViewController;
 
+@property (nonatomic, copy) void (^scrolledToIndexCallback)(NSInteger index);
+
 - (void)setupScrollViewChildren;
 - (void)tearDownScrollViewChildren;
 

@@ -13,7 +13,6 @@
 #import "BZMaskAdjustment.h"
 
 #import "AFNetworking.h"
-#import "PocketSVG.h"
 
 @interface bz_ShapesViewController ()
 
