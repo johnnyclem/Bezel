@@ -79,11 +79,8 @@
 		CC19F8011695F56E001A3828 /* BZMaskAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CC19F7FF1695F56E001A3828 /* BZMaskAdjustment.m */; };
 		CC19F8021695F56E001A3828 /* BZMaskAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CC19F7FF1695F56E001A3828 /* BZMaskAdjustment.m */; };
 		CC1CEEC816C1B74F00196110 /* UIBezierPath+Shapes.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1CEEC516C1B74F00196110 /* UIBezierPath+Shapes.m */; };
-		CC1CEEC916C1B74F00196110 /* UIImage+DrawRect.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1CEEC716C1B74F00196110 /* UIImage+DrawRect.m */; };
 		CC1CEECE16C1B75F00196110 /* UIBezierPath+Shapes.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1CEEC516C1B74F00196110 /* UIBezierPath+Shapes.m */; };
-		CC1CEECF16C1B75F00196110 /* UIImage+DrawRect.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1CEEC716C1B74F00196110 /* UIImage+DrawRect.m */; };
 		CC1CEED016C1B75F00196110 /* UIBezierPath+Shapes.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1CEEC516C1B74F00196110 /* UIBezierPath+Shapes.m */; };
-		CC1CEED116C1B75F00196110 /* UIImage+DrawRect.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1CEEC716C1B74F00196110 /* UIImage+DrawRect.m */; };
 		CC22A4D716B835B100825EFC /* takephoto.png in Resources */ = {isa = PBXBuildFile; fileRef = CC22A4D616B835B100825EFC /* takephoto.png */; };
 		CC22A4D816B835B100825EFC /* takephoto.png in Resources */ = {isa = PBXBuildFile; fileRef = CC22A4D616B835B100825EFC /* takephoto.png */; };
 		CC2CF432167DB2A900A0EDA7 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF420167DB2A900A0EDA7 /* AFHTTPClient.m */; };
@@ -593,8 +590,6 @@
 		CC19F7FF1695F56E001A3828 /* BZMaskAdjustment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZMaskAdjustment.m; path = Adjustments/BZMaskAdjustment.m; sourceTree = "<group>"; };
 		CC1CEEC416C1B74F00196110 /* UIBezierPath+Shapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBezierPath+Shapes.h"; path = "Categories/UIBezierPath+Shapes.h"; sourceTree = "<group>"; };
 		CC1CEEC516C1B74F00196110 /* UIBezierPath+Shapes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBezierPath+Shapes.m"; path = "Categories/UIBezierPath+Shapes.m"; sourceTree = "<group>"; };
-		CC1CEEC616C1B74F00196110 /* UIImage+DrawRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+DrawRect.h"; path = "Categories/UIImage+DrawRect.h"; sourceTree = "<group>"; };
-		CC1CEEC716C1B74F00196110 /* UIImage+DrawRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+DrawRect.m"; path = "Categories/UIImage+DrawRect.m"; sourceTree = "<group>"; };
 		CC22A4D616B835B100825EFC /* takephoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = takephoto.png; path = Resources/takephoto.png; sourceTree = "<group>"; };
 		CC2CF41F167DB2A900A0EDA7 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		CC2CF420167DB2A900A0EDA7 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
@@ -1262,8 +1257,6 @@
 			children = (
 				CC1CEEC416C1B74F00196110 /* UIBezierPath+Shapes.h */,
 				CC1CEEC516C1B74F00196110 /* UIBezierPath+Shapes.m */,
-				CC1CEEC616C1B74F00196110 /* UIImage+DrawRect.h */,
-				CC1CEEC716C1B74F00196110 /* UIImage+DrawRect.m */,
 				EF9449CE1672C7410068663F /* GPUImageExposure+Contrast.h */,
 				EF9449CF1672C7410068663F /* GPUImageExposure+Contrast.m */,
 				EFBC7B28167554DF00962C96 /* UIImage+Utils.h */,
@@ -1966,7 +1959,6 @@
 				963098BC16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m in Sources */,
 				965BAD6216B774D9007193BE /* BZCameraControlsView.m in Sources */,
 				CC1CEECE16C1B75F00196110 /* UIBezierPath+Shapes.m in Sources */,
-				CC1CEECF16C1B75F00196110 /* UIImage+DrawRect.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2056,7 +2048,6 @@
 				963098BB16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m in Sources */,
 				965BAD6116B774D9007193BE /* BZCameraControlsView.m in Sources */,
 				CC1CEEC816C1B74F00196110 /* UIBezierPath+Shapes.m in Sources */,
-				CC1CEEC916C1B74F00196110 /* UIImage+DrawRect.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2144,7 +2135,6 @@
 				963098BD16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m in Sources */,
 				965BAD6316B774D9007193BE /* BZCameraControlsView.m in Sources */,
 				CC1CEED016C1B75F00196110 /* UIBezierPath+Shapes.m in Sources */,
-				CC1CEED116C1B75F00196110 /* UIImage+DrawRect.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

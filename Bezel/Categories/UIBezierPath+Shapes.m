@@ -23,8 +23,6 @@
         [circlePath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + 0.95000 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.50000 * CGRectGetHeight(frame)) controlPoint1: CGPointMake(CGRectGetMinX(frame) + 0.74853 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.95000 * CGRectGetHeight(frame)) controlPoint2: CGPointMake(CGRectGetMinX(frame) + 0.95000 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.74854 * CGRectGetHeight(frame))];
         [circlePath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + 0.50001 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.05000 * CGRectGetHeight(frame)) controlPoint1: CGPointMake(CGRectGetMinX(frame) + 0.95000 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.25147 * CGRectGetHeight(frame)) controlPoint2: CGPointMake(CGRectGetMinX(frame) + 0.74853 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.05000 * CGRectGetHeight(frame))];
         [circlePath closePath];
-        [[UIColor blackColor] setFill];
-        [circlePath fill];
         bezierPath = circlePath;
     } else if ([identifier isEqualToString:@"Triangle"]) {
         UIBezierPath* trianglePath = [UIBezierPath bezierPath];
@@ -33,8 +31,6 @@
         [trianglePath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 0.95000 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.10000 * CGRectGetHeight(frame))];
         [trianglePath addLineToPoint: CGPointMake(CGRectGetMinX(frame) + 0.05000 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.10000 * CGRectGetHeight(frame))];
         [trianglePath closePath];
-        [[UIColor blackColor] setFill];
-        [trianglePath fill];
         bezierPath = trianglePath;
     } else {
         bezierPath = [UIBezierPath bezierPath];
@@ -88,9 +84,6 @@
         [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + 0.88993 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.68968 * CGRectGetHeight(frame)) controlPoint1: CGPointMake(CGRectGetMinX(frame) + 0.88762 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.69294 * CGRectGetHeight(frame)) controlPoint2: CGPointMake(CGRectGetMinX(frame) + 0.88887 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.69141 * CGRectGetHeight(frame))];
         [bezierPath addCurveToPoint: CGPointMake(CGRectGetMinX(frame) + 0.91072 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.64568 * CGRectGetHeight(frame)) controlPoint1: CGPointMake(CGRectGetMinX(frame) + 0.89097 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.68792 * CGRectGetHeight(frame)) controlPoint2: CGPointMake(CGRectGetMinX(frame) + 0.90001 * CGRectGetWidth(frame), CGRectGetMinY(frame) + 0.67294 * CGRectGetHeight(frame))];
         [bezierPath closePath];
-        [[UIColor blackColor] setFill];
-        [bezierPath fill];
-   
     }
 
     return bezierPath;

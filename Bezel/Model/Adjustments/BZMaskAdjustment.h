@@ -17,8 +17,6 @@ NSString* const kAdjustmentTypeMask;
 @property (strong, nonatomic, readonly) NSString *shapeName;
 @property (strong, nonatomic, readonly) NSString *shapeAccessibilityLabel;
 @property (strong, nonatomic, readonly) NSString *shapeAccessibilityHint;
-@property (strong, nonatomic, readonly) NSString *shapeSvgRemoteHref;
-@property (strong, nonatomic, readonly) NSString *shapeSvgLocalFilename;
 
 - (id)initWithDictionary:(NSDictionary *)dict;
 
