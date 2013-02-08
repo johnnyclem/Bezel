@@ -57,32 +57,22 @@ NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
 
 - (UIImage *)processImage:(UIImage *)inImage
 {
-    if (!inImage)
-    {
+    if (!inImage) {
         return nil;
     }
     
     CGRect rect = CGRectMake(0.0, 0.0, inImage.size.width, inImage.size.height);
-
-    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0.0);
-    {
-        UIBezierPath* path = [UIBezierPath pathForSize: rect.size withIdentifier: self.shapeName];
-        [path fill];
-    }
+    UIBezierPath *path = [UIBezierPath pathForSize: rect.size withIdentifier: self.shapeName];
     
-    UIImage *mask = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextAddPath(context, path.CGPath);
+    CGContextClip(context);
+    [inImage drawAtPoint:CGPointZero];
+    UIImage *outImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    UIGraphicsBeginImageContextWithOptions(rect.size, YES, 0.0);
-    {
-        CGContextClipToMask(UIGraphicsGetCurrentContext(), rect, mask.CGImage);
-        [inImage drawAtPoint:CGPointZero];
-    }
-    
-    UIImage *maskedImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return maskedImage;
+    return outImage;
 }
 
 - (CAShapeLayer *)layerMaskForSize:(CGSize)size

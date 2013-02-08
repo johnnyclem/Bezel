@@ -14,6 +14,7 @@
 @interface bz_ShapesViewController : bz_ViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (strong, nonatomic) UICollectionView *shapesCollectionView;
+@property (strong, nonatomic, readonly) NSMutableArray *shapes;
 @property (strong, nonatomic) UIButton *takePhotoButton;
 
 @property (nonatomic, copy) void (^switchShapeBlock)(BZMaskAdjustment *adj);

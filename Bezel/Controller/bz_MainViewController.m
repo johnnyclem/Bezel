@@ -145,14 +145,10 @@
     [self presentCameraControls];
     [self startUpdatingPreviewLayer];
     
-//    // Default to square mask around preview image.
-//    BZMaskAdjustment *maskAdjustment = [[BZMaskAdjustment alloc] init];
-//    maskAdjustment.identifier = kAdjustmentTypeMask;
-//    maskAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: kButtonIdentifierSquareMask, kButtonIdentifier, nil];
-//    [self.session addAdjustment: maskAdjustment];
-//    
-//    self.cameraPreview.layer.mask = [maskAdjustment layerMaskForSize: kDefaultCameraPreviewSize];
-//    self.imageCanvas.layer.mask = [maskAdjustment layerMaskForSize: kDefaultCameraPreviewSize];
+    BZMaskAdjustment *defaultAdj = [self.scrollViewController.shapesViewController.shapes objectAtIndex:0];
+    if (defaultAdj) {
+        [self switchShape: defaultAdj];
+    }
 }
 
 - (void)startUpdatingPreviewLayer
@@ -265,7 +261,7 @@
                     
                     [weakSelf.scrollViewController scrollToViewControllerAtIndex: 1];
                     
-                    [weakSelf setupFilterThumbnails];
+                    [weakSelf performSelectorInBackground:@selector(setupFilterThumbnails) withObject:nil];
                 }
                 else
                 {
@@ -673,14 +669,13 @@
         thumb   = [UIImage scaleImage: fullRes
                                toSize: kDefaultThumbnailSize];
         
-        [[weakSelf session] setThumbnailImage: thumb];
-        [[weakSelf imageCanvas] setHidden:FALSE];
-        [[[weakSelf imageCanvas] layer] setMask:[(BZMaskAdjustment *)[self.session adjustmentWithIdentifier: kAdjustmentTypeMask] layerMaskForSize: kDefaultCameraPreviewSize]];
-        [[weakSelf imageCanvas] setImage:thumb];
-        [[weakSelf confirmView] presentConfirmationFromEdge: CGRectMaxYEdge forViewController: self];
+        weakSelf.session.thumbnailImage = thumb;
+        weakSelf.imageCanvas.hidden = FALSE;
+        weakSelf.imageCanvas.image = thumb;
+        weakSelf.imageCanvas.layer.mask = [(BZMaskAdjustment *)[self.session adjustmentWithIdentifier: kAdjustmentTypeMask] layerMaskForSize: kDefaultCameraPreviewSize];
         
+        [weakSelf.confirmView presentConfirmationFromEdge: CGRectMaxYEdge forViewController: self];
     }];
-
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
