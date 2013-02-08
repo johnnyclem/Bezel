@@ -38,8 +38,8 @@
 {
     [super viewWillAppear: animated];
     
-    CGRect shapesCollectionViewFrame = CGRectMake(0.0, 0.0, 265.0, 50.0);
-    CGRect shapesCollectionViewShowMoreButtonFrame = CGRectMake(270.0, 0.0, 50.0, 50.0);
+    CGRect shapesCollectionViewFrame = CGRectMake(0.0, 0.0, 290.0, 50.0);
+    CGRect shapesCollectionViewShowMoreButtonFrame = CGRectMake(300.0, 0.0, 20.0, 50.0);
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumInteritemSpacing = 0;
@@ -49,15 +49,14 @@
     self.shapesCollectionView = [[UICollectionView alloc] initWithFrame: shapesCollectionViewFrame collectionViewLayout: layout];
     self.shapesCollectionView.dataSource = self;
     self.shapesCollectionView.delegate = self;
-    self.shapesCollectionView.contentInset = UIEdgeInsetsMake(0.0, 5.0, 0.0, 5.0);
+    self.shapesCollectionView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
     self.shapesCollectionView.scrollEnabled = FALSE;
     
     UIButton *showMoreButton = [UIButton buttonWithType: UIButtonTypeCustom];
     showMoreButton.frame = shapesCollectionViewShowMoreButtonFrame;
-    showMoreButton.titleLabel.text = @"HI";
-    showMoreButton.titleLabel.font = [UIFont boldSystemFontOfSize: [UIFont systemFontSize]];
+    [showMoreButton setTitle:@"+" forState: UIControlStateNormal];
+    showMoreButton.titleLabel.font = [UIFont boldSystemFontOfSize: 24.0];
     showMoreButton.titleLabel.textColor = [UIColor whiteColor];
-    showMoreButton.backgroundColor = [UIColor redColor];
     [showMoreButton addTarget: self action: @selector(showMoreShapes) forControlEvents: UIControlEventTouchUpInside];
     [self.view addSubview: showMoreButton];
     
@@ -225,9 +224,8 @@
         self.showAllShapes = FALSE;
         
         [UIView animateWithDuration: 1.0 animations: ^(void) {
-            self.shapesCollectionView.frame = CGRectMake(0.0, 0.0, 265.0, 50.0);
+            self.shapesCollectionView.frame = CGRectMake(0.0, 0.0, 290.0, 50.0);
         } completion: ^(BOOL completion) {
-            [self.shapesCollectionView reloadData];
         }];
     }
     
