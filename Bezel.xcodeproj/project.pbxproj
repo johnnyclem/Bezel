@@ -2294,8 +2294,8 @@
 		EF2587DF166EC66400A2225E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Josh Buchacher (CP9EUHCPPP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Josh Buchacher (CP9EUHCPPP)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -2313,8 +2313,8 @@
 				);
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "4F612C96-4A68-41D3-9C00-9832A7090D84";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4F612C96-4A68-41D3-9C00-9832A7090D84";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

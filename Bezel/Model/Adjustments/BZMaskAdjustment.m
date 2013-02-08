@@ -13,6 +13,7 @@
 NSString *BZ_SHAPE_NAME_KEY = @"shape_name";
 NSString *BZ_SHAPE_ACCESSIBILITY_LABEL = @"shape_accessibility_label";
 NSString *BZ_SHAPE_ACCESSIBILITY_HINT = @"shape_accessibility_hint";
+NSString *BZ_SHAPE_DRAWING_STRING_KEY = @"shape_drawing_string";
 
 NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
 
@@ -24,6 +25,7 @@ NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
 @property (strong, nonatomic) NSString *shapeName;
 @property (strong, nonatomic) NSString *shapeAccessibilityLabel;
 @property (strong, nonatomic) NSString *shapeAccessibilityHint;
+@property (strong, nonatomic) NSString *shapeDrawingString;
 
 @end
 
@@ -44,6 +46,8 @@ NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
         self.shapeName = [dict valueForKey: BZ_SHAPE_NAME_KEY];
         self.shapeAccessibilityLabel = [dict valueForKey: BZ_SHAPE_ACCESSIBILITY_LABEL];
         self.shapeAccessibilityHint = [dict valueForKey: BZ_SHAPE_ACCESSIBILITY_HINT];
+        
+        self.shapeDrawingString = [dict valueForKey: BZ_SHAPE_DRAWING_STRING_KEY];
     }
     
     return self;
@@ -62,7 +66,7 @@ NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
     }
     
     CGRect rect = CGRectMake(0.0, 0.0, inImage.size.width, inImage.size.height);
-    UIBezierPath *path = [UIBezierPath pathForSize: rect.size withIdentifier: self.shapeName];
+    UIBezierPath *path = [UIBezierPath pathFromString: self.shapeDrawingString forSize: rect.size];
     
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -79,7 +83,7 @@ NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
 {
     CAShapeLayer *layer = [CAShapeLayer layer];
     layer.frame = CGRectMake(0.0, 0.0, size.width, size.height);
-    UIBezierPath *path = [UIBezierPath pathForSize:size withIdentifier:self.shapeName];
+    UIBezierPath *path = [UIBezierPath pathFromString: self.shapeDrawingString forSize: size];
     layer.path = path.CGPath;
     LogInfo(@"Creating mask for: %@", self.shapeName);
     return layer;

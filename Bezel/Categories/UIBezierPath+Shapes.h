@@ -16,7 +16,6 @@ typedef enum {
     BZShapeTypeTriangle
 } BZShapeIdentifier;
 
-+ (UIBezierPath*)pathForSize:(CGSize)size withIdentifier:(NSString*)identifier;
-
++ (UIBezierPath *)pathFromString:(NSString *)string forSize:(CGSize)size;
 
 @end
