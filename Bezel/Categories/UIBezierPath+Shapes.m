@@ -63,7 +63,7 @@
                         if ([val hasPrefix: getMinX]) {
                             pt.x = CGRectGetMinX(frame)+mltplr*CGRectGetWidth(frame);
                         } else if ([val hasPrefix: getMinY]) {
-                            pt.y = CGRectGetMinX(frame)+mltplr*CGRectGetHeight(frame);
+                            pt.y = CGRectGetMinY(frame)+mltplr*CGRectGetHeight(frame);
                         }
                     }
                     [smplPts addObject: [NSValue valueWithCGPoint: pt]];
