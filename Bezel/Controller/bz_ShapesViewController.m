@@ -84,9 +84,10 @@
 - (void)showMoreShapes
 {
     self.showAllShapes = TRUE;
+    self.shapesCollectionView.scrollEnabled = TRUE;
     [self.shapesCollectionView reloadData];
     
-    [UIView animateWithDuration: 1.0 animations: ^(void) {
+    [UIView animateWithDuration: 0.5 animations: ^(void) {
         self.shapesCollectionView.frame = self.view.frame;
      } completion: ^(BOOL completion) {
     }];
@@ -222,8 +223,9 @@
     if (self.showAllShapes)
     {
         self.showAllShapes = FALSE;
+        self.shapesCollectionView.scrollEnabled = FALSE;
         
-        [UIView animateWithDuration: 1.0 animations: ^(void) {
+        [UIView animateWithDuration: 0.5 animations: ^(void) {
             self.shapesCollectionView.frame = CGRectMake(0.0, 0.0, 290.0, 50.0);
         } completion: ^(BOOL completion) {
         }];

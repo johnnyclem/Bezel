@@ -1168,11 +1168,11 @@
 				EF258802166EC83700A2225E /* bz_Storyboard_iPhone.storyboard */,
 				EF2587E4166EC75F00A2225E /* bz_View.h */,
 				EF2587E5166EC75F00A2225E /* bz_View.m */,
+				965BAD5F16B774D9007193BE /* BZCameraControlsView.h */,
+				965BAD6016B774D9007193BE /* BZCameraControlsView.m */,
 				963098B916B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.h */,
 				963098BA16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m */,
 				963098B516B6256A00B53257 /* BZMaskAdjustmentCollectionViewCell.xib */,
-				965BAD5F16B774D9007193BE /* BZCameraControlsView.h */,
-				965BAD6016B774D9007193BE /* BZCameraControlsView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";

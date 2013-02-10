@@ -10,8 +10,7 @@
 
 @interface BZCameraControlsView : UIView
 
-@property (weak, nonatomic) IBOutlet UIButton *takePhoto;
-@property (weak, nonatomic) IBOutlet UIButton *switchCamera;
-@property (weak, nonatomic) IBOutlet UIButton *importFromLibrary;
-
+@property (weak, nonatomic) UIButton *takePhoto;
+@property (weak, nonatomic) UIButton *switchCamera;
+@property (weak, nonatomic) UIButton *showShapes;
 @end

@@ -98,7 +98,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated
-{    
+{
     [super viewDidAppear:animated];
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -153,7 +153,7 @@
 
 - (void)startUpdatingPreviewLayer
 {
-    [[BZCaptureManager sharedManager] setPreviewLayerWithView: self.cameraPreview];
+    [[BZCaptureManager sharedManager] performSelectorInBackground:@selector(setPreviewLayerWithView:) withObject: self.cameraPreview];
     self.cameraPreview.hidden = FALSE;
 }
 
@@ -173,13 +173,12 @@
         self.cameraControlsView = [[BZCameraControlsView alloc] initWithFrame: controlsFrame];
         [self.cameraControlsView.takePhoto addTarget: self action: @selector(takePhoto) forControlEvents: UIControlEventTouchUpInside];
         [self.cameraControlsView.switchCamera addTarget: self action: @selector(switchCamera) forControlEvents: UIControlEventTouchUpInside];
-        [self.cameraControlsView.importFromLibrary addTarget: self action: @selector(importFromLibrary:) forControlEvents: UIControlEventTouchUpInside];
+        [self.cameraControlsView.showShapes addTarget: self action: @selector(showShapes) forControlEvents: UIControlEventTouchUpInside];
+        [self.view addSubview: self.cameraControlsView];
+        [self.view bringSubviewToFront: self.cameraControlsView];
     }
-
-    [self.view addSubview: self.cameraControlsView];
-    [self.view bringSubviewToFront: self.cameraControlsView];
     
-    [UIView animateWithDuration: 1.0 animations: ^(void){
+    [UIView animateWithDuration: 0.5 animations: ^(void){
         self.cameraControlsView.frame = CGRectMake(0.0, screenHeight - 100.0, 320.0, 100.0);
     }];
 }
@@ -187,7 +186,7 @@
 - (void)dismissCameraControls
 {
     CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
-    [UIView animateWithDuration: 1.0 animations: ^(void){
+    [UIView animateWithDuration: 0.5 animations: ^(void){
         self.cameraControlsView.frame = CGRectMake(0.0, screenHeight, 320.0, 100.0);
     }];
 }
@@ -293,6 +292,27 @@
     [[BZCaptureManager sharedManager] toggleCamera];
 }
 
+#pragma mark - Shapes
+
+-(void)switchShape:(BZMaskAdjustment *)adj
+{
+    [self presentCameraControls];
+    
+    adj.identifier = kAdjustmentTypeMask;
+    
+    [self.session addAdjustment: adj];
+    
+    self.cameraPreview.layer.mask = [adj layerMaskForSize: self.cameraPreview.frame.size];
+    self.imageCanvas.layer.mask = [adj layerMaskForSize: self.cameraPreview.frame.size];
+    
+    self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
+}
+
+- (void)showShapes
+{
+    [self dismissCameraControls];
+}
+
 #pragma mark - Adjustments
 
 -(void)switchBackground:(bz_Button *)button
@@ -328,18 +348,6 @@
     }
     
     [self.session addAdjustment: backgroundAdjustment];
-
-    self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
-}
-
--(void)switchShape:(BZMaskAdjustment *)adj
-{
-    adj.identifier = kAdjustmentTypeMask;
-    
-    [self.session addAdjustment: adj];
-    
-    self.cameraPreview.layer.mask = [adj layerMaskForSize: self.cameraPreview.frame.size];
-    self.imageCanvas.layer.mask = [adj layerMaskForSize: self.cameraPreview.frame.size];
 
     self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
 }
@@ -441,7 +449,7 @@
 
 #pragma mark - Importing
 
--(IBAction)importFromLibrary:(id)sender
+-(IBAction)importFromLibrary
 {
     [self stopUpdatingPreviewLayer];
     
@@ -700,8 +708,6 @@
 - (void)setUpButtonTargets
 {
     __weak id weakSelf = self;
-    
-    [self.scrollViewController.shapesViewController.takePhotoButton addTarget: self action:@selector(takePhoto) forControlEvents:UIControlEventTouchUpInside];
     
     self.scrollViewController.shapesViewController.switchShapeBlock = ^(BZMaskAdjustment *adj)
     {

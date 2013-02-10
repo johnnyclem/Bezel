@@ -386,9 +386,8 @@
 
         // Init the device inputs
         self.videoInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self backFacingCamera] error:&error];
-        self.audioInput = [[AVCaptureDeviceInput alloc] initWithDevice:[self audioDevice] error:&error];
 
-        NSArray *inputs = [NSArray arrayWithObjects: self.videoInput, self.audioInput, nil];
+        NSArray *inputs = [NSArray arrayWithObjects: self.videoInput, nil];
         for (AVCaptureDeviceInput *input in inputs) {
             [self _addInput: input];
         }
