@@ -7,51 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9630986E16B6142000B53257 /* Anchor.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630985F16B6142000B53257 /* Anchor.svg */; };
-		9630986F16B6142000B53257 /* Anchor.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630985F16B6142000B53257 /* Anchor.svg */; };
-		9630987016B6142000B53257 /* Arrow.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986016B6142000B53257 /* Arrow.svg */; };
-		9630987116B6142000B53257 /* Arrow.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986016B6142000B53257 /* Arrow.svg */; };
-		9630987216B6142000B53257 /* Circle.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986116B6142000B53257 /* Circle.svg */; };
-		9630987316B6142000B53257 /* Circle.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986116B6142000B53257 /* Circle.svg */; };
-		9630987416B6142000B53257 /* Cross.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986216B6142000B53257 /* Cross.svg */; };
-		9630987516B6142000B53257 /* Cross.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986216B6142000B53257 /* Cross.svg */; };
-		9630987616B6142000B53257 /* Heart.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986316B6142000B53257 /* Heart.svg */; };
-		9630987716B6142000B53257 /* Heart.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986316B6142000B53257 /* Heart.svg */; };
-		9630987816B6142000B53257 /* Hexagon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986416B6142000B53257 /* Hexagon.svg */; };
-		9630987916B6142000B53257 /* Hexagon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986416B6142000B53257 /* Hexagon.svg */; };
-		9630987A16B6142000B53257 /* Lightning.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986516B6142000B53257 /* Lightning.svg */; };
-		9630987B16B6142000B53257 /* Lightning.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986516B6142000B53257 /* Lightning.svg */; };
-		9630987C16B6142000B53257 /* Ornament.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986616B6142000B53257 /* Ornament.svg */; };
-		9630987D16B6142000B53257 /* Ornament.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986616B6142000B53257 /* Ornament.svg */; };
-		9630987E16B6142000B53257 /* Oval.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986716B6142000B53257 /* Oval.svg */; };
-		9630987F16B6142000B53257 /* Oval.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986716B6142000B53257 /* Oval.svg */; };
-		9630988016B6142000B53257 /* Rectangle.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986816B6142000B53257 /* Rectangle.svg */; };
-		9630988116B6142000B53257 /* Rectangle.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986816B6142000B53257 /* Rectangle.svg */; };
-		9630988216B6142000B53257 /* Square.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986916B6142000B53257 /* Square.svg */; };
-		9630988316B6142000B53257 /* Square.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986916B6142000B53257 /* Square.svg */; };
-		9630988416B6142000B53257 /* Star.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986A16B6142000B53257 /* Star.svg */; };
-		9630988516B6142000B53257 /* Star.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986A16B6142000B53257 /* Star.svg */; };
-		9630988616B6142000B53257 /* Teardrop.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986B16B6142000B53257 /* Teardrop.svg */; };
-		9630988716B6142000B53257 /* Teardrop.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986B16B6142000B53257 /* Teardrop.svg */; };
-		9630988816B6142000B53257 /* Tree.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986C16B6142000B53257 /* Tree.svg */; };
-		9630988916B6142000B53257 /* Tree.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986C16B6142000B53257 /* Tree.svg */; };
-		9630988A16B6142000B53257 /* Triangle.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986D16B6142000B53257 /* Triangle.svg */; };
-		9630988B16B6142000B53257 /* Triangle.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986D16B6142000B53257 /* Triangle.svg */; };
-		9630988C16B6142800B53257 /* Anchor.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630985F16B6142000B53257 /* Anchor.svg */; };
-		9630988D16B6142800B53257 /* Arrow.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986016B6142000B53257 /* Arrow.svg */; };
-		9630988E16B6142800B53257 /* Circle.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986116B6142000B53257 /* Circle.svg */; };
-		9630988F16B6142800B53257 /* Cross.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986216B6142000B53257 /* Cross.svg */; };
-		9630989016B6142800B53257 /* Heart.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986316B6142000B53257 /* Heart.svg */; };
-		9630989116B6142800B53257 /* Hexagon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986416B6142000B53257 /* Hexagon.svg */; };
-		9630989216B6142800B53257 /* Lightning.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986516B6142000B53257 /* Lightning.svg */; };
-		9630989316B6142800B53257 /* Ornament.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986616B6142000B53257 /* Ornament.svg */; };
-		9630989416B6142800B53257 /* Oval.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986716B6142000B53257 /* Oval.svg */; };
-		9630989516B6142800B53257 /* Rectangle.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986816B6142000B53257 /* Rectangle.svg */; };
-		9630989616B6142800B53257 /* Square.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986916B6142000B53257 /* Square.svg */; };
-		9630989716B6142800B53257 /* Star.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986A16B6142000B53257 /* Star.svg */; };
-		9630989816B6142800B53257 /* Teardrop.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986B16B6142000B53257 /* Teardrop.svg */; };
-		9630989916B6142800B53257 /* Tree.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986C16B6142000B53257 /* Tree.svg */; };
-		9630989A16B6142800B53257 /* Triangle.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9630986D16B6142000B53257 /* Triangle.svg */; };
 		963098A816B619B000B53257 /* shapes.json in Resources */ = {isa = PBXBuildFile; fileRef = 963098A716B619B000B53257 /* shapes.json */; };
 		963098A916B619B000B53257 /* shapes.json in Resources */ = {isa = PBXBuildFile; fileRef = 963098A716B619B000B53257 /* shapes.json */; };
 		963098AA16B619B000B53257 /* shapes.json in Resources */ = {isa = PBXBuildFile; fileRef = 963098A716B619B000B53257 /* shapes.json */; };
@@ -84,8 +39,6 @@
 		CC1CEEC816C1B74F00196110 /* UIBezierPath+Shapes.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1CEEC516C1B74F00196110 /* UIBezierPath+Shapes.m */; };
 		CC1CEECE16C1B75F00196110 /* UIBezierPath+Shapes.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1CEEC516C1B74F00196110 /* UIBezierPath+Shapes.m */; };
 		CC1CEED016C1B75F00196110 /* UIBezierPath+Shapes.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1CEEC516C1B74F00196110 /* UIBezierPath+Shapes.m */; };
-		CC22A4D716B835B100825EFC /* takephoto.png in Resources */ = {isa = PBXBuildFile; fileRef = CC22A4D616B835B100825EFC /* takephoto.png */; };
-		CC22A4D816B835B100825EFC /* takephoto.png in Resources */ = {isa = PBXBuildFile; fileRef = CC22A4D616B835B100825EFC /* takephoto.png */; };
 		CC2CF432167DB2A900A0EDA7 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF420167DB2A900A0EDA7 /* AFHTTPClient.m */; };
 		CC2CF433167DB2A900A0EDA7 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF422167DB2A900A0EDA7 /* AFHTTPRequestOperation.m */; };
 		CC2CF434167DB2A900A0EDA7 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF424167DB2A900A0EDA7 /* AFImageRequestOperation.m */; };
@@ -236,7 +189,6 @@
 		CC821FDA167E531400445EAC /* normal.png in Resources */ = {isa = PBXBuildFile; fileRef = EF5011C416766F640033B574 /* normal.png */; };
 		CC821FDF167E531400445EAC /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF5011E5167673A00033B574 /* test.jpg */; };
 		CC821FE0167E531400445EAC /* patternBg.png in Resources */ = {isa = PBXBuildFile; fileRef = EF50125B16771B600033B574 /* patternBg.png */; };
-		CC821FE1167E531400445EAC /* bz_StoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFCF218E167741B100FDFAA2 /* bz_StoreView.xib */; };
 		CC821FE8167E531400445EAC /* holidayBackgrounds.png in Resources */ = {isa = PBXBuildFile; fileRef = EF6EBDEB16785F42001B25DD /* holidayBackgrounds.png */; };
 		CC821FE9167E531400445EAC /* standardBackgrounds.png in Resources */ = {isa = PBXBuildFile; fileRef = EF6EBDEC16785F42001B25DD /* standardBackgrounds.png */; };
 		CC821FEB167E531400445EAC /* tutorial1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF9B2D0E1678905A0012024E /* tutorial1.jpg */; };
@@ -460,7 +412,6 @@
 		EFA0883316715AA100AA6992 /* standardShapes.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA0882F16715AA100AA6992 /* standardShapes.png */; };
 		EFBC7B2A167554DF00962C96 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBC7B29167554DF00962C96 /* UIImage+Utils.m */; };
 		EFBC7B2B167554DF00962C96 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBC7B29167554DF00962C96 /* UIImage+Utils.m */; };
-		EFCF218F167741B100FDFAA2 /* bz_StoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFCF218E167741B100FDFAA2 /* bz_StoreView.xib */; };
 		EFDE980316755AC4006FB1AC /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDE980216755AC4006FB1AC /* Accelerate.framework */; };
 		EFDE980516755ACC006FB1AC /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDE980416755ACC006FB1AC /* ImageIO.framework */; };
 		EFDE980716755AD6006FB1AC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDE980616755AD6006FB1AC /* MobileCoreServices.framework */; };
@@ -559,21 +510,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9630985F16B6142000B53257 /* Anchor.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Anchor.svg; path = Resources/Shapes/Anchor.svg; sourceTree = "<group>"; };
-		9630986016B6142000B53257 /* Arrow.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Arrow.svg; path = Resources/Shapes/Arrow.svg; sourceTree = "<group>"; };
-		9630986116B6142000B53257 /* Circle.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Circle.svg; path = Resources/Shapes/Circle.svg; sourceTree = "<group>"; };
-		9630986216B6142000B53257 /* Cross.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Cross.svg; path = Resources/Shapes/Cross.svg; sourceTree = "<group>"; };
-		9630986316B6142000B53257 /* Heart.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Heart.svg; path = Resources/Shapes/Heart.svg; sourceTree = "<group>"; };
-		9630986416B6142000B53257 /* Hexagon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Hexagon.svg; path = Resources/Shapes/Hexagon.svg; sourceTree = "<group>"; };
-		9630986516B6142000B53257 /* Lightning.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Lightning.svg; path = Resources/Shapes/Lightning.svg; sourceTree = "<group>"; };
-		9630986616B6142000B53257 /* Ornament.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Ornament.svg; path = Resources/Shapes/Ornament.svg; sourceTree = "<group>"; };
-		9630986716B6142000B53257 /* Oval.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Oval.svg; path = Resources/Shapes/Oval.svg; sourceTree = "<group>"; };
-		9630986816B6142000B53257 /* Rectangle.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Rectangle.svg; path = Resources/Shapes/Rectangle.svg; sourceTree = "<group>"; };
-		9630986916B6142000B53257 /* Square.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Square.svg; path = Resources/Shapes/Square.svg; sourceTree = "<group>"; };
-		9630986A16B6142000B53257 /* Star.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Star.svg; path = Resources/Shapes/Star.svg; sourceTree = "<group>"; };
-		9630986B16B6142000B53257 /* Teardrop.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Teardrop.svg; path = Resources/Shapes/Teardrop.svg; sourceTree = "<group>"; };
-		9630986C16B6142000B53257 /* Tree.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Tree.svg; path = Resources/Shapes/Tree.svg; sourceTree = "<group>"; };
-		9630986D16B6142000B53257 /* Triangle.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Triangle.svg; path = Resources/Shapes/Triangle.svg; sourceTree = "<group>"; };
 		963098A716B619B000B53257 /* shapes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = shapes.json; path = "Mock Data/shapes.json"; sourceTree = "<group>"; };
 		963098B516B6256A00B53257 /* BZMaskAdjustmentCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BZMaskAdjustmentCollectionViewCell.xib; path = View/BZMaskAdjustmentCollectionViewCell.xib; sourceTree = "<group>"; };
 		963098B916B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZMaskAdjustmentCollectionViewCell.h; path = View/BZMaskAdjustmentCollectionViewCell.h; sourceTree = "<group>"; };
@@ -595,7 +531,6 @@
 		CC19F7FF1695F56E001A3828 /* BZMaskAdjustment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZMaskAdjustment.m; path = Adjustments/BZMaskAdjustment.m; sourceTree = "<group>"; };
 		CC1CEEC416C1B74F00196110 /* UIBezierPath+Shapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBezierPath+Shapes.h"; path = "Categories/UIBezierPath+Shapes.h"; sourceTree = "<group>"; };
 		CC1CEEC516C1B74F00196110 /* UIBezierPath+Shapes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBezierPath+Shapes.m"; path = "Categories/UIBezierPath+Shapes.m"; sourceTree = "<group>"; };
-		CC22A4D616B835B100825EFC /* takephoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = takephoto.png; path = Resources/takephoto.png; sourceTree = "<group>"; };
 		CC2CF41F167DB2A900A0EDA7 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		CC2CF420167DB2A900A0EDA7 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		CC2CF421167DB2A900A0EDA7 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -787,7 +722,6 @@
 		EFA0882F16715AA100AA6992 /* standardShapes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = standardShapes.png; path = "Third Party/FlipTransform/standardShapes.png"; sourceTree = "<group>"; };
 		EFBC7B28167554DF00962C96 /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Utils.h"; path = "Categories/UIImage+Utils.h"; sourceTree = "<group>"; };
 		EFBC7B29167554DF00962C96 /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Utils.m"; path = "Categories/UIImage+Utils.m"; sourceTree = "<group>"; };
-		EFCF218E167741B100FDFAA2 /* bz_StoreView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = bz_StoreView.xib; path = View/bz_StoreView.xib; sourceTree = "<group>"; };
 		EFDE980216755AC4006FB1AC /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		EFDE980416755ACC006FB1AC /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		EFDE980616755AD6006FB1AC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -1178,7 +1112,6 @@
 				EF258854166EDB0400A2225E /* bz_ScrollView.m */,
 				EFE3904F1677F39F009F2AC9 /* bz_SettingsCell.h */,
 				EFE390501677F39F009F2AC9 /* bz_SettingsCell.m */,
-				EFCF218E167741B100FDFAA2 /* bz_StoreView.xib */,
 				EF258802166EC83700A2225E /* bz_Storyboard_iPhone.storyboard */,
 				EF2587E4166EC75F00A2225E /* bz_View.h */,
 				EF2587E5166EC75F00A2225E /* bz_View.m */,
@@ -1226,8 +1159,6 @@
 		EF258809166ECA0200A2225E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CC22A4D616B835B100825EFC /* takephoto.png */,
-				EF5011B716766B3D0033B574 /* Shapes */,
 				EF5011B616766B380033B574 /* LUTs */,
 				EF5011B516766B2D0033B574 /* Images */,
 				EF5011B416766B290033B574 /* Icons */,
@@ -1363,28 +1294,6 @@
 				EFF44B7D1671D5C70023FF70 /* Sepia.png */,
 			);
 			name = LUTs;
-			sourceTree = "<group>";
-		};
-		EF5011B716766B3D0033B574 /* Shapes */ = {
-			isa = PBXGroup;
-			children = (
-				9630985F16B6142000B53257 /* Anchor.svg */,
-				9630986016B6142000B53257 /* Arrow.svg */,
-				9630986116B6142000B53257 /* Circle.svg */,
-				9630986216B6142000B53257 /* Cross.svg */,
-				9630986316B6142000B53257 /* Heart.svg */,
-				9630986416B6142000B53257 /* Hexagon.svg */,
-				9630986516B6142000B53257 /* Lightning.svg */,
-				9630986616B6142000B53257 /* Ornament.svg */,
-				9630986716B6142000B53257 /* Oval.svg */,
-				9630986816B6142000B53257 /* Rectangle.svg */,
-				9630986916B6142000B53257 /* Square.svg */,
-				9630986A16B6142000B53257 /* Star.svg */,
-				9630986B16B6142000B53257 /* Teardrop.svg */,
-				9630986C16B6142000B53257 /* Tree.svg */,
-				9630986D16B6142000B53257 /* Triangle.svg */,
-			);
-			name = Shapes;
 			sourceTree = "<group>";
 		};
 		EF5011E81676E4080033B574 /* DACircularProgress */ = {
@@ -1690,7 +1599,6 @@
 				CC821FDA167E531400445EAC /* normal.png in Resources */,
 				CC821FDF167E531400445EAC /* test.jpg in Resources */,
 				CC821FE0167E531400445EAC /* patternBg.png in Resources */,
-				CC821FE1167E531400445EAC /* bz_StoreView.xib in Resources */,
 				CC821FE8167E531400445EAC /* holidayBackgrounds.png in Resources */,
 				CC821FE9167E531400445EAC /* standardBackgrounds.png in Resources */,
 				CC821FEB167E531400445EAC /* tutorial1.jpg in Resources */,
@@ -1714,24 +1622,8 @@
 				EF2CDBA31698220E00DA1435 /* proShapes.png in Resources */,
 				EF2CDBA71698288500DA1435 /* proShapePackPreview.png in Resources */,
 				CCE403F1169C8044001355A3 /* FacebookSDKResources.bundle in Resources */,
-				9630986F16B6142000B53257 /* Anchor.svg in Resources */,
-				9630987116B6142000B53257 /* Arrow.svg in Resources */,
-				9630987316B6142000B53257 /* Circle.svg in Resources */,
-				9630987516B6142000B53257 /* Cross.svg in Resources */,
-				9630987716B6142000B53257 /* Heart.svg in Resources */,
-				9630987916B6142000B53257 /* Hexagon.svg in Resources */,
-				9630987B16B6142000B53257 /* Lightning.svg in Resources */,
-				9630987D16B6142000B53257 /* Ornament.svg in Resources */,
-				9630987F16B6142000B53257 /* Oval.svg in Resources */,
-				9630988116B6142000B53257 /* Rectangle.svg in Resources */,
-				9630988316B6142000B53257 /* Square.svg in Resources */,
-				9630988516B6142000B53257 /* Star.svg in Resources */,
-				9630988716B6142000B53257 /* Teardrop.svg in Resources */,
-				9630988916B6142000B53257 /* Tree.svg in Resources */,
-				9630988B16B6142000B53257 /* Triangle.svg in Resources */,
 				963098A916B619B000B53257 /* shapes.json in Resources */,
 				963098B716B6256A00B53257 /* BZMaskAdjustmentCollectionViewCell.xib in Resources */,
-				CC22A4D816B835B100825EFC /* takephoto.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1762,7 +1654,6 @@
 				EF5011C516766F640033B574 /* normal.png in Resources */,
 				EF5011E6167673A00033B574 /* test.jpg in Resources */,
 				EF50125C16771B600033B574 /* patternBg.png in Resources */,
-				EFCF218F167741B100FDFAA2 /* bz_StoreView.xib in Resources */,
 				EF6EBDED16785F42001B25DD /* holidayBackgrounds.png in Resources */,
 				EF6EBDEF16785F42001B25DD /* standardBackgrounds.png in Resources */,
 				EF9B2D121678905A0012024E /* tutorial1.jpg in Resources */,
@@ -1785,24 +1676,8 @@
 				EF2CDBA21698220E00DA1435 /* proShapes.png in Resources */,
 				EF2CDBA61698288500DA1435 /* proShapePackPreview.png in Resources */,
 				CCE403F0169C8044001355A3 /* FacebookSDKResources.bundle in Resources */,
-				9630986E16B6142000B53257 /* Anchor.svg in Resources */,
-				9630987016B6142000B53257 /* Arrow.svg in Resources */,
-				9630987216B6142000B53257 /* Circle.svg in Resources */,
-				9630987416B6142000B53257 /* Cross.svg in Resources */,
-				9630987616B6142000B53257 /* Heart.svg in Resources */,
-				9630987816B6142000B53257 /* Hexagon.svg in Resources */,
-				9630987A16B6142000B53257 /* Lightning.svg in Resources */,
-				9630987C16B6142000B53257 /* Ornament.svg in Resources */,
-				9630987E16B6142000B53257 /* Oval.svg in Resources */,
-				9630988016B6142000B53257 /* Rectangle.svg in Resources */,
-				9630988216B6142000B53257 /* Square.svg in Resources */,
-				9630988416B6142000B53257 /* Star.svg in Resources */,
-				9630988616B6142000B53257 /* Teardrop.svg in Resources */,
-				9630988816B6142000B53257 /* Tree.svg in Resources */,
-				9630988A16B6142000B53257 /* Triangle.svg in Resources */,
 				963098A816B619B000B53257 /* shapes.json in Resources */,
 				963098B616B6256A00B53257 /* BZMaskAdjustmentCollectionViewCell.xib in Resources */,
-				CC22A4D716B835B100825EFC /* takephoto.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1849,21 +1724,6 @@
 				EF2CDBA41698220E00DA1435 /* proShapes.png in Resources */,
 				EF2CDBA81698288500DA1435 /* proShapePackPreview.png in Resources */,
 				CCE403F2169C8044001355A3 /* FacebookSDKResources.bundle in Resources */,
-				9630988C16B6142800B53257 /* Anchor.svg in Resources */,
-				9630988D16B6142800B53257 /* Arrow.svg in Resources */,
-				9630988E16B6142800B53257 /* Circle.svg in Resources */,
-				9630988F16B6142800B53257 /* Cross.svg in Resources */,
-				9630989016B6142800B53257 /* Heart.svg in Resources */,
-				9630989116B6142800B53257 /* Hexagon.svg in Resources */,
-				9630989216B6142800B53257 /* Lightning.svg in Resources */,
-				9630989316B6142800B53257 /* Ornament.svg in Resources */,
-				9630989416B6142800B53257 /* Oval.svg in Resources */,
-				9630989516B6142800B53257 /* Rectangle.svg in Resources */,
-				9630989616B6142800B53257 /* Square.svg in Resources */,
-				9630989716B6142800B53257 /* Star.svg in Resources */,
-				9630989816B6142800B53257 /* Teardrop.svg in Resources */,
-				9630989916B6142800B53257 /* Tree.svg in Resources */,
-				9630989A16B6142800B53257 /* Triangle.svg in Resources */,
 				963098AA16B619B000B53257 /* shapes.json in Resources */,
 				963098B816B6256A00B53257 /* BZMaskAdjustmentCollectionViewCell.xib in Resources */,
 			);

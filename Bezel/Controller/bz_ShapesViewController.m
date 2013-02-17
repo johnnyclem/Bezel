@@ -38,18 +38,18 @@
 {
     [super viewWillAppear: animated];
     
-    CGRect shapesCollectionViewFrame = CGRectMake(0.0, 0.0, 290.0, 50.0);
+    CGRect shapesCollectionViewFrame = CGRectMake(0.0, 0.0, 290.0, self.view.frame.size.height);
     CGRect shapesCollectionViewShowMoreButtonFrame = CGRectMake(300.0, 0.0, 20.0, 50.0);
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumInteritemSpacing = 0;
-    layout.itemSize = CGSizeMake(50.0, 50.0);
+    layout.itemSize = CGSizeMake(55.0, 55.0);
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     
     self.shapesCollectionView = [[UICollectionView alloc] initWithFrame: shapesCollectionViewFrame collectionViewLayout: layout];
     self.shapesCollectionView.dataSource = self;
     self.shapesCollectionView.delegate = self;
-    self.shapesCollectionView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
+    self.shapesCollectionView.contentInset = UIEdgeInsetsMake(0.0, 5.0, 0.0, 5.0);
     self.shapesCollectionView.scrollEnabled = FALSE;
     
     UIButton *showMoreButton = [UIButton buttonWithType: UIButtonTypeCustom];
