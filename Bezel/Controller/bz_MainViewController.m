@@ -19,6 +19,7 @@
 
 // View related
 #import "SVProgressHUD.h"
+#import "HMSegmentedControl.h"
 #import "UIImage+Utils.h"
 #import "UIImage+Resize.h"
 #import "UIImage+Storage.h"
@@ -55,6 +56,8 @@
 @property (strong, nonatomic) BZCameraControlsView *cameraControlsView;
 @property (strong, nonatomic) bz_ConfirmView *confirmView;
 
+@property (strong, nonatomic) HMSegmentedControl *segmentedControl;
+
 @end
 
 @implementation bz_MainViewController
@@ -65,6 +68,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Used for blocks
+    __weak bz_MainViewController *weakSelf = self;
 
     // Initialization
     self.session = [[BZSession alloc] init];
@@ -72,11 +78,20 @@
     self.confirmView = [[bz_ConfirmView alloc] init];
     self.adjustmentProcessor = [[BZAdjustmentProcessor alloc] initWithSession: self.session];
     
+    self.segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:[NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", nil]];
+    self.segmentedControl.textColor = [UIColor whiteColor];
+    self.segmentedControl.backgroundColor = [UIColor blackColor];
+    self.segmentedControl.frame = CGRectMake(0, 0, 320, 60);
+    self.segmentedControl.indexChangeBlock = ^(NSInteger idx){
+        [weakSelf.scrollViewController scrollToViewControllerAtIndex: idx];
+    };
+    
+    [self.view addSubview: self.segmentedControl];
+    
     // Set up NSUserDefaults values
     [self setUpDefaults];
     
     // Set up scroll view
-    __weak bz_MainViewController *weakSelf = self;
     self.scrollViewController = [[bz_ScrollViewController alloc] init];
     self.scrollViewController.scrolledToIndexCallback = ^(NSInteger idx) {
         [weakSelf scrollViewControllerScrolledToIndex: idx];
@@ -142,7 +157,6 @@
 {
     self.imageCanvas.hidden = TRUE;
 
-    [self presentCameraControls];
     [self startUpdatingPreviewLayer];
     
     BZMaskAdjustment *defaultAdj = [self.scrollViewController.shapesViewController.shapes objectAtIndex:0];
@@ -296,7 +310,7 @@
 
 -(void)switchShape:(BZMaskAdjustment *)adj
 {
-    [self presentCameraControls];
+//    [self presentCameraControls];
     
     adj.identifier = kAdjustmentTypeMask;
     
