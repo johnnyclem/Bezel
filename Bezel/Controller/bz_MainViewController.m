@@ -90,9 +90,31 @@
     self.segmentedControl.textColor = [UIColor whiteColor];
     self.segmentedControl.backgroundColor = [UIColor blackColor];
     self.segmentedControl.frame = CGRectMake(0, 0, 320, 60);
-    self.segmentedControl.indexChangeBlock = ^(NSInteger idx){
-        [weakSelf.tabBarController setSelectedIndex: idx];
-    };
+    [self.segmentedControl setIndexChangeBlock:^(NSInteger index) {
+        NSLog(@"selecting index %d", index);
+        UITabBarController *tc = [weakSelf.childViewControllers objectAtIndex:0];
+        
+        UIView * fromView = tc.selectedViewController.view;
+        UIView * toView = [[tc.viewControllers objectAtIndex:index] view];
+        
+        CGRect viewSize = fromView.frame;
+        BOOL scrollRight = index > tc.selectedIndex;
+        
+        [fromView.superview addSubview:toView];
+        toView.frame = CGRectMake((scrollRight ? 320 : -320), viewSize.origin.y, 320, viewSize.size.height);
+        
+        [UIView animateWithDuration:0.3
+                         animations: ^{
+                             fromView.frame =CGRectMake((scrollRight ? -320 : 320), viewSize.origin.y, 320, viewSize.size.height);
+                             toView.frame =CGRectMake(0, viewSize.origin.y, 320, viewSize.size.height);
+                         }
+                         completion:^(BOOL finished) {
+                             if (finished) {
+                                 [fromView removeFromSuperview];
+                                 tc.selectedIndex = index;
+                             }
+                         }];
+    }];
     
     [self.view addSubview: self.segmentedControl];
     
