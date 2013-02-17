@@ -114,15 +114,15 @@
 		CC2CF438167DB2A900A0EDA7 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF42D167DB2A900A0EDA7 /* AFURLConnectionOperation.m */; };
 		CC2CF439167DB2A900A0EDA7 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF42F167DB2A900A0EDA7 /* AFXMLRequestOperation.m */; };
 		CC2CF43A167DB2A900A0EDA7 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2CF431167DB2A900A0EDA7 /* UIImageView+AFNetworking.m */; };
-		CC384CC4167E642800174786 /* bz_Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CC384CC3167E642800174786 /* bz_Constants.m */; };
-		CC384CC5167E642800174786 /* bz_Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CC384CC3167E642800174786 /* bz_Constants.m */; };
-		CC384CC6167E642800174786 /* bz_Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CC384CC3167E642800174786 /* bz_Constants.m */; };
+		CC384CC4167E642800174786 /* BZConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CC384CC3167E642800174786 /* BZConstants.m */; };
+		CC384CC5167E642800174786 /* BZConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CC384CC3167E642800174786 /* BZConstants.m */; };
+		CC384CC6167E642800174786 /* BZConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CC384CC3167E642800174786 /* BZConstants.m */; };
 		CC3C08091697E04C00CF9B18 /* BZFilterAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3C08081697E04C00CF9B18 /* BZFilterAdjustment.m */; };
 		CC3C080A1697E04C00CF9B18 /* BZFilterAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3C08081697E04C00CF9B18 /* BZFilterAdjustment.m */; };
 		CC3C080B1697E04C00CF9B18 /* BZFilterAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3C08081697E04C00CF9B18 /* BZFilterAdjustment.m */; };
 		CC3C0855169B319B00CF9B18 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC3C0854169B319B00CF9B18 /* FacebookSDK.framework */; };
 		CC3C0856169B319B00CF9B18 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC3C0854169B319B00CF9B18 /* FacebookSDK.framework */; };
-		CC413CCC167D567100773B24 /* bz_Promotion.m in Sources */ = {isa = PBXBuildFile; fileRef = CC413CCB167D567100773B24 /* bz_Promotion.m */; };
+		CC413CCC167D567100773B24 /* BZPromotion.m in Sources */ = {isa = PBXBuildFile; fileRef = CC413CCB167D567100773B24 /* BZPromotion.m */; };
 		CC55B6AD16949614006AD05A /* BZCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55B6AC16949614006AD05A /* BZCaptureManager.m */; };
 		CC55B6AE16949614006AD05A /* BZCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55B6AC16949614006AD05A /* BZCaptureManager.m */; };
 		CC55B6AF16949614006AD05A /* BZCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55B6AC16949614006AD05A /* BZCaptureManager.m */; };
@@ -152,20 +152,19 @@
 		CC821F5A167E52D700445EAC /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9449EC1673F74F0068663F /* Social.framework */; };
 		CC821F5B167E52D700445EAC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5011A416757A390033B574 /* StoreKit.framework */; };
 		CC821F5C167E52D700445EAC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCEA680A167DB03F00BD08DE /* SystemConfiguration.framework */; };
-		CC821F61167E531400445EAC /* bz_AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587BB166EC66400A2225E /* bz_AppDelegate.m */; };
-		CC821F63167E531400445EAC /* bz_View.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587E5166EC75F00A2225E /* bz_View.m */; };
-		CC821F64167E531400445EAC /* bz_SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587EA166EC78D00A2225E /* bz_SettingsViewController.m */; };
-		CC821F66167E531400445EAC /* bz_StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587F3166EC7B300A2225E /* bz_StoreViewController.m */; };
-		CC821F69167E531400445EAC /* bz_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587FF166EC7DF00A2225E /* bz_ViewController.m */; };
+		CC821F61167E531400445EAC /* BZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587BB166EC66400A2225E /* BZAppDelegate.m */; };
+		CC821F63167E531400445EAC /* BZView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587E5166EC75F00A2225E /* BZView.m */; };
+		CC821F64167E531400445EAC /* BZSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587EA166EC78D00A2225E /* BZSettingsViewController.m */; };
+		CC821F66167E531400445EAC /* BZStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587F3166EC7B300A2225E /* BZStoreViewController.m */; };
+		CC821F69167E531400445EAC /* BZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587FF166EC7DF00A2225E /* BZViewController.m */; };
 		CC821F6B167E531400445EAC /* DMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258846166ECF2D00A2225E /* DMPageControl.m */; };
-		CC821F6C167E531400445EAC /* bz_ScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258854166EDB0400A2225E /* bz_ScrollView.m */; };
-		CC821F6E167E531400445EAC /* bz_MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258878166EDDA100A2225E /* bz_MainViewController.m */; };
+		CC821F6E167E531400445EAC /* BZMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258878166EDDA100A2225E /* BZMainViewController.m */; };
 		CC821F6F167E531400445EAC /* BZButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF25887C166EEE4500A2225E /* BZButton.m */; };
-		CC821F70167E531400445EAC /* bz_ShapesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258880166EEED400A2225E /* bz_ShapesViewController.m */; };
+		CC821F70167E531400445EAC /* BZShapesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258880166EEED400A2225E /* BZShapesViewController.m */; };
 		CC821F71167E531400445EAC /* BZFiltersAdjustmentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258884166F044E00A2225E /* BZFiltersAdjustmentsController.m */; };
-		CC821F72167E531400445EAC /* bz_AdjustmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258888166F055F00A2225E /* bz_AdjustmentViewController.m */; };
-		CC821F73167E531400445EAC /* bz_ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258890166F057A00A2225E /* bz_ShareViewController.m */; };
-		CC821F74167E531400445EAC /* bz_BackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258894166F059800A2225E /* bz_BackgroundViewController.m */; };
+		CC821F72167E531400445EAC /* BZAdjustmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258888166F055F00A2225E /* BZAdjustmentViewController.m */; };
+		CC821F73167E531400445EAC /* BZShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258890166F057A00A2225E /* BZShareViewController.m */; };
+		CC821F74167E531400445EAC /* BZBackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258894166F059800A2225E /* BZBackgroundViewController.m */; };
 		CC821F75167E531400445EAC /* AnimationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA0881B1671543A00AA6992 /* AnimationDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CC821F76167E531400445EAC /* AnimationFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA0881D1671543A00AA6992 /* AnimationFrame.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CC821F77167E531400445EAC /* FlipView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA0881F1671543A00AA6992 /* FlipView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -179,7 +178,6 @@
 		CC821F7F167E531400445EAC /* StandardPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF44B4B1671BA720023FF70 /* StandardPaths.m */; };
 		CC821F80167E531400445EAC /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF44B4D1671BA720023FF70 /* UIImage+Resize.m */; };
 		CC821F81167E531400445EAC /* UIImage+Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF44B4F1671BA720023FF70 /* UIImage+Storage.m */; };
-		CC821F82167E531400445EAC /* bz_MaskShapeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9449A31672AB350068663F /* bz_MaskShapeLayer.m */; };
 		CC821F83167E531400445EAC /* GPUImageExposure+Contrast.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9449CF1672C7410068663F /* GPUImageExposure+Contrast.m */; };
 		CC821F84167E531400445EAC /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBC7B29167554DF00962C96 /* UIImage+Utils.m */; };
 		CC821F85167E531400445EAC /* EBPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = EF50119B167572AD0033B574 /* EBPurchase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -200,14 +198,14 @@
 		CC821F94167E531400445EAC /* RSColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF50123B167707A90033B574 /* RSColorPickerView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CC821F95167E531400445EAC /* MAConfirmButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF501275167729A80033B574 /* MAConfirmButton.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CC821F96167E531400445EAC /* UIColor-Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = EF501277167729A80033B574 /* UIColor-Expanded.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		CC821F97167E531400445EAC /* bz_Setting.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE3904A1677F38C009F2AC9 /* bz_Setting.m */; };
-		CC821F98167E531400445EAC /* bz_PromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE3904E1677F39F009F2AC9 /* bz_PromotionView.m */; };
-		CC821F99167E531400445EAC /* bz_SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE390501677F39F009F2AC9 /* bz_SettingsCell.m */; };
+		CC821F97167E531400445EAC /* BZSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE3904A1677F38C009F2AC9 /* BZSetting.m */; };
+		CC821F98167E531400445EAC /* BZPromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE3904E1677F39F009F2AC9 /* BZPromotionView.m */; };
+		CC821F99167E531400445EAC /* BZSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE390501677F39F009F2AC9 /* BZSettingsCell.m */; };
 		CC821F9A167E531400445EAC /* GCPagedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9B2D03167889F80012024E /* GCPagedScrollView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		CC821F9B167E531400445EAC /* bz_TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9B2D0B16788A220012024E /* bz_TutorialViewController.m */; };
+		CC821F9B167E531400445EAC /* BZTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9B2D0B16788A220012024E /* BZTutorialViewController.m */; };
 		CC821F9C167E531400445EAC /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = EF160766167BB7E800EC21EB /* SVProgressHUD.m */; };
 		CC821F9D167E531400445EAC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF160770167BB8CE00EC21EB /* main.m */; };
-		CC821F9E167E531400445EAC /* bz_Promotion.m in Sources */ = {isa = PBXBuildFile; fileRef = CC413CCB167D567100773B24 /* bz_Promotion.m */; };
+		CC821F9E167E531400445EAC /* BZPromotion.m in Sources */ = {isa = PBXBuildFile; fileRef = CC413CCB167D567100773B24 /* BZPromotion.m */; };
 		CC821FA9167E531400445EAC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDE980616755AD6006FB1AC /* MobileCoreServices.framework */; };
 		CC821FAA167E531400445EAC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCEA680A167DB03F00BD08DE /* SystemConfiguration.framework */; };
 		CC821FAB167E531400445EAC /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC866E36167D1E3C001779CB /* libGPUImage.a */; };
@@ -230,7 +228,7 @@
 		CC821FBC167E531400445EAC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2587AB166EC66400A2225E /* Foundation.framework */; };
 		CC821FBD167E531400445EAC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2587AF166EC66400A2225E /* CoreData.framework */; };
 		CC821FBE167E531400445EAC /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF25883B166ECBCC00A2225E /* libTestFlight.a */; };
-		CC821FC0167E531400445EAC /* bz_Storyboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF258802166EC83700A2225E /* bz_Storyboard_iPhone.storyboard */; };
+		CC821FC0167E531400445EAC /* Storyboard~iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF258802166EC83700A2225E /* Storyboard~iphone.storyboard */; };
 		CC821FC1167E531400445EAC /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EF25881A166ECA4C00A2225E /* Icon.png */; };
 		CC821FC2167E531400445EAC /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF25881C166ECA6000A2225E /* Icon@2x.png */; };
 		CC821FC3167E531400445EAC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF25881E166ECA7500A2225E /* Default-568h@2x.png */; };
@@ -268,9 +266,9 @@
 		CC822012167E5A8400445EAC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CC822011167E5A8400445EAC /* Settings.bundle */; };
 		CC866E3A167D1FF6001779CB /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF25883F166ECC2B00A2225E /* Crashlytics.framework */; };
 		CC866E3D167D20A3001779CB /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC866E36167D1E3C001779CB /* libGPUImage.a */; };
-		CC8839AD167EA21D00374C63 /* bz_ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839AC167EA21D00374C63 /* bz_ImageView.m */; };
-		CC8839AE167EA21D00374C63 /* bz_ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839AC167EA21D00374C63 /* bz_ImageView.m */; };
-		CC8839AF167EA21D00374C63 /* bz_ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839AC167EA21D00374C63 /* bz_ImageView.m */; };
+		CC8839AD167EA21D00374C63 /* BZImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839AC167EA21D00374C63 /* BZImageView.m */; };
+		CC8839AE167EA21D00374C63 /* BZImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839AC167EA21D00374C63 /* BZImageView.m */; };
+		CC8839AF167EA21D00374C63 /* BZImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8839AC167EA21D00374C63 /* BZImageView.m */; };
 		CCC95F3116A073FE006DE78B /* BZBackgroundAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC95F3016A073FE006DE78B /* BZBackgroundAdjustment.m */; };
 		CCC95F3216A073FE006DE78B /* BZBackgroundAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC95F3016A073FE006DE78B /* BZBackgroundAdjustment.m */; };
 		CCC95F3316A073FE006DE78B /* BZBackgroundAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC95F3016A073FE006DE78B /* BZBackgroundAdjustment.m */; };
@@ -292,8 +290,8 @@
 		CCE403F4169C807F001355A3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE403F3169C807F001355A3 /* libsqlite3.dylib */; };
 		CCE403F5169C8088001355A3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE403F3169C807F001355A3 /* libsqlite3.dylib */; };
 		CCE403F6169C8095001355A3 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2CDB431698055000DA1435 /* AdSupport.framework */; };
-		CCE40429169C96C3001355A3 /* bz_ConfirmView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE40428169C96C3001355A3 /* bz_ConfirmView.m */; };
-		CCE4042A169C96C3001355A3 /* bz_ConfirmView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE40428169C96C3001355A3 /* bz_ConfirmView.m */; };
+		CCE40429169C96C3001355A3 /* BZConfirmView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE40428169C96C3001355A3 /* BZConfirmView.m */; };
+		CCE4042A169C96C3001355A3 /* BZConfirmView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE40428169C96C3001355A3 /* BZConfirmView.m */; };
 		CCEA6808167DB00D00BD08DE /* promotion.json in Resources */ = {isa = PBXBuildFile; fileRef = CCEA6807167DB00D00BD08DE /* promotion.json */; };
 		CCEA6809167DB01100BD08DE /* promotion.json in Resources */ = {isa = PBXBuildFile; fileRef = CCEA6807167DB00D00BD08DE /* promotion.json */; };
 		CCEA680B167DB03F00BD08DE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCEA680A167DB03F00BD08DE /* SystemConfiguration.framework */; };
@@ -307,23 +305,23 @@
 		EF2587AC166EC66400A2225E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2587AB166EC66400A2225E /* Foundation.framework */; };
 		EF2587AE166EC66400A2225E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2587AD166EC66400A2225E /* CoreGraphics.framework */; };
 		EF2587B0166EC66400A2225E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2587AF166EC66400A2225E /* CoreData.framework */; };
-		EF2587BC166EC66400A2225E /* bz_AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587BB166EC66400A2225E /* bz_AppDelegate.m */; };
+		EF2587BC166EC66400A2225E /* BZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587BB166EC66400A2225E /* BZAppDelegate.m */; };
 		EF2587CD166EC66400A2225E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2587CC166EC66400A2225E /* SenTestingKit.framework */; };
 		EF2587CE166EC66400A2225E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2587A9166EC66400A2225E /* UIKit.framework */; };
 		EF2587CF166EC66400A2225E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2587AB166EC66400A2225E /* Foundation.framework */; };
 		EF2587D0166EC66400A2225E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2587AF166EC66400A2225E /* CoreData.framework */; };
 		EF2587D8166EC66400A2225E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF2587D6166EC66400A2225E /* InfoPlist.strings */; };
 		EF2587DB166EC66400A2225E /* BezelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587DA166EC66400A2225E /* BezelTests.m */; };
-		EF2587E6166EC75F00A2225E /* bz_View.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587E5166EC75F00A2225E /* bz_View.m */; };
-		EF2587E7166EC75F00A2225E /* bz_View.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587E5166EC75F00A2225E /* bz_View.m */; };
-		EF2587EB166EC78D00A2225E /* bz_SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587EA166EC78D00A2225E /* bz_SettingsViewController.m */; };
-		EF2587EC166EC78D00A2225E /* bz_SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587EA166EC78D00A2225E /* bz_SettingsViewController.m */; };
-		EF2587F4166EC7B300A2225E /* bz_StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587F3166EC7B300A2225E /* bz_StoreViewController.m */; };
-		EF2587F5166EC7B300A2225E /* bz_StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587F3166EC7B300A2225E /* bz_StoreViewController.m */; };
-		EF258800166EC7DF00A2225E /* bz_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587FF166EC7DF00A2225E /* bz_ViewController.m */; };
-		EF258801166EC7DF00A2225E /* bz_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587FF166EC7DF00A2225E /* bz_ViewController.m */; };
-		EF258803166EC83700A2225E /* bz_Storyboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF258802166EC83700A2225E /* bz_Storyboard_iPhone.storyboard */; };
-		EF258804166EC83700A2225E /* bz_Storyboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF258802166EC83700A2225E /* bz_Storyboard_iPhone.storyboard */; };
+		EF2587E6166EC75F00A2225E /* BZView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587E5166EC75F00A2225E /* BZView.m */; };
+		EF2587E7166EC75F00A2225E /* BZView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587E5166EC75F00A2225E /* BZView.m */; };
+		EF2587EB166EC78D00A2225E /* BZSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587EA166EC78D00A2225E /* BZSettingsViewController.m */; };
+		EF2587EC166EC78D00A2225E /* BZSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587EA166EC78D00A2225E /* BZSettingsViewController.m */; };
+		EF2587F4166EC7B300A2225E /* BZStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587F3166EC7B300A2225E /* BZStoreViewController.m */; };
+		EF2587F5166EC7B300A2225E /* BZStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587F3166EC7B300A2225E /* BZStoreViewController.m */; };
+		EF258800166EC7DF00A2225E /* BZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587FF166EC7DF00A2225E /* BZViewController.m */; };
+		EF258801166EC7DF00A2225E /* BZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF2587FF166EC7DF00A2225E /* BZViewController.m */; };
+		EF258803166EC83700A2225E /* Storyboard~iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF258802166EC83700A2225E /* Storyboard~iphone.storyboard */; };
+		EF258804166EC83700A2225E /* Storyboard~iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF258802166EC83700A2225E /* Storyboard~iphone.storyboard */; };
 		EF25881B166ECA4C00A2225E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EF25881A166ECA4C00A2225E /* Icon.png */; };
 		EF25881D166ECA6000A2225E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF25881C166ECA6000A2225E /* Icon@2x.png */; };
 		EF25881F166ECA7500A2225E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF25881E166ECA7500A2225E /* Default-568h@2x.png */; };
@@ -335,22 +333,20 @@
 		EF258843166ECCCF00A2225E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EF258842166ECCCF00A2225E /* libz.dylib */; };
 		EF258847166ECF2D00A2225E /* DMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258846166ECF2D00A2225E /* DMPageControl.m */; };
 		EF258848166ECF2D00A2225E /* DMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258846166ECF2D00A2225E /* DMPageControl.m */; };
-		EF258855166EDB0400A2225E /* bz_ScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258854166EDB0400A2225E /* bz_ScrollView.m */; };
-		EF258856166EDB0400A2225E /* bz_ScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258854166EDB0400A2225E /* bz_ScrollView.m */; };
-		EF258879166EDDA200A2225E /* bz_MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258878166EDDA100A2225E /* bz_MainViewController.m */; };
-		EF25887A166EDDA200A2225E /* bz_MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258878166EDDA100A2225E /* bz_MainViewController.m */; };
+		EF258879166EDDA200A2225E /* BZMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258878166EDDA100A2225E /* BZMainViewController.m */; };
+		EF25887A166EDDA200A2225E /* BZMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258878166EDDA100A2225E /* BZMainViewController.m */; };
 		EF25887D166EEE4500A2225E /* BZButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF25887C166EEE4500A2225E /* BZButton.m */; };
 		EF25887E166EEE4500A2225E /* BZButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF25887C166EEE4500A2225E /* BZButton.m */; };
-		EF258881166EEED500A2225E /* bz_ShapesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258880166EEED400A2225E /* bz_ShapesViewController.m */; };
-		EF258882166EEED500A2225E /* bz_ShapesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258880166EEED400A2225E /* bz_ShapesViewController.m */; };
+		EF258881166EEED500A2225E /* BZShapesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258880166EEED400A2225E /* BZShapesViewController.m */; };
+		EF258882166EEED500A2225E /* BZShapesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258880166EEED400A2225E /* BZShapesViewController.m */; };
 		EF258885166F044F00A2225E /* BZFiltersAdjustmentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258884166F044E00A2225E /* BZFiltersAdjustmentsController.m */; };
 		EF258886166F044F00A2225E /* BZFiltersAdjustmentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258884166F044E00A2225E /* BZFiltersAdjustmentsController.m */; };
-		EF258889166F056000A2225E /* bz_AdjustmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258888166F055F00A2225E /* bz_AdjustmentViewController.m */; };
-		EF25888A166F056000A2225E /* bz_AdjustmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258888166F055F00A2225E /* bz_AdjustmentViewController.m */; };
-		EF258891166F057B00A2225E /* bz_ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258890166F057A00A2225E /* bz_ShareViewController.m */; };
-		EF258892166F057B00A2225E /* bz_ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258890166F057A00A2225E /* bz_ShareViewController.m */; };
-		EF258895166F05A000A2225E /* bz_BackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258894166F059800A2225E /* bz_BackgroundViewController.m */; };
-		EF258896166F05A000A2225E /* bz_BackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258894166F059800A2225E /* bz_BackgroundViewController.m */; };
+		EF258889166F056000A2225E /* BZAdjustmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258888166F055F00A2225E /* BZAdjustmentViewController.m */; };
+		EF25888A166F056000A2225E /* BZAdjustmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258888166F055F00A2225E /* BZAdjustmentViewController.m */; };
+		EF258891166F057B00A2225E /* BZShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258890166F057A00A2225E /* BZShareViewController.m */; };
+		EF258892166F057B00A2225E /* BZShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258890166F057A00A2225E /* BZShareViewController.m */; };
+		EF258895166F05A000A2225E /* BZBackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258894166F059800A2225E /* BZBackgroundViewController.m */; };
+		EF258896166F05A000A2225E /* BZBackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF258894166F059800A2225E /* BZBackgroundViewController.m */; };
 		EF2CDB441698055000DA1435 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2CDB431698055000DA1435 /* AdSupport.framework */; };
 		EF2CDB4E16980A6400DA1435 /* tutorial5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF2CDB4D16980A6400DA1435 /* tutorial5.jpg */; };
 		EF2CDB4F16980A6400DA1435 /* tutorial5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF2CDB4D16980A6400DA1435 /* tutorial5.jpg */; };
@@ -418,8 +414,6 @@
 		EF8FB91F167AA0D200B836C7 /* treeBG_1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF8FB90E167AA0D200B836C7 /* treeBG_1024.jpg */; };
 		EF8FB920167AA0D200B836C7 /* treeBG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF8FB90F167AA0D200B836C7 /* treeBG.jpg */; };
 		EF8FB921167AA0D200B836C7 /* treeBG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF8FB90F167AA0D200B836C7 /* treeBG.jpg */; };
-		EF9449A41672AB350068663F /* bz_MaskShapeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9449A31672AB350068663F /* bz_MaskShapeLayer.m */; };
-		EF9449A51672AB350068663F /* bz_MaskShapeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9449A31672AB350068663F /* bz_MaskShapeLayer.m */; };
 		EF9449D01672C7410068663F /* GPUImageExposure+Contrast.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9449CF1672C7410068663F /* GPUImageExposure+Contrast.m */; };
 		EF9449D11672C7410068663F /* GPUImageExposure+Contrast.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9449CF1672C7410068663F /* GPUImageExposure+Contrast.m */; };
 		EF9449E91673F7470068663F /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9449E81673F7470068663F /* AssetsLibrary.framework */; };
@@ -427,8 +421,8 @@
 		EF9449ED1673F74F0068663F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9449EC1673F74F0068663F /* Social.framework */; };
 		EF9B2D04167889F80012024E /* GCPagedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9B2D03167889F80012024E /* GCPagedScrollView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		EF9B2D05167889F80012024E /* GCPagedScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9B2D03167889F80012024E /* GCPagedScrollView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		EF9B2D0C16788A220012024E /* bz_TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9B2D0B16788A220012024E /* bz_TutorialViewController.m */; };
-		EF9B2D0D16788A220012024E /* bz_TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9B2D0B16788A220012024E /* bz_TutorialViewController.m */; };
+		EF9B2D0C16788A220012024E /* BZTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9B2D0B16788A220012024E /* BZTutorialViewController.m */; };
+		EF9B2D0D16788A220012024E /* BZTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9B2D0B16788A220012024E /* BZTutorialViewController.m */; };
 		EF9B2D121678905A0012024E /* tutorial1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF9B2D0E1678905A0012024E /* tutorial1.jpg */; };
 		EF9B2D131678905A0012024E /* tutorial1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF9B2D0E1678905A0012024E /* tutorial1.jpg */; };
 		EF9B2D141678905A0012024E /* tutorial2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF9B2D0F1678905A0012024E /* tutorial2.jpg */; };
@@ -452,12 +446,12 @@
 		EFDE980516755ACC006FB1AC /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDE980416755ACC006FB1AC /* ImageIO.framework */; };
 		EFDE980716755AD6006FB1AC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDE980616755AD6006FB1AC /* MobileCoreServices.framework */; };
 		EFDE980916755AE4006FB1AC /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDE980816755AE4006FB1AC /* CoreImage.framework */; };
-		EFE3904B1677F38C009F2AC9 /* bz_Setting.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE3904A1677F38C009F2AC9 /* bz_Setting.m */; };
-		EFE3904C1677F38C009F2AC9 /* bz_Setting.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE3904A1677F38C009F2AC9 /* bz_Setting.m */; };
-		EFE390511677F39F009F2AC9 /* bz_PromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE3904E1677F39F009F2AC9 /* bz_PromotionView.m */; };
-		EFE390521677F39F009F2AC9 /* bz_PromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE3904E1677F39F009F2AC9 /* bz_PromotionView.m */; };
-		EFE390531677F39F009F2AC9 /* bz_SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE390501677F39F009F2AC9 /* bz_SettingsCell.m */; };
-		EFE390541677F39F009F2AC9 /* bz_SettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE390501677F39F009F2AC9 /* bz_SettingsCell.m */; };
+		EFE3904B1677F38C009F2AC9 /* BZSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE3904A1677F38C009F2AC9 /* BZSetting.m */; };
+		EFE3904C1677F38C009F2AC9 /* BZSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE3904A1677F38C009F2AC9 /* BZSetting.m */; };
+		EFE390511677F39F009F2AC9 /* BZPromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE3904E1677F39F009F2AC9 /* BZPromotionView.m */; };
+		EFE390521677F39F009F2AC9 /* BZPromotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE3904E1677F39F009F2AC9 /* BZPromotionView.m */; };
+		EFE390531677F39F009F2AC9 /* BZSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE390501677F39F009F2AC9 /* BZSettingsCell.m */; };
+		EFE390541677F39F009F2AC9 /* BZSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE390501677F39F009F2AC9 /* BZSettingsCell.m */; };
 		EFF44B121671A0150023FF70 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF44B111671A0150023FF70 /* CoreMedia.framework */; };
 		EFF44B151671A01C0023FF70 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF44B141671A01C0023FF70 /* CoreVideo.framework */; };
 		EFF44B171671A0240023FF70 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF44B161671A0240023FF70 /* OpenGLES.framework */; };
@@ -586,10 +580,10 @@
 		CC13BF161697383B006BCEAE /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
 		CC16B97A1694CBF600027CC5 /* BZAdjustment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZAdjustment.h; path = Adjustments/BZAdjustment.h; sourceTree = "<group>"; };
 		CC16B97B1694CBF600027CC5 /* BZAdjustment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZAdjustment.m; path = Adjustments/BZAdjustment.m; sourceTree = "<group>"; };
-		CC16B97F1694CC1C00027CC5 /* BZSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BZSession.h; sourceTree = "<group>"; };
-		CC16B9801694CC1C00027CC5 /* BZSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BZSession.m; sourceTree = "<group>"; };
+		CC16B97F1694CC1C00027CC5 /* BZSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BZSession.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		CC16B9801694CC1C00027CC5 /* BZSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BZSession.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CC19F7FE1695F56E001A3828 /* BZMaskAdjustment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZMaskAdjustment.h; path = Adjustments/BZMaskAdjustment.h; sourceTree = "<group>"; };
-		CC19F7FF1695F56E001A3828 /* BZMaskAdjustment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZMaskAdjustment.m; path = Adjustments/BZMaskAdjustment.m; sourceTree = "<group>"; };
+		CC19F7FF1695F56E001A3828 /* BZMaskAdjustment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BZMaskAdjustment.m; path = Adjustments/BZMaskAdjustment.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CC1CEEC416C1B74F00196110 /* UIBezierPath+Shapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBezierPath+Shapes.h"; path = "Categories/UIBezierPath+Shapes.h"; sourceTree = "<group>"; };
 		CC1CEEC516C1B74F00196110 /* UIBezierPath+Shapes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBezierPath+Shapes.m"; path = "Categories/UIBezierPath+Shapes.m"; sourceTree = "<group>"; };
 		CC2CF41F167DB2A900A0EDA7 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
@@ -612,29 +606,29 @@
 		CC2CF430167DB2A900A0EDA7 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		CC2CF431167DB2A900A0EDA7 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		CC384CB5167E5C0700174786 /* Bezel-QA-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Bezel-QA-Info.plist"; sourceTree = "<group>"; };
-		CC384CC2167E642700174786 /* bz_Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bz_Constants.h; sourceTree = "<group>"; };
-		CC384CC3167E642800174786 /* bz_Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bz_Constants.m; sourceTree = "<group>"; };
+		CC384CC2167E642700174786 /* BZConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BZConstants.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		CC384CC3167E642800174786 /* BZConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BZConstants.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CC3C08071697E04B00CF9B18 /* BZFilterAdjustment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZFilterAdjustment.h; path = Adjustments/BZFilterAdjustment.h; sourceTree = "<group>"; };
 		CC3C08081697E04C00CF9B18 /* BZFilterAdjustment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZFilterAdjustment.m; path = Adjustments/BZFilterAdjustment.m; sourceTree = "<group>"; };
 		CC3C0854169B319B00CF9B18 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "Bezel/Third Party/FacebookSDK.framework"; sourceTree = "<group>"; };
-		CC413CCA167D567100773B24 /* bz_Promotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bz_Promotion.h; sourceTree = "<group>"; };
-		CC413CCB167D567100773B24 /* bz_Promotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bz_Promotion.m; sourceTree = "<group>"; };
+		CC413CCA167D567100773B24 /* BZPromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BZPromotion.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		CC413CCB167D567100773B24 /* BZPromotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BZPromotion.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CC55B6AB16949614006AD05A /* BZCaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BZCaptureManager.h; sourceTree = "<group>"; };
 		CC55B6AC16949614006AD05A /* BZCaptureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BZCaptureManager.m; sourceTree = "<group>"; };
-		CC821F3B167DBB4D00445EAC /* bz_PromotionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bz_PromotionsTest.h; sourceTree = "<group>"; };
-		CC821F3C167DBB4D00445EAC /* bz_PromotionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bz_PromotionsTest.m; sourceTree = "<group>"; };
+		CC821F3B167DBB4D00445EAC /* bz_PromotionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = bz_PromotionsTest.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		CC821F3C167DBB4D00445EAC /* bz_PromotionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = bz_PromotionsTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CC82200E167E531400445EAC /* Bezel-QA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bezel-QA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC822011167E5A8400445EAC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Resources/Settings.bundle; sourceTree = "<group>"; };
-		CC8839AB167EA21D00374C63 /* bz_ImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_ImageView.h; path = View/bz_ImageView.h; sourceTree = "<group>"; };
-		CC8839AC167EA21D00374C63 /* bz_ImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_ImageView.m; path = View/bz_ImageView.m; sourceTree = "<group>"; };
+		CC8839AB167EA21D00374C63 /* BZImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = BZImageView.h; path = View/BZImageView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		CC8839AC167EA21D00374C63 /* BZImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BZImageView.m; path = View/BZImageView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CCC95F2F16A073FE006DE78B /* BZBackgroundAdjustment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZBackgroundAdjustment.h; path = Adjustments/BZBackgroundAdjustment.h; sourceTree = "<group>"; };
 		CCC95F3016A073FE006DE78B /* BZBackgroundAdjustment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZBackgroundAdjustment.m; path = Adjustments/BZBackgroundAdjustment.m; sourceTree = "<group>"; };
 		CCE24F9A169F60AC00606BF6 /* BZScaleAdjustment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZScaleAdjustment.h; path = Adjustments/BZScaleAdjustment.h; sourceTree = "<group>"; };
 		CCE24F9B169F60AC00606BF6 /* BZScaleAdjustment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZScaleAdjustment.m; path = Adjustments/BZScaleAdjustment.m; sourceTree = "<group>"; };
 		CCE403EF169C8044001355A3 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = "Bezel/Third Party/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle"; sourceTree = "<group>"; };
 		CCE403F3169C807F001355A3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		CCE40427169C96C3001355A3 /* bz_ConfirmView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_ConfirmView.h; path = View/bz_ConfirmView.h; sourceTree = "<group>"; };
-		CCE40428169C96C3001355A3 /* bz_ConfirmView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_ConfirmView.m; path = View/bz_ConfirmView.m; sourceTree = "<group>"; };
+		CCE40427169C96C3001355A3 /* BZConfirmView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = BZConfirmView.h; path = View/BZConfirmView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		CCE40428169C96C3001355A3 /* BZConfirmView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BZConfirmView.m; path = View/BZConfirmView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CCEA6807167DB00D00BD08DE /* promotion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = promotion.json; path = "Mock Data/promotion.json"; sourceTree = "<group>"; };
 		CCEA680A167DB03F00BD08DE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EF160764167BB7E800EC21EB /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
@@ -649,23 +643,23 @@
 		EF2587AB166EC66400A2225E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EF2587AD166EC66400A2225E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		EF2587AF166EC66400A2225E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		EF2587BA166EC66400A2225E /* bz_AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bz_AppDelegate.h; sourceTree = "<group>"; };
-		EF2587BB166EC66400A2225E /* bz_AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bz_AppDelegate.m; sourceTree = "<group>"; };
+		EF2587BA166EC66400A2225E /* BZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BZAppDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		EF2587BB166EC66400A2225E /* BZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BZAppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		EF2587CB166EC66400A2225E /* BezelTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BezelTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF2587CC166EC66400A2225E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		EF2587D5166EC66400A2225E /* BezelTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BezelTests-Info.plist"; sourceTree = "<group>"; };
 		EF2587D7166EC66400A2225E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EF2587D9166EC66400A2225E /* BezelTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BezelTests.h; sourceTree = "<group>"; };
 		EF2587DA166EC66400A2225E /* BezelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezelTests.m; sourceTree = "<group>"; };
-		EF2587E4166EC75F00A2225E /* bz_View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_View.h; path = View/bz_View.h; sourceTree = "<group>"; };
-		EF2587E5166EC75F00A2225E /* bz_View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_View.m; path = View/bz_View.m; sourceTree = "<group>"; };
-		EF2587E9166EC78D00A2225E /* bz_SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_SettingsViewController.h; path = Controller/bz_SettingsViewController.h; sourceTree = "<group>"; };
-		EF2587EA166EC78D00A2225E /* bz_SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_SettingsViewController.m; path = Controller/bz_SettingsViewController.m; sourceTree = "<group>"; };
-		EF2587F2166EC7B300A2225E /* bz_StoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_StoreViewController.h; path = Controller/bz_StoreViewController.h; sourceTree = "<group>"; };
-		EF2587F3166EC7B300A2225E /* bz_StoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_StoreViewController.m; path = Controller/bz_StoreViewController.m; sourceTree = "<group>"; };
-		EF2587FE166EC7DF00A2225E /* bz_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_ViewController.h; path = Controller/bz_ViewController.h; sourceTree = "<group>"; };
-		EF2587FF166EC7DF00A2225E /* bz_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_ViewController.m; path = Controller/bz_ViewController.m; sourceTree = "<group>"; };
-		EF258802166EC83700A2225E /* bz_Storyboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = bz_Storyboard_iPhone.storyboard; path = View/bz_Storyboard_iPhone.storyboard; sourceTree = "<group>"; };
+		EF2587E4166EC75F00A2225E /* BZView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZView.h; path = View/BZView.h; sourceTree = "<group>"; };
+		EF2587E5166EC75F00A2225E /* BZView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZView.m; path = View/BZView.m; sourceTree = "<group>"; };
+		EF2587E9166EC78D00A2225E /* BZSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = BZSettingsViewController.h; path = Controller/BZSettingsViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		EF2587EA166EC78D00A2225E /* BZSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BZSettingsViewController.m; path = Controller/BZSettingsViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		EF2587F2166EC7B300A2225E /* BZStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = BZStoreViewController.h; path = Controller/BZStoreViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		EF2587F3166EC7B300A2225E /* BZStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BZStoreViewController.m; path = Controller/BZStoreViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		EF2587FE166EC7DF00A2225E /* BZViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZViewController.h; path = Controller/BZViewController.h; sourceTree = "<group>"; };
+		EF2587FF166EC7DF00A2225E /* BZViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZViewController.m; path = Controller/BZViewController.m; sourceTree = "<group>"; };
+		EF258802166EC83700A2225E /* Storyboard~iphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Storyboard~iphone.storyboard"; path = "View/Storyboard~iphone.storyboard"; sourceTree = "<group>"; };
 		EF25881A166ECA4C00A2225E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icons/Icon.png; sourceTree = "<group>"; };
 		EF25881C166ECA6000A2225E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/Icons/Icon@2x.png"; sourceTree = "<group>"; };
 		EF25881E166ECA7500A2225E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Images/Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -677,22 +671,20 @@
 		EF258842166ECCCF00A2225E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		EF258845166ECF2D00A2225E /* DMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DMPageControl.h; path = "Third Party/DMPageControl/DMPageControl.h"; sourceTree = "<group>"; };
 		EF258846166ECF2D00A2225E /* DMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DMPageControl.m; path = "Third Party/DMPageControl/DMPageControl.m"; sourceTree = "<group>"; };
-		EF258853166EDB0400A2225E /* bz_ScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_ScrollView.h; path = View/bz_ScrollView.h; sourceTree = "<group>"; };
-		EF258854166EDB0400A2225E /* bz_ScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_ScrollView.m; path = View/bz_ScrollView.m; sourceTree = "<group>"; };
-		EF258877166EDDA100A2225E /* bz_MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_MainViewController.h; path = Controller/bz_MainViewController.h; sourceTree = "<group>"; };
-		EF258878166EDDA100A2225E /* bz_MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_MainViewController.m; path = Controller/bz_MainViewController.m; sourceTree = "<group>"; };
-		EF25887B166EEE4500A2225E /* BZButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZButton.h; path = View/BZButton.h; sourceTree = "<group>"; };
-		EF25887C166EEE4500A2225E /* BZButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZButton.m; path = View/BZButton.m; sourceTree = "<group>"; };
-		EF25887F166EEED400A2225E /* bz_ShapesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_ShapesViewController.h; path = Controller/bz_ShapesViewController.h; sourceTree = "<group>"; };
-		EF258880166EEED400A2225E /* bz_ShapesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_ShapesViewController.m; path = Controller/bz_ShapesViewController.m; sourceTree = "<group>"; };
-		EF258883166F044D00A2225E /* BZFiltersAdjustmentsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZFiltersAdjustmentsController.h; path = Controller/BZFiltersAdjustmentsController.h; sourceTree = "<group>"; };
-		EF258884166F044E00A2225E /* BZFiltersAdjustmentsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZFiltersAdjustmentsController.m; path = Controller/BZFiltersAdjustmentsController.m; sourceTree = "<group>"; };
-		EF258887166F055E00A2225E /* bz_AdjustmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_AdjustmentViewController.h; path = Controller/bz_AdjustmentViewController.h; sourceTree = "<group>"; };
-		EF258888166F055F00A2225E /* bz_AdjustmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_AdjustmentViewController.m; path = Controller/bz_AdjustmentViewController.m; sourceTree = "<group>"; };
-		EF25888F166F057900A2225E /* bz_ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_ShareViewController.h; path = Controller/bz_ShareViewController.h; sourceTree = "<group>"; };
-		EF258890166F057A00A2225E /* bz_ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_ShareViewController.m; path = Controller/bz_ShareViewController.m; sourceTree = "<group>"; };
-		EF258893166F059500A2225E /* bz_BackgroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_BackgroundViewController.h; path = Controller/bz_BackgroundViewController.h; sourceTree = "<group>"; };
-		EF258894166F059800A2225E /* bz_BackgroundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_BackgroundViewController.m; path = Controller/bz_BackgroundViewController.m; sourceTree = "<group>"; };
+		EF258877166EDDA100A2225E /* BZMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = BZMainViewController.h; path = Controller/BZMainViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		EF258878166EDDA100A2225E /* BZMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BZMainViewController.m; path = Controller/BZMainViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		EF25887B166EEE4500A2225E /* BZButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = BZButton.h; path = View/BZButton.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		EF25887C166EEE4500A2225E /* BZButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BZButton.m; path = View/BZButton.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		EF25887F166EEED400A2225E /* BZShapesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = BZShapesViewController.h; path = Controller/BZShapesViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		EF258880166EEED400A2225E /* BZShapesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BZShapesViewController.m; path = Controller/BZShapesViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		EF258883166F044D00A2225E /* BZFiltersAdjustmentsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = BZFiltersAdjustmentsController.h; path = Controller/BZFiltersAdjustmentsController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		EF258884166F044E00A2225E /* BZFiltersAdjustmentsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BZFiltersAdjustmentsController.m; path = Controller/BZFiltersAdjustmentsController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		EF258887166F055E00A2225E /* BZAdjustmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = BZAdjustmentViewController.h; path = Controller/BZAdjustmentViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		EF258888166F055F00A2225E /* BZAdjustmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BZAdjustmentViewController.m; path = Controller/BZAdjustmentViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		EF25888F166F057900A2225E /* BZShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = BZShareViewController.h; path = Controller/BZShareViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		EF258890166F057A00A2225E /* BZShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BZShareViewController.m; path = Controller/BZShareViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		EF258893166F059500A2225E /* BZBackgroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = BZBackgroundViewController.h; path = Controller/BZBackgroundViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		EF258894166F059800A2225E /* BZBackgroundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BZBackgroundViewController.m; path = Controller/BZBackgroundViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		EF2CDB431698055000DA1435 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		EF2CDB4D16980A6400DA1435 /* tutorial5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tutorial5.jpg; path = Resources/Images/tutorial5.jpg; sourceTree = "<group>"; };
 		EF50119A167572AD0033B574 /* EBPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EBPurchase.h; path = "Third Party/EBPurchase/EBPurchase.h"; sourceTree = "<group>"; };
@@ -745,8 +737,6 @@
 		EF8FB90D167AA0D200B836C7 /* treeBG_640.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = treeBG_640.jpg; path = Resources/Backgrounds/treeBG_640.jpg; sourceTree = "<group>"; };
 		EF8FB90E167AA0D200B836C7 /* treeBG_1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = treeBG_1024.jpg; path = Resources/Backgrounds/treeBG_1024.jpg; sourceTree = "<group>"; };
 		EF8FB90F167AA0D200B836C7 /* treeBG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = treeBG.jpg; path = Resources/Backgrounds/treeBG.jpg; sourceTree = "<group>"; };
-		EF9449A21672AB350068663F /* bz_MaskShapeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_MaskShapeLayer.h; path = View/bz_MaskShapeLayer.h; sourceTree = "<group>"; };
-		EF9449A31672AB350068663F /* bz_MaskShapeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_MaskShapeLayer.m; path = View/bz_MaskShapeLayer.m; sourceTree = "<group>"; };
 		EF9449CE1672C7410068663F /* GPUImageExposure+Contrast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GPUImageExposure+Contrast.h"; path = "Categories/GPUImageExposure+Contrast.h"; sourceTree = "<group>"; };
 		EF9449CF1672C7410068663F /* GPUImageExposure+Contrast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GPUImageExposure+Contrast.m"; path = "Categories/GPUImageExposure+Contrast.m"; sourceTree = "<group>"; };
 		EF9449E81673F7470068663F /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -754,8 +744,8 @@
 		EF9449EC1673F74F0068663F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		EF9B2D02167889F80012024E /* GCPagedScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPagedScrollView.h; sourceTree = "<group>"; };
 		EF9B2D03167889F80012024E /* GCPagedScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPagedScrollView.m; sourceTree = "<group>"; };
-		EF9B2D0A16788A220012024E /* bz_TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_TutorialViewController.h; path = Controller/bz_TutorialViewController.h; sourceTree = "<group>"; };
-		EF9B2D0B16788A220012024E /* bz_TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_TutorialViewController.m; path = Controller/bz_TutorialViewController.m; sourceTree = "<group>"; };
+		EF9B2D0A16788A220012024E /* BZTutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZTutorialViewController.h; path = Controller/BZTutorialViewController.h; sourceTree = "<group>"; };
+		EF9B2D0B16788A220012024E /* BZTutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZTutorialViewController.m; path = Controller/BZTutorialViewController.m; sourceTree = "<group>"; };
 		EF9B2D0E1678905A0012024E /* tutorial1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tutorial1.jpg; path = Resources/Images/tutorial1.jpg; sourceTree = "<group>"; };
 		EF9B2D0F1678905A0012024E /* tutorial2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tutorial2.jpg; path = Resources/Images/tutorial2.jpg; sourceTree = "<group>"; };
 		EF9B2D101678905A0012024E /* tutorial3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tutorial3.jpg; path = Resources/Images/tutorial3.jpg; sourceTree = "<group>"; };
@@ -775,12 +765,12 @@
 		EFDE980416755ACC006FB1AC /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		EFDE980616755AD6006FB1AC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		EFDE980816755AE4006FB1AC /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
-		EFE390491677F38C009F2AC9 /* bz_Setting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bz_Setting.h; sourceTree = "<group>"; };
-		EFE3904A1677F38C009F2AC9 /* bz_Setting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bz_Setting.m; sourceTree = "<group>"; };
-		EFE3904D1677F39F009F2AC9 /* bz_PromotionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_PromotionView.h; path = View/bz_PromotionView.h; sourceTree = "<group>"; };
-		EFE3904E1677F39F009F2AC9 /* bz_PromotionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_PromotionView.m; path = View/bz_PromotionView.m; sourceTree = "<group>"; };
-		EFE3904F1677F39F009F2AC9 /* bz_SettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bz_SettingsCell.h; path = View/bz_SettingsCell.h; sourceTree = "<group>"; };
-		EFE390501677F39F009F2AC9 /* bz_SettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bz_SettingsCell.m; path = View/bz_SettingsCell.m; sourceTree = "<group>"; };
+		EFE390491677F38C009F2AC9 /* BZSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BZSetting.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		EFE3904A1677F38C009F2AC9 /* BZSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BZSetting.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		EFE3904D1677F39F009F2AC9 /* BZPromotionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = BZPromotionView.h; path = View/BZPromotionView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		EFE3904E1677F39F009F2AC9 /* BZPromotionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BZPromotionView.m; path = View/BZPromotionView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		EFE3904F1677F39F009F2AC9 /* BZSettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = BZSettingsCell.h; path = View/BZSettingsCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		EFE390501677F39F009F2AC9 /* BZSettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BZSettingsCell.m; path = View/BZSettingsCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		EFF44B111671A0150023FF70 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		EFF44B141671A01C0023FF70 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		EFF44B161671A0240023FF70 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1094,10 +1084,10 @@
 		EF2587B1166EC66400A2225E /* Bezel */ = {
 			isa = PBXGroup;
 			children = (
-				EF2587BA166EC66400A2225E /* bz_AppDelegate.h */,
-				EF2587BB166EC66400A2225E /* bz_AppDelegate.m */,
-				CC384CC2167E642700174786 /* bz_Constants.h */,
-				CC384CC3167E642800174786 /* bz_Constants.m */,
+				EF2587BA166EC66400A2225E /* BZAppDelegate.h */,
+				EF2587BB166EC66400A2225E /* BZAppDelegate.m */,
+				CC384CC2167E642700174786 /* BZConstants.h */,
+				CC384CC3167E642800174786 /* BZConstants.m */,
 				EF5011AF16766ACD0033B574 /* Categories */,
 				EF2587ED166EC79000A2225E /* Controller */,
 				EFE390481677F38C009F2AC9 /* Model */,
@@ -1147,29 +1137,25 @@
 		EF2587E8166EC76400A2225E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CCE40427169C96C3001355A3 /* bz_ConfirmView.h */,
-				CCE40428169C96C3001355A3 /* bz_ConfirmView.m */,
-				CC8839AB167EA21D00374C63 /* bz_ImageView.h */,
-				CC8839AC167EA21D00374C63 /* bz_ImageView.m */,
-				EF9449A21672AB350068663F /* bz_MaskShapeLayer.h */,
-				EF9449A31672AB350068663F /* bz_MaskShapeLayer.m */,
-				EFE3904D1677F39F009F2AC9 /* bz_PromotionView.h */,
-				EFE3904E1677F39F009F2AC9 /* bz_PromotionView.m */,
-				EF258853166EDB0400A2225E /* bz_ScrollView.h */,
-				EF258854166EDB0400A2225E /* bz_ScrollView.m */,
-				EFE3904F1677F39F009F2AC9 /* bz_SettingsCell.h */,
-				EFE390501677F39F009F2AC9 /* bz_SettingsCell.m */,
-				EF258802166EC83700A2225E /* bz_Storyboard_iPhone.storyboard */,
-				EF2587E4166EC75F00A2225E /* bz_View.h */,
-				EF2587E5166EC75F00A2225E /* bz_View.m */,
 				EF25887B166EEE4500A2225E /* BZButton.h */,
 				EF25887C166EEE4500A2225E /* BZButton.m */,
 				965BAD5F16B774D9007193BE /* BZCameraControlsView.h */,
 				965BAD6016B774D9007193BE /* BZCameraControlsView.m */,
+				CCE40427169C96C3001355A3 /* BZConfirmView.h */,
+				CCE40428169C96C3001355A3 /* BZConfirmView.m */,
 				966CF07616D09D5000795C93 /* BZFiltersAdjustmentsCollectionViewCell.h */,
 				966CF07716D09D5100795C93 /* BZFiltersAdjustmentsCollectionViewCell.m */,
+				CC8839AB167EA21D00374C63 /* BZImageView.h */,
+				CC8839AC167EA21D00374C63 /* BZImageView.m */,
 				963098B916B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.h */,
 				963098BA16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m */,
+				EFE3904D1677F39F009F2AC9 /* BZPromotionView.h */,
+				EFE3904E1677F39F009F2AC9 /* BZPromotionView.m */,
+				EFE3904F1677F39F009F2AC9 /* BZSettingsCell.h */,
+				EFE390501677F39F009F2AC9 /* BZSettingsCell.m */,
+				EF2587E4166EC75F00A2225E /* BZView.h */,
+				EF2587E5166EC75F00A2225E /* BZView.m */,
+				EF258802166EC83700A2225E /* Storyboard~iphone.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1177,29 +1163,29 @@
 		EF2587ED166EC79000A2225E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				EF258887166F055E00A2225E /* bz_AdjustmentViewController.h */,
-				EF258888166F055F00A2225E /* bz_AdjustmentViewController.m */,
-				EF258893166F059500A2225E /* bz_BackgroundViewController.h */,
-				EF258894166F059800A2225E /* bz_BackgroundViewController.m */,
-				EF258883166F044D00A2225E /* BZFiltersAdjustmentsController.h */,
-				EF258884166F044E00A2225E /* BZFiltersAdjustmentsController.m */,
-				EF258877166EDDA100A2225E /* bz_MainViewController.h */,
-				EF258878166EDDA100A2225E /* bz_MainViewController.m */,
-				EF2587E9166EC78D00A2225E /* bz_SettingsViewController.h */,
-				EF2587EA166EC78D00A2225E /* bz_SettingsViewController.m */,
-				EF25887F166EEED400A2225E /* bz_ShapesViewController.h */,
-				EF258880166EEED400A2225E /* bz_ShapesViewController.m */,
-				EF25888F166F057900A2225E /* bz_ShareViewController.h */,
-				EF258890166F057A00A2225E /* bz_ShareViewController.m */,
-				EF2587F2166EC7B300A2225E /* bz_StoreViewController.h */,
-				EF2587F3166EC7B300A2225E /* bz_StoreViewController.m */,
-				EF9B2D0A16788A220012024E /* bz_TutorialViewController.h */,
-				EF9B2D0B16788A220012024E /* bz_TutorialViewController.m */,
-				EF2587FE166EC7DF00A2225E /* bz_ViewController.h */,
-				EF2587FF166EC7DF00A2225E /* bz_ViewController.m */,
 				CC033AB616965C85007D9643 /* BZAdjustmentProcessor */,
+				EF258887166F055E00A2225E /* BZAdjustmentViewController.h */,
+				EF258888166F055F00A2225E /* BZAdjustmentViewController.m */,
+				EF258893166F059500A2225E /* BZBackgroundViewController.h */,
+				EF258894166F059800A2225E /* BZBackgroundViewController.m */,
 				966CF06A16D0626200795C93 /* BZCaptureViewController.h */,
 				966CF06B16D0626200795C93 /* BZCaptureViewController.m */,
+				EF258883166F044D00A2225E /* BZFiltersAdjustmentsController.h */,
+				EF258884166F044E00A2225E /* BZFiltersAdjustmentsController.m */,
+				EF258877166EDDA100A2225E /* BZMainViewController.h */,
+				EF258878166EDDA100A2225E /* BZMainViewController.m */,
+				EF2587E9166EC78D00A2225E /* BZSettingsViewController.h */,
+				EF2587EA166EC78D00A2225E /* BZSettingsViewController.m */,
+				EF25887F166EEED400A2225E /* BZShapesViewController.h */,
+				EF258880166EEED400A2225E /* BZShapesViewController.m */,
+				EF25888F166F057900A2225E /* BZShareViewController.h */,
+				EF258890166F057A00A2225E /* BZShareViewController.m */,
+				EF2587F2166EC7B300A2225E /* BZStoreViewController.h */,
+				EF2587F3166EC7B300A2225E /* BZStoreViewController.m */,
+				EF9B2D0A16788A220012024E /* BZTutorialViewController.h */,
+				EF9B2D0B16788A220012024E /* BZTutorialViewController.m */,
+				EF2587FE166EC7DF00A2225E /* BZViewController.h */,
+				EF2587FF166EC7DF00A2225E /* BZViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1476,11 +1462,11 @@
 		EFE390481677F38C009F2AC9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CC413CCA167D567100773B24 /* BZPromotion.h */,
+				CC413CCB167D567100773B24 /* BZPromotion.m */,
+				EFE390491677F38C009F2AC9 /* BZSetting.h */,
+				EFE3904A1677F38C009F2AC9 /* BZSetting.m */,
 				CC19F7BC16954643001A3828 /* Session and Adjustments */,
-				CC413CCA167D567100773B24 /* bz_Promotion.h */,
-				CC413CCB167D567100773B24 /* bz_Promotion.m */,
-				EFE390491677F38C009F2AC9 /* bz_Setting.h */,
-				EFE3904A1677F38C009F2AC9 /* bz_Setting.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1638,7 +1624,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC821FC0167E531400445EAC /* bz_Storyboard_iPhone.storyboard in Resources */,
+				CC821FC0167E531400445EAC /* Storyboard~iphone.storyboard in Resources */,
 				CC821FC1167E531400445EAC /* Icon.png in Resources */,
 				CC821FC2167E531400445EAC /* Icon@2x.png in Resources */,
 				CC821FC3167E531400445EAC /* Default-568h@2x.png in Resources */,
@@ -1704,7 +1690,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF258803166EC83700A2225E /* bz_Storyboard_iPhone.storyboard in Resources */,
+				EF258803166EC83700A2225E /* Storyboard~iphone.storyboard in Resources */,
 				EF25881B166ECA4C00A2225E /* Icon.png in Resources */,
 				EF25881D166ECA6000A2225E /* Icon@2x.png in Resources */,
 				EF25881F166ECA7500A2225E /* Default-568h@2x.png in Resources */,
@@ -1770,7 +1756,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF2587D8166EC66400A2225E /* InfoPlist.strings in Resources */,
-				EF258804166EC83700A2225E /* bz_Storyboard_iPhone.storyboard in Resources */,
+				EF258804166EC83700A2225E /* Storyboard~iphone.storyboard in Resources */,
 				EFF44B3E1671B8DA0023FF70 /* noise.png in Resources */,
 				EFF44B7F1671D5C70023FF70 /* B&W1.png in Resources */,
 				EFF44B811671D5C70023FF70 /* B&W2.png in Resources */,
@@ -1847,20 +1833,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC821F61167E531400445EAC /* bz_AppDelegate.m in Sources */,
-				CC821F63167E531400445EAC /* bz_View.m in Sources */,
-				CC821F64167E531400445EAC /* bz_SettingsViewController.m in Sources */,
-				CC821F66167E531400445EAC /* bz_StoreViewController.m in Sources */,
-				CC821F69167E531400445EAC /* bz_ViewController.m in Sources */,
+				CC821F61167E531400445EAC /* BZAppDelegate.m in Sources */,
+				CC821F63167E531400445EAC /* BZView.m in Sources */,
+				CC821F64167E531400445EAC /* BZSettingsViewController.m in Sources */,
+				CC821F66167E531400445EAC /* BZStoreViewController.m in Sources */,
+				CC821F69167E531400445EAC /* BZViewController.m in Sources */,
 				CC821F6B167E531400445EAC /* DMPageControl.m in Sources */,
-				CC821F6C167E531400445EAC /* bz_ScrollView.m in Sources */,
-				CC821F6E167E531400445EAC /* bz_MainViewController.m in Sources */,
+				CC821F6E167E531400445EAC /* BZMainViewController.m in Sources */,
 				CC821F6F167E531400445EAC /* BZButton.m in Sources */,
-				CC821F70167E531400445EAC /* bz_ShapesViewController.m in Sources */,
+				CC821F70167E531400445EAC /* BZShapesViewController.m in Sources */,
 				CC821F71167E531400445EAC /* BZFiltersAdjustmentsController.m in Sources */,
-				CC821F72167E531400445EAC /* bz_AdjustmentViewController.m in Sources */,
-				CC821F73167E531400445EAC /* bz_ShareViewController.m in Sources */,
-				CC821F74167E531400445EAC /* bz_BackgroundViewController.m in Sources */,
+				CC821F72167E531400445EAC /* BZAdjustmentViewController.m in Sources */,
+				CC821F73167E531400445EAC /* BZShareViewController.m in Sources */,
+				CC821F74167E531400445EAC /* BZBackgroundViewController.m in Sources */,
 				CC821F75167E531400445EAC /* AnimationDelegate.m in Sources */,
 				CC821F76167E531400445EAC /* AnimationFrame.m in Sources */,
 				CC821F77167E531400445EAC /* FlipView.m in Sources */,
@@ -1874,7 +1859,6 @@
 				CC821F7F167E531400445EAC /* StandardPaths.m in Sources */,
 				CC821F80167E531400445EAC /* UIImage+Resize.m in Sources */,
 				CC821F81167E531400445EAC /* UIImage+Storage.m in Sources */,
-				CC821F82167E531400445EAC /* bz_MaskShapeLayer.m in Sources */,
 				CC821F83167E531400445EAC /* GPUImageExposure+Contrast.m in Sources */,
 				CC821F84167E531400445EAC /* UIImage+Utils.m in Sources */,
 				CC821F85167E531400445EAC /* EBPurchase.m in Sources */,
@@ -1895,23 +1879,23 @@
 				CC821F94167E531400445EAC /* RSColorPickerView.m in Sources */,
 				CC821F95167E531400445EAC /* MAConfirmButton.m in Sources */,
 				CC821F96167E531400445EAC /* UIColor-Expanded.m in Sources */,
-				CC821F97167E531400445EAC /* bz_Setting.m in Sources */,
-				CC821F98167E531400445EAC /* bz_PromotionView.m in Sources */,
-				CC821F99167E531400445EAC /* bz_SettingsCell.m in Sources */,
+				CC821F97167E531400445EAC /* BZSetting.m in Sources */,
+				CC821F98167E531400445EAC /* BZPromotionView.m in Sources */,
+				CC821F99167E531400445EAC /* BZSettingsCell.m in Sources */,
 				CC821F9A167E531400445EAC /* GCPagedScrollView.m in Sources */,
-				CC821F9B167E531400445EAC /* bz_TutorialViewController.m in Sources */,
+				CC821F9B167E531400445EAC /* BZTutorialViewController.m in Sources */,
 				CC821F9C167E531400445EAC /* SVProgressHUD.m in Sources */,
 				CC821F9D167E531400445EAC /* main.m in Sources */,
-				CC821F9E167E531400445EAC /* bz_Promotion.m in Sources */,
-				CC384CC5167E642800174786 /* bz_Constants.m in Sources */,
-				CC8839AE167EA21D00374C63 /* bz_ImageView.m in Sources */,
+				CC821F9E167E531400445EAC /* BZPromotion.m in Sources */,
+				CC384CC5167E642800174786 /* BZConstants.m in Sources */,
+				CC8839AE167EA21D00374C63 /* BZImageView.m in Sources */,
 				CC55B6AE16949614006AD05A /* BZCaptureManager.m in Sources */,
 				CC16B97D1694CBF600027CC5 /* BZAdjustment.m in Sources */,
 				CC16B9821694CC1C00027CC5 /* BZSession.m in Sources */,
 				CC19F8011695F56E001A3828 /* BZMaskAdjustment.m in Sources */,
 				CC033ABA16965CC4007D9643 /* BZAdjustmentProcessor.m in Sources */,
 				CC3C080A1697E04C00CF9B18 /* BZFilterAdjustment.m in Sources */,
-				CCE4042A169C96C3001355A3 /* bz_ConfirmView.m in Sources */,
+				CCE4042A169C96C3001355A3 /* BZConfirmView.m in Sources */,
 				96F39876169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m in Sources */,
 				CCE24F81169F2AF600606BF6 /* AFHTTPClient.m in Sources */,
 				CCE24F82169F2AF600606BF6 /* AFHTTPRequestOperation.m in Sources */,
@@ -1938,20 +1922,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF2587BC166EC66400A2225E /* bz_AppDelegate.m in Sources */,
-				EF2587E6166EC75F00A2225E /* bz_View.m in Sources */,
-				EF2587EB166EC78D00A2225E /* bz_SettingsViewController.m in Sources */,
-				EF2587F4166EC7B300A2225E /* bz_StoreViewController.m in Sources */,
-				EF258800166EC7DF00A2225E /* bz_ViewController.m in Sources */,
+				EF2587BC166EC66400A2225E /* BZAppDelegate.m in Sources */,
+				EF2587E6166EC75F00A2225E /* BZView.m in Sources */,
+				EF2587EB166EC78D00A2225E /* BZSettingsViewController.m in Sources */,
+				EF2587F4166EC7B300A2225E /* BZStoreViewController.m in Sources */,
+				EF258800166EC7DF00A2225E /* BZViewController.m in Sources */,
 				EF258847166ECF2D00A2225E /* DMPageControl.m in Sources */,
-				EF258855166EDB0400A2225E /* bz_ScrollView.m in Sources */,
-				EF258879166EDDA200A2225E /* bz_MainViewController.m in Sources */,
+				EF258879166EDDA200A2225E /* BZMainViewController.m in Sources */,
 				EF25887D166EEE4500A2225E /* BZButton.m in Sources */,
-				EF258881166EEED500A2225E /* bz_ShapesViewController.m in Sources */,
+				EF258881166EEED500A2225E /* BZShapesViewController.m in Sources */,
 				EF258885166F044F00A2225E /* BZFiltersAdjustmentsController.m in Sources */,
-				EF258889166F056000A2225E /* bz_AdjustmentViewController.m in Sources */,
-				EF258891166F057B00A2225E /* bz_ShareViewController.m in Sources */,
-				EF258895166F05A000A2225E /* bz_BackgroundViewController.m in Sources */,
+				EF258889166F056000A2225E /* BZAdjustmentViewController.m in Sources */,
+				EF258891166F057B00A2225E /* BZShareViewController.m in Sources */,
+				EF258895166F05A000A2225E /* BZBackgroundViewController.m in Sources */,
 				EFA088221671543A00AA6992 /* AnimationDelegate.m in Sources */,
 				EFA088241671543A00AA6992 /* AnimationFrame.m in Sources */,
 				EFA088261671543A00AA6992 /* FlipView.m in Sources */,
@@ -1965,7 +1948,6 @@
 				EFF44B581671BA720023FF70 /* StandardPaths.m in Sources */,
 				EFF44B5A1671BA720023FF70 /* UIImage+Resize.m in Sources */,
 				EFF44B5C1671BA720023FF70 /* UIImage+Storage.m in Sources */,
-				EF9449A41672AB350068663F /* bz_MaskShapeLayer.m in Sources */,
 				EF9449D01672C7410068663F /* GPUImageExposure+Contrast.m in Sources */,
 				EFBC7B2A167554DF00962C96 /* UIImage+Utils.m in Sources */,
 				EF50119C167572AD0033B574 /* EBPurchase.m in Sources */,
@@ -1986,14 +1968,14 @@
 				EF501256167707A90033B574 /* RSColorPickerView.m in Sources */,
 				EF501278167729A80033B574 /* MAConfirmButton.m in Sources */,
 				EF50127A167729A80033B574 /* UIColor-Expanded.m in Sources */,
-				EFE3904B1677F38C009F2AC9 /* bz_Setting.m in Sources */,
-				EFE390511677F39F009F2AC9 /* bz_PromotionView.m in Sources */,
-				EFE390531677F39F009F2AC9 /* bz_SettingsCell.m in Sources */,
+				EFE3904B1677F38C009F2AC9 /* BZSetting.m in Sources */,
+				EFE390511677F39F009F2AC9 /* BZPromotionView.m in Sources */,
+				EFE390531677F39F009F2AC9 /* BZSettingsCell.m in Sources */,
 				EF9B2D04167889F80012024E /* GCPagedScrollView.m in Sources */,
-				EF9B2D0C16788A220012024E /* bz_TutorialViewController.m in Sources */,
+				EF9B2D0C16788A220012024E /* BZTutorialViewController.m in Sources */,
 				EF160769167BB7E800EC21EB /* SVProgressHUD.m in Sources */,
 				EF160775167BB8CE00EC21EB /* main.m in Sources */,
-				CC413CCC167D567100773B24 /* bz_Promotion.m in Sources */,
+				CC413CCC167D567100773B24 /* BZPromotion.m in Sources */,
 				CC2CF432167DB2A900A0EDA7 /* AFHTTPClient.m in Sources */,
 				CC2CF433167DB2A900A0EDA7 /* AFHTTPRequestOperation.m in Sources */,
 				CC2CF434167DB2A900A0EDA7 /* AFImageRequestOperation.m in Sources */,
@@ -2003,15 +1985,15 @@
 				CC2CF438167DB2A900A0EDA7 /* AFURLConnectionOperation.m in Sources */,
 				CC2CF439167DB2A900A0EDA7 /* AFXMLRequestOperation.m in Sources */,
 				CC2CF43A167DB2A900A0EDA7 /* UIImageView+AFNetworking.m in Sources */,
-				CC384CC4167E642800174786 /* bz_Constants.m in Sources */,
-				CC8839AD167EA21D00374C63 /* bz_ImageView.m in Sources */,
+				CC384CC4167E642800174786 /* BZConstants.m in Sources */,
+				CC8839AD167EA21D00374C63 /* BZImageView.m in Sources */,
 				CC55B6AD16949614006AD05A /* BZCaptureManager.m in Sources */,
 				CC16B97C1694CBF600027CC5 /* BZAdjustment.m in Sources */,
 				CC16B9811694CC1C00027CC5 /* BZSession.m in Sources */,
 				CC19F8001695F56E001A3828 /* BZMaskAdjustment.m in Sources */,
 				CC033AB916965CC4007D9643 /* BZAdjustmentProcessor.m in Sources */,
 				CC3C08091697E04C00CF9B18 /* BZFilterAdjustment.m in Sources */,
-				CCE40429169C96C3001355A3 /* bz_ConfirmView.m in Sources */,
+				CCE40429169C96C3001355A3 /* BZConfirmView.m in Sources */,
 				96F39875169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m in Sources */,
 				CCE24F9C169F60AC00606BF6 /* BZScaleAdjustment.m in Sources */,
 				CCC95F3116A073FE006DE78B /* BZBackgroundAdjustment.m in Sources */,
@@ -2030,19 +2012,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF2587DB166EC66400A2225E /* BezelTests.m in Sources */,
-				EF2587E7166EC75F00A2225E /* bz_View.m in Sources */,
-				EF2587EC166EC78D00A2225E /* bz_SettingsViewController.m in Sources */,
-				EF2587F5166EC7B300A2225E /* bz_StoreViewController.m in Sources */,
-				EF258801166EC7DF00A2225E /* bz_ViewController.m in Sources */,
+				EF2587E7166EC75F00A2225E /* BZView.m in Sources */,
+				EF2587EC166EC78D00A2225E /* BZSettingsViewController.m in Sources */,
+				EF2587F5166EC7B300A2225E /* BZStoreViewController.m in Sources */,
+				EF258801166EC7DF00A2225E /* BZViewController.m in Sources */,
 				EF258848166ECF2D00A2225E /* DMPageControl.m in Sources */,
-				EF258856166EDB0400A2225E /* bz_ScrollView.m in Sources */,
-				EF25887A166EDDA200A2225E /* bz_MainViewController.m in Sources */,
+				EF25887A166EDDA200A2225E /* BZMainViewController.m in Sources */,
 				EF25887E166EEE4500A2225E /* BZButton.m in Sources */,
-				EF258882166EEED500A2225E /* bz_ShapesViewController.m in Sources */,
+				EF258882166EEED500A2225E /* BZShapesViewController.m in Sources */,
 				EF258886166F044F00A2225E /* BZFiltersAdjustmentsController.m in Sources */,
-				EF25888A166F056000A2225E /* bz_AdjustmentViewController.m in Sources */,
-				EF258892166F057B00A2225E /* bz_ShareViewController.m in Sources */,
-				EF258896166F05A000A2225E /* bz_BackgroundViewController.m in Sources */,
+				EF25888A166F056000A2225E /* BZAdjustmentViewController.m in Sources */,
+				EF258892166F057B00A2225E /* BZShareViewController.m in Sources */,
+				EF258896166F05A000A2225E /* BZBackgroundViewController.m in Sources */,
 				EFA088231671543A00AA6992 /* AnimationDelegate.m in Sources */,
 				EFA088251671543A00AA6992 /* AnimationFrame.m in Sources */,
 				EFA088271671543A00AA6992 /* FlipView.m in Sources */,
@@ -2056,7 +2037,6 @@
 				EFF44B591671BA720023FF70 /* StandardPaths.m in Sources */,
 				EFF44B5B1671BA720023FF70 /* UIImage+Resize.m in Sources */,
 				EFF44B5D1671BA720023FF70 /* UIImage+Storage.m in Sources */,
-				EF9449A51672AB350068663F /* bz_MaskShapeLayer.m in Sources */,
 				EF9449D11672C7410068663F /* GPUImageExposure+Contrast.m in Sources */,
 				EFBC7B2B167554DF00962C96 /* UIImage+Utils.m in Sources */,
 				EF50119D167572AD0033B574 /* EBPurchase.m in Sources */,
@@ -2077,11 +2057,11 @@
 				EF501257167707A90033B574 /* RSColorPickerView.m in Sources */,
 				EF501279167729A80033B574 /* MAConfirmButton.m in Sources */,
 				EF50127B167729A80033B574 /* UIColor-Expanded.m in Sources */,
-				EFE3904C1677F38C009F2AC9 /* bz_Setting.m in Sources */,
-				EFE390521677F39F009F2AC9 /* bz_PromotionView.m in Sources */,
-				EFE390541677F39F009F2AC9 /* bz_SettingsCell.m in Sources */,
+				EFE3904C1677F38C009F2AC9 /* BZSetting.m in Sources */,
+				EFE390521677F39F009F2AC9 /* BZPromotionView.m in Sources */,
+				EFE390541677F39F009F2AC9 /* BZSettingsCell.m in Sources */,
 				EF9B2D05167889F80012024E /* GCPagedScrollView.m in Sources */,
-				EF9B2D0D16788A220012024E /* bz_TutorialViewController.m in Sources */,
+				EF9B2D0D16788A220012024E /* BZTutorialViewController.m in Sources */,
 				EF16076A167BB7E800EC21EB /* SVProgressHUD.m in Sources */,
 				EF160776167BB8CE00EC21EB /* main.m in Sources */,
 				CC821F3D167DBB4D00445EAC /* bz_PromotionsTest.m in Sources */,
@@ -2094,8 +2074,8 @@
 				CC821F44167DBB8E00445EAC /* AFURLConnectionOperation.m in Sources */,
 				CC821F45167DBB8E00445EAC /* AFXMLRequestOperation.m in Sources */,
 				CC821F46167DBB8E00445EAC /* UIImageView+AFNetworking.m in Sources */,
-				CC384CC6167E642800174786 /* bz_Constants.m in Sources */,
-				CC8839AF167EA21D00374C63 /* bz_ImageView.m in Sources */,
+				CC384CC6167E642800174786 /* BZConstants.m in Sources */,
+				CC8839AF167EA21D00374C63 /* BZImageView.m in Sources */,
 				CC55B6AF16949614006AD05A /* BZCaptureManager.m in Sources */,
 				CC16B97E1694CBF600027CC5 /* BZAdjustment.m in Sources */,
 				CC16B9831694CC1C00027CC5 /* BZSession.m in Sources */,

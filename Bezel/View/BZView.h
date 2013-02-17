@@ -1,5 +1,5 @@
 //
-//  BZButton.h
+//  BZView.h
 //  Bezel
 //
 //  Created by John Clem on 12/4/12.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BZButton : UIButton
-
-@property (nonatomic, strong) NSString *buttonIdentifier;
+@interface BZView : UIView
 
 @end

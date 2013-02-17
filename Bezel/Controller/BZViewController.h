@@ -1,5 +1,5 @@
 //
-//  BZButton.h
+//  BZViewController.h
 //  Bezel
 //
 //  Created by John Clem on 12/4/12.
@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BZButton.h"
 
-@interface BZButton : UIButton
+@interface BZViewController : UIViewController
 
-@property (nonatomic, strong) NSString *buttonIdentifier;
+@property(nonatomic) CGFloat scrollHeight;
 
 @end

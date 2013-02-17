@@ -21,6 +21,6 @@
     #import "EssentialImager.h"
     #import "GPUImage.h"
 
-    #import "bz_Constants.h"
+    #import "BZConstants.h"
     #import "Logging.h"
 #endif

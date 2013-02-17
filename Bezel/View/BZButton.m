@@ -1,5 +1,5 @@
 //
-//  bz_Button.m
+//  BZButton.m
 //  Bezel
 //
 //  Created by John Clem on 12/4/12.

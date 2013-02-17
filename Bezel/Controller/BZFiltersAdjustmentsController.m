@@ -1,5 +1,5 @@
 //
-//  bz_FilterViewController.m
+//  BZFilterViewController.m
 //  Bezel
 //
 //  Created by John Clem on 12/4/12.

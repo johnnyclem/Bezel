@@ -1,5 +1,5 @@
 //
-//  BZ_Session.h
+//  BZSession.h
 //  Bezel
 //
 //  Created by Josh Buchacher on 1/2/13.

@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Mind Diaper. All rights reserved.
 //
 
-#import "bz_ViewController.h"
+#import "BZViewController.h"
 #import "BZCameraControlsView.h"
 
-@interface BZCaptureViewController : bz_ViewController
+@interface BZCaptureViewController : BZViewController
 
 @property (weak, nonatomic) IBOutlet BZCameraControlsView *cameraControlsView;
 

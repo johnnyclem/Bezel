@@ -16,7 +16,7 @@
 			<key>Title</key>
 			<string>Load Remote Promotions</string>
 			<key>Key</key>
-			<string>bz_load_remote_promotions</string>
+			<string>BZload_remote_promotions</string>
 			<key>DefaultValue</key>
 			<false/>
 		</dict>
@@ -32,7 +32,7 @@
 			<key>Title</key>
 			<string>Load Remote Shapes</string>
 			<key>Key</key>
-			<string>bz_load_remote_shapes</string>
+			<string>BZload_remote_shapes</string>
 			<key>DefaultValue</key>
 			<false/>
 		</dict>

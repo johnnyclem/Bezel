@@ -7,7 +7,6 @@
 //
 
 #import "BZMaskAdjustment.h"
-#import "bz_MaskShapeLayer.h"
 #import "UIBezierPath+Shapes.h"
 
 NSString *BZ_SHAPE_NAME_KEY = @"shape_name";

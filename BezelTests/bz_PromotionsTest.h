@@ -1,5 +1,5 @@
 //
-//  bz_PromotionsTest.h
+//  BZPromotionsTest.h
 //  Bezel
 //
 //  Created by Josh Buchacher on 12/16/12.
@@ -8,6 +8,6 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface bz_PromotionsTest : SenTestCase
+@interface BZPromotionsTest : SenTestCase
 
 @end
