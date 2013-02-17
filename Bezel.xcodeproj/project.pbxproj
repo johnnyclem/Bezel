@@ -22,6 +22,12 @@
 		966CF05F16D053F600795C93 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 966CF05E16D053F600795C93 /* HMSegmentedControl.m */; };
 		966CF06016D053F600795C93 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 966CF05E16D053F600795C93 /* HMSegmentedControl.m */; };
 		966CF06116D053F600795C93 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 966CF05E16D053F600795C93 /* HMSegmentedControl.m */; };
+		966CF06C16D0626200795C93 /* BZCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966CF06B16D0626200795C93 /* BZCaptureViewController.m */; };
+		966CF06D16D0626200795C93 /* BZCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966CF06B16D0626200795C93 /* BZCaptureViewController.m */; };
+		966CF06E16D0626200795C93 /* BZCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966CF06B16D0626200795C93 /* BZCaptureViewController.m */; };
+		966CF07316D0645F00795C93 /* BZTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966CF07216D0645F00795C93 /* BZTabBarController.m */; };
+		966CF07416D0645F00795C93 /* BZTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966CF07216D0645F00795C93 /* BZTabBarController.m */; };
+		966CF07516D0645F00795C93 /* BZTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966CF07216D0645F00795C93 /* BZTabBarController.m */; };
 		96F39875169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F39874169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m */; };
 		96F39876169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F39874169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m */; };
 		96F39877169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m in Sources */ = {isa = PBXBuildFile; fileRef = 96F39874169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m */; };
@@ -518,6 +524,10 @@
 		965BAD6016B774D9007193BE /* BZCameraControlsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZCameraControlsView.m; path = View/BZCameraControlsView.m; sourceTree = "<group>"; };
 		966CF05D16D053F600795C93 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		966CF05E16D053F600795C93 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
+		966CF06A16D0626200795C93 /* BZCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZCaptureViewController.h; path = Controller/BZCaptureViewController.h; sourceTree = "<group>"; };
+		966CF06B16D0626200795C93 /* BZCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZCaptureViewController.m; path = Controller/BZCaptureViewController.m; sourceTree = "<group>"; };
+		966CF07116D0645F00795C93 /* BZTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZTabBarController.h; path = Categories/BZTabBarController.h; sourceTree = "<group>"; };
+		966CF07216D0645F00795C93 /* BZTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZTabBarController.m; path = Categories/BZTabBarController.m; sourceTree = "<group>"; };
 		96F39873169E800F0017D3A8 /* BZBrightnessContrastAdjustment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZBrightnessContrastAdjustment.h; path = Adjustments/BZBrightnessContrastAdjustment.h; sourceTree = "<group>"; };
 		96F39874169E800F0017D3A8 /* BZBrightnessContrastAdjustment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZBrightnessContrastAdjustment.m; path = Adjustments/BZBrightnessContrastAdjustment.m; sourceTree = "<group>"; };
 		CC033AB716965CC4007D9643 /* BZAdjustmentProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZAdjustmentProcessor.h; path = Controller/BZAdjustmentProcessor/BZAdjustmentProcessor.h; sourceTree = "<group>"; };
@@ -1127,7 +1137,6 @@
 		EF2587ED166EC79000A2225E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				CC033AB616965C85007D9643 /* BZAdjustmentProcessor */,
 				EF258887166F055E00A2225E /* bz_AdjustmentViewController.h */,
 				EF258888166F055F00A2225E /* bz_AdjustmentViewController.m */,
 				EF258893166F059500A2225E /* bz_BackgroundViewController.h */,
@@ -1152,6 +1161,9 @@
 				EF9B2D0B16788A220012024E /* bz_TutorialViewController.m */,
 				EF2587FE166EC7DF00A2225E /* bz_ViewController.h */,
 				EF2587FF166EC7DF00A2225E /* bz_ViewController.m */,
+				CC033AB616965C85007D9643 /* BZAdjustmentProcessor */,
+				966CF06A16D0626200795C93 /* BZCaptureViewController.h */,
+				966CF06B16D0626200795C93 /* BZCaptureViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1201,10 +1213,12 @@
 		EF5011AF16766ACD0033B574 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				CC1CEEC416C1B74F00196110 /* UIBezierPath+Shapes.h */,
-				CC1CEEC516C1B74F00196110 /* UIBezierPath+Shapes.m */,
+				966CF07116D0645F00795C93 /* BZTabBarController.h */,
+				966CF07216D0645F00795C93 /* BZTabBarController.m */,
 				EF9449CE1672C7410068663F /* GPUImageExposure+Contrast.h */,
 				EF9449CF1672C7410068663F /* GPUImageExposure+Contrast.m */,
+				CC1CEEC416C1B74F00196110 /* UIBezierPath+Shapes.h */,
+				CC1CEEC516C1B74F00196110 /* UIBezierPath+Shapes.m */,
 				EFBC7B28167554DF00962C96 /* UIImage+Utils.h */,
 				EFBC7B29167554DF00962C96 /* UIImage+Utils.m */,
 			);
@@ -1835,6 +1849,8 @@
 				965BAD6216B774D9007193BE /* BZCameraControlsView.m in Sources */,
 				CC1CEECE16C1B75F00196110 /* UIBezierPath+Shapes.m in Sources */,
 				966CF06016D053F600795C93 /* HMSegmentedControl.m in Sources */,
+				966CF06D16D0626200795C93 /* BZCaptureViewController.m in Sources */,
+				966CF07416D0645F00795C93 /* BZTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1925,6 +1941,8 @@
 				965BAD6116B774D9007193BE /* BZCameraControlsView.m in Sources */,
 				CC1CEEC816C1B74F00196110 /* UIBezierPath+Shapes.m in Sources */,
 				966CF05F16D053F600795C93 /* HMSegmentedControl.m in Sources */,
+				966CF06C16D0626200795C93 /* BZCaptureViewController.m in Sources */,
+				966CF07316D0645F00795C93 /* BZTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2013,6 +2031,8 @@
 				965BAD6316B774D9007193BE /* BZCameraControlsView.m in Sources */,
 				CC1CEED016C1B75F00196110 /* UIBezierPath+Shapes.m in Sources */,
 				966CF06116D053F600795C93 /* HMSegmentedControl.m in Sources */,
+				966CF06E16D0626200795C93 /* BZCaptureViewController.m in Sources */,
+				966CF07516D0645F00795C93 /* BZTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

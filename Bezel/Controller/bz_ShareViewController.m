@@ -28,10 +28,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    
     // Top Row Buttons
     CGFloat width       = self.view.frame.size.width;
-    CGFloat btnOffset   = ((_scrollHeight-88)/2)+25;
+    CGFloat height       = self.view.frame.size.height;
+    CGFloat btnOffset   = ((height-88)/2)+25;
     CGFloat btnWidth    = width/5.f;
     CGFloat btnHeight   = 50.f;
     
@@ -66,7 +71,6 @@
     [instagram addTarget:self action:@selector(shareImage:) forControlEvents:UIControlEventTouchUpInside];
     [cameraRoll addTarget:self action:@selector(shareImage:) forControlEvents:UIControlEventTouchUpInside];
     [trash addTarget:self action:@selector(shareImage:) forControlEvents:UIControlEventTouchUpInside];
-
 }
 
 - (void)didReceiveMemoryWarning

@@ -29,11 +29,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
     CGFloat width       = self.view.frame.size.width;
-    CGFloat btnOffset   = (_scrollHeight-100.f)/2.f;
+    CGFloat height       = self.view.frame.size.height;
+    CGFloat btnOffset   = (height-100.f)/2.f;
     CGFloat btnWidth    = width/2.f;
-    CGFloat btnHeight   = _scrollHeight/2.f;
+    CGFloat btnHeight   = height/2.f;
     
     bz_Button *leftBar  = [[bz_Button alloc] initWithFrame:CGRectMake(0, btnOffset, btnWidth, btnHeight)];
     bz_Button *rightBar = [[bz_Button alloc] initWithFrame:CGRectMake(160, btnOffset, btnWidth, btnHeight)];
@@ -60,24 +72,13 @@
     [leftBar setShowsTouchWhenHighlighted:NO];
     [rightBar setEnabled:NO];
     [rightBar setShowsTouchWhenHighlighted:NO];
-
+    
     [self.view addSubview:expUp];
     [self.view addSubview:expDown];
     [self.view addSubview:contUp];
     [self.view addSubview:contDown];
     [self.view addSubview:leftBar];
     [self.view addSubview:rightBar];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(void)viewWillAppear:(BOOL)animated {
-    
-    [super viewWillAppear:animated];
 }
 
 @end

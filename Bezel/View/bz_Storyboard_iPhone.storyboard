@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="iFz-Yu-AOk">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -23,8 +23,8 @@
                         <constraints>
                             <constraint firstItem="00g-zX-5D8" firstAttribute="bottom" secondItem="a4y-SG-5eH" secondAttribute="bottom" type="default" id="2SU-NI-Bp7"/>
                             <constraint firstItem="00g-zX-5D8" firstAttribute="trailing" secondItem="a4y-SG-5eH" secondAttribute="trailing" type="default" id="Ab4-Nk-X5n"/>
+                            <constraint firstItem="00g-zX-5D8" firstAttribute="top" secondItem="a4y-SG-5eH" secondAttribute="top" constant="356" id="BYP-Mp-h6w"/>
                             <constraint firstItem="00g-zX-5D8" firstAttribute="leading" secondItem="a4y-SG-5eH" secondAttribute="leading" type="default" id="CLq-eo-Sag"/>
-                            <constraint firstItem="00g-zX-5D8" firstAttribute="top" secondItem="a4y-SG-5eH" secondAttribute="top" constant="321" id="gxC-wP-3Ob"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -261,14 +261,14 @@
             </objects>
             <point key="canvasLocation" x="846" y="-195"/>
         </scene>
-        <!--1 - Capture View Controller-->
+        <!--2 - Shapes View Controller-->
         <scene sceneID="bOu-SH-Znw">
             <objects>
-                <viewController title="Capture" id="Mlt-4k-vLz" userLabel="1 - Capture View Controller" sceneMemberID="viewController">
+                <viewController title="Capture" id="Mlt-4k-vLz" userLabel="2 - Shapes View Controller" customClass="bz_ShapesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="By5-WJ-D7l">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="159"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="124"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="1Sy-Hd-xoL"/>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -277,16 +277,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tkA-a7-drC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1511" y="-99"/>
+            <point key="canvasLocation" x="1511" y="153"/>
         </scene>
-        <!--2 - Shapes View Controller-->
+        <!--1 - Capture View Controller-->
         <scene sceneID="XZt-dZ-EtM">
             <objects>
-                <viewController title="Shapes" id="j2Y-HL-c55" userLabel="2 - Shapes View Controller" sceneMemberID="viewController">
+                <viewController title="Shapes" id="j2Y-HL-c55" userLabel="1 - Capture View Controller" customClass="BZCaptureViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ruX-vB-6iu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="159"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="124"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="HBM-ar-JUw"/>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -295,12 +295,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nID-t5-irm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1511" y="146"/>
+            <point key="canvasLocation" x="1511" y="-100"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="k8f-Y2-QxE">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="qOB-f2-ON6" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kVC-e3-J84" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarController definesPresentationContext="YES" id="qOB-f2-ON6" customClass="BZTabBarController" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="STO-kd-hbQ">
@@ -312,22 +313,21 @@
                         <segue destination="j2Y-HL-c55" kind="relationship" relationship="viewControllers" id="m8C-8I-LgD"/>
                         <segue destination="Mlt-4k-vLz" kind="relationship" relationship="viewControllers" id="8da-gi-7Ph"/>
                         <segue destination="77G-h2-eIu" kind="relationship" relationship="viewControllers" id="Mxf-j8-eyw"/>
-                        <segue destination="rHY-ST-ZL1" kind="relationship" relationship="viewControllers" id="bY5-iL-ECT"/>
-                        <segue destination="sXt-oR-K0r" kind="relationship" relationship="viewControllers" id="7o4-la-L63"/>
+                        <segue destination="sXt-oR-K0r" kind="relationship" relationship="viewControllers" id="SRI-HL-PE6"/>
+                        <segue destination="rHY-ST-ZL1" kind="relationship" relationship="viewControllers" id="5pf-O0-tmg"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kVC-e3-J84" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="846" y="412"/>
         </scene>
         <!--3 - Filters & Adjustments View Controller-->
         <scene sceneID="3yv-iO-KDP">
             <objects>
-                <viewController title="Filters &amp; Adjustments" id="77G-h2-eIu" userLabel="3 - Filters &amp; Adjustments View Controller" sceneMemberID="viewController">
+                <viewController title="Filters &amp; Adjustments" id="77G-h2-eIu" userLabel="3 - Filters &amp; Adjustments View Controller" customClass="bz_FilterViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m2M-qn-fv7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="159"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="124"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="3Xj-8w-H6i"/>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -341,11 +341,11 @@
         <!--4 - Backgrounds View Controller-->
         <scene sceneID="7Gj-FZ-XhG">
             <objects>
-                <viewController title="Backgrounds" id="sXt-oR-K0r" userLabel="4 - Backgrounds View Controller" sceneMemberID="viewController">
+                <viewController title="Backgrounds" id="sXt-oR-K0r" userLabel="4 - Backgrounds View Controller" customClass="bz_BackgroundViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qs4-gb-HAd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="159"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="124"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="ABZ-X1-Jit"/>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -359,11 +359,11 @@
         <!--5 - Sharing View Controller-->
         <scene sceneID="Zo4-ZD-MWs">
             <objects>
-                <viewController title="Sharing" id="rHY-ST-ZL1" userLabel="5 - Sharing View Controller" sceneMemberID="viewController">
+                <viewController title="Sharing" id="rHY-ST-ZL1" userLabel="5 - Sharing View Controller" customClass="bz_ShareViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0JM-5l-XPh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="159"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="124"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="mtK-9J-Tx2"/>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -372,13 +372,19 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1b-6x-bu4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1511" y="924"/>
+            <point key="canvasLocation" x="1511" y="916"/>
         </scene>
     </scenes>
     <resources>
         <image name="cinePromo.png" width="960" height="640"/>
     </resources>
     <classes>
+        <class className="BZCaptureViewController" superclassName="bz_ViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BZCaptureViewController.h"/>
+        </class>
+        <class className="BZTabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BZTabBarController.h"/>
+        </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
@@ -391,6 +397,12 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
+        <class className="bz_BackgroundViewController" superclassName="bz_ViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/bz_BackgroundViewController.h"/>
+        </class>
+        <class className="bz_FilterViewController" superclassName="bz_ViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/bz_FilterViewController.h"/>
+        </class>
         <class className="bz_ImageView" superclassName="UIImageView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/bz_ImageView.h"/>
         </class>
@@ -398,7 +410,9 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/bz_MainViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="cameraPreview" candidateClass="UIView"/>
+                <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="imageCanvas" candidateClass="bz_ImageView"/>
+                <relationship kind="outlet" name="tabBarController" candidateClass="BZTabBarController"/>
             </relationships>
         </class>
         <class className="bz_PromotionView" superclassName="UICollectionReusableView">
@@ -433,6 +447,12 @@
                 <relationship kind="action" name="valueChanged:"/>
                 <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
             </relationships>
+        </class>
+        <class className="bz_ShapesViewController" superclassName="bz_ViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/bz_ShapesViewController.h"/>
+        </class>
+        <class className="bz_ShareViewController" superclassName="bz_ViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/bz_ShareViewController.h"/>
         </class>
         <class className="bz_View" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/bz_View.h"/>

@@ -42,7 +42,8 @@
 {
     [super viewDidLoad];
     
-    CGFloat btnOffset   = (_scrollHeight-100);
+    CGFloat height       = self.view.frame.size.height;
+    CGFloat btnOffset   = (height-100);
 
     // Top Row Buttons
     CGFloat btnWidth    = 80.f;

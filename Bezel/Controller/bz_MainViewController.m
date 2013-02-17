@@ -23,6 +23,7 @@
 #import "UIImage+Utils.h"
 #import "UIImage+Resize.h"
 #import "UIImage+Storage.h"
+#import "BZTabBarController.h"
 #import "BZCameraControlsView.h"
 #import "bz_ImageView.h"
 #import "bz_ConfirmView.h"
@@ -56,6 +57,9 @@
 @property (strong, nonatomic) BZCameraControlsView *cameraControlsView;
 @property (strong, nonatomic) bz_ConfirmView *confirmView;
 
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet BZTabBarController *tabBarController;
+
 @property (strong, nonatomic) HMSegmentedControl *segmentedControl;
 
 @end
@@ -69,9 +73,13 @@
 {
     [super viewDidLoad];
     
+    self.tabBarController = [self.childViewControllers objectAtIndex:0];
+    for (UIViewController *ctr in self.tabBarController.childViewControllers) {
+        ctr.view.frame = CGRectMake(0, 380, 320, self.view.frame.size.height-380);
+    }
     // Used for blocks
     __weak bz_MainViewController *weakSelf = self;
-
+    
     // Initialization
     self.session = [[BZSession alloc] init];
     self.library = [[ALAssetsLibrary alloc] init];
@@ -83,7 +91,7 @@
     self.segmentedControl.backgroundColor = [UIColor blackColor];
     self.segmentedControl.frame = CGRectMake(0, 0, 320, 60);
     self.segmentedControl.indexChangeBlock = ^(NSInteger idx){
-        [weakSelf.scrollViewController scrollToViewControllerAtIndex: idx];
+        [weakSelf.tabBarController setSelectedIndex: idx];
     };
     
     [self.view addSubview: self.segmentedControl];
@@ -91,14 +99,6 @@
     // Set up NSUserDefaults values
     [self setUpDefaults];
     
-    // Set up scroll view
-    self.scrollViewController = [[bz_ScrollViewController alloc] init];
-    self.scrollViewController.scrolledToIndexCallback = ^(NSInteger idx) {
-        [weakSelf scrollViewControllerScrolledToIndex: idx];
-    };
-    [self.scrollViewController setupScrollViewChildren];
-    [self.view addSubview: self.scrollViewController.scrollView];
-
     // View defaults
     self.cameraPreview.clipsToBounds = YES;
     self.imageCanvas.clipsToBounds = YES;
@@ -108,8 +108,6 @@
 //    pinchGesture.delegate = self;
 //    [self.imageCanvas addGestureRecognizer: pinchGesture];
 //    self.imageCanvas.userInteractionEnabled = TRUE;
-    
-    [self setUpButtonTargets];
 }
 
 - (void)viewDidAppear:(BOOL)animated

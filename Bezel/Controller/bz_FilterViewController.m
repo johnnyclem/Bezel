@@ -53,11 +53,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     // Top Row Buttons
     CGFloat width       = self.view.frame.size.width;
     CGFloat btnWidth    = width/4.0f;
-    CGFloat btnHeight   = _scrollHeight/2.0f;
+    CGFloat btnHeight   = self.view.frame.size.height/2.0f;
     UIImage *icon       = [UIImage imageNamed:@"Icon.png"];
     
     _filter1   = [[bz_Button alloc] initWithFrame:CGRectMake(0, 0, btnWidth, btnHeight) andTag:1000];
@@ -92,11 +97,6 @@
         [button setImage:icon forState:UIControlStateNormal];
         [self.view addSubview:button];
     }
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
 }
 
 -(void)viewDidAppear:(BOOL)animated
