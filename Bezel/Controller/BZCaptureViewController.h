@@ -7,7 +7,10 @@
 //
 
 #import "bz_ViewController.h"
+#import "BZCameraControlsView.h"
 
 @interface BZCaptureViewController : bz_ViewController
+
+@property (weak, nonatomic) IBOutlet BZCameraControlsView *cameraControlsView;
 
 @end

@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BZButton.h"
 
 @interface BZCameraControlsView : UIView
 
-@property (weak, nonatomic) UIButton *takePhoto;
-@property (weak, nonatomic) UIButton *switchCamera;
-@property (weak, nonatomic) UIButton *showShapes;
+@property (weak, nonatomic) IBOutlet BZButton *shootPhoto;
+@property (weak, nonatomic) IBOutlet BZButton *switchCamera;
+@property (weak, nonatomic) IBOutlet BZButton *toggleFlash;
 @end

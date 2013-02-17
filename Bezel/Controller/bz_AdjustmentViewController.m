@@ -47,12 +47,12 @@
     CGFloat btnWidth    = width/2.f;
     CGFloat btnHeight   = height/2.f;
     
-    bz_Button *leftBar  = [[bz_Button alloc] initWithFrame:CGRectMake(0, btnOffset, btnWidth, btnHeight)];
-    bz_Button *rightBar = [[bz_Button alloc] initWithFrame:CGRectMake(160, btnOffset, btnWidth, btnHeight)];
-    bz_Button *expUp    = [[bz_Button alloc] initWithFrame:CGRectMake(leftBar.center.x-80, leftBar.center.y-(btnOffset+22), btnWidth, 44)];
-    bz_Button *expDown  = [[bz_Button alloc] initWithFrame:CGRectMake(leftBar.center.x-80, leftBar.center.y+22, btnWidth, 44)];
-    bz_Button *contUp   = [[bz_Button alloc] initWithFrame:CGRectMake(rightBar.center.x-80, rightBar.center.y-(btnOffset+22), btnWidth, 44)];
-    bz_Button *contDown = [[bz_Button alloc] initWithFrame:CGRectMake(rightBar.center.x-80, rightBar.center.y+22, btnWidth, 44)];
+    BZButton *leftBar  = [[BZButton alloc] initWithFrame:CGRectMake(0, btnOffset, btnWidth, btnHeight)];
+    BZButton *rightBar = [[BZButton alloc] initWithFrame:CGRectMake(160, btnOffset, btnWidth, btnHeight)];
+    BZButton *expUp    = [[BZButton alloc] initWithFrame:CGRectMake(leftBar.center.x-80, leftBar.center.y-(btnOffset+22), btnWidth, 44)];
+    BZButton *expDown  = [[BZButton alloc] initWithFrame:CGRectMake(leftBar.center.x-80, leftBar.center.y+22, btnWidth, 44)];
+    BZButton *contUp   = [[BZButton alloc] initWithFrame:CGRectMake(rightBar.center.x-80, rightBar.center.y-(btnOffset+22), btnWidth, 44)];
+    BZButton *contDown = [[BZButton alloc] initWithFrame:CGRectMake(rightBar.center.x-80, rightBar.center.y+22, btnWidth, 44)];
     
     self.adjustmentButtons = [NSArray arrayWithObjects: expUp, expDown, contUp, contDown, nil];
     

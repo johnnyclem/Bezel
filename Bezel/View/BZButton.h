@@ -1,5 +1,5 @@
 //
-//  bz_GalleryViewController.h
+//  bz_Button.h
 //  Bezel
 //
 //  Created by John Clem on 12/4/12.
@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "bz_ViewController.h"
 
-@interface bz_GalleryViewController : bz_ViewController
+@interface BZButton : UIButton
+
+@property (nonatomic, strong) NSString *buttonIdentifier;
 
 @end

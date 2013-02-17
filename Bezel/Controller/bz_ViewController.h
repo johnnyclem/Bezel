@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "bz_Button.h"
+#import "BZButton.h"
 
 @interface bz_ViewController : UIViewController
 

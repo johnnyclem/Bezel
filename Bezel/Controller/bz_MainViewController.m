@@ -12,10 +12,12 @@
 
 // View controllers
 #import "bz_MainViewController.h"
-#import "bz_StoreViewController.h"
-#import "bz_MaskShapeLayer.h"
-#import "bz_ScrollViewController.h"
 #import "bz_TutorialViewController.h"
+#import "BZCaptureViewController.h"
+#import "bz_ShapesViewController.h"
+#import "BZFiltersAdjustmentsController.h"
+#import "bz_BackgroundViewController.h"
+#import "bz_ShareViewController.h"
 
 // View related
 #import "SVProgressHUD.h"
@@ -27,6 +29,7 @@
 #import "BZCameraControlsView.h"
 #import "bz_ImageView.h"
 #import "bz_ConfirmView.h"
+#import "bz_MaskShapeLayer.h"
 
 // Capturing
 #import "BZCaptureManager.h"
@@ -49,10 +52,15 @@
     BOOL proShapePackIsPurchased;
 }
 
+@property (weak, nonatomic) BZCaptureViewController *captureViewController;
+@property (weak, nonatomic) bz_ShapesViewController *shapesViewController;
+@property (weak, nonatomic) BZFiltersAdjustmentsController *filterViewController;
+@property (weak, nonatomic) bz_BackgroundViewController *backgroundViewController;
+@property (weak, nonatomic) bz_ShareViewController *shareViewController;
+
 @property (strong, nonatomic) UIDocumentInteractionController *docController;
 @property (strong, nonatomic) ALAssetsLibrary* library;
 
-@property (strong, nonatomic) bz_ScrollViewController *scrollViewController;
 @property (strong, nonatomic) BZAdjustmentProcessor *adjustmentProcessor;
 @property (strong, nonatomic) BZCameraControlsView *cameraControlsView;
 @property (strong, nonatomic) bz_ConfirmView *confirmView;
@@ -74,9 +82,13 @@
     [super viewDidLoad];
     
     self.tabBarController = [self.childViewControllers objectAtIndex:0];
-    for (UIViewController *ctr in self.tabBarController.childViewControllers) {
-        ctr.view.frame = CGRectMake(0, 380, 320, self.view.frame.size.height-380);
-    }
+    
+    self.captureViewController = [self.tabBarController.viewControllers objectAtIndex: BZ_CAPTURE_VIEW_CONTROLLER_INDEX];
+    self.shapesViewController = [self.tabBarController.viewControllers objectAtIndex: BZ_SHAPES_VIEW_CONTROLLER_INDEX];
+    self.filterViewController = [self.tabBarController.viewControllers objectAtIndex: BZ_FILTERS_ADJUSTMENTS_VIEW_CONTROLLER_INDEX];
+    self.backgroundViewController = [self.tabBarController.viewControllers objectAtIndex: BZ_BACKGROUNDS_VIEW_CONTROLLER_INDEX];
+    self.shareViewController = [self.tabBarController.viewControllers objectAtIndex: BZ_SHARE_VIEW_CONTROLLER_INDEX];
+
     // Used for blocks
     __weak bz_MainViewController *weakSelf = self;
     
@@ -178,11 +190,6 @@
     self.imageCanvas.hidden = TRUE;
 
     [self startUpdatingPreviewLayer];
-    
-    BZMaskAdjustment *defaultAdj = [self.scrollViewController.shapesViewController.shapes objectAtIndex:0];
-    if (defaultAdj) {
-        [self switchShape: defaultAdj];
-    }
 }
 
 - (void)startUpdatingPreviewLayer
@@ -195,34 +202,6 @@
 {
     [[BZCaptureManager sharedManager] setPreviewLayerWithView: nil];
     self.cameraPreview.hidden = TRUE;
-}
-
-- (void)presentCameraControls
-{
-    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
-    CGRect controlsFrame = CGRectMake(0.0, screenHeight, 320.0, 100.0);
-    
-    if (self.cameraControlsView == nil)
-    {
-        self.cameraControlsView = [[BZCameraControlsView alloc] initWithFrame: controlsFrame];
-        [self.cameraControlsView.takePhoto addTarget: self action: @selector(takePhoto) forControlEvents: UIControlEventTouchUpInside];
-        [self.cameraControlsView.switchCamera addTarget: self action: @selector(switchCamera) forControlEvents: UIControlEventTouchUpInside];
-        [self.cameraControlsView.showShapes addTarget: self action: @selector(showShapes) forControlEvents: UIControlEventTouchUpInside];
-        [self.view addSubview: self.cameraControlsView];
-        [self.view bringSubviewToFront: self.cameraControlsView];
-    }
-    
-    [UIView animateWithDuration: 0.5 animations: ^(void){
-        self.cameraControlsView.frame = CGRectMake(0.0, screenHeight - 100.0, 320.0, 100.0);
-    }];
-}
-
-- (void)dismissCameraControls
-{
-    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
-    [UIView animateWithDuration: 0.5 animations: ^(void){
-        self.cameraControlsView.frame = CGRectMake(0.0, screenHeight, 320.0, 100.0);
-    }];
 }
 
 -(void)takePhoto
@@ -290,10 +269,6 @@
                     weakSelf.imageCanvas.layer.mask = nil;
                     weakSelf.imageCanvas.image = [weakSelf.adjustmentProcessor processedThumbnailImage];
                     
-                    [weakSelf dismissCameraControls];
-                    
-                    [weakSelf.scrollViewController scrollToViewControllerAtIndex: 1];
-                    
                     [weakSelf performSelectorInBackground:@selector(setupFilterThumbnails) withObject:nil];
                 }
                 else
@@ -342,14 +317,9 @@
     self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
 }
 
-- (void)showShapes
-{
-    [self dismissCameraControls];
-}
-
 #pragma mark - Adjustments
 
--(void)switchBackground:(bz_Button *)button
+-(void)switchBackground:(BZButton *)button
 {    
     BZBackgroundAdjustment *backgroundAdjustment = [[BZBackgroundAdjustment alloc] init];
 
@@ -401,7 +371,7 @@
 //    recognizer.scale = 1.0;
 //}
 
--(void)applyFilter:(bz_Button *)filterButton
+-(void)applyFilter:(BZButton *)filterButton
 {
     BZFilterAdjustment *filterAdjustment = [[BZFilterAdjustment alloc] init];
     filterAdjustment.identifier = kAdjustmentTypeFilter;
@@ -416,7 +386,6 @@
         if (response == TRUE)
         {
             [weakSelf.session addAdjustment: filterAdjustment];
-            [weakSelf.scrollViewController scrollToViewControllerAtIndex:2];
         }
         else
         {
@@ -428,7 +397,7 @@
 }
 
 #pragma mark - jclem adjustImage
-- (void)adjustImage:(bz_Button *)adjustmentButton
+- (void)adjustImage:(BZButton *)adjustmentButton
 {
     float exposure;
     float contrast;
@@ -498,7 +467,7 @@
 
 #pragma mark - Sharing
 
-- (void)sharePhoto:(bz_Button *)button
+- (void)sharePhoto:(BZButton *)button
 {
     NSString *type = button.buttonIdentifier;
     // Delete photo. Shouldn't be here but not worrying about it right now.
@@ -624,7 +593,6 @@
                 self.adjustmentProcessor = nil;
                 self.adjustmentProcessor = [[BZAdjustmentProcessor alloc] initWithSession: self.session];
                 
-                [self.scrollViewController scrollToViewControllerAtIndex: 0];
                 [self startUpdatingPreviewLayer];
             }
             break;
@@ -635,7 +603,6 @@
             {
                 self.session = nil;
                 self.session = [[BZSession alloc] init];
-                [self.scrollViewController scrollToViewControllerAtIndex: 0];
                 [self startUpdatingPreviewLayer];
             }
             break;
@@ -644,33 +611,10 @@
             {
                 //TODO
             }
-            else if([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Go To Store"])
-            {
-                [self openStoreView:nil];   
-            }
             break;
         default:
             break;
     }
-}
-
-#pragma mark - In-App Purchases / Store
-
--(IBAction)openStoreView:(id)sender {
-    bz_StoreViewController *storeVC = [[bz_StoreViewController alloc] initWithNibName:@"bz_StoreView" bundle:nil];
-    [self presentViewController:storeVC animated:YES completion:nil];
-}
-
-- (void)buyHolidayPack {
-    UIAlertView *buyHolidayPack = [[UIAlertView alloc] initWithTitle:@"Buy Holiday Pack?" message:@"The Candy Cane, Christmas Tree and Xmas Wallpaper backgrounds are part of the Bezel Holiday Pack. You can unlock all 3 holiday shapes and 3 holiday backgrounds in the Bezel Store" delegate:self cancelButtonTitle:@"No Thanks" otherButtonTitles:@"Go To Store", nil];
-    buyHolidayPack.tag = 50;
-    [buyHolidayPack show];
-}
-
-- (void)buyColorPicker {
-    UIAlertView *buyColorPicker = [[UIAlertView alloc] initWithTitle:@"Buy Color Picker?" message:@"You must purchase the Bezel Color Picker to unlock this feature.  You can purchase the color picker to enable any background color in the Bezel Store" delegate:self cancelButtonTitle:@"No Thanks" otherButtonTitles:@"Go To Store", nil];
-    buyColorPicker.tag = 50;
-    [buyColorPicker show];
 }
 
 #pragma mark - Image Picker Delegate (Library Importing)
@@ -689,12 +633,6 @@
             
             weakSelf.imageCanvas.layer.mask = nil;
             weakSelf.imageCanvas.image = [weakSelf.adjustmentProcessor processedThumbnailImage];
-            
-            [weakSelf dismissCameraControls];
-            
-            [weakSelf.scrollViewController scrollToViewControllerAtIndex: 1];
-            
-            [weakSelf setupFilterThumbnails];
         }
         else
         {
@@ -743,66 +681,33 @@
 {
     __weak id weakSelf = self;
     
-    self.scrollViewController.shapesViewController.switchShapeBlock = ^(BZMaskAdjustment *adj)
+    self.shapesViewController.switchShapeBlock = ^(BZMaskAdjustment *adj)
     {
         [weakSelf switchShape: adj];
     };
     
-    // Filters
-    for (bz_Button *button in self.scrollViewController.filterViewController.filterButtons)
-    {
-        [button addTarget:self action:@selector(applyFilter:) forControlEvents: UIControlEventTouchUpInside];
-    }
-    
-    // Adjustments
-    for (bz_Button *button in self.scrollViewController.adjustmentViewController.adjustmentButtons)
-    {
-        [button addTarget: self action:@selector(adjustImage:) forControlEvents: UIControlEventTouchUpInside];
-    }
-    
+//    // Filters
+//    for (BZButton *button in self.scrollViewController.filterViewController.filterButtons)
+//    {
+//        [button addTarget:self action:@selector(applyFilter:) forControlEvents: UIControlEventTouchUpInside];
+////    }
+//    
+//    // Adjustments
+//    for (BZButton *button in self.filterViewController.adjustmentButtons)
+//    {
+//        [button addTarget: self action:@selector(adjustImage:) forControlEvents: UIControlEventTouchUpInside];
+//    }
+//    
     // Backgrounds
-    for (bz_Button *button in self.scrollViewController.backgroundViewController.backgroundButtons)
+    for (BZButton *button in self.backgroundViewController.backgroundButtons)
     {
         [button addTarget: self action:@selector(switchBackground:) forControlEvents: UIControlEventTouchUpInside];
     }
     
     // Sharing
-    for (bz_Button *button in self.scrollViewController.shareViewController.shareButtons)
+    for (BZButton *button in self.shareViewController.shareButtons)
     {
         [button addTarget: self action:@selector(sharePhoto:) forControlEvents: UIControlEventTouchUpInside];
-    }
-}
-
-- (void)scrollViewControllerScrolledToIndex:(NSInteger)idx
-{
-    bz_ScrollView *scrollView = self.scrollViewController.scrollView;
-    // Handle view controller changing here...
-    [scrollView setContentOffset: CGPointMake(scrollView.contentOffset.x, 0)];
-    scrollView.scrollEnabled = YES;
-    
-    switch (idx) {
-        case 0: // first view controller (camera)
-        {
-            scrollView.scrollEnabled = FALSE;
-            [self setupCamera];
-        }
-            break;
-        default:
-            break;
-    }
-}
-
--(void)setupFilterThumbnails
-{
-    UIImage *currentThumb = self.session.thumbnailImage;
-    for (bz_Button *button in self.scrollViewController.filterViewController.filterButtons)
-    {
-        BZFilterAdjustment *filterAdjustment = [[BZFilterAdjustment alloc] init];
-        filterAdjustment.identifier = button.buttonIdentifier;
-        filterAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: button.buttonIdentifier, kButtonIdentifier, nil];
-        
-        // set the preview layer mask to the adjusted mask.
-        [button setImage:[filterAdjustment filteredImageWithImage: currentThumb] forState:UIControlStateNormal];
     }
 }
 

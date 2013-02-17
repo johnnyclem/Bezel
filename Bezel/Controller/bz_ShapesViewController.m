@@ -38,33 +38,6 @@
 {
     [super viewWillAppear: animated];
     
-    CGRect shapesCollectionViewFrame = CGRectMake(0.0, 0.0, 290.0, self.view.frame.size.height);
-    CGRect shapesCollectionViewShowMoreButtonFrame = CGRectMake(300.0, 0.0, 20.0, 50.0);
-    
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.minimumInteritemSpacing = 0;
-    layout.itemSize = CGSizeMake(55.0, 55.0);
-    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    
-    self.shapesCollectionView = [[UICollectionView alloc] initWithFrame: shapesCollectionViewFrame collectionViewLayout: layout];
-    self.shapesCollectionView.dataSource = self;
-    self.shapesCollectionView.delegate = self;
-    self.shapesCollectionView.contentInset = UIEdgeInsetsMake(0.0, 5.0, 0.0, 5.0);
-    self.shapesCollectionView.scrollEnabled = FALSE;
-    
-    UIButton *showMoreButton = [UIButton buttonWithType: UIButtonTypeCustom];
-    showMoreButton.frame = shapesCollectionViewShowMoreButtonFrame;
-    [showMoreButton setTitle:@"+" forState: UIControlStateNormal];
-    showMoreButton.titleLabel.font = [UIFont boldSystemFontOfSize: 24.0];
-    showMoreButton.titleLabel.textColor = [UIColor whiteColor];
-    [showMoreButton addTarget: self action: @selector(showMoreShapes) forControlEvents: UIControlEventTouchUpInside];
-    [self.view addSubview: showMoreButton];
-    
-    UINib *nib = [UINib nibWithNibName:@"BZMaskAdjustmentCollectionViewCell" bundle: [NSBundle mainBundle]];
-    [self.shapesCollectionView registerNib: nib forCellWithReuseIdentifier: BZ_MASK_ADJUSTMENT_CELL_REUSE_IDENTIFIER];
-
-    [self.view addSubview: self.shapesCollectionView];
-    
     [self fetchShapes];
 }
 
@@ -83,14 +56,14 @@
 
 - (void)showMoreShapes
 {
-    self.showAllShapes = TRUE;
-    self.shapesCollectionView.scrollEnabled = TRUE;
-    [self.shapesCollectionView reloadData];
-    
-    [UIView animateWithDuration: 0.5 animations: ^(void) {
-        self.shapesCollectionView.frame = self.view.frame;
-     } completion: ^(BOOL completion) {
-    }];
+//    self.showAllShapes = TRUE;
+//    self.shapesCollectionView.scrollEnabled = TRUE;
+//    [self.shapesCollectionView reloadData];
+//    
+//    [UIView animateWithDuration: 0.5 animations: ^(void) {
+//        self.shapesCollectionView.frame = self.view.frame;
+//     } completion: ^(BOOL completion) {
+//    }];
 }
 
 #pragma mark - BZMaskAdjustment fetching
@@ -179,7 +152,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    BZMaskAdjustmentCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: BZ_MASK_ADJUSTMENT_CELL_REUSE_IDENTIFIER forIndexPath: indexPath];
+    BZMaskAdjustmentCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: BZ_SHAPE_ADJUSTMENT_CELL forIndexPath: indexPath];
     
     // Protect against array out of bounds since we might not be finished loading all of them in.
     if (self.shapes.count >= indexPath.row)
@@ -220,16 +193,16 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.showAllShapes)
-    {
-        self.showAllShapes = FALSE;
-        self.shapesCollectionView.scrollEnabled = FALSE;
-        
-        [UIView animateWithDuration: 0.5 animations: ^(void) {
-            self.shapesCollectionView.frame = CGRectMake(0.0, 0.0, 290.0, 50.0);
-        } completion: ^(BOOL completion) {
-        }];
-    }
+//    if (self.showAllShapes)
+//    {
+//        self.showAllShapes = FALSE;
+//        self.shapesCollectionView.scrollEnabled = FALSE;
+//        
+//        [UIView animateWithDuration: 0.5 animations: ^(void) {
+//            self.shapesCollectionView.frame = CGRectMake(0.0, 0.0, 290.0, 50.0);
+//        } completion: ^(BOOL completion) {
+//        }];
+//    }
     
     self.switchShapeBlock([self.shapes objectAtIndex: indexPath.row]);
 }

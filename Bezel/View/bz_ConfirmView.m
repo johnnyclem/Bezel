@@ -7,7 +7,7 @@
 //
 
 #import "bz_ConfirmView.h"
-#import "bz_Button.h"
+#import "BZButton.h"
 
 @interface bz_ConfirmView ()
 @property (strong, nonatomic) UIView *confirm;
@@ -27,12 +27,12 @@
         CGRectDivide(self.frame, &yesRect, &emptyMiddleRect, self.confirm.frame.size.width/3, CGRectMinXEdge);
         CGRectDivide(emptyMiddleRect, &noRect, &emptyMiddleRect, emptyMiddleRect.size.width/2, CGRectMaxXEdge);
         
-        bz_Button *yes = [[bz_Button alloc] initWithFrame: CGRectMake(0.0, 0.0, 50.0, 50.0)];
+        BZButton *yes = [[BZButton alloc] initWithFrame: CGRectMake(0.0, 0.0, 50.0, 50.0)];
         yes.frame = centerRectInRect(yes.frame, yesRect);
         yes.buttonIdentifier = @"TRUE";
         [yes addTarget:self action:@selector(responseTapped:) forControlEvents:UIControlEventTouchUpInside];
         
-        bz_Button *no = [[bz_Button alloc] initWithFrame: CGRectMake(0.0, 0.0, 50.0, 50.0)];
+        BZButton *no = [[BZButton alloc] initWithFrame: CGRectMake(0.0, 0.0, 50.0, 50.0)];
         no.frame = centerRectInRect(no.frame, noRect);
         no.buttonIdentifier = @"FALSE";
         [no addTarget:self action:@selector(responseTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -80,7 +80,7 @@
     }
 }
 
-- (void)responseTapped:(bz_Button *)button
+- (void)responseTapped:(BZButton *)button
 {
     [self removeFromSuperview];
     

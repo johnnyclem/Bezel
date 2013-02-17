@@ -9,8 +9,8 @@
 #import "bz_ViewController.h"
 #import "AnimationDelegate.h"
 
-@interface bz_FilterViewController : bz_ViewController
+@interface BZFiltersAdjustmentsController : bz_ViewController
 
-@property (strong, nonatomic, readonly) NSMutableArray *filterButtons;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
