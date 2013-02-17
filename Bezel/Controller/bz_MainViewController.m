@@ -98,7 +98,21 @@
     self.confirmView = [[bz_ConfirmView alloc] init];
     self.adjustmentProcessor = [[BZAdjustmentProcessor alloc] initWithSession: self.session];
     
-    self.segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:[NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", nil]];
+    NSArray *icons = [NSArray arrayWithObjects:
+                      [UIImage imageNamed:@"Capture"],
+                      [UIImage imageNamed:@"Shapes"],
+                      [UIImage imageNamed:@"Filters"],
+                      [UIImage imageNamed:@"Backgrounds"],
+                      [UIImage imageNamed:@"Share"], nil];
+    
+    NSArray *selectedIcons = [NSArray arrayWithObjects:
+                              [UIImage imageNamed:@"Capture-selected"],
+                              [UIImage imageNamed:@"Shapes-selected"],
+                              [UIImage imageNamed:@"Filters-selected"],
+                              [UIImage imageNamed:@"Backgrounds-selected"],
+                              [UIImage imageNamed:@"Share-selected"], nil];
+    
+    self.segmentedControl = [[HMSegmentedControl alloc] initWithSectionIcons: icons highlight: selectedIcons];
     self.segmentedControl.textColor = [UIColor whiteColor];
     self.segmentedControl.backgroundColor = [UIColor blackColor];
     self.segmentedControl.frame = CGRectMake(0, 0, 320, 60);
