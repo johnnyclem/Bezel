@@ -13,9 +13,4 @@
 
 @interface BZMainViewController : BZViewController  <UIAlertViewDelegate, UIDocumentInteractionControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIGestureRecognizerDelegate>
 
-@property (strong, nonatomic) BZSession *session;
-
-@property (strong, nonatomic) IBOutlet UIView *cameraPreview;
-@property (strong, nonatomic) IBOutlet BZImageView *imageCanvas;
-
 @end

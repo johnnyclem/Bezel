@@ -7,7 +7,6 @@
 //
 
 #import "BZCaptureViewController.h"
-#import "BZCameraControlsView.h"
 
 @interface BZCaptureViewController ()
 

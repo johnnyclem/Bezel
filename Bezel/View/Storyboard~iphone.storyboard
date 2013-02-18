@@ -8,41 +8,49 @@
         <scene sceneID="PpB-cZ-yk8">
             <objects>
                 <viewController storyboardIdentifier="MainView" wantsFullScreenLayout="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iFz-Yu-AOk" customClass="BZMainViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="a4y-SG-5eH" userLabel="View" customClass="BZView">
+                    <view key="view" contentMode="scaleToFill" id="a4y-SG-5eH" userLabel="View" customClass="BZView" propertyAccessControl="all">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="00g-zX-5D8">
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="00g-zX-5D8" userLabel="Tab Bar Container">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="qOB-f2-ON6" kind="embed" id="ab3-p9-Qqe"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AEE-hv-IkW">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AEE-hv-IkW" userLabel="Camera Preview">
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P1H-Rf-AtD" userLabel="Image Canvas" customClass="BZImageView">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="qP3-m7-Yhs"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="00g-zX-5D8" firstAttribute="bottom" secondItem="a4y-SG-5eH" secondAttribute="bottom" type="default" id="2SU-NI-Bp7"/>
+                            <constraint firstItem="00g-zX-5D8" firstAttribute="top" secondItem="a4y-SG-5eH" secondAttribute="top" constant="360" id="1a5-Jx-0cH"/>
                             <constraint firstItem="00g-zX-5D8" firstAttribute="trailing" secondItem="a4y-SG-5eH" secondAttribute="trailing" type="default" id="Ab4-Nk-X5n"/>
-                            <constraint firstItem="00g-zX-5D8" firstAttribute="top" secondItem="a4y-SG-5eH" secondAttribute="top" constant="356" id="BYP-Mp-h6w"/>
                             <constraint firstItem="00g-zX-5D8" firstAttribute="leading" secondItem="a4y-SG-5eH" secondAttribute="leading" type="default" id="CLq-eo-Sag"/>
+                            <constraint firstItem="P1H-Rf-AtD" firstAttribute="trailing" secondItem="a4y-SG-5eH" secondAttribute="trailing" type="default" id="E8k-cE-UXe"/>
+                            <constraint firstItem="P1H-Rf-AtD" firstAttribute="bottom" secondItem="AEE-hv-IkW" secondAttribute="bottom" type="default" id="EeM-GH-tps"/>
+                            <constraint firstItem="P1H-Rf-AtD" firstAttribute="top" secondItem="a4y-SG-5eH" secondAttribute="top" constant="60" id="Jlv-6O-IyS"/>
+                            <constraint firstItem="P1H-Rf-AtD" firstAttribute="top" secondItem="AEE-hv-IkW" secondAttribute="top" type="default" id="RoO-KH-PSg"/>
                             <constraint firstItem="AEE-hv-IkW" firstAttribute="trailing" secondItem="a4y-SG-5eH" secondAttribute="trailing" type="default" id="Yk6-s1-RrB"/>
-                            <constraint firstItem="AEE-hv-IkW" firstAttribute="top" secondItem="a4y-SG-5eH" secondAttribute="top" type="default" id="cXv-Bh-JCo"/>
                             <constraint firstItem="AEE-hv-IkW" firstAttribute="leading" secondItem="a4y-SG-5eH" secondAttribute="leading" type="default" id="eSc-cp-4SU"/>
-                            <constraint firstAttribute="bottom" secondItem="AEE-hv-IkW" secondAttribute="bottom" constant="120" id="fhw-4T-WtS"/>
+                            <constraint firstItem="00g-zX-5D8" firstAttribute="bottom" secondItem="a4y-SG-5eH" secondAttribute="bottom" type="default" id="msT-XN-VlB"/>
+                            <constraint firstItem="P1H-Rf-AtD" firstAttribute="leading" secondItem="a4y-SG-5eH" secondAttribute="leading" type="default" id="xMN-Wu-sRJ"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="cameraPreview" destination="AEE-hv-IkW" id="gtb-G8-gHK"/>
                         <outlet property="containerView" destination="00g-zX-5D8" id="xOi-3C-yVU"/>
+                        <outlet property="imageCanvas" destination="P1H-Rf-AtD" id="uan-Sj-LSB"/>
                         <outlet property="view" destination="a4y-SG-5eH" id="Lnw-Mk-Jvw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZWy-Te-SBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="acu-Qp-Fm6" customClass="bz_ScrollViewController"/>
             </objects>
             <point key="canvasLocation" x="354" y="63"/>
         </scene>
@@ -275,7 +283,7 @@
             <objects>
                 <viewController title="Capture" id="Mlt-4k-vLz" userLabel="2 - Shapes View Controller" customClass="BZShapesViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="WzJ-zG-hXe">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="124"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mWQ-sE-gKK">
                             <size key="itemSize" width="75" height="67"/>
@@ -327,11 +335,11 @@
         <scene sceneID="XZt-dZ-EtM">
             <objects>
                 <viewController title="Shapes" id="j2Y-HL-c55" userLabel="1 - Capture View Controller" customClass="BZCaptureViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ruX-vB-6iu" customClass="BZCameraControlsView">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="124"/>
+                    <view key="view" contentMode="scaleToFill" id="ruX-vB-6iu" customClass="BZView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yJi-LL-vjq" customClass="BZButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yJi-LL-vjq" customClass="BZButton">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="H9L-TG-g47"/>
                                 </constraints>
@@ -344,7 +352,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUN-fh-GGD" customClass="BZButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUN-fh-GGD" customClass="BZButton">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="Jdf-zf-Pbs"/>
                                     <constraint firstAttribute="width" constant="70" id="Pkt-Ub-Dn8"/>
@@ -358,12 +366,12 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0a-rt-dlI" customClass="BZButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0a-rt-dlI" customClass="BZButton">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="462-ih-VqH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
-                                <state key="normal" title="Flash">
+                                <state key="normal" title="Import">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -383,16 +391,16 @@
                             <constraint firstItem="M0a-rt-dlI" firstAttribute="top" secondItem="MUN-fh-GGD" secondAttribute="top" type="default" id="jDa-9f-Z8Q"/>
                             <constraint firstItem="MUN-fh-GGD" firstAttribute="centerX" secondItem="ruX-vB-6iu" secondAttribute="centerX" type="default" id="sYR-e3-oyO"/>
                         </constraints>
-                        <connections>
-                            <outlet property="shootPhoto" destination="MUN-fh-GGD" id="gi2-oS-zF5"/>
-                            <outlet property="switchCamera" destination="yJi-LL-vjq" id="dYI-bi-GWa"/>
-                            <outlet property="toggleFlash" destination="M0a-rt-dlI" id="itZ-Oo-52r"/>
-                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Capture" id="HBM-ar-JUw"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="importButton" destination="M0a-rt-dlI" id="8eO-Re-iEr"/>
+                        <outlet property="shootPhotoButton" destination="MUN-fh-GGD" id="Npo-do-G70"/>
+                        <outlet property="switchCameraButton" destination="yJi-LL-vjq" id="f6H-Py-a4z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nID-t5-irm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -426,7 +434,7 @@
             <objects>
                 <viewController title="Filters &amp; Adjustments" id="77G-h2-eIu" userLabel="3 - Filters &amp; Adjustments View Controller" customClass="BZFiltersAdjustmentsController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="T6l-oc-Lg6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="124"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ANI-UY-5m0">
                             <size key="itemSize" width="51" height="46"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -478,7 +486,7 @@
             <objects>
                 <viewController title="Backgrounds" id="sXt-oR-K0r" userLabel="4 - Backgrounds View Controller" customClass="BZBackgroundViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qs4-gb-HAd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="124"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYJ-KY-Uih" customClass="BZButton">
@@ -529,7 +537,7 @@
             <objects>
                 <viewController title="Sharing" id="rHY-ST-ZL1" userLabel="5 - Sharing View Controller" customClass="BZShareViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0JM-5l-XPh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="124"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgr-sc-UME" userLabel="Facebook" customClass="BZButton">
@@ -650,18 +658,12 @@
         <class className="BZButton" superclassName="UIButton">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BZButton.h"/>
         </class>
-        <class className="BZCameraControlsView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BZCameraControlsView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="shootPhoto" candidateClass="BZButton"/>
-                <relationship kind="outlet" name="switchCamera" candidateClass="BZButton"/>
-                <relationship kind="outlet" name="toggleFlash" candidateClass="BZButton"/>
-            </relationships>
-        </class>
         <class className="BZCaptureViewController" superclassName="BZViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BZCaptureViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="cameraControlsView" candidateClass="BZCameraControlsView"/>
+                <relationship kind="outlet" name="importButton" candidateClass="BZButton"/>
+                <relationship kind="outlet" name="shootPhotoButton" candidateClass="BZButton"/>
+                <relationship kind="outlet" name="switchCameraButton" candidateClass="BZButton"/>
             </relationships>
         </class>
         <class className="BZFiltersAdjustmentsCollectionViewCell" superclassName="UICollectionViewCell">
@@ -742,9 +744,6 @@
         </class>
         <class className="BZViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BZViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="close:"/>
-            </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
@@ -757,9 +756,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -13,9 +13,6 @@
 		963098BB16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 963098BA16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m */; };
 		963098BC16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 963098BA16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m */; };
 		963098BD16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 963098BA16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m */; };
-		965BAD6116B774D9007193BE /* BZCameraControlsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 965BAD6016B774D9007193BE /* BZCameraControlsView.m */; };
-		965BAD6216B774D9007193BE /* BZCameraControlsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 965BAD6016B774D9007193BE /* BZCameraControlsView.m */; };
-		965BAD6316B774D9007193BE /* BZCameraControlsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 965BAD6016B774D9007193BE /* BZCameraControlsView.m */; };
 		966CF05F16D053F600795C93 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 966CF05E16D053F600795C93 /* HMSegmentedControl.m */; };
 		966CF06016D053F600795C93 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 966CF05E16D053F600795C93 /* HMSegmentedControl.m */; };
 		966CF06116D053F600795C93 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 966CF05E16D053F600795C93 /* HMSegmentedControl.m */; };
@@ -543,8 +540,6 @@
 		963098A716B619B000B53257 /* shapes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = shapes.json; path = "Mock Data/shapes.json"; sourceTree = "<group>"; };
 		963098B916B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZMaskAdjustmentCollectionViewCell.h; path = View/BZMaskAdjustmentCollectionViewCell.h; sourceTree = "<group>"; };
 		963098BA16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZMaskAdjustmentCollectionViewCell.m; path = View/BZMaskAdjustmentCollectionViewCell.m; sourceTree = "<group>"; };
-		965BAD5F16B774D9007193BE /* BZCameraControlsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZCameraControlsView.h; path = View/BZCameraControlsView.h; sourceTree = "<group>"; };
-		965BAD6016B774D9007193BE /* BZCameraControlsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZCameraControlsView.m; path = View/BZCameraControlsView.m; sourceTree = "<group>"; };
 		966CF05D16D053F600795C93 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		966CF05E16D053F600795C93 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		966CF06A16D0626200795C93 /* BZCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZCaptureViewController.h; path = Controller/BZCaptureViewController.h; sourceTree = "<group>"; };
@@ -1139,8 +1134,6 @@
 			children = (
 				EF25887B166EEE4500A2225E /* BZButton.h */,
 				EF25887C166EEE4500A2225E /* BZButton.m */,
-				965BAD5F16B774D9007193BE /* BZCameraControlsView.h */,
-				965BAD6016B774D9007193BE /* BZCameraControlsView.m */,
 				CCE40427169C96C3001355A3 /* BZConfirmView.h */,
 				CCE40428169C96C3001355A3 /* BZConfirmView.m */,
 				966CF07616D09D5000795C93 /* BZFiltersAdjustmentsCollectionViewCell.h */,
@@ -1909,7 +1902,6 @@
 				CCE24F9D169F60AC00606BF6 /* BZScaleAdjustment.m in Sources */,
 				CCC95F3216A073FE006DE78B /* BZBackgroundAdjustment.m in Sources */,
 				963098BC16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m in Sources */,
-				965BAD6216B774D9007193BE /* BZCameraControlsView.m in Sources */,
 				CC1CEECE16C1B75F00196110 /* UIBezierPath+Shapes.m in Sources */,
 				966CF06016D053F600795C93 /* HMSegmentedControl.m in Sources */,
 				966CF06D16D0626200795C93 /* BZCaptureViewController.m in Sources */,
@@ -1998,7 +1990,6 @@
 				CCE24F9C169F60AC00606BF6 /* BZScaleAdjustment.m in Sources */,
 				CCC95F3116A073FE006DE78B /* BZBackgroundAdjustment.m in Sources */,
 				963098BB16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m in Sources */,
-				965BAD6116B774D9007193BE /* BZCameraControlsView.m in Sources */,
 				CC1CEEC816C1B74F00196110 /* UIBezierPath+Shapes.m in Sources */,
 				966CF05F16D053F600795C93 /* HMSegmentedControl.m in Sources */,
 				966CF06C16D0626200795C93 /* BZCaptureViewController.m in Sources */,
@@ -2085,7 +2076,6 @@
 				CCE24F9E169F60AC00606BF6 /* BZScaleAdjustment.m in Sources */,
 				CCC95F3316A073FE006DE78B /* BZBackgroundAdjustment.m in Sources */,
 				963098BD16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m in Sources */,
-				965BAD6316B774D9007193BE /* BZCameraControlsView.m in Sources */,
 				CC1CEED016C1B75F00196110 /* UIBezierPath+Shapes.m in Sources */,
 				966CF06116D053F600795C93 /* HMSegmentedControl.m in Sources */,
 				966CF06E16D0626200795C93 /* BZCaptureViewController.m in Sources */,

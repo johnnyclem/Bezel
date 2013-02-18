@@ -26,7 +26,6 @@
 #import "UIImage+Resize.h"
 #import "UIImage+Storage.h"
 #import "BZTabBarController.h"
-#import "BZCameraControlsView.h"
 #import "BZImageView.h"
 #import "BZConfirmView.h"
 
@@ -43,31 +42,27 @@
 //#import "BZScaleAdjustment.h"
 
 @interface BZMainViewController ()
-{
-    UIImagePickerController *imagePickerController;
-    
-    BOOL colorPickerIsPurchased;
-    BOOL holidayPackIsPurchased;
-    BOOL proShapePackIsPurchased;
-}
 
+@property (weak, nonatomic) IBOutlet BZTabBarController *tabBarController;
 @property (weak, nonatomic) BZCaptureViewController *captureViewController;
 @property (weak, nonatomic) BZShapesViewController *shapesViewController;
 @property (weak, nonatomic) BZFiltersAdjustmentsController *filterViewController;
 @property (weak, nonatomic) BZBackgroundViewController *backgroundViewController;
 @property (weak, nonatomic) BZShareViewController *shareViewController;
 
+@property (strong, nonatomic) UIImagePickerController *imagePickerController;
 @property (strong, nonatomic) UIDocumentInteractionController *docController;
 @property (strong, nonatomic) ALAssetsLibrary* library;
 
+@property (strong, nonatomic) BZSession *session;
 @property (strong, nonatomic) BZAdjustmentProcessor *adjustmentProcessor;
-@property (strong, nonatomic) BZCameraControlsView *cameraControlsView;
-@property (strong, nonatomic) BZConfirmView *confirmView;
-
-@property (weak, nonatomic) IBOutlet UIView *containerView;
-@property (weak, nonatomic) IBOutlet BZTabBarController *tabBarController;
 
 @property (strong, nonatomic) HMSegmentedControl *segmentedControl;
+@property (strong, nonatomic) BZConfirmView *confirmView;
+
+@property (weak, nonatomic) IBOutlet UIView *cameraPreview;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet BZImageView *imageCanvas;
 
 @end
 
@@ -143,9 +138,6 @@
     
     [self.view addSubview: self.segmentedControl];
     
-    // Set up NSUserDefaults values
-    [self setUpDefaults];
-    
     // View defaults
     self.cameraPreview.clipsToBounds = YES;
     self.imageCanvas.clipsToBounds = YES;
@@ -161,6 +153,8 @@
 {
     [super viewDidAppear:animated];
 
+    [self setUpButtonTargets];
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     if ([defaults boolForKey:BZ_SETTINGS_FIRST_LAUNCH_KEY] == FALSE)
@@ -281,8 +275,6 @@
                     
                     weakSelf.imageCanvas.layer.mask = nil;
                     weakSelf.imageCanvas.image = [weakSelf.adjustmentProcessor processedThumbnailImage];
-                    
-                    [weakSelf performSelectorInBackground:@selector(setupFilterThumbnails) withObject:nil];
                 }
                 else
                 {
@@ -300,7 +292,7 @@
     
     void (^failureBlock)(NSError *err) = ^(NSError *err)
     {
-        
+        LogError(@"Failed to take photo.");
     };
     
     [self stopUpdatingPreviewLayer];
@@ -309,9 +301,34 @@
                                               failureBlock: failureBlock];
 }
 
--(void)switchCamera {
-    LogTrace(@"switching camera");
+-(void)switchCamera
+{
+    LogTrace(@"Switching camera");
     [[BZCaptureManager sharedManager] toggleCamera];
+}
+
+-(void)toggleFlash
+{
+    switch ([[BZCaptureManager sharedManager] flashMode]) {
+        case AVCaptureFlashModeAuto:
+        {
+            
+        }
+            
+            break;
+        case AVCaptureFlashModeOff:
+        {
+            
+        }
+            break;
+        case AVCaptureFlashModeOn:
+        {
+            
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark - Shapes
@@ -465,16 +482,16 @@
 
 #pragma mark - Importing
 
--(IBAction)importFromLibrary
+- (void)importFromLibrary
 {
     [self stopUpdatingPreviewLayer];
     
-    imagePickerController = [[UIImagePickerController alloc] init];
-    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    imagePickerController.allowsEditing = YES;
-    imagePickerController.delegate = self;
+    _imagePickerController = [[UIImagePickerController alloc] init];
+    _imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    _imagePickerController.allowsEditing = YES;
+    _imagePickerController.delegate = self;
     
-    [self presentViewController:imagePickerController animated:YES completion:nil];
+    [self presentViewController: _imagePickerController animated:YES completion:nil];
 }
 
 
@@ -656,7 +673,7 @@
         }
     };
     
-    [imagePickerController dismissViewControllerAnimated:YES completion:^(void){
+    [_imagePickerController dismissViewControllerAnimated:YES completion:^(void){
         
         fullRes = [info objectForKey:UIImagePickerControllerEditedImage];
         thumb   = [UIImage scaleImage: fullRes
@@ -682,17 +699,13 @@
 
 #pragma mark - Convenience
 
-- (void)setUpDefaults
-{
-    NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
-    holidayPackIsPurchased   = [(NSNumber*)[standard objectForKey: BZ_HOLIDAY_PACK_PURCHASE_KEY] boolValue];
-    proShapePackIsPurchased  = [(NSNumber*)[standard objectForKey: BZ_PRO_SHAPE_PACK_PURCHASE_KEY] boolValue];
-    colorPickerIsPurchased   = [(NSNumber*)[standard objectForKey: BZ_COLOR_PICKER_PURCHASE_KEY] boolValue];
-}
-
 - (void)setUpButtonTargets
 {
     __weak id weakSelf = self;
+    
+    [self.captureViewController.shootPhotoButton addTarget: self action: @selector(takePhoto) forControlEvents: UIControlEventTouchUpInside];
+    [self.captureViewController.switchCameraButton addTarget: self action: @selector(switchCamera) forControlEvents: UIControlEventTouchUpInside];
+    [self.captureViewController.importButton addTarget: self action: @selector(importFromLibrary) forControlEvents: UIControlEventTouchUpInside];
     
     self.shapesViewController.switchShapeBlock = ^(BZMaskAdjustment *adj)
     {
