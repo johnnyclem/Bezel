@@ -540,8 +540,8 @@
 		963098A716B619B000B53257 /* shapes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = shapes.json; path = "Mock Data/shapes.json"; sourceTree = "<group>"; };
 		963098B916B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZMaskAdjustmentCollectionViewCell.h; path = View/BZMaskAdjustmentCollectionViewCell.h; sourceTree = "<group>"; };
 		963098BA16B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZMaskAdjustmentCollectionViewCell.m; path = View/BZMaskAdjustmentCollectionViewCell.m; sourceTree = "<group>"; };
-		966CF05D16D053F600795C93 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HMSegmentedControl.h; path = "../Third Party/HMSegmentedControl/HMSegmentedControl.h"; sourceTree = "<group>"; };
-		966CF05E16D053F600795C93 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HMSegmentedControl.m; path = "../Third Party/HMSegmentedControl/HMSegmentedControl.m"; sourceTree = "<group>"; };
+		966CF05D16D053F600795C93 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
+		966CF05E16D053F600795C93 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		966CF06A16D0626200795C93 /* BZCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZCaptureViewController.h; path = Controller/BZCaptureViewController.h; sourceTree = "<group>"; };
 		966CF06B16D0626200795C93 /* BZCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZCaptureViewController.m; path = Controller/BZCaptureViewController.m; sourceTree = "<group>"; };
 		966CF07116D0645F00795C93 /* BZTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZTabBarController.h; path = Categories/BZTabBarController.h; sourceTree = "<group>"; };
@@ -906,7 +906,8 @@
 				966CF05D16D053F600795C93 /* HMSegmentedControl.h */,
 				966CF05E16D053F600795C93 /* HMSegmentedControl.m */,
 			);
-			path = HMSegmentedControl;
+			name = HMSegmentedControl;
+			path = "Third Party/HMSegmentedControl";
 			sourceTree = "<group>";
 		};
 		CC033AB616965C85007D9643 /* BZAdjustmentProcessor */ = {
