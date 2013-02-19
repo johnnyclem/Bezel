@@ -110,28 +110,66 @@
     self.segmentedControl.textColor = [UIColor whiteColor];
     self.segmentedControl.backgroundColor = [UIColor blackColor];
     self.segmentedControl.frame = CGRectMake(0, 0, 320, 60);
-    [self.segmentedControl setIndexChangeBlock:^(NSInteger index) {
-        NSLog(@"selecting index %d", index);
-        UITabBarController *tc = [weakSelf.childViewControllers objectAtIndex:0];
+    [self.segmentedControl setIndexChangeBlock:^(NSInteger index)
+    {
+        if (index != BZ_CAPTURE_VIEW_CONTROLLER_INDEX) {
+            if (weakSelf.imageCanvas.hidden == TRUE) {
+                [weakSelf stopUpdatingPreviewLayer];
+                weakSelf.imageCanvas.hidden = FALSE;
+            }
+        } else {
+            if (weakSelf.imageCanvas.hidden == FALSE) {
+                [weakSelf startUpdatingPreviewLayer];
+                weakSelf.imageCanvas.hidden = TRUE;
+            }
+        }
         
-        UIView * fromView = tc.selectedViewController.view;
-        UIView * toView = [[tc.viewControllers objectAtIndex:index] view];
+        switch (index) {
+            case BZ_CAPTURE_VIEW_CONTROLLER_INDEX:
+            {
+
+            }
+                break;
+            case BZ_SHAPES_VIEW_CONTROLLER_INDEX:
+            {
+                
+            }
+                break;
+            case BZ_FILTERS_ADJUSTMENTS_VIEW_CONTROLLER_INDEX:
+            {
+                [weakSelf setupFilterThumbnails];
+            }
+                break;
+            case BZ_BACKGROUNDS_VIEW_CONTROLLER_INDEX:
+            {
+                
+            }
+                break;
+            case BZ_SHARE_VIEW_CONTROLLER_INDEX:
+            {
+                
+            }
+                break;
+            default:
+                break;
+        }
+        
+        UIView * fromView = weakSelf.tabBarController.selectedViewController.view;
+        UIView * toView = [[weakSelf.tabBarController.viewControllers objectAtIndex:index] view];
         
         CGRect viewSize = fromView.frame;
-        BOOL scrollRight = index > tc.selectedIndex;
-        
         [fromView.superview addSubview:toView];
-        toView.frame = CGRectMake((scrollRight ? 320 : -320), viewSize.origin.y, 320, viewSize.size.height);
+        toView.frame = CGRectMake(viewSize.origin.x, weakSelf.view.frame.size.height, 320, viewSize.size.height);
         
         [UIView animateWithDuration:0.3
                          animations: ^{
-                             fromView.frame =CGRectMake((scrollRight ? -320 : 320), viewSize.origin.y, 320, viewSize.size.height);
-                             toView.frame =CGRectMake(0, viewSize.origin.y, 320, viewSize.size.height);
+                             fromView.frame = CGRectMake(viewSize.origin.x, weakSelf.view.frame.size.height - viewSize.size.height, 320, viewSize.size.height);
+                             toView.frame = CGRectMake(0, viewSize.origin.y, 320, viewSize.size.height);
                          }
                          completion:^(BOOL finished) {
                              if (finished) {
                                  [fromView removeFromSuperview];
-                                 tc.selectedIndex = index;
+                                 weakSelf.tabBarController.selectedIndex = index;
                              }
                          }];
     }];
@@ -195,7 +233,6 @@
 -(void)setupCamera
 {
     self.imageCanvas.hidden = TRUE;
-
     [self startUpdatingPreviewLayer];
 }
 
@@ -264,29 +301,9 @@
             self.imageCanvas.layer.mask = [(BZMaskAdjustment *)[self.session adjustmentWithIdentifier: kAdjustmentTypeMask] layerMaskForSize: kDefaultCameraPreviewSize];
             self.imageCanvas.image = thumb;
             
-            __weak BZMainViewController *weakSelf = self;
-            
-            self.confirmView.completionBlock = ^(BOOL response)
-            {
-                if (response == TRUE)
-                {
-                    [weakSelf.session setThumbnailImage: thumb];
-                    [weakSelf.session setFullResolutionImage: img];
-                    
-                    weakSelf.imageCanvas.layer.mask = nil;
-                    weakSelf.imageCanvas.image = [weakSelf.adjustmentProcessor processedThumbnailImage];
-                }
-                else
-                {
-                    [weakSelf startUpdatingPreviewLayer];
-                    weakSelf.imageCanvas.layer.mask = nil;
-                    weakSelf.imageCanvas.image = nil;
-                    weakSelf.imageCanvas.hidden = TRUE;
-                }
-            };
+            [self.tabBarController setSelectedIndex: BZ_SHAPES_VIEW_CONTROLLER_INDEX];
             
             [SVProgressHUD dismiss];
-            [self.confirmView presentConfirmationFromEdge: CGRectMaxYEdge forViewController: self];
         }
     };
     
@@ -424,6 +441,20 @@
     };
     
     [self.confirmView presentConfirmationFromEdge: CGRectMinYEdge forViewController: self];
+}
+
+-(void)setupFilterThumbnails
+{
+//    UIImage *currentThumb = self.session.thumbnailImage;
+//    for (bz_Button *button in self.scrollViewController.filterViewController.filterButtons)
+//    {
+//        BZFilterAdjustment *filterAdjustment = [[BZFilterAdjustment alloc] init];
+//        filterAdjustment.identifier = button.buttonIdentifier;
+//        filterAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: button.buttonIdentifier, kButtonIdentifier, nil];
+//        
+//        // set the preview layer mask to the adjusted mask.
+//        [button setImage:[filterAdjustment filteredImageWithImage: currentThumb] forState:UIControlStateNormal];
+//    }
 }
 
 #pragma mark - jclem adjustImage

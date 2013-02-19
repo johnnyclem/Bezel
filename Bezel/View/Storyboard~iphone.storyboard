@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="iFz-Yu-AOk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3006" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="iFz-Yu-AOk">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -12,8 +12,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="00g-zX-5D8" userLabel="Tab Bar Container">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="00g-zX-5D8" userLabel="Tab Bar Container" propertyAccessControl="none">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="qOB-f2-ON6" kind="embed" id="ab3-p9-Qqe"/>
                                 </connections>
@@ -21,7 +21,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AEE-hv-IkW" userLabel="Camera Preview">
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P1H-Rf-AtD" userLabel="Image Canvas" customClass="BZImageView">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="B&amp;W1.png" translatesAutoresizingMaskIntoConstraints="NO" id="P1H-Rf-AtD" userLabel="Image Canvas" customClass="BZImageView" propertyAccessControl="none">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="qP3-m7-Yhs"/>
                                 </constraints>
@@ -644,6 +644,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="B&amp;W1.png" width="512" height="512"/>
         <image name="Icon.png" width="57" height="57"/>
         <image name="cinePromo.png" width="960" height="640"/>
     </resources>
