@@ -9,8 +9,21 @@
 #import "BZViewController.h"
 #import "AnimationDelegate.h"
 
+@class BZFilterAdjustment;
+@class BZBrightnessContrastAdjustment;
+
 @interface BZFiltersAdjustmentsController : BZViewController
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+// Callback used for applying a filter to an image, fired when a user taps
+// the collection view cell. The corresponding BZFilterAdjustment will be
+// provided to the addFilterBlock.
+@property (nonatomic, copy) void (^addFilterBlock)(BZFilterAdjustment *adj);
+
+// Callback used for adjusting an image (brightness or contrast currently),
+// fired when a user taps the collection view cell. The corresponding
+// BZBrightnessContrastAdjustment will be provided to the adjustImageBlock.
+@property (nonatomic, copy) void (^adjustImageBlock)(BZBrightnessContrastAdjustment *adj);
 
 @end

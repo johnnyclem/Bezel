@@ -418,21 +418,17 @@
 //    recognizer.scale = 1.0;
 //}
 
--(void)applyFilter:(BZButton *)filterButton
+-(void)applyFilter:(BZFilterAdjustment *)filterAdj
 {
-    BZFilterAdjustment *filterAdjustment = [[BZFilterAdjustment alloc] init];
-    filterAdjustment.identifier = kAdjustmentTypeFilter;
-    filterAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: filterButton.buttonIdentifier, kButtonIdentifier, nil];
-    
     // set the preview layer mask to the adjusted mask.
-    self.imageCanvas.image = [filterAdjustment filteredImageWithImage: [self.adjustmentProcessor processedThumbnailImage]];
+    self.imageCanvas.image = [filterAdj filteredImageWithImage: [self.adjustmentProcessor processedThumbnailImage]];
 
     __weak BZMainViewController *weakSelf = self;
     self.confirmView.completionBlock = ^(BOOL response)
     {
         if (response == TRUE)
         {
-            [weakSelf.session addAdjustment: filterAdjustment];
+            [weakSelf.session addAdjustment: filterAdj];
         }
         else
         {
@@ -458,38 +454,38 @@
 }
 
 #pragma mark - jclem adjustImage
-- (void)adjustImage:(BZButton *)adjustmentButton
+- (void)adjustImage:(BZBrightnessContrastAdjustment *)adjustment
 {
     float exposure;
     float contrast;
     
     BZAdjustment *adj = [self.session adjustmentWithIdentifier: kAdjustmentTypeBrightnessOrContrast];
     
-    if (adj)
-    {
-        exposure = [[adj.value valueForKey: kAdjustmentTypeBrightness] floatValue];
-        contrast = [[adj.value valueForKey: kAdjustmentTypeContrast] floatValue];
-        
-        if ([adjustmentButton.buttonIdentifier isEqualToString: kButtonIdentifierBrightnessUp])
-        {
-            exposure += kExposureDefaultStep;
-        }
-        else if ([adjustmentButton.buttonIdentifier isEqualToString: kButtonIdentifierBrightnessDown])
-        {
-            exposure -= kExposureDefaultStep;
-        }
-        else if ([adjustmentButton.buttonIdentifier isEqualToString: kButtonIdentifierContrastUp])
-        {
-            contrast += kContrastDefaultStep;
-        }
-        else if ([adjustmentButton.buttonIdentifier isEqualToString: kButtonIdentifierContrastDown])
-        {
-            contrast -= kContrastDefaultStep;
-        }
-    } else {
-        exposure = 0.f;
-        contrast = 1.f;
-    }
+//    if (adj)
+//    {
+//        exposure = [[adj.value valueForKey: kAdjustmentTypeBrightness] floatValue];
+//        contrast = [[adj.value valueForKey: kAdjustmentTypeContrast] floatValue];
+//        
+//        if ([adjustmentButton.buttonIdentifier isEqualToString: kButtonIdentifierBrightnessUp])
+//        {
+//            exposure += kExposureDefaultStep;
+//        }
+//        else if ([adjustmentButton.buttonIdentifier isEqualToString: kButtonIdentifierBrightnessDown])
+//        {
+//            exposure -= kExposureDefaultStep;
+//        }
+//        else if ([adjustmentButton.buttonIdentifier isEqualToString: kButtonIdentifierContrastUp])
+//        {
+//            contrast += kContrastDefaultStep;
+//        }
+//        else if ([adjustmentButton.buttonIdentifier isEqualToString: kButtonIdentifierContrastDown])
+//        {
+//            contrast -= kContrastDefaultStep;
+//        }
+//    } else {
+//        exposure = 0.f;
+//        contrast = 1.f;
+//    }
 
     BZBrightnessContrastAdjustment *brightnessContrastAdjustment = [[BZBrightnessContrastAdjustment alloc] init];
     brightnessContrastAdjustment.identifier = kAdjustmentTypeBrightnessOrContrast;
@@ -743,18 +739,16 @@
         [weakSelf switchShape: adj];
     };
     
-//    // Filters
-//    for (BZButton *button in self.scrollViewController.filterViewController.filterButtons)
-//    {
-//        [button addTarget:self action:@selector(applyFilter:) forControlEvents: UIControlEventTouchUpInside];
-////    }
-//    
-//    // Adjustments
-//    for (BZButton *button in self.filterViewController.adjustmentButtons)
-//    {
-//        [button addTarget: self action:@selector(adjustImage:) forControlEvents: UIControlEventTouchUpInside];
-//    }
-//    
+    self.filterViewController.addFilterBlock = ^(BZFilterAdjustment *adj)
+    {
+        [weakSelf applyFilter: adj];
+    };
+    
+    self.filterViewController.adjustImageBlock = ^(BZBrightnessContrastAdjustment *adj)
+    {
+        [weakSelf adjustImage: adj];
+    };
+    
     // Backgrounds
     for (BZButton *button in self.backgroundViewController.backgroundButtons)
     {
