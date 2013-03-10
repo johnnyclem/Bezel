@@ -21,7 +21,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AEE-hv-IkW" userLabel="Camera Preview">
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="B&amp;W1.png" translatesAutoresizingMaskIntoConstraints="NO" id="P1H-Rf-AtD" userLabel="Image Canvas" customClass="BZImageView" propertyAccessControl="none">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="SelectAPhoto.png" translatesAutoresizingMaskIntoConstraints="NO" id="P1H-Rf-AtD" userLabel="Image Canvas" customClass="BZImageView" propertyAccessControl="none">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="qP3-m7-Yhs"/>
                                 </constraints>
@@ -436,17 +436,17 @@
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="T6l-oc-Lg6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ANI-UY-5m0">
-                            <size key="itemSize" width="51" height="46"/>
+                            <size key="itemSize" width="54" height="49"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BZ_FILTER_ADJUSTMENT_CELL" id="9mz-iq-4SW" customClass="BZFiltersAdjustmentsCollectionViewCell">
-                                <rect key="frame" x="5" y="5" width="51" height="46"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BZ_FILTER_CELL" id="9mz-iq-4SW" customClass="BZFilterCollectionViewCell">
+                                <rect key="frame" x="5" y="5" width="54" height="49"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="51" height="46"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="54" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nba-V2-Zgd"/>
@@ -460,7 +460,7 @@
                                     <constraint firstItem="Nba-V2-Zgd" firstAttribute="trailing" secondItem="9mz-iq-4SW" secondAttribute="trailing" type="default" id="g5v-mU-01R"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="imageView" destination="Nba-V2-Zgd" id="rJc-V7-hH1"/>
+                                    <outlet property="filterPreview" destination="Nba-V2-Zgd" id="Sio-pt-Tpz"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -644,8 +644,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="B&amp;W1.png" width="512" height="512"/>
         <image name="Icon.png" width="57" height="57"/>
+        <image name="SelectAPhoto.png" width="500" height="500"/>
         <image name="cinePromo.png" width="960" height="640"/>
     </resources>
     <classes>
@@ -667,10 +667,10 @@
                 <relationship kind="outlet" name="switchCameraButton" candidateClass="BZButton"/>
             </relationships>
         </class>
-        <class className="BZFiltersAdjustmentsCollectionViewCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BZFiltersAdjustmentsCollectionViewCell.h"/>
+        <class className="BZFilterCollectionViewCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BZFilterCollectionViewCell.h"/>
             <relationships>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="filterPreview" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="BZFiltersAdjustmentsController" superclassName="BZViewController">
@@ -757,6 +757,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

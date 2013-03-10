@@ -26,4 +26,7 @@
 // BZBrightnessContrastAdjustment will be provided to the adjustImageBlock.
 @property (nonatomic, copy) void (^adjustImageBlock)(BZBrightnessContrastAdjustment *adj);
 
+// Called to populate the collection view with the filter previews;
+- (void)filterImage:(UIImage *)image;
+
 @end

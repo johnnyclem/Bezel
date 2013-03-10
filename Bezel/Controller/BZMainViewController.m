@@ -54,7 +54,7 @@
 @property (strong, nonatomic) UIDocumentInteractionController *docController;
 @property (strong, nonatomic) ALAssetsLibrary* library;
 
-@property (strong, nonatomic) BZSession *session;
+@property (weak, nonatomic) BZSession *session;
 @property (strong, nonatomic) BZAdjustmentProcessor *adjustmentProcessor;
 
 @property (strong, nonatomic) HMSegmentedControl *segmentedControl;
@@ -87,7 +87,7 @@
     __weak BZMainViewController *weakSelf = self;
     
     // Initialization
-    self.session = [[BZSession alloc] init];
+    self.session = [BZSession sharedSession];
     self.library = [[ALAssetsLibrary alloc] init];
     self.confirmView = [[BZConfirmView alloc] init];
     self.adjustmentProcessor = [[BZAdjustmentProcessor alloc] initWithSession: self.session];
@@ -137,7 +137,7 @@
                 break;
             case BZ_FILTERS_ADJUSTMENTS_VIEW_CONTROLLER_INDEX:
             {
-                [weakSelf setupFilterThumbnails];
+                [weakSelf.filterViewController filterImage: weakSelf.session.thumbnailImage];
             }
                 break;
             case BZ_BACKGROUNDS_VIEW_CONTROLLER_INDEX:
@@ -441,26 +441,18 @@
 
 -(void)setupFilterThumbnails
 {
-//    UIImage *currentThumb = self.session.thumbnailImage;
-//    for (bz_Button *button in self.scrollViewController.filterViewController.filterButtons)
-//    {
-//        BZFilterAdjustment *filterAdjustment = [[BZFilterAdjustment alloc] init];
-//        filterAdjustment.identifier = button.buttonIdentifier;
-//        filterAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: button.buttonIdentifier, kButtonIdentifier, nil];
-//        
-//        // set the preview layer mask to the adjusted mask.
-//        [button setImage:[filterAdjustment filteredImageWithImage: currentThumb] forState:UIControlStateNormal];
-//    }
+    [self.filterViewController filterImage: self.session.thumbnailImage];
 }
 
 #pragma mark - jclem adjustImage
+
 - (void)adjustImage:(BZBrightnessContrastAdjustment *)adjustment
 {
-    float exposure;
-    float contrast;
-    
-    BZAdjustment *adj = [self.session adjustmentWithIdentifier: kAdjustmentTypeBrightnessOrContrast];
-    
+//    float exposure;
+//    float contrast;
+//    
+//    BZAdjustment *adj = [self.session adjustmentWithIdentifier: kAdjustmentTypeBrightnessOrContrast];
+//    
 //    if (adj)
 //    {
 //        exposure = [[adj.value valueForKey: kAdjustmentTypeBrightness] floatValue];
@@ -486,19 +478,19 @@
 //        exposure = 0.f;
 //        contrast = 1.f;
 //    }
-
-    BZBrightnessContrastAdjustment *brightnessContrastAdjustment = [[BZBrightnessContrastAdjustment alloc] init];
-    brightnessContrastAdjustment.identifier = kAdjustmentTypeBrightnessOrContrast;
-    brightnessContrastAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys:
-                                          kAdjustmentTypeBrightnessOrContrast, kButtonIdentifier,
-                                          [NSNumber numberWithFloat: exposure], kAdjustmentTypeBrightness,
-                                          [NSNumber numberWithFloat: contrast], kAdjustmentTypeContrast, nil];
-    
-    NSLog(@"adjusting contrast and exposure to %f and %f", contrast, exposure);
-    [self.session addAdjustment: brightnessContrastAdjustment];
-    
-    // set the preview layer mask to the adjusted mask.
-    self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
+//
+//    BZBrightnessContrastAdjustment *brightnessContrastAdjustment = [[BZBrightnessContrastAdjustment alloc] init];
+//    brightnessContrastAdjustment.identifier = kAdjustmentTypeBrightnessOrContrast;
+//    brightnessContrastAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                          kAdjustmentTypeBrightnessOrContrast, kButtonIdentifier,
+//                                          [NSNumber numberWithFloat: exposure], kAdjustmentTypeBrightness,
+//                                          [NSNumber numberWithFloat: contrast], kAdjustmentTypeContrast, nil];
+//    
+//    NSLog(@"adjusting contrast and exposure to %f and %f", contrast, exposure);
+//    [self.session addAdjustment: brightnessContrastAdjustment];
+//    
+//    // set the preview layer mask to the adjusted mask.
+//    self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
 }
 
 - (void)undoLastAdjustment
@@ -640,38 +632,40 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    switch (alertView.tag) {
-        case 10:
-            if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Discard Photo"])
-            {
-                self.session = nil;
-                self.session = [[BZSession alloc] init];
-                
-                self.adjustmentProcessor = nil;
-                self.adjustmentProcessor = [[BZAdjustmentProcessor alloc] initWithSession: self.session];
-                
-                [self startUpdatingPreviewLayer];
-            }
-            break;
-        case 20:
-            break;
-        case 30:
-            if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Start Over"])
-            {
-                self.session = nil;
-                self.session = [[BZSession alloc] init];
-                [self startUpdatingPreviewLayer];
-            }
-            break;
-        case 50:
-            if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"No Thanks"])
-            {
-                //TODO
-            }
-            break;
-        default:
-            break;
-    }
+//    switch (alertView.tag) {
+//        case 10:
+//            if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Discard Photo"])
+//            {
+//                self.session = nil;
+//                self.session = [BZSession sharedSession];
+//                
+//                self.adjustmentProcessor = nil;
+//                self.adjustmentProcessor = [[BZAdjustmentProcessor alloc] initWithSession: self.session];
+//                
+//                [self startUpdatingPreviewLayer];
+//            }
+//            break;
+//        case 20:
+//            break;
+//        case 30:
+//            if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Start Over"])
+//            {
+//                
+//            
+//                self.session = nil;
+//                self.session = [BZSession sharedSession];
+//                [self startUpdatingPreviewLayer];
+//            }
+//            break;
+//        case 50:
+//            if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"No Thanks"])
+//            {
+//                //TODO
+//            }
+//            break;
+//        default:
+//            break;
+//    }
 }
 
 #pragma mark - Image Picker Delegate (Library Importing)

@@ -22,9 +22,9 @@
 		966CF07316D0645F00795C93 /* BZTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966CF07216D0645F00795C93 /* BZTabBarController.m */; };
 		966CF07416D0645F00795C93 /* BZTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966CF07216D0645F00795C93 /* BZTabBarController.m */; };
 		966CF07516D0645F00795C93 /* BZTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966CF07216D0645F00795C93 /* BZTabBarController.m */; };
-		966CF07816D09D5100795C93 /* BZFiltersAdjustmentsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 966CF07716D09D5100795C93 /* BZFiltersAdjustmentsCollectionViewCell.m */; };
-		966CF07916D09D5100795C93 /* BZFiltersAdjustmentsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 966CF07716D09D5100795C93 /* BZFiltersAdjustmentsCollectionViewCell.m */; };
-		966CF07A16D09D5100795C93 /* BZFiltersAdjustmentsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 966CF07716D09D5100795C93 /* BZFiltersAdjustmentsCollectionViewCell.m */; };
+		966CF07816D09D5100795C93 /* BZFilterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 966CF07716D09D5100795C93 /* BZFilterCollectionViewCell.m */; };
+		966CF07916D09D5100795C93 /* BZFilterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 966CF07716D09D5100795C93 /* BZFilterCollectionViewCell.m */; };
+		966CF07A16D09D5100795C93 /* BZFilterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 966CF07716D09D5100795C93 /* BZFilterCollectionViewCell.m */; };
 		966CF08F16D0AF1C00795C93 /* Capture-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 966CF08B16D0AF1C00795C93 /* Capture-selected.png */; };
 		966CF09016D0AF1C00795C93 /* Capture-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 966CF08B16D0AF1C00795C93 /* Capture-selected.png */; };
 		966CF09116D0AF1C00795C93 /* Capture-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 966CF08B16D0AF1C00795C93 /* Capture-selected.png */; };
@@ -120,6 +120,8 @@
 		CC3C0855169B319B00CF9B18 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC3C0854169B319B00CF9B18 /* FacebookSDK.framework */; };
 		CC3C0856169B319B00CF9B18 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC3C0854169B319B00CF9B18 /* FacebookSDK.framework */; };
 		CC413CCC167D567100773B24 /* BZPromotion.m in Sources */ = {isa = PBXBuildFile; fileRef = CC413CCB167D567100773B24 /* BZPromotion.m */; };
+		CC4A1C7E16EC4A3100D45232 /* SelectAPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = CC4A1C7D16EC4A3100D45232 /* SelectAPhoto.png */; };
+		CC4A1C7F16EC4A3100D45232 /* SelectAPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = CC4A1C7D16EC4A3100D45232 /* SelectAPhoto.png */; };
 		CC55B6AD16949614006AD05A /* BZCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55B6AC16949614006AD05A /* BZCaptureManager.m */; };
 		CC55B6AE16949614006AD05A /* BZCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55B6AC16949614006AD05A /* BZCaptureManager.m */; };
 		CC55B6AF16949614006AD05A /* BZCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55B6AC16949614006AD05A /* BZCaptureManager.m */; };
@@ -546,8 +548,8 @@
 		966CF06B16D0626200795C93 /* BZCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZCaptureViewController.m; path = Controller/BZCaptureViewController.m; sourceTree = "<group>"; };
 		966CF07116D0645F00795C93 /* BZTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZTabBarController.h; path = Categories/BZTabBarController.h; sourceTree = "<group>"; };
 		966CF07216D0645F00795C93 /* BZTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZTabBarController.m; path = Categories/BZTabBarController.m; sourceTree = "<group>"; };
-		966CF07616D09D5000795C93 /* BZFiltersAdjustmentsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZFiltersAdjustmentsCollectionViewCell.h; path = View/BZFiltersAdjustmentsCollectionViewCell.h; sourceTree = "<group>"; };
-		966CF07716D09D5100795C93 /* BZFiltersAdjustmentsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZFiltersAdjustmentsCollectionViewCell.m; path = View/BZFiltersAdjustmentsCollectionViewCell.m; sourceTree = "<group>"; };
+		966CF07616D09D5000795C93 /* BZFilterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZFilterCollectionViewCell.h; path = View/BZFilterCollectionViewCell.h; sourceTree = "<group>"; };
+		966CF07716D09D5100795C93 /* BZFilterCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZFilterCollectionViewCell.m; path = View/BZFilterCollectionViewCell.m; sourceTree = "<group>"; };
 		966CF08B16D0AF1C00795C93 /* Capture-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Capture-selected.png"; path = "Resources/Images/Capture-selected.png"; sourceTree = "<group>"; };
 		966CF08C16D0AF1C00795C93 /* Capture-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Capture-selected@2x.png"; path = "Resources/Images/Capture-selected@2x.png"; sourceTree = "<group>"; };
 		966CF08D16D0AF1C00795C93 /* Capture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Capture.png; path = Resources/Images/Capture.png; sourceTree = "<group>"; };
@@ -608,6 +610,7 @@
 		CC3C0854169B319B00CF9B18 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = "Bezel/Third Party/FacebookSDK.framework"; sourceTree = "<group>"; };
 		CC413CCA167D567100773B24 /* BZPromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BZPromotion.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		CC413CCB167D567100773B24 /* BZPromotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BZPromotion.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		CC4A1C7D16EC4A3100D45232 /* SelectAPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SelectAPhoto.png; path = Resources/Images/SelectAPhoto.png; sourceTree = "<group>"; };
 		CC55B6AB16949614006AD05A /* BZCaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BZCaptureManager.h; sourceTree = "<group>"; };
 		CC55B6AC16949614006AD05A /* BZCaptureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BZCaptureManager.m; sourceTree = "<group>"; };
 		CC821F3B167DBB4D00445EAC /* bz_PromotionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = bz_PromotionsTest.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -1137,8 +1140,8 @@
 				EF25887C166EEE4500A2225E /* BZButton.m */,
 				CCE40427169C96C3001355A3 /* BZConfirmView.h */,
 				CCE40428169C96C3001355A3 /* BZConfirmView.m */,
-				966CF07616D09D5000795C93 /* BZFiltersAdjustmentsCollectionViewCell.h */,
-				966CF07716D09D5100795C93 /* BZFiltersAdjustmentsCollectionViewCell.m */,
+				966CF07616D09D5000795C93 /* BZFilterCollectionViewCell.h */,
+				966CF07716D09D5100795C93 /* BZFilterCollectionViewCell.m */,
 				CC8839AB167EA21D00374C63 /* BZImageView.h */,
 				CC8839AC167EA21D00374C63 /* BZImageView.m */,
 				963098B916B62AC100B53257 /* BZMaskAdjustmentCollectionViewCell.h */,
@@ -1289,6 +1292,7 @@
 		EF5011B516766B2D0033B574 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CC4A1C7D16EC4A3100D45232 /* SelectAPhoto.png */,
 				966CF0BB16D0AF8C00795C93 /* Backgrounds-selected.png */,
 				966CF0BC16D0AF8C00795C93 /* Backgrounds-selected@2x.png */,
 				966CF0BD16D0AF8C00795C93 /* Backgrounds.png */,
@@ -1677,6 +1681,7 @@
 				966CF0D316D0AFA900795C93 /* Share-selected@2x.png in Resources */,
 				966CF0D616D0AFA900795C93 /* Share.png in Resources */,
 				966CF0D916D0AFA900795C93 /* Share@2x.png in Resources */,
+				CC4A1C7F16EC4A3100D45232 /* SelectAPhoto.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1742,6 +1747,7 @@
 				966CF0D216D0AFA900795C93 /* Share-selected@2x.png in Resources */,
 				966CF0D516D0AFA900795C93 /* Share.png in Resources */,
 				966CF0D816D0AFA900795C93 /* Share@2x.png in Resources */,
+				CC4A1C7E16EC4A3100D45232 /* SelectAPhoto.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1907,7 +1913,7 @@
 				966CF06016D053F600795C93 /* HMSegmentedControl.m in Sources */,
 				966CF06D16D0626200795C93 /* BZCaptureViewController.m in Sources */,
 				966CF07416D0645F00795C93 /* BZTabBarController.m in Sources */,
-				966CF07916D09D5100795C93 /* BZFiltersAdjustmentsCollectionViewCell.m in Sources */,
+				966CF07916D09D5100795C93 /* BZFilterCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1995,7 +2001,7 @@
 				966CF05F16D053F600795C93 /* HMSegmentedControl.m in Sources */,
 				966CF06C16D0626200795C93 /* BZCaptureViewController.m in Sources */,
 				966CF07316D0645F00795C93 /* BZTabBarController.m in Sources */,
-				966CF07816D09D5100795C93 /* BZFiltersAdjustmentsCollectionViewCell.m in Sources */,
+				966CF07816D09D5100795C93 /* BZFilterCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2081,7 +2087,7 @@
 				966CF06116D053F600795C93 /* HMSegmentedControl.m in Sources */,
 				966CF06E16D0626200795C93 /* BZCaptureViewController.m in Sources */,
 				966CF07516D0645F00795C93 /* BZTabBarController.m in Sources */,
-				966CF07A16D09D5100795C93 /* BZFiltersAdjustmentsCollectionViewCell.m in Sources */,
+				966CF07A16D09D5100795C93 /* BZFilterCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,9 +15,23 @@
 
 @implementation BZSession
 
++ (BZSession *)sharedSession
+{
+    static id singleton = nil;
+	static dispatch_once_t pred;
+	
+	dispatch_once(
+                  &pred,
+                  ^{ singleton = [[self alloc] init]; }
+                  );
+    
+    return singleton;
+}
+
 - (id)init
 {
-    if (self = [super init]) {
+    if (self = [super init])
+    {
         self.adjustments = [[NSMutableArray alloc] initWithCapacity: 10];
     }
     

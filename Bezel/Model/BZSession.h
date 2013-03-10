@@ -17,6 +17,8 @@
 @property (nonatomic, strong) NSNumber *imageId;
 @property (nonatomic, strong, readonly) NSMutableArray *adjustments;
 
++ (BZSession *)sharedSession;
+
 - (void)addAdjustment:(BZAdjustment *)adjustment;
 - (void)removeAdjustment:(BZAdjustment *)adjustment;
 
