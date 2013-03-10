@@ -23,12 +23,13 @@
 
 @implementation BZShapesViewController
 
-- (id)init
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    if (self = [super init])
+    if (self = [super initWithCoder: aDecoder])
     {
         // Capacity is arbitrary but used for optimization.
         self.shapes = [NSMutableArray arrayWithCapacity: 50];
+        self.showAllShapes = TRUE;
     }
     
     return self;
@@ -141,6 +142,7 @@
                 }
             }
         }
+        
         else
         {
             // Handle failure.
@@ -193,17 +195,6 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if (self.showAllShapes)
-//    {
-//        self.showAllShapes = FALSE;
-//        self.shapesCollectionView.scrollEnabled = FALSE;
-//        
-//        [UIView animateWithDuration: 0.5 animations: ^(void) {
-//            self.shapesCollectionView.frame = CGRectMake(0.0, 0.0, 290.0, 50.0);
-//        } completion: ^(BOOL completion) {
-//        }];
-//    }
-    
     self.switchShapeBlock([self.shapes objectAtIndex: indexPath.row]);
 }
 

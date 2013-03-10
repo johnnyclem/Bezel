@@ -29,16 +29,15 @@
         
         BZButton *yes = [[BZButton alloc] initWithFrame: CGRectMake(0.0, 0.0, 50.0, 50.0)];
         yes.frame = centerRectInRect(yes.frame, yesRect);
+        yes.backgroundColor = [UIColor greenColor];
         yes.buttonIdentifier = @"TRUE";
         [yes addTarget:self action:@selector(responseTapped:) forControlEvents:UIControlEventTouchUpInside];
         
         BZButton *no = [[BZButton alloc] initWithFrame: CGRectMake(0.0, 0.0, 50.0, 50.0)];
         no.frame = centerRectInRect(no.frame, noRect);
+        no.backgroundColor = [UIColor redColor];
         no.buttonIdentifier = @"FALSE";
         [no addTarget:self action:@selector(responseTapped:) forControlEvents:UIControlEventTouchUpInside];
-        
-        yes.tag = 33;
-        no.tag = 34;
         
         [self.confirm addSubview: yes];
         [self.confirm addSubview: no];
@@ -54,7 +53,7 @@
     return [self initWithFrame: CGRectMake(0.0, 0.0, 320.0, (UIScreen.mainScreen.bounds.size.height-380)/2)];
 }
 
-- (void)presentConfirmationFromEdge:(CGRectEdge)edge forViewController:(UIViewController *)viewController
+- (void)presentConfirmationFromEdge:(CGRectEdge)edge inView:(UIView *)view
 {
     if (edge == CGRectMinXEdge || edge == CGRectMaxXEdge)
     {
@@ -62,13 +61,13 @@
     }
     else
     {   
-        CGFloat yPosFrom = (edge == CGRectMaxYEdge) ? UIScreen.mainScreen.bounds.size.height : -60.0;
+        CGFloat yPosFrom = (edge == CGRectMaxYEdge) ? CGRectGetMaxY(view.bounds) : CGRectGetMinY(view.bounds) - ((UIScreen.mainScreen.bounds.size.height-380)/2);
         self.frame = CGRectMake(0.0, yPosFrom, 320.0, (UIScreen.mainScreen.bounds.size.height-380)/2);
         
-        CGFloat yPosTo = (edge == CGRectMaxYEdge) ? UIScreen.mainScreen.bounds.size.height - self.frame.size.height : 0.0;
+        CGFloat yPosTo = (edge == CGRectMaxYEdge) ? CGRectGetMaxY(view.bounds) - self.frame.size.height : CGRectGetMinY(view.bounds);
         
-        [viewController.view addSubview: self];
-        [viewController.view bringSubviewToFront: self];
+        [view addSubview: self];
+        [view bringSubviewToFront: self];
         
         [UIView animateWithDuration:0.5
                          animations:^{

@@ -286,28 +286,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mWQ-sE-gKK">
-                            <size key="itemSize" width="75" height="67"/>
+                            <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="" reuseIdentifier="BZ_SHAPE_ADJUSTMENT_CELL" id="gib-Mm-1vC" customClass="BZMaskAdjustmentCollectionViewCell">
-                                <rect key="frame" x="5" y="5" width="75" height="67"/>
+                                <rect key="frame" x="5" y="5" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="75" height="67"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vYj-Ti-K28"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vYj-Ti-K28">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="Y31-Mg-FUq"/>
+                                                <constraint firstAttribute="width" constant="50" id="u46-Sy-bDE"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="vYj-Ti-K28" firstAttribute="leading" secondItem="gib-Mm-1vC" secondAttribute="leading" type="default" id="Bez-Xh-iNS"/>
-                                    <constraint firstItem="vYj-Ti-K28" firstAttribute="bottom" secondItem="gib-Mm-1vC" secondAttribute="bottom" type="default" id="VHB-LL-c3r"/>
-                                    <constraint firstItem="vYj-Ti-K28" firstAttribute="top" secondItem="gib-Mm-1vC" secondAttribute="top" type="default" id="WBf-YK-WIe"/>
-                                    <constraint firstItem="vYj-Ti-K28" firstAttribute="trailing" secondItem="gib-Mm-1vC" secondAttribute="trailing" type="default" id="mrB-OX-ZOm"/>
+                                    <constraint firstItem="vYj-Ti-K28" firstAttribute="leading" secondItem="gib-Mm-1vC" secondAttribute="leading" type="default" id="SeN-nZ-NIJ"/>
+                                    <constraint firstItem="vYj-Ti-K28" firstAttribute="top" secondItem="gib-Mm-1vC" secondAttribute="top" type="default" id="yG1-Gd-BX1"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="previewImage" destination="vYj-Ti-K28" id="lbP-nN-VqF"/>
@@ -436,14 +439,112 @@
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="T6l-oc-Lg6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ANI-UY-5m0">
-                            <size key="itemSize" width="54" height="49"/>
+                            <size key="itemSize" width="310" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                         </collectionViewFlowLayout>
                         <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="" reuseIdentifier="BZ_BRIGHTNESS_CONTRAST_ADJUSTMENT_CELL" id="2BI-mL-vwm" customClass="BZBrightnessContrastCollectionViewCell">
+                                <rect key="frame" x="5" y="5" width="310" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="310" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gG8-Of-iGI" customClass="BZButton">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="31" id="PhF-Um-KiD"/>
+                                                <constraint firstAttribute="width" constant="30" id="b5e-qn-F2X"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" title="+">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fh-Hq-KUD" customClass="BZButton">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="EGw-wG-BXL"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" title="-">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4H-5b-zGy" customClass="BZButton">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="13" id="h6a-yV-RfA"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" title="-">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKh-YW-lwr" customClass="BZButton">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="VNF-eo-p9f"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" title="+">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="brightness" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Dq-1A-CIe">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="contrast" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C71-5Z-Xtq">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="E4H-5b-zGy" firstAttribute="bottom" secondItem="nKh-YW-lwr" secondAttribute="bottom" type="default" id="AtY-2o-REr"/>
+                                    <constraint firstItem="C71-5Z-Xtq" firstAttribute="top" secondItem="2BI-mL-vwm" secondAttribute="top" type="default" id="GxO-tG-r6C"/>
+                                    <constraint firstItem="7fh-Hq-KUD" firstAttribute="top" secondItem="2BI-mL-vwm" secondAttribute="top" constant="20" type="default" id="PDt-jU-RjF"/>
+                                    <constraint firstItem="gG8-Of-iGI" firstAttribute="bottom" secondItem="7fh-Hq-KUD" secondAttribute="bottom" type="default" id="Pue-RI-zv8"/>
+                                    <constraint firstItem="nKh-YW-lwr" firstAttribute="top" secondItem="2BI-mL-vwm" secondAttribute="top" constant="20" type="default" id="SCF-7m-BKM"/>
+                                    <constraint firstItem="7Dq-1A-CIe" firstAttribute="top" secondItem="2BI-mL-vwm" secondAttribute="top" type="default" id="US9-vS-ZbP"/>
+                                    <constraint firstItem="7fh-Hq-KUD" firstAttribute="leading" secondItem="2BI-mL-vwm" secondAttribute="leading" constant="57" id="YrF-uQ-iX7"/>
+                                    <constraint firstItem="E4H-5b-zGy" firstAttribute="leading" secondItem="2BI-mL-vwm" secondAttribute="leading" constant="269" id="Zpc-6s-6OA"/>
+                                    <constraint firstItem="7Dq-1A-CIe" firstAttribute="leading" secondItem="2BI-mL-vwm" secondAttribute="leading" constant="20" type="default" id="a0w-gg-qb7"/>
+                                    <constraint firstItem="gG8-Of-iGI" firstAttribute="leading" secondItem="2BI-mL-vwm" secondAttribute="leading" constant="31" id="esC-RJ-Yjv"/>
+                                    <constraint firstItem="nKh-YW-lwr" firstAttribute="bottom" secondItem="7fh-Hq-KUD" secondAttribute="bottom" type="default" id="l1v-y3-7O8"/>
+                                    <constraint firstItem="gG8-Of-iGI" firstAttribute="top" secondItem="2BI-mL-vwm" secondAttribute="top" constant="20" type="default" id="lbc-SW-TLq"/>
+                                    <constraint firstItem="C71-5Z-Xtq" firstAttribute="leading" secondItem="2BI-mL-vwm" secondAttribute="leading" constant="229" id="pf0-lR-CFk"/>
+                                    <constraint firstItem="E4H-5b-zGy" firstAttribute="top" secondItem="2BI-mL-vwm" secondAttribute="top" constant="20" type="default" id="rB0-cD-3GK"/>
+                                    <constraint firstItem="nKh-YW-lwr" firstAttribute="leading" secondItem="2BI-mL-vwm" secondAttribute="leading" constant="236" id="yoO-Wj-wfT"/>
+                                </constraints>
+                                <size key="customSize" width="310" height="50"/>
+                                <connections>
+                                    <outlet property="brightnessDownButton" destination="7fh-Hq-KUD" id="arJ-Tv-caC"/>
+                                    <outlet property="brightnessUpButton" destination="gG8-Of-iGI" id="cgG-ie-Voz"/>
+                                    <outlet property="contrastDownButton" destination="E4H-5b-zGy" id="z42-Zj-wgs"/>
+                                    <outlet property="contrastUpButton" destination="nKh-YW-lwr" id="NI7-Qu-f3z"/>
+                                </connections>
+                            </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BZ_FILTER_CELL" id="9mz-iq-4SW" customClass="BZFilterCollectionViewCell">
-                                <rect key="frame" x="5" y="5" width="54" height="49"/>
+                                <rect key="frame" x="133" y="65" width="54" height="49"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="54" height="49"/>
@@ -459,6 +560,7 @@
                                     <constraint firstItem="Nba-V2-Zgd" firstAttribute="top" secondItem="9mz-iq-4SW" secondAttribute="top" type="default" id="YvF-ju-xd5"/>
                                     <constraint firstItem="Nba-V2-Zgd" firstAttribute="trailing" secondItem="9mz-iq-4SW" secondAttribute="trailing" type="default" id="g5v-mU-01R"/>
                                 </constraints>
+                                <size key="customSize" width="54" height="49"/>
                                 <connections>
                                     <outlet property="filterPreview" destination="Nba-V2-Zgd" id="Sio-pt-Tpz"/>
                                 </connections>
@@ -656,6 +758,15 @@
                 <relationship kind="outlet" name="whiteBackground" candidateClass="BZButton"/>
             </relationships>
         </class>
+        <class className="BZBrightnessContrastCollectionViewCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BZBrightnessContrastCollectionViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="brightnessDownButton" candidateClass="BZButton"/>
+                <relationship kind="outlet" name="brightnessUpButton" candidateClass="BZButton"/>
+                <relationship kind="outlet" name="contrastDownButton" candidateClass="BZButton"/>
+                <relationship kind="outlet" name="contrastUpButton" candidateClass="BZButton"/>
+            </relationships>
+        </class>
         <class className="BZButton" superclassName="UIButton">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BZButton.h"/>
         </class>
@@ -757,9 +868,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

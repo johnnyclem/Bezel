@@ -40,6 +40,7 @@ NSString* const kAdjustmentTypeMask = @"kAdjustmentTypeMask";
     {
         self.cachedMasks = [NSMutableArray array];
         self.duplicatesAllowed = FALSE;
+        self.identifier = kAdjustmentTypeMask;
         
         // Serialize model object from dictionary.
         self.shapeName = [dict valueForKey: BZ_SHAPE_NAME_KEY];

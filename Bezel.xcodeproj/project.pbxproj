@@ -122,6 +122,9 @@
 		CC413CCC167D567100773B24 /* BZPromotion.m in Sources */ = {isa = PBXBuildFile; fileRef = CC413CCB167D567100773B24 /* BZPromotion.m */; };
 		CC4A1C7E16EC4A3100D45232 /* SelectAPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = CC4A1C7D16EC4A3100D45232 /* SelectAPhoto.png */; };
 		CC4A1C7F16EC4A3100D45232 /* SelectAPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = CC4A1C7D16EC4A3100D45232 /* SelectAPhoto.png */; };
+		CC4A1C8216ED28AA00D45232 /* BZBrightnessContrastCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4A1C8116ED28A900D45232 /* BZBrightnessContrastCollectionViewCell.m */; };
+		CC4A1C8316ED28AA00D45232 /* BZBrightnessContrastCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4A1C8116ED28A900D45232 /* BZBrightnessContrastCollectionViewCell.m */; };
+		CC4A1C8416ED28AA00D45232 /* BZBrightnessContrastCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4A1C8116ED28A900D45232 /* BZBrightnessContrastCollectionViewCell.m */; };
 		CC55B6AD16949614006AD05A /* BZCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55B6AC16949614006AD05A /* BZCaptureManager.m */; };
 		CC55B6AE16949614006AD05A /* BZCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55B6AC16949614006AD05A /* BZCaptureManager.m */; };
 		CC55B6AF16949614006AD05A /* BZCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55B6AC16949614006AD05A /* BZCaptureManager.m */; };
@@ -611,6 +614,8 @@
 		CC413CCA167D567100773B24 /* BZPromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BZPromotion.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		CC413CCB167D567100773B24 /* BZPromotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BZPromotion.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CC4A1C7D16EC4A3100D45232 /* SelectAPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SelectAPhoto.png; path = Resources/Images/SelectAPhoto.png; sourceTree = "<group>"; };
+		CC4A1C8016ED28A900D45232 /* BZBrightnessContrastCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BZBrightnessContrastCollectionViewCell.h; path = View/BZBrightnessContrastCollectionViewCell.h; sourceTree = "<group>"; };
+		CC4A1C8116ED28A900D45232 /* BZBrightnessContrastCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BZBrightnessContrastCollectionViewCell.m; path = View/BZBrightnessContrastCollectionViewCell.m; sourceTree = "<group>"; };
 		CC55B6AB16949614006AD05A /* BZCaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BZCaptureManager.h; sourceTree = "<group>"; };
 		CC55B6AC16949614006AD05A /* BZCaptureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BZCaptureManager.m; sourceTree = "<group>"; };
 		CC821F3B167DBB4D00445EAC /* bz_PromotionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = bz_PromotionsTest.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -1153,6 +1158,8 @@
 				EF2587E4166EC75F00A2225E /* BZView.h */,
 				EF2587E5166EC75F00A2225E /* BZView.m */,
 				EF258802166EC83700A2225E /* Storyboard~iphone.storyboard */,
+				CC4A1C8016ED28A900D45232 /* BZBrightnessContrastCollectionViewCell.h */,
+				CC4A1C8116ED28A900D45232 /* BZBrightnessContrastCollectionViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1914,6 +1921,7 @@
 				966CF06D16D0626200795C93 /* BZCaptureViewController.m in Sources */,
 				966CF07416D0645F00795C93 /* BZTabBarController.m in Sources */,
 				966CF07916D09D5100795C93 /* BZFilterCollectionViewCell.m in Sources */,
+				CC4A1C8316ED28AA00D45232 /* BZBrightnessContrastCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2002,6 +2010,7 @@
 				966CF06C16D0626200795C93 /* BZCaptureViewController.m in Sources */,
 				966CF07316D0645F00795C93 /* BZTabBarController.m in Sources */,
 				966CF07816D09D5100795C93 /* BZFilterCollectionViewCell.m in Sources */,
+				CC4A1C8216ED28AA00D45232 /* BZBrightnessContrastCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2088,6 +2097,7 @@
 				966CF06E16D0626200795C93 /* BZCaptureViewController.m in Sources */,
 				966CF07516D0645F00795C93 /* BZTabBarController.m in Sources */,
 				966CF07A16D09D5100795C93 /* BZFilterCollectionViewCell.m in Sources */,
+				CC4A1C8416ED28AA00D45232 /* BZBrightnessContrastCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2162,8 +2172,8 @@
 					"\"$(SRCROOT)/Bezel/Third Party\"/**",
 				);
 				PRODUCT_NAME = "Bezel-QA";
-				PROVISIONING_PROFILE = "7D69F6E0-D30A-402E-9CA2-A46FF53D751C";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7D69F6E0-D30A-402E-9CA2-A46FF53D751C";
+				PROVISIONING_PROFILE = "B15C1A8B-5671-461E-9712-5A73E0272653";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B15C1A8B-5671-461E-9712-5A73E0272653";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2266,8 +2276,8 @@
 				);
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4F612C96-4A68-41D3-9C00-9832A7090D84";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4F612C96-4A68-41D3-9C00-9832A7090D84";
+				PROVISIONING_PROFILE = "B15C1A8B-5671-461E-9712-5A73E0272653";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B15C1A8B-5671-461E-9712-5A73E0272653";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

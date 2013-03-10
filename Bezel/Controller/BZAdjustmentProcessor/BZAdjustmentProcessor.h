@@ -12,10 +12,6 @@
 
 @interface BZAdjustmentProcessor : NSObject
 
-@property (strong, nonatomic) BZSession *session;
-
-- (id)initWithSession:(BZSession *)aSession;
-
 - (UIImage *)processedThumbnailImage;
 - (UIImage *)processedFullResolutionImage;
 

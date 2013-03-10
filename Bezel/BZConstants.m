@@ -28,6 +28,7 @@ NSString* const BZ_PROMOTION_VALUE_SEGMENTED_CONTROL_REUSE_IDENTIFIER = @"bz_Pro
 
 NSString* const BZ_SHAPE_ADJUSTMENT_CELL = @"BZ_SHAPE_ADJUSTMENT_CELL";
 NSString* const BZ_FILTER_CELL = @"BZ_FILTER_CELL";
+NSString* const BZ_BRIGHTNESS_CONTRAST_ADJUSTMENT_CELL = @"BZ_BRIGHTNESS_CONTRAST_ADJUSTMENT_CELL";
 
 // Used as more meaningful Tags
 NSString* const kButtonIdentifier = @"kButtonIdentifier";

@@ -8,6 +8,7 @@
 
 #import "BZFiltersAdjustmentsController.h"
 #import "BZFilterCollectionViewCell.h"
+#import "BZBrightnessContrastCollectionViewCell.h"
 
 #import "BZSession.h"
 #import "BZFilterAdjustment.h"
@@ -81,10 +82,13 @@
         {
             BZFilterAdjustment *adjustment = [[BZFilterAdjustment alloc] init];
             adjustment.value = [NSDictionary dictionaryWithObjectsAndKeys: type, kButtonIdentifier, nil];
+            adjustment.identifier = kAdjustmentTypeFilter;
             UIImage *filteredImg = [adjustment filteredImageWithImage: image];
             [tempAdjs addObject: adjustment];
             [self.filteredImages addObject: filteredImg];
         }
+        
+        self.filterAdjustments = tempAdjs;
         
         [self.collectionView reloadSections: [NSIndexSet indexSetWithIndex: 0]];
     }
@@ -94,7 +98,7 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -103,17 +107,37 @@
     {
         return self.filteredImages.count;
     }
+    else if (section == 1)
+    {
+        return 1;
+    }
     
     return 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    BZFilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: BZ_FILTER_CELL forIndexPath: indexPath];
+    switch (indexPath.section) {
+        case 0:
+        {
+            BZFilterCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: BZ_FILTER_CELL forIndexPath: indexPath];
+            
+            cell.filterPreview.image = [self.filteredImages objectAtIndex: indexPath.row] ? [self.filteredImages objectAtIndex: indexPath.row] : cell.filterPreview.image;
+            
+            return cell;
+        }
+            break;
+        case 1:
+        {
+            BZBrightnessContrastCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:BZ_BRIGHTNESS_CONTRAST_ADJUSTMENT_CELL forIndexPath: indexPath];
 
-    cell.filterPreview.image = [self.filteredImages objectAtIndex: indexPath.row] ? [self.filteredImages objectAtIndex: indexPath.row] : cell.filterPreview.image;
-    
-    return cell;
+            return cell;
+        }
+            break;
+        default:
+            return nil;
+            break;
+    }
 }
 
 #pragma mark - UICollectionView Delegate
@@ -124,5 +148,25 @@
     self.addFilterBlock(adj);
 }
 
+#pragma mark - UICollectionView Flow Layout
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.section) {
+        case 0:
+        {
+            return CGSizeMake(50.0, 50.0);
+        }
+            break;
+        case 1:
+        {
+            return CGSizeMake(310.0, 50.0);
+        }
+            break;
+        default:
+            break;
+    }
+    
+    return CGSizeZero;
+}
 
 @end

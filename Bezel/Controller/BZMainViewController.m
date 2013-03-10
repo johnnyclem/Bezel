@@ -54,7 +54,6 @@
 @property (strong, nonatomic) UIDocumentInteractionController *docController;
 @property (strong, nonatomic) ALAssetsLibrary* library;
 
-@property (weak, nonatomic) BZSession *session;
 @property (strong, nonatomic) BZAdjustmentProcessor *adjustmentProcessor;
 
 @property (strong, nonatomic) HMSegmentedControl *segmentedControl;
@@ -87,10 +86,9 @@
     __weak BZMainViewController *weakSelf = self;
     
     // Initialization
-    self.session = [BZSession sharedSession];
     self.library = [[ALAssetsLibrary alloc] init];
     self.confirmView = [[BZConfirmView alloc] init];
-    self.adjustmentProcessor = [[BZAdjustmentProcessor alloc] initWithSession: self.session];
+    self.adjustmentProcessor = [[BZAdjustmentProcessor alloc] init];
     
     NSArray *icons = [NSArray arrayWithObjects:
                       [UIImage imageNamed:@"Capture"],
@@ -137,7 +135,7 @@
                 break;
             case BZ_FILTERS_ADJUSTMENTS_VIEW_CONTROLLER_INDEX:
             {
-                [weakSelf.filterViewController filterImage: weakSelf.session.thumbnailImage];
+                [weakSelf.filterViewController filterImage: [BZSession sharedSession].thumbnailImage];
             }
                 break;
             case BZ_BACKGROUNDS_VIEW_CONTROLLER_INDEX:
@@ -198,7 +196,7 @@
     if ([defaults boolForKey:BZ_SETTINGS_FIRST_LAUNCH_KEY] == FALSE)
     {
         // If there isn't currently an image, setup the camera. Otherwise, get confirmation from user.
-        if (!self.session.thumbnailImage || !self.session.fullResolutionImage)
+        if (![BZSession sharedSession].thumbnailImage || ![BZSession sharedSession].fullResolutionImage)
         {
             if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
             {
@@ -212,7 +210,7 @@
         }
         else
         {
-            self.imageCanvas.image = self.session.thumbnailImage;
+            self.imageCanvas.image = [BZSession sharedSession].thumbnailImage;
         }
     }
     else
@@ -298,10 +296,13 @@
             
             self.imageCanvas.hidden = FALSE;
             
-            self.imageCanvas.layer.mask = [(BZMaskAdjustment *)[self.session adjustmentWithIdentifier: kAdjustmentTypeMask] layerMaskForSize: kDefaultCameraPreviewSize];
+            [BZSession sharedSession].thumbnailImage = thumb;
+            [BZSession sharedSession].fullResolutionImage = img;
+            
+            self.imageCanvas.layer.mask = [(BZMaskAdjustment *)[[BZSession sharedSession] adjustmentWithIdentifier: kAdjustmentTypeMask] layerMaskForSize: kDefaultCameraPreviewSize];
             self.imageCanvas.image = thumb;
             
-            [self.tabBarController setSelectedIndex: BZ_SHAPES_VIEW_CONTROLLER_INDEX];
+            [self.segmentedControl setSelectedSegmentIndex: BZ_SHAPES_VIEW_CONTROLLER_INDEX animated: TRUE notify: TRUE];
             
             [SVProgressHUD dismiss];
         }
@@ -352,11 +353,7 @@
 
 -(void)switchShape:(BZMaskAdjustment *)adj
 {
-//    [self presentCameraControls];
-    
-    adj.identifier = kAdjustmentTypeMask;
-    
-    [self.session addAdjustment: adj];
+    [[BZSession sharedSession] addAdjustment: adj];
     
     self.cameraPreview.layer.mask = [adj layerMaskForSize: self.cameraPreview.frame.size];
     self.imageCanvas.layer.mask = [adj layerMaskForSize: self.cameraPreview.frame.size];
@@ -398,7 +395,7 @@
         // Haven't implemented background images yet.
     }
     
-    [self.session addAdjustment: backgroundAdjustment];
+    [[BZSession sharedSession] addAdjustment: backgroundAdjustment];
 
     self.imageCanvas.image = [self.adjustmentProcessor processedThumbnailImage];
 }
@@ -428,7 +425,7 @@
     {
         if (response == TRUE)
         {
-            [weakSelf.session addAdjustment: filterAdj];
+            [[BZSession sharedSession] addAdjustment: filterAdj];
         }
         else
         {
@@ -436,12 +433,7 @@
         }
     };
     
-    [self.confirmView presentConfirmationFromEdge: CGRectMinYEdge forViewController: self];
-}
-
--(void)setupFilterThumbnails
-{
-    [self.filterViewController filterImage: self.session.thumbnailImage];
+    [self.confirmView presentConfirmationFromEdge: CGRectMinYEdge inView: self.view];
 }
 
 #pragma mark - jclem adjustImage
@@ -496,7 +488,7 @@
 - (void)undoLastAdjustment
 {
     // TODO finish undo
-    [self.session removeAdjustment: [self.session.adjustments lastObject]];
+    [[BZSession sharedSession] removeAdjustment: [[BZSession sharedSession].adjustments lastObject]];
 }
 
 #pragma mark - Importing
@@ -680,7 +672,7 @@
     {
         if (response == TRUE)
         {
-            [weakSelf.session setFullResolutionImage:fullRes];
+            [[BZSession sharedSession] setFullResolutionImage:fullRes];
             
             weakSelf.imageCanvas.layer.mask = nil;
             weakSelf.imageCanvas.image = [weakSelf.adjustmentProcessor processedThumbnailImage];
@@ -700,12 +692,12 @@
         thumb   = [UIImage scaleImage: fullRes
                                toSize: kDefaultThumbnailSize];
         
-        weakSelf.session.thumbnailImage = thumb;
+        [BZSession sharedSession].thumbnailImage = thumb;
         weakSelf.imageCanvas.hidden = FALSE;
         weakSelf.imageCanvas.image = thumb;
-        weakSelf.imageCanvas.layer.mask = [(BZMaskAdjustment *)[self.session adjustmentWithIdentifier: kAdjustmentTypeMask] layerMaskForSize: kDefaultCameraPreviewSize];
+        weakSelf.imageCanvas.layer.mask = [(BZMaskAdjustment *)[[BZSession sharedSession] adjustmentWithIdentifier: kAdjustmentTypeMask] layerMaskForSize: kDefaultCameraPreviewSize];
         
-        [weakSelf.confirmView presentConfirmationFromEdge: CGRectMaxYEdge forViewController: self];
+        [weakSelf.confirmView presentConfirmationFromEdge: CGRectMinYEdge inView: weakSelf.view];
     }];
 }
 

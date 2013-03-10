@@ -12,7 +12,7 @@
 @class BZFilterAdjustment;
 @class BZBrightnessContrastAdjustment;
 
-@interface BZFiltersAdjustmentsController : BZViewController
+@interface BZFiltersAdjustmentsController : BZViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 

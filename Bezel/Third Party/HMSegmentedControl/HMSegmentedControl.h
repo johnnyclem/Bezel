@@ -54,6 +54,7 @@ enum HMSelectionIndicatorSectionType{
 - (id)initWithSectionTitles:(NSArray *)sectiontitles;
 - (id)initWithSectionIcons:(NSArray*)sectionIcons highlight:(NSArray*)sectionHighlightIcons;
 - (void)setSelectedSegmentIndex:(NSUInteger)index animated:(BOOL)animated;
+- (void)setSelectedSegmentIndex:(NSUInteger)index animated:(BOOL)animated notify:(BOOL)notify;
 - (void)setIndexChangeBlock:(IndexChangeBlock)indexChangeBlock;
 
 @end

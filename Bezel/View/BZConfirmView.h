@@ -12,7 +12,6 @@
 
 @property (nonatomic, copy) void (^completionBlock)(BOOL response);
 
-- (void)presentConfirmationFromEdge:(CGRectEdge)edge
-                  forViewController:(UIViewController *)viewController;
+- (void)presentConfirmationFromEdge:(CGRectEdge)edge inView:(UIView *)view;
 
 @end
