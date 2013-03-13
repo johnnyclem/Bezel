@@ -643,12 +643,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgr-sc-UME" userLabel="Facebook" customClass="BZButton">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="MXi-KO-cab"/>
-                                    <constraint firstAttribute="width" constant="44" id="dL3-b6-tt0"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="F">
+                                <state key="normal" image="facebook.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -657,11 +653,8 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qF5-bV-Kmp" userLabel="Twitter" customClass="BZButton">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="Gy8-Dh-PUT"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="T">
+                                <state key="normal" image="twitter.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -670,11 +663,8 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0v-Ma-EKO" userLabel="Instagram" customClass="BZButton">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="fxA-hc-1Dy"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="I">
+                                <state key="normal" image="instagram.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -683,11 +673,8 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAJ-bk-KE2" userLabel="Save" customClass="BZButton">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="TAR-95-He7"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="S">
+                                <state key="normal" image="saveToCameraRoll.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -696,11 +683,8 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOd-uZ-sfZ" userLabel="Trash" customClass="BZButton">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="XSj-21-coL"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="D">
+                                <state key="normal" image="trash.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -711,20 +695,16 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="u0v-Ma-EKO" firstAttribute="top" secondItem="qF5-bV-Kmp" secondAttribute="top" type="default" id="451-sK-hBq"/>
-                            <constraint firstItem="OAJ-bk-KE2" firstAttribute="leading" secondItem="u0v-Ma-EKO" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="5Hh-zn-wAU"/>
-                            <constraint firstItem="OAJ-bk-KE2" firstAttribute="bottom" secondItem="u0v-Ma-EKO" secondAttribute="bottom" type="default" id="DIm-vV-Qf9"/>
-                            <constraint firstItem="AOd-uZ-sfZ" firstAttribute="centerY" secondItem="0JM-5l-XPh" secondAttribute="centerY" type="default" id="MGV-dz-KNd"/>
-                            <constraint firstItem="u0v-Ma-EKO" firstAttribute="leading" secondItem="qF5-bV-Kmp" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="N4o-ta-5S3"/>
-                            <constraint firstItem="qF5-bV-Kmp" firstAttribute="top" secondItem="lgr-sc-UME" secondAttribute="top" type="default" id="Qhs-2O-i5U"/>
-                            <constraint firstItem="AOd-uZ-sfZ" firstAttribute="top" secondItem="OAJ-bk-KE2" secondAttribute="top" type="default" id="SeL-mi-Ig6"/>
-                            <constraint firstItem="qF5-bV-Kmp" firstAttribute="leading" secondItem="lgr-sc-UME" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="UFC-ca-3Gc"/>
-                            <constraint firstItem="AOd-uZ-sfZ" firstAttribute="bottom" secondItem="OAJ-bk-KE2" secondAttribute="bottom" type="default" id="an5-wO-dnV"/>
-                            <constraint firstItem="qF5-bV-Kmp" firstAttribute="bottom" secondItem="lgr-sc-UME" secondAttribute="bottom" type="default" id="oDf-e4-51B"/>
-                            <constraint firstItem="AOd-uZ-sfZ" firstAttribute="leading" secondItem="OAJ-bk-KE2" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="oWQ-vv-pXh"/>
+                            <constraint firstItem="lgr-sc-UME" firstAttribute="leading" secondItem="0JM-5l-XPh" secondAttribute="leading" constant="43" id="2JK-bL-5mP"/>
+                            <constraint firstItem="qF5-bV-Kmp" firstAttribute="baseline" secondItem="u0v-Ma-EKO" secondAttribute="baseline" type="default" id="7xp-BL-ClZ"/>
+                            <constraint firstAttribute="trailing" secondItem="AOd-uZ-sfZ" secondAttribute="trailing" constant="43" id="9Ho-WK-A9x"/>
+                            <constraint firstItem="AOd-uZ-sfZ" firstAttribute="top" secondItem="OAJ-bk-KE2" secondAttribute="top" type="default" id="G1J-FZ-pdn"/>
+                            <constraint firstItem="qF5-bV-Kmp" firstAttribute="top" secondItem="lgr-sc-UME" secondAttribute="top" type="default" id="Q4F-Tb-LTB"/>
+                            <constraint firstItem="OAJ-bk-KE2" firstAttribute="centerY" secondItem="0JM-5l-XPh" secondAttribute="centerY" type="default" id="dpD-GQ-fp8"/>
+                            <constraint firstItem="OAJ-bk-KE2" firstAttribute="baseline" secondItem="qF5-bV-Kmp" secondAttribute="baseline" type="default" id="jlV-IP-MM9"/>
+                            <constraint firstItem="qF5-bV-Kmp" firstAttribute="leading" secondItem="0JM-5l-XPh" secondAttribute="leading" constant="95" id="nme-rW-THJ"/>
+                            <constraint firstAttribute="trailing" secondItem="OAJ-bk-KE2" secondAttribute="trailing" constant="95" id="owc-bI-xub"/>
                             <constraint firstItem="u0v-Ma-EKO" firstAttribute="centerX" secondItem="0JM-5l-XPh" secondAttribute="centerX" type="default" id="pLW-pX-PtB"/>
-                            <constraint firstItem="OAJ-bk-KE2" firstAttribute="top" secondItem="u0v-Ma-EKO" secondAttribute="top" type="default" id="tiO-Hg-xfi"/>
-                            <constraint firstItem="u0v-Ma-EKO" firstAttribute="bottom" secondItem="qF5-bV-Kmp" secondAttribute="bottom" type="default" id="vWD-V7-ZCu"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Sharing" id="mtK-9J-Tx2"/>
@@ -749,6 +729,11 @@
         <image name="Icon.png" width="57" height="57"/>
         <image name="SelectAPhoto.png" width="500" height="500"/>
         <image name="cinePromo.png" width="960" height="640"/>
+        <image name="facebook.png" width="26" height="26"/>
+        <image name="instagram.png" width="26" height="26"/>
+        <image name="saveToCameraRoll.png" width="26" height="26"/>
+        <image name="trash.png" width="26" height="26"/>
+        <image name="twitter.png" width="26" height="26"/>
     </resources>
     <classes>
         <class className="BZBackgroundViewController" superclassName="BZViewController">
