@@ -49,6 +49,8 @@ NSString* const kAdjustmentTypeBackgroundImage = @"kAdjustmentTypeBackgroundImag
         bgImage = [UIImage imageWithColor: [UIColor blackColor] atSize: inImage.size];
     }
     
+    
+    // TODO protect against crashes here due to incomplete filters
     GPUImagePicture *border = [[GPUImagePicture alloc] initWithImage: bgImage];
     GPUImageAlphaBlendFilter *alpha = [[GPUImageAlphaBlendFilter alloc] init];
     GPUImagePicture *imageToProcess = [[GPUImagePicture alloc] initWithImage: inImage];

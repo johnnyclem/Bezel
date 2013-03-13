@@ -12,4 +12,6 @@
 
 @property (strong, nonatomic) NSArray *backgroundButtons;
 
+@property (nonatomic, copy) void (^setBackgroundColorBlock)(UIColor *color);
+
 @end

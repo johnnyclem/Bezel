@@ -363,37 +363,14 @@
 
 #pragma mark - Adjustments
 
--(void)switchBackground:(BZButton *)button
-{    
+-(void)switchBackgroundColor:(UIColor *)color
+{
     BZBackgroundAdjustment *backgroundAdjustment = [[BZBackgroundAdjustment alloc] init];
+    backgroundAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys:
+                                  [color description], kButtonIdentifier,
+                                  color, kAdjustmentTypeBackgroundColor, nil];
 
-    NSString *value = button.buttonIdentifier;
-    
-    if ([value isEqualToString: kButtonIdentifierBlackBackground])
-    {
-        backgroundAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys:
-                                      button.buttonIdentifier, kButtonIdentifier,
-                                      [UIColor blackColor], kAdjustmentTypeBackgroundColor, nil];
-        backgroundAdjustment.identifier = kAdjustmentTypeBackgroundColor;
-    }
-    else if ([value isEqualToString: kButtonIdentifierWhiteBackground])
-    {
-        backgroundAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys:
-                                      button.buttonIdentifier, kButtonIdentifier,
-                                      [UIColor whiteColor], kAdjustmentTypeBackgroundColor, nil];
-        backgroundAdjustment.identifier = kAdjustmentTypeBackgroundColor;
-    }
-    else if ([value isEqualToString: kButtonIdentifierClearBackground])
-    {
-        backgroundAdjustment.value = [NSDictionary dictionaryWithObjectsAndKeys:
-                                      button.buttonIdentifier, kButtonIdentifier,
-                                      [UIColor clearColor], kAdjustmentTypeBackgroundColor, nil];
-        backgroundAdjustment.identifier = kAdjustmentTypeBackgroundColor;
-    }
-    else
-    {
-        // Haven't implemented background images yet.
-    }
+    backgroundAdjustment.identifier = kAdjustmentTypeBackgroundColor;
     
     [[BZSession sharedSession] addAdjustment: backgroundAdjustment];
 
@@ -736,10 +713,10 @@
     };
     
     // Backgrounds
-    for (BZButton *button in self.backgroundViewController.backgroundButtons)
+    self.backgroundViewController.setBackgroundColorBlock = ^(UIColor *color)
     {
-        [button addTarget: self action:@selector(switchBackground:) forControlEvents: UIControlEventTouchUpInside];
-    }
+        [weakSelf switchBackgroundColor: color];
+    };
     
     // Sharing
     for (BZButton *button in self.shareViewController.shareButtons)

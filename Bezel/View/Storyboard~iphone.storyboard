@@ -591,33 +591,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYJ-KY-Uih" customClass="BZButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYJ-KY-Uih" customClass="BZButton">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="WVd-cd-2TK"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Black">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Black BG">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="switchBackground:" destination="sXt-oR-K0r" eventType="touchUpInside" id="ztf-aN-lT3"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sjN-GR-3JR" customClass="BZButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHO-Eg-rwi" customClass="BZButton">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="2ys-Rq-2sv"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="White">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Clear BG">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="switchBackground:" destination="sXt-oR-K0r" eventType="touchUpInside" id="vvT-ws-5LB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sjN-GR-3JR" customClass="BZButton">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="HYR-FH-Ehg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="White BG">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="switchBackground:" destination="sXt-oR-K0r" eventType="touchUpInside" id="Zfx-D1-brN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="sjN-GR-3JR" firstAttribute="leading" secondItem="Qs4-gb-HAd" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="5bX-EV-Wsq"/>
                             <constraint firstItem="sjN-GR-3JR" firstAttribute="baseline" secondItem="tYJ-KY-Uih" secondAttribute="baseline" type="default" id="H89-zG-4ZU"/>
-                            <constraint firstAttribute="trailing" secondItem="tYJ-KY-Uih" secondAttribute="trailing" constant="73" id="jb1-Lk-Q3u"/>
-                            <constraint firstItem="sjN-GR-3JR" firstAttribute="top" secondItem="Qs4-gb-HAd" secondAttribute="top" constant="40" id="u5H-Os-4AR"/>
-                            <constraint firstItem="sjN-GR-3JR" firstAttribute="leading" secondItem="Qs4-gb-HAd" secondAttribute="leading" constant="74" id="x5s-PO-HJQ"/>
+                            <constraint firstItem="tYJ-KY-Uih" firstAttribute="centerX" secondItem="Qs4-gb-HAd" secondAttribute="centerX" type="default" id="UlZ-5d-faZ"/>
+                            <constraint firstItem="sjN-GR-3JR" firstAttribute="top" secondItem="Qs4-gb-HAd" secondAttribute="top" constant="50" id="dPa-1q-XdK"/>
+                            <constraint firstItem="rHO-Eg-rwi" firstAttribute="baseline" secondItem="tYJ-KY-Uih" secondAttribute="baseline" type="default" id="hZ3-vN-XWD"/>
+                            <constraint firstAttribute="trailing" secondItem="rHO-Eg-rwi" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="kxL-fz-yQh"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Backgrounds" id="ABZ-X1-Jit"/>
@@ -625,7 +655,8 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="blackBackgorund" destination="tYJ-KY-Uih" id="I4a-ef-lfH"/>
+                        <outlet property="blackBackground" destination="tYJ-KY-Uih" id="K2v-ok-V8d"/>
+                        <outlet property="clearBackground" destination="rHO-Eg-rwi" id="4to-sh-EE0"/>
                         <outlet property="view" destination="Qs4-gb-HAd" id="mdP-g8-XEv"/>
                         <outlet property="whiteBackground" destination="sjN-GR-3JR" id="ekv-hI-afg"/>
                     </connections>
@@ -643,6 +674,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgr-sc-UME" userLabel="Facebook" customClass="BZButton">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="IIU-5N-wh9"/>
+                                    <constraint firstAttribute="width" constant="26" id="ayq-gz-kIr"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="facebook.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -699,8 +734,8 @@
                             <constraint firstItem="qF5-bV-Kmp" firstAttribute="baseline" secondItem="u0v-Ma-EKO" secondAttribute="baseline" type="default" id="7xp-BL-ClZ"/>
                             <constraint firstAttribute="trailing" secondItem="AOd-uZ-sfZ" secondAttribute="trailing" constant="43" id="9Ho-WK-A9x"/>
                             <constraint firstItem="AOd-uZ-sfZ" firstAttribute="top" secondItem="OAJ-bk-KE2" secondAttribute="top" type="default" id="G1J-FZ-pdn"/>
+                            <constraint firstItem="lgr-sc-UME" firstAttribute="centerY" secondItem="0JM-5l-XPh" secondAttribute="centerY" type="default" id="J4d-Xb-kxi"/>
                             <constraint firstItem="qF5-bV-Kmp" firstAttribute="top" secondItem="lgr-sc-UME" secondAttribute="top" type="default" id="Q4F-Tb-LTB"/>
-                            <constraint firstItem="OAJ-bk-KE2" firstAttribute="centerY" secondItem="0JM-5l-XPh" secondAttribute="centerY" type="default" id="dpD-GQ-fp8"/>
                             <constraint firstItem="OAJ-bk-KE2" firstAttribute="baseline" secondItem="qF5-bV-Kmp" secondAttribute="baseline" type="default" id="jlV-IP-MM9"/>
                             <constraint firstItem="qF5-bV-Kmp" firstAttribute="leading" secondItem="0JM-5l-XPh" secondAttribute="leading" constant="95" id="nme-rW-THJ"/>
                             <constraint firstAttribute="trailing" secondItem="OAJ-bk-KE2" secondAttribute="trailing" constant="95" id="owc-bI-xub"/>
@@ -729,7 +764,7 @@
         <image name="Icon.png" width="57" height="57"/>
         <image name="SelectAPhoto.png" width="500" height="500"/>
         <image name="cinePromo.png" width="960" height="640"/>
-        <image name="facebook.png" width="26" height="26"/>
+        <image name="facebook.png" width="196" height="40"/>
         <image name="instagram.png" width="26" height="26"/>
         <image name="saveToCameraRoll.png" width="26" height="26"/>
         <image name="trash.png" width="26" height="26"/>
@@ -739,7 +774,9 @@
         <class className="BZBackgroundViewController" superclassName="BZViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BZBackgroundViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="blackBackgorund" candidateClass="BZButton"/>
+                <relationship kind="action" name="switchBackground:"/>
+                <relationship kind="outlet" name="blackBackground" candidateClass="BZButton"/>
+                <relationship kind="outlet" name="clearBackground" candidateClass="BZButton"/>
                 <relationship kind="outlet" name="whiteBackground" candidateClass="BZButton"/>
             </relationships>
         </class>

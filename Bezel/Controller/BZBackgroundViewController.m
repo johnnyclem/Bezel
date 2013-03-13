@@ -11,16 +11,42 @@
 
 @interface BZBackgroundViewController ()
 @property (weak, nonatomic) IBOutlet BZButton *whiteBackground;
-@property (weak, nonatomic) IBOutlet BZButton *blackBackgorund;
+@property (weak, nonatomic) IBOutlet BZButton *blackBackground;
+@property (weak, nonatomic) IBOutlet BZButton *clearBackground;
+-(IBAction)switchBackground:(id)sender;
 @end
 
 @implementation BZBackgroundViewController
+
+-(IBAction)switchBackground:(id)sender
+{
+    // Placeholder for better logic when we decide how this view looks and works.
+    UIColor *selectedColor;
+    
+    if (sender == self.whiteBackground)
+    {
+        selectedColor = [UIColor whiteColor];
+    }
+    else if (sender == self.blackBackground)
+    {
+        selectedColor = [UIColor blackColor];
+    }
+    else if (sender == self.clearBackground)
+    {
+        selectedColor = [UIColor clearColor];
+    }
+    
+    if (self.setBackgroundColorBlock)
+    {
+        self.setBackgroundColorBlock(selectedColor);
+    }
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
     {
-        self.backgroundButtons = [NSArray arrayWithObjects: self.whiteBackground, self.blackBackgorund, nil];
+        self.backgroundButtons = [NSArray arrayWithObjects: self.whiteBackground, self.blackBackground, self.clearBackground,nil];
     }
     return self;
 }
