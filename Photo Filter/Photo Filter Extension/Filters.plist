@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>filterName</key>
+		<string>CIBlendWithAlphaMask</string>
+		<key>displayName</key>
+		<string>Cross</string>
+		<key>previewImage</key>
+		<string>cross_overlay.png</string>
+	</dict>
+	<dict>
+		<key>filterName</key>
+		<string>CIBlendWithAlphaMask</string>
+		<key>displayName</key>
+		<string>Anchor</string>
+		<key>previewImage</key>
+		<string>anchor_overlay.png</string>
+	</dict>
+</array>
+</plist>
