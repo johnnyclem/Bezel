@@ -34,6 +34,8 @@ NSString *const kFilterInfoPreviewImageKey = @"previewImage";
 
 @property (nonatomic, strong) UIImage *inputImage;
 @property (nonatomic, strong) UIImage *selectedMaskImage;
+@property (nonatomic, strong) UIImage *selectedOverlayImage;
+@property (nonatomic, strong) UIImageView *maskImageView;
 @property (nonatomic, strong) CIFilter *ciFilter;
 @property (nonatomic, strong) CIContext *ciContext;
 
@@ -100,8 +102,6 @@ NSString *const kFilterInfoPreviewImageKey = @"previewImage";
 
 - (void)startContentEditingWithInput:(PHContentEditingInput *)contentEditingInput placeholderImage:(UIImage *)placeholderImage {
     self.contentEditingInput = contentEditingInput;
-    CIImage *scaledImage;
-    CGSize originalImageSize;
     
     // Load input image
     switch (self.contentEditingInput.mediaType) {
@@ -141,6 +141,7 @@ NSString *const kFilterInfoPreviewImageKey = @"previewImage";
 - (void)finishContentEditingWithCompletionHandler:(void (^)(PHContentEditingOutput *))completionHandler {
     PHContentEditingOutput *contentEditingOutput = [[PHContentEditingOutput alloc] initWithContentEditingInput:self.contentEditingInput];
     
+    [self updateFilter];
     // Adjustment data
     NSData *archivedData = [NSKeyedArchiver archivedDataWithRootObject:self.selectedFilterName];
     PHAdjustmentData *adjustmentData = [[PHAdjustmentData alloc] initWithFormatIdentifier:@"com.example.apple-samplecode.photofilter"
@@ -210,13 +211,16 @@ NSString *const kFilterInfoPreviewImageKey = @"previewImage";
     int orientation = [self orientationFromImageOrientation:self.inputImage.imageOrientation];
     inputImage = [inputImage imageByApplyingOrientation:orientation];
     
+    if (_inputImage.size.width != _inputImage.size.height) {
+        CIFilter *scaleFilter = [CIFilter filterWithName:@"CILanczosScaleTransform"];
+        [scaleFilter setValue:inputImage forKey:kCIInputImageKey];
+        [scaleFilter setValue:@(640.0/self.selectedMaskImage.size.width) forKey:kCIInputScaleKey];
+        
+        inputImage = scaleFilter.outputImage;
+    }
+    
     CIImage *maskImage = [CIImage imageWithCGImage:self.selectedMaskImage.CGImage];
     
-    CIFilter *scaleFilter = [CIFilter filterWithName:@"CILanczosScaleTransform"];
-    [scaleFilter setValue:inputImage forKey:kCIInputImageKey];
-    [scaleFilter setValue:@(640.0/self.selectedMaskImage.size.width) forKey:kCIInputScaleKey];
-    
-    inputImage = scaleFilter.outputImage;
     
     [self.ciFilter setValue:inputImage forKey:kCIInputImageKey];
 
@@ -231,6 +235,7 @@ NSString *const kFilterInfoPreviewImageKey = @"previewImage";
     CGImageRelease(cgImage);
     
     self.filterPreviewView.image = transformedImage;
+    
 }
 
 - (UIImage *)transformedImage:(UIImage *)image withOrientation:(int)orientation usingFilter:(CIFilter *)filter {
@@ -272,6 +277,8 @@ NSString *const kFilterInfoPreviewImageKey = @"previewImage";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoFilterCell" forIndexPath:indexPath];
     
     UIImageView *imageView = (UIImageView *)[cell viewWithTag:999];
+    self.selectedMaskImage = [UIImage imageNamed:self.availableFilterInfos[indexPath.item][@"previewImage"]];
+    
     imageView.image = [UIImage imageNamed:previewImageName];
     
     UILabel *label = (UILabel *)[cell viewWithTag:998];

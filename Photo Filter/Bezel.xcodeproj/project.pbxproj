@@ -13,12 +13,14 @@
 		A7FF7A761932B59D00039327 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7FF7A751932B59D00039327 /* PhotosUI.framework */; };
 		A7FF7A781932B59D00039327 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7FF7A771932B59D00039327 /* Photos.framework */; };
 		A7FF7A7E1932B59D00039327 /* AAPLPhotoEditingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FF7A7D1932B59D00039327 /* AAPLPhotoEditingViewController.m */; };
-		A7FF7A831932B59D00039327 /* com.example.apple-samplecode.photofilter.Photo-Filter.Photo-Filter-Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A7FF7A731932B59D00039327 /* com.example.apple-samplecode.photofilter.Photo-Filter.Photo-Filter-Extension.appex */; };
+		A7FF7A831932B59D00039327 /* com.example.apple-samplecode.photofilter.Photo-Filter.Bezel-Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A7FF7A731932B59D00039327 /* com.example.apple-samplecode.photofilter.Photo-Filter.Bezel-Extension.appex */; };
 		A7FF7A8B1932B64300039327 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7FF7A8A1932B64300039327 /* MainInterface.storyboard */; };
 		A7FF7A8E1932B6A300039327 /* AAPLAVReaderWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FF7A8D1932B6A300039327 /* AAPLAVReaderWriter.m */; };
 		EF3EBDAE1964C5FD007674D1 /* anchor_overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = EF3EBDAD1964C5FD007674D1 /* anchor_overlay.png */; };
 		EF4E01EC1964BA540081B751 /* Filters.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF4E01EB1964BA540081B751 /* Filters.plist */; };
 		EFAB63401964CEA000D0466A /* cross_overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = EFAB633F1964CEA000D0466A /* cross_overlay.png */; };
+		EFAE7EA41965F0C800462FC4 /* anchor_overlay_invert.png in Resources */ = {isa = PBXBuildFile; fileRef = EFAE7EA21965F0C800462FC4 /* anchor_overlay_invert.png */; };
+		EFAE7EA51965F0C800462FC4 /* cross_overlay_invert.png in Resources */ = {isa = PBXBuildFile; fileRef = EFAE7EA31965F0C800462FC4 /* cross_overlay_invert.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +47,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A7FF7A831932B59D00039327 /* com.example.apple-samplecode.photofilter.Photo-Filter.Photo-Filter-Extension.appex in Embed App Extensions */,
+				A7FF7A831932B59D00039327 /* com.example.apple-samplecode.photofilter.Photo-Filter.Bezel-Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,7 +61,7 @@
 		A7FF7A521932B56400039327 /* AAPLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAPLAppDelegate.h; sourceTree = "<group>"; };
 		A7FF7A531932B56400039327 /* AAPLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAPLAppDelegate.m; sourceTree = "<group>"; };
 		A7FF7A551932B56400039327 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		A7FF7A731932B59D00039327 /* com.example.apple-samplecode.photofilter.Photo-Filter.Photo-Filter-Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "com.example.apple-samplecode.photofilter.Photo-Filter.Photo-Filter-Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7FF7A731932B59D00039327 /* com.example.apple-samplecode.photofilter.Photo-Filter.Bezel-Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "com.example.apple-samplecode.photofilter.Photo-Filter.Bezel-Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7FF7A751932B59D00039327 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		A7FF7A771932B59D00039327 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		A7FF7A7B1932B59D00039327 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,6 +73,8 @@
 		EF3EBDAD1964C5FD007674D1 /* anchor_overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anchor_overlay.png; sourceTree = "<group>"; };
 		EF4E01EB1964BA540081B751 /* Filters.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Filters.plist; sourceTree = "<group>"; };
 		EFAB633F1964CEA000D0466A /* cross_overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross_overlay.png; sourceTree = "<group>"; };
+		EFAE7EA21965F0C800462FC4 /* anchor_overlay_invert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anchor_overlay_invert.png; sourceTree = "<group>"; };
+		EFAE7EA31965F0C800462FC4 /* cross_overlay_invert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross_overlay_invert.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +100,8 @@
 		A7FF7A421932B56400039327 = {
 			isa = PBXGroup;
 			children = (
-				A7FF7A4D1932B56400039327 /* Photo Filter */,
-				A7FF7A791932B59D00039327 /* Photo Filter Extension */,
+				A7FF7A4D1932B56400039327 /* Bezel */,
+				A7FF7A791932B59D00039327 /* Bezel Extension */,
 				A7FF7A741932B59D00039327 /* Frameworks */,
 				A7FF7A4C1932B56400039327 /* Products */,
 			);
@@ -107,12 +111,12 @@
 			isa = PBXGroup;
 			children = (
 				A7FF7A4B1932B56400039327 /* Photo Filter.app */,
-				A7FF7A731932B59D00039327 /* com.example.apple-samplecode.photofilter.Photo-Filter.Photo-Filter-Extension.appex */,
+				A7FF7A731932B59D00039327 /* com.example.apple-samplecode.photofilter.Photo-Filter.Bezel-Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A7FF7A4D1932B56400039327 /* Photo Filter */ = {
+		A7FF7A4D1932B56400039327 /* Bezel */ = {
 			isa = PBXGroup;
 			children = (
 				A7FF7A521932B56400039327 /* AAPLAppDelegate.h */,
@@ -120,6 +124,7 @@
 				A7FF7A551932B56400039327 /* Images.xcassets */,
 				A7FF7A4E1932B56400039327 /* Supporting Files */,
 			);
+			name = Bezel;
 			path = "Photo Filter";
 			sourceTree = "<group>";
 		};
@@ -141,7 +146,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A7FF7A791932B59D00039327 /* Photo Filter Extension */ = {
+		A7FF7A791932B59D00039327 /* Bezel Extension */ = {
 			isa = PBXGroup;
 			children = (
 				A7FF7A7C1932B59D00039327 /* AAPLPhotoEditingViewController.h */,
@@ -151,6 +156,7 @@
 				A7FF7A8D1932B6A300039327 /* AAPLAVReaderWriter.m */,
 				A7FF7A7A1932B59D00039327 /* Supporting Files */,
 			);
+			name = "Bezel Extension";
 			path = "Photo Filter Extension";
 			sourceTree = "<group>";
 		};
@@ -169,6 +175,8 @@
 			children = (
 				EFAB633F1964CEA000D0466A /* cross_overlay.png */,
 				EF3EBDAD1964C5FD007674D1 /* anchor_overlay.png */,
+				EFAE7EA21965F0C800462FC4 /* anchor_overlay_invert.png */,
+				EFAE7EA31965F0C800462FC4 /* cross_overlay_invert.png */,
 			);
 			name = "Preview Images";
 			sourceTree = "<group>";
@@ -176,9 +184,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A7FF7A4A1932B56400039327 /* Photo Filter */ = {
+		A7FF7A4A1932B56400039327 /* Bezel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A7FF7A651932B56400039327 /* Build configuration list for PBXNativeTarget "Photo Filter" */;
+			buildConfigurationList = A7FF7A651932B56400039327 /* Build configuration list for PBXNativeTarget "Bezel" */;
 			buildPhases = (
 				A7FF7A471932B56400039327 /* Sources */,
 				A7FF7A481932B56400039327 /* Frameworks */,
@@ -191,14 +199,14 @@
 				A7FF7A821932B59D00039327 /* PBXTargetDependency */,
 				A7FF7A851932B59D00039327 /* PBXTargetDependency */,
 			);
-			name = "Photo Filter";
+			name = Bezel;
 			productName = "Photo Filter";
 			productReference = A7FF7A4B1932B56400039327 /* Photo Filter.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A7FF7A721932B59D00039327 /* Photo Filter Extension */ = {
+		A7FF7A721932B59D00039327 /* Bezel Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A7FF7A861932B59D00039327 /* Build configuration list for PBXNativeTarget "Photo Filter Extension" */;
+			buildConfigurationList = A7FF7A861932B59D00039327 /* Build configuration list for PBXNativeTarget "Bezel Extension" */;
 			buildPhases = (
 				A7FF7A6F1932B59D00039327 /* Sources */,
 				A7FF7A701932B59D00039327 /* Frameworks */,
@@ -208,9 +216,9 @@
 			);
 			dependencies = (
 			);
-			name = "Photo Filter Extension";
+			name = "Bezel Extension";
 			productName = "Photo Filter Extension";
-			productReference = A7FF7A731932B59D00039327 /* com.example.apple-samplecode.photofilter.Photo-Filter.Photo-Filter-Extension.appex */;
+			productReference = A7FF7A731932B59D00039327 /* com.example.apple-samplecode.photofilter.Photo-Filter.Bezel-Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -229,7 +237,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A7FF7A461932B56400039327 /* Build configuration list for PBXProject "Photo Filter" */;
+			buildConfigurationList = A7FF7A461932B56400039327 /* Build configuration list for PBXProject "Bezel" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -241,8 +249,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A7FF7A4A1932B56400039327 /* Photo Filter */,
-				A7FF7A721932B59D00039327 /* Photo Filter Extension */,
+				A7FF7A4A1932B56400039327 /* Bezel */,
+				A7FF7A721932B59D00039327 /* Bezel Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -260,8 +268,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFAE7EA41965F0C800462FC4 /* anchor_overlay_invert.png in Resources */,
 				EF4E01EC1964BA540081B751 /* Filters.plist in Resources */,
 				EFAB63401964CEA000D0466A /* cross_overlay.png in Resources */,
+				EFAE7EA51965F0C800462FC4 /* cross_overlay_invert.png in Resources */,
 				A7FF7A8B1932B64300039327 /* MainInterface.storyboard in Resources */,
 				EF3EBDAE1964C5FD007674D1 /* anchor_overlay.png in Resources */,
 			);
@@ -293,12 +303,12 @@
 /* Begin PBXTargetDependency section */
 		A7FF7A821932B59D00039327 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A7FF7A721932B59D00039327 /* Photo Filter Extension */;
+			target = A7FF7A721932B59D00039327 /* Bezel Extension */;
 			targetProxy = A7FF7A811932B59D00039327 /* PBXContainerItemProxy */;
 		};
 		A7FF7A851932B59D00039327 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A7FF7A721932B59D00039327 /* Photo Filter Extension */;
+			target = A7FF7A721932B59D00039327 /* Bezel Extension */;
 			targetProxy = A7FF7A841932B59D00039327 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -435,7 +445,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A7FF7A461932B56400039327 /* Build configuration list for PBXProject "Photo Filter" */ = {
+		A7FF7A461932B56400039327 /* Build configuration list for PBXProject "Bezel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A7FF7A631932B56400039327 /* Debug */,
@@ -444,7 +454,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A7FF7A651932B56400039327 /* Build configuration list for PBXNativeTarget "Photo Filter" */ = {
+		A7FF7A651932B56400039327 /* Build configuration list for PBXNativeTarget "Bezel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A7FF7A661932B56400039327 /* Debug */,
@@ -453,7 +463,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A7FF7A861932B59D00039327 /* Build configuration list for PBXNativeTarget "Photo Filter Extension" */ = {
+		A7FF7A861932B59D00039327 /* Build configuration list for PBXNativeTarget "Bezel Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A7FF7A871932B59D00039327 /* Debug */,

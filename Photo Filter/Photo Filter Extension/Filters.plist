@@ -3,6 +3,8 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>overlayImage</key>
+		<string>cross_overlay_invert.png</string>
 		<key>filterName</key>
 		<string>CIBlendWithAlphaMask</string>
 		<key>displayName</key>
@@ -13,6 +15,8 @@
 	<dict>
 		<key>filterName</key>
 		<string>CIBlendWithAlphaMask</string>
+		<key>overlayImage</key>
+		<string>anchor_overlay_invert.png</string>
 		<key>displayName</key>
 		<string>Anchor</string>
 		<key>previewImage</key>
