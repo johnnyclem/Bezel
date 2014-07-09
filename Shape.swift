@@ -6,9 +6,17 @@
 //  Copyright (c) 2014 learnswift. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
 class Shape {
+    var previewImage : UIImage
     
+    init(previewImage : UIImage) {
+        self.previewImage = previewImage
+    }
+    
+    init(shape : String, previewImage : UIImage) {
+        self.previewImage = previewImage
+    }
 }

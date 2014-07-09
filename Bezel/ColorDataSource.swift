@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ColorDataSource: NSObject, UICollectionViewDataSource {
+class ColorDataSource: NSObject {
    
     var colors : Array<UIColor>
     
@@ -25,8 +25,9 @@ class ColorDataSource: NSObject, UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as UICollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ColorCell", forIndexPath: indexPath) as UICollectionViewCell
         cell.backgroundColor = self.colors[indexPath.row]
         return cell
     }
+    
 }

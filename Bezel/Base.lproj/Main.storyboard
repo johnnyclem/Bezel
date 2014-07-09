@@ -30,16 +30,34 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AdJ-Pk-0sF">
                                 <rect key="frame" x="0.0" y="320" width="480" height="160"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="bbv-it-p47"/>
+                                    <constraint firstAttribute="height" constant="160" id="lru-Lz-Vbq"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9Z9-We-Sd0">
                                     <size key="itemSize" width="65" height="65"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="33"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="5" minY="10" maxX="5" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="sdn-Eq-WjH">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ColorCell" id="sdn-Eq-WjH">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShapeCell" id="2JJ-dj-idc" customClass="ImageCollectionViewCell" customModule="Bezel" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BackgroundCell" id="ZkZ-C7-Ey2" customClass="ImageCollectionViewCell" customModule="Bezel" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -49,17 +67,42 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Header" id="Lfi-RP-l5X" customClass="HeaderCollectionReusableView" customModule="Bezel" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="480" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BtP-lU-hHf">
+                                            <rect key="frame" x="0.0" y="2" width="480" height="29"/>
+                                            <segments>
+                                                <segment title="Colors"/>
+                                                <segment title="Shapes"/>
+                                                <segment title="Backgrounds"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="changeCollectionViewData:" destination="Lfi-RP-l5X" eventType="valueChanged" id="mhN-Xx-9H9"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="BtP-lU-hHf" firstAttribute="leading" secondItem="Lfi-RP-l5X" secondAttribute="leading" id="dyN-HF-LYg"/>
+                                        <constraint firstItem="BtP-lU-hHf" firstAttribute="centerY" secondItem="Lfi-RP-l5X" secondAttribute="centerY" id="j9l-A3-8It"/>
+                                        <constraint firstAttribute="trailing" secondItem="BtP-lU-hHf" secondAttribute="trailing" id="mVg-th-3Jl"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="segmentedControl" destination="BtP-lU-hHf" id="eXw-Mo-h5t"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="AdJ-Pk-0sF" firstAttribute="top" secondItem="zXU-ic-GAn" secondAttribute="bottom" id="0eF-E1-Yhg"/>
-                            <constraint firstItem="AdJ-Pk-0sF" firstAttribute="trailing" secondItem="zXU-ic-GAn" secondAttribute="trailing" id="0xl-vC-cnE"/>
-                            <constraint firstItem="zXU-ic-GAn" firstAttribute="leading" secondItem="AdJ-Pk-0sF" secondAttribute="leading" id="298-Vh-Nkt"/>
-                            <constraint firstItem="zXU-ic-GAn" firstAttribute="leading" secondItem="j80-xJ-0IA" secondAttribute="leading" id="P3Q-bg-fOj"/>
-                            <constraint firstAttribute="bottom" secondItem="AdJ-Pk-0sF" secondAttribute="bottom" id="R4F-gr-K0s"/>
-                            <constraint firstItem="zXU-ic-GAn" firstAttribute="top" secondItem="j80-xJ-0IA" secondAttribute="top" id="UfN-Sm-bEG"/>
-                            <constraint firstAttribute="trailing" secondItem="AdJ-Pk-0sF" secondAttribute="trailing" id="wtm-y4-KhX"/>
+                            <constraint firstItem="AdJ-Pk-0sF" firstAttribute="trailing" secondItem="zXU-ic-GAn" secondAttribute="trailing" id="01J-fM-dzD"/>
+                            <constraint firstItem="AdJ-Pk-0sF" firstAttribute="top" secondItem="zXU-ic-GAn" secondAttribute="bottom" id="0T7-8t-zER"/>
+                            <constraint firstAttribute="bottom" secondItem="AdJ-Pk-0sF" secondAttribute="bottom" id="BpF-Hh-4Zp"/>
+                            <constraint firstAttribute="trailing" secondItem="AdJ-Pk-0sF" secondAttribute="trailing" id="Flx-PG-HB1"/>
+                            <constraint firstItem="AdJ-Pk-0sF" firstAttribute="leading" secondItem="zXU-ic-GAn" secondAttribute="leading" id="GRJ-f0-rTf"/>
+                            <constraint firstItem="zXU-ic-GAn" firstAttribute="top" secondItem="j80-xJ-0IA" secondAttribute="top" id="asR-Qo-edp"/>
+                            <constraint firstItem="zXU-ic-GAn" firstAttribute="leading" secondItem="j80-xJ-0IA" secondAttribute="leading" id="saK-q3-noU"/>
                         </constraints>
                     </view>
                     <connections>

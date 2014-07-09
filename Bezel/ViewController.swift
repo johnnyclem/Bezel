@@ -12,10 +12,11 @@ class ViewController: UIViewController {
     
     @IBOutlet var imageView : UIImageView?
     @IBOutlet var collectionView : UICollectionView?
-    var colorDataSource : ColorDataSource?
+    var dataSource : BezelCollectionViewDataSource?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.testCollectionViewDataSource()
     }
     
     override func didReceiveMemoryWarning() {
@@ -29,9 +30,7 @@ class ViewController: UIViewController {
         
         
         imageView!.image = image
-        self.testImageViewOverlay()
-        
-        self.testColorDataSource()
+//        self.testImageViewOverlay()
     }
     
     func testImageViewOverlay() {
@@ -62,11 +61,13 @@ class ViewController: UIViewController {
         return overlay.imageByCompositingOverImage(background)
     }
     
-    func testColorDataSource() {
-        colorDataSource = ColorDataSource(colors: nil)
-        collectionView!.dataSource = colorDataSource
+    func testCollectionViewDataSource() {
+        dataSource = BezelCollectionViewDataSource()
+        collectionView!.dataSource = dataSource
+        collectionView!.delegate = dataSource
         collectionView!.reloadData()
     }
+    
 }
 
 
