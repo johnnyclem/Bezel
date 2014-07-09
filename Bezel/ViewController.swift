@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet var imageView : UIImageView?
+    @IBOutlet var collectionView : UICollectionView?
+    var colorDataSource : ColorDataSource?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,8 @@ class ViewController: UIViewController {
         
         imageView!.image = image
         self.testImageViewOverlay()
+        
+        self.testColorDataSource()
     }
     
     func testImageViewOverlay() {
@@ -58,6 +62,11 @@ class ViewController: UIViewController {
         return overlay.imageByCompositingOverImage(background)
     }
     
+    func testColorDataSource() {
+        colorDataSource = ColorDataSource(colors: nil)
+        collectionView!.dataSource = colorDataSource
+        collectionView!.reloadData()
+    }
 }
 
 

@@ -20,6 +20,8 @@
 		EF2427FD196DCFF600EB8A55 /* bolt_black.png in Resources */ = {isa = PBXBuildFile; fileRef = EF2427F8196DCFF600EB8A55 /* bolt_black.png */; };
 		EF2427FE196DCFF600EB8A55 /* road.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF2427F9196DCFF600EB8A55 /* road.jpg */; };
 		EF2427FF196DCFF600EB8A55 /* road.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF2427F9196DCFF600EB8A55 /* road.jpg */; };
+		EF8726BF196DE18600FCD47C /* ColorDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8726BE196DE18600FCD47C /* ColorDataSource.swift */; };
+		EF8726C0196DE18600FCD47C /* ColorDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8726BE196DE18600FCD47C /* ColorDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,7 @@
 		EF2427F7196DCFF600EB8A55 /* bolt_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bolt_white.png; sourceTree = "<group>"; };
 		EF2427F8196DCFF600EB8A55 /* bolt_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bolt_black.png; sourceTree = "<group>"; };
 		EF2427F9196DCFF600EB8A55 /* road.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = road.jpg; sourceTree = "<group>"; };
+		EF8726BE196DE18600FCD47C /* ColorDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,7 @@
 		A20B6FCB196DB92C0067347D /* Bezel */ = {
 			isa = PBXGroup;
 			children = (
+				EF8726BD196DE15B00FCD47C /* DataSources */,
 				A20B6FCE196DB92C0067347D /* AppDelegate.swift */,
 				A20B6FD0196DB92C0067347D /* ViewController.swift */,
 				A20B6FEB196DB93B0067347D /* PhotoEditController.swift */,
@@ -125,6 +129,14 @@
 				A20B6FE0196DB92D0067347D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EF8726BD196DE15B00FCD47C /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				EF8726BE196DE18600FCD47C /* ColorDataSource.swift */,
+			);
+			name = DataSources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF8726BF196DE18600FCD47C /* ColorDataSource.swift in Sources */,
 				A20B6FD1196DB92C0067347D /* ViewController.swift in Sources */,
 				A20B6FCF196DB92C0067347D /* AppDelegate.swift in Sources */,
 				A20B6FEC196DB93B0067347D /* PhotoEditController.swift in Sources */,
@@ -244,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF8726C0196DE18600FCD47C /* ColorDataSource.swift in Sources */,
 				A20B6FE2196DB92D0067347D /* BezelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
