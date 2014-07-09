@@ -14,6 +14,12 @@
 		A20B6FE2196DB92D0067347D /* BezelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20B6FE1196DB92D0067347D /* BezelTests.swift */; };
 		A20B6FEC196DB93B0067347D /* PhotoEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20B6FEB196DB93B0067347D /* PhotoEditController.swift */; };
 		A20B6FEE196DB9540067347D /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20B6FED196DB9540067347D /* Shape.swift */; };
+		EF2427FA196DCFF600EB8A55 /* bolt_white.png in Resources */ = {isa = PBXBuildFile; fileRef = EF2427F7196DCFF600EB8A55 /* bolt_white.png */; };
+		EF2427FB196DCFF600EB8A55 /* bolt_white.png in Resources */ = {isa = PBXBuildFile; fileRef = EF2427F7196DCFF600EB8A55 /* bolt_white.png */; };
+		EF2427FC196DCFF600EB8A55 /* bolt_black.png in Resources */ = {isa = PBXBuildFile; fileRef = EF2427F8196DCFF600EB8A55 /* bolt_black.png */; };
+		EF2427FD196DCFF600EB8A55 /* bolt_black.png in Resources */ = {isa = PBXBuildFile; fileRef = EF2427F8196DCFF600EB8A55 /* bolt_black.png */; };
+		EF2427FE196DCFF600EB8A55 /* road.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF2427F9196DCFF600EB8A55 /* road.jpg */; };
+		EF2427FF196DCFF600EB8A55 /* road.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF2427F9196DCFF600EB8A55 /* road.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +44,9 @@
 		A20B6FE1196DB92D0067347D /* BezelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezelTests.swift; sourceTree = "<group>"; };
 		A20B6FEB196DB93B0067347D /* PhotoEditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoEditController.swift; path = ../PhotoEditController.swift; sourceTree = "<group>"; };
 		A20B6FED196DB9540067347D /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Shape.swift; path = ../Shape.swift; sourceTree = "<group>"; };
+		EF2427F7196DCFF600EB8A55 /* bolt_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bolt_white.png; sourceTree = "<group>"; };
+		EF2427F8196DCFF600EB8A55 /* bolt_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bolt_black.png; sourceTree = "<group>"; };
+		EF2427F9196DCFF600EB8A55 /* road.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = road.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +93,9 @@
 				A20B6FEB196DB93B0067347D /* PhotoEditController.swift */,
 				A20B6FED196DB9540067347D /* Shape.swift */,
 				A20B6FD2196DB92C0067347D /* Main.storyboard */,
+				EF2427F7196DCFF600EB8A55 /* bolt_white.png */,
+				EF2427F8196DCFF600EB8A55 /* bolt_black.png */,
+				EF2427F9196DCFF600EB8A55 /* road.jpg */,
 				A20B6FD5196DB92C0067347D /* Images.xcassets */,
 				A20B6FCC196DB92C0067347D /* Supporting Files */,
 			);
@@ -164,6 +176,7 @@
 				TargetAttributes = {
 					A20B6FC8196DB92C0067347D = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = TX54R8GYX2;
 					};
 					A20B6FDA196DB92D0067347D = {
 						CreatedOnToolsVersion = 6.0;
@@ -196,7 +209,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A20B6FD4196DB92C0067347D /* Main.storyboard in Resources */,
+				EF2427FE196DCFF600EB8A55 /* road.jpg in Resources */,
 				A20B6FD6196DB92C0067347D /* Images.xcassets in Resources */,
+				EF2427FC196DCFF600EB8A55 /* bolt_black.png in Resources */,
+				EF2427FA196DCFF600EB8A55 /* bolt_white.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +220,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF2427FD196DCFF600EB8A55 /* bolt_black.png in Resources */,
+				EF2427FF196DCFF600EB8A55 /* road.jpg in Resources */,
+				EF2427FB196DCFF600EB8A55 /* bolt_white.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +424,7 @@
 				A20B6FE7196DB92D0067347D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A20B6FE8196DB92D0067347D /* Build configuration list for PBXNativeTarget "BezelTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +433,7 @@
 				A20B6FEA196DB92D0067347D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
