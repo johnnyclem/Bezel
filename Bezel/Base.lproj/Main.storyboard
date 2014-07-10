@@ -16,18 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zXU-ic-GAn">
-                                <rect key="frame" x="0.0" y="58" width="480" height="262"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="iG7-lQ-i0E"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="iG7-lQ-i0E"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AdJ-Pk-0sF">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AdJ-Pk-0sF">
                                 <rect key="frame" x="0.0" y="320" width="480" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="lru-Lz-Vbq"/>
@@ -114,27 +103,29 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="enJ-Rp-Gs1">
+                                <rect key="frame" x="0.0" y="58" width="480" height="254"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="AdJ-Pk-0sF" firstAttribute="trailing" secondItem="zXU-ic-GAn" secondAttribute="trailing" id="01J-fM-dzD"/>
-                            <constraint firstItem="AdJ-Pk-0sF" firstAttribute="top" secondItem="zXU-ic-GAn" secondAttribute="bottom" id="0T7-8t-zER"/>
+                            <constraint firstItem="enJ-Rp-Gs1" firstAttribute="leading" secondItem="j80-xJ-0IA" secondAttribute="leading" id="2vu-T5-4o7"/>
                             <constraint firstAttribute="trailing" secondItem="s11-Ur-FeX" secondAttribute="trailing" constant="20" id="6fW-lD-5fc"/>
+                            <constraint firstItem="enJ-Rp-Gs1" firstAttribute="top" secondItem="s11-Ur-FeX" secondAttribute="bottom" constant="8" id="7Js-tK-sh0"/>
                             <constraint firstAttribute="bottom" secondItem="AdJ-Pk-0sF" secondAttribute="bottom" id="BpF-Hh-4Zp"/>
                             <constraint firstAttribute="trailing" secondItem="AdJ-Pk-0sF" secondAttribute="trailing" id="Flx-PG-HB1"/>
-                            <constraint firstItem="AdJ-Pk-0sF" firstAttribute="leading" secondItem="zXU-ic-GAn" secondAttribute="leading" id="GRJ-f0-rTf"/>
                             <constraint firstItem="FOG-LX-2Lf" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="Ntu-Up-Jbf"/>
                             <constraint firstItem="FOG-LX-2Lf" firstAttribute="top" secondItem="s11-Ur-FeX" secondAttribute="top" id="Q1D-DB-Pwx"/>
-                            <constraint firstItem="zXU-ic-GAn" firstAttribute="top" secondItem="FOG-LX-2Lf" secondAttribute="bottom" constant="8" id="hDZ-jX-You"/>
+                            <constraint firstItem="AdJ-Pk-0sF" firstAttribute="top" secondItem="enJ-Rp-Gs1" secondAttribute="bottom" constant="8" id="aGS-CV-9Al"/>
                             <constraint firstItem="FOG-LX-2Lf" firstAttribute="top" secondItem="TIq-b2-1nS" secondAttribute="top" id="qQA-A6-cnh"/>
-                            <constraint firstItem="zXU-ic-GAn" firstAttribute="leading" secondItem="j80-xJ-0IA" secondAttribute="leading" id="saK-q3-noU"/>
+                            <constraint firstAttribute="trailing" secondItem="enJ-Rp-Gs1" secondAttribute="trailing" id="rne-rl-hN2"/>
                             <constraint firstItem="TIq-b2-1nS" firstAttribute="leading" secondItem="j80-xJ-0IA" secondAttribute="leading" constant="20" id="xJG-Z5-uRz"/>
                             <constraint firstAttribute="centerX" secondItem="FOG-LX-2Lf" secondAttribute="centerX" id="xLR-Ce-tHO"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="AdJ-Pk-0sF" id="bzn-0W-KB5"/>
-                        <outlet property="imageView" destination="zXU-ic-GAn" id="PRJ-nU-I4v"/>
+                        <outlet property="scrollView" destination="enJ-Rp-Gs1" id="yWO-pq-iUw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
