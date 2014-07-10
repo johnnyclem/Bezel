@@ -57,7 +57,7 @@ class ViewController: UIViewController {
         let background = CIImage(image: image)
         let overlayImage = UIImage(named: "bolt_black.png")
         let overlay = CIImage(image: overlayImage)
-        
+
         return overlay.imageByCompositingOverImage(background)
     }
     
