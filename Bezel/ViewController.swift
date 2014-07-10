@@ -11,16 +11,20 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIScrollViewDelegate {
     
     var imageView : UIImageView!
+    
     @IBOutlet strong var scrollView: UIScrollView?
     @IBOutlet var collectionView : UICollectionView?
+    
     var dataSource : BezelCollectionViewDataSource?
-    let actionController = UIAlertController(title: "Image Source", message: "Select Your Choice Please", preferredStyle: UIAlertControllerStyle.ActionSheet)
+    var photoEditor : PhotoEditController?
+    
     let cameraPicker = UIImagePickerController()
     let libraryPicker = UIImagePickerController()
-    
+    let actionController = UIAlertController(title: "Image Source", message: "Select Your Choice Please", preferredStyle: UIAlertControllerStyle.ActionSheet)
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.testCollectionViewDataSource()
+        self.setupCollectionViewDataSource()
         self.setupPickersAndActionController()
         
         self.scrollView!.delegate = self
@@ -30,8 +34,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         self.scrollView!.addSubview(self.imageView)
         
         imageView!.contentMode = UIViewContentMode.ScaleAspectFill
-        var image = UIImage(named: "road.jpg")
-        imageView!.image = image
     }
     
     func setupPickersAndActionController(){
@@ -62,39 +64,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         self.actionController.addAction(libraryOption)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    func testImageViewOverlay() {
-        //        let overlay = UIImage(named: "bolt_black.png")
-        //        let overlayView = UIImageView(frame: imageView!.frame)
-        //        overlayView.image = overlay
-        //        imageView!.addSubview(overlayView)
-        
-        let composition = self.overlayImageWithShape(nil, image: imageView!.image)
-        imageView!.image = UIImage(CIImage: composition)
-    }
-    
-    func overlayBoltByCheating() {
-        let overlayImage = UIImage(named: "bolt_black.png")
-        let overlay = UIImageView(frame: imageView!.frame)
-        overlay.contentMode = UIViewContentMode.ScaleAspectFit
-        overlay.image = overlayImage
-        self.view.addSubview(overlay)
-    }
-    
-    func overlayImageWithShape(shape : Shape?, image: UIImage) -> CIImage {
-        let context = CIContext(options: nil)
-        
-        let background = CIImage(image: image)
-        let overlayImage = UIImage(named: "bolt_black.png")
-        let overlay = CIImage(image: overlayImage)
-
-        return overlay.imageByCompositingOverImage(background)
-    }
-    
-    func testCollectionViewDataSource() {
+    func setupCollectionViewDataSource() {
         dataSource = BezelCollectionViewDataSource()
         collectionView!.dataSource = dataSource
         collectionView!.delegate = dataSource
@@ -110,14 +80,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
      func imagePickerController(picker: UIImagePickerController!,
         didFinishPickingMediaWithInfo info: [NSObject : AnyObject]!) {
             let image = info[UIImagePickerControllerOriginalImage] as UIImage
+            self.photoEditor = PhotoEditController(image: image)
             self.imageView.frame.size = image.size
             self.scrollView!.contentSize = image.size
-            self.imageView.image = image
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismissViewControllerAnimated(true, completion: {
+                let defaultShape = Shape(previewImage: UIImage(named: "bolt_black.png"))
+                if let compositedImage = self.photoEditor!.imageWithShape(defaultShape) {
+                    self.imageView.image = compositedImage
+                }
+            })
     }
     //#pragma mark - UIScrollViewDelegate
     func viewForZoomingInScrollView(scrollView: UIScrollView!) -> UIView! {
         return self.imageView
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
 }
 
