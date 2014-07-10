@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIScrollViewDelegate {
     
     var imageView : UIImageView!
     @IBOutlet strong var scrollView: UIScrollView?
@@ -23,6 +23,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         self.testCollectionViewDataSource()
         self.setupPickersAndActionController()
         
+        self.scrollView!.delegate = self
+        self.scrollView!.minimumZoomScale = 1
+        self.scrollView!.maximumZoomScale = 30
         self.imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.scrollView!.frame.size.width, height: self.scrollView!.frame.size.height))
         self.scrollView!.addSubview(self.imageView)
         
@@ -111,6 +114,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
             self.scrollView!.contentSize = image.size
             self.imageView.image = image
             self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    //#pragma mark - UIScrollViewDelegate
+    func viewForZoomingInScrollView(scrollView: UIScrollView!) -> UIView! {
+        return self.imageView
     }
 }
 
