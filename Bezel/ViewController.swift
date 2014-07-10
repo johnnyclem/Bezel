@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIScrollViewDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIScrollViewDelegate, UICollectionViewDelegate {
     
     var imageView : UIImageView!
     @IBOutlet strong var scrollView: UIScrollView?
-    @IBOutlet var collectionView : UICollectionView?
+    @IBOutlet var collectionView : UICollectionView!
     @IBOutlet strong var cutoutImageView: UIImageView?
     var dataSource : BezelCollectionViewDataSource?
     let actionController = UIAlertController(title: "Image Source", message: "Select Your Choice Please", preferredStyle: UIAlertControllerStyle.ActionSheet)
@@ -21,6 +21,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.collectionView.delegate = self
         self.testCollectionViewDataSource()
         self.setupPickersAndActionController()
         
@@ -96,7 +97,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     func testCollectionViewDataSource() {
         dataSource = BezelCollectionViewDataSource()
         collectionView!.dataSource = dataSource
-        collectionView!.delegate = dataSource
+        //collectionView!.delegate = dataSource
         collectionView!.reloadData()
     }
     
@@ -135,6 +136,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     func viewForZoomingInScrollView(scrollView: UIScrollView!) -> UIView! {
         return self.imageView
     }
+    
+    //#pragma mark - UICollectionViewDelegate
+    func collectionView(collectionView: UICollectionView!,
+        didSelectItemAtIndexPath indexPath: NSIndexPath!) {
+            println(indexPath.row)
+            var shape = self.dataSource!.shapeDataSource.shapes[indexPath.row]
+            self.cutoutImageView!.image = shape.previewImage
+    }
+    
+    
 }
 
 
