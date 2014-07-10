@@ -11,12 +11,15 @@ import UIKit
 
 class Shape {
     var previewImage : UIImage
+    var overlayImage : UIImage
     
     init(previewImage : UIImage) {
         self.previewImage = previewImage
+        self.overlayImage = previewImage
     }
     
-    init(shape : String, previewImage : UIImage) {
+    init(overlayImage : UIImage, previewImage : UIImage) {
         self.previewImage = previewImage
+        self.overlayImage = overlayImage
     }
 }

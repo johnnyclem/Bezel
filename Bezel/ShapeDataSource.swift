@@ -15,7 +15,7 @@ class ShapeDataSource: NSObject {
         if let newShapes = shapes as? Array<Shape> {
             self.shapes = newShapes
         } else {
-            self.shapes = [Shape(previewImage: UIImage(named: "bolt_white.png")), Shape(previewImage: UIImage(named: "anchor_white.png")), Shape(previewImage: UIImage(named: "arrow_white.png")), Shape(previewImage: UIImage(named: "cross_white.png"))]
+            self.shapes = [Shape(overlayImage: UIImage(named: "bolt_black.png"), previewImage: UIImage(named: "bolt_white.png")), Shape(overlayImage: UIImage(named: "anchor_black.png"), previewImage: UIImage(named: "anchor_white.png")), Shape(overlayImage: UIImage(named: "arrow_black.png"), previewImage: UIImage(named: "arrow_white.png")), Shape(overlayImage: UIImage(named: "cross_black.png"), previewImage: UIImage(named: "cross_white.png"))]
         }
         super.init()
     }
