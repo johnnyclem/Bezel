@@ -20,12 +20,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     let actionController = UIAlertController(title: "Image Source", message: "Select Your Choice Please", preferredStyle: UIAlertControllerStyle.ActionSheet)
     let cameraPicker = UIImagePickerController()
     let libraryPicker = UIImagePickerController()
+    let libraryAlertView = UIAlertController(title: "Hello There", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+    let cameraAlertView = UIAlertController(title: "Hello There", message: "", preferredStyle: UIAlertControllerStyle.Alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.delegate = self
         self.testCollectionViewDataSource()
-        self.setupPickersAndActionController()
+        self.setupPickersAndAlertControllers()
         
         self.scrollView!.delegate = self
         self.scrollView!.minimumZoomScale = 0.5
@@ -38,7 +40,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         imageView!.image = image
     }
     
-    func setupPickersAndActionController(){
+    func setupPickersAndAlertControllers(){
         
         //only add the camera option if a camera is on the device
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
@@ -46,22 +48,68 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
             self.cameraPicker.allowsEditing = false
             self.cameraPicker.sourceType = UIImagePickerControllerSourceType.Camera
             let cameraOption = UIAlertAction(title: "Camera", style: UIAlertActionStyle.Default, handler: {(action :UIAlertAction!) -> Void in
+
+            var cameraStatus = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo) as AVAuthorizationStatus
+            switch cameraStatus {
+                case .NotDetermined:
+                    self.cameraAlertView.message = "We are about to ask for permission to let this app to use your camera."
+                    self.presentViewController(self.cameraAlertView, animated: true, completion: {() -> Void in
+                        })
+                case .Authorized:
                 self.presentViewController(self.cameraPicker, animated: true, completion: nil)
+                case .Denied:
+                    self.cameraAlertView.message = "You previously denied this app permission to use your camera, go to your privacy settings to fix this"
+                    self.presentViewController(self.cameraAlertView, animated: true, completion: {() -> Void in
+                        
+                        })
+                case .Restricted:
+                    self.cameraAlertView.message = "You previously denied this app permission to use your camera, go to your privacy settings to fix this"
+                    self.presentViewController(self.cameraAlertView, animated: true, completion: {() -> Void in
+                        
+                        })
+                }
                 })
              self.actionController.addAction(cameraOption)
+            let cameraAlertOption = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: {(action :UIAlertAction!) -> Void in
+                self.presentViewController(self.cameraPicker, animated: true, completion: nil)
+                })
+            self.cameraAlertView.addAction(cameraAlertOption)
         }
-        //setup
+        //setup the photo library option
         self.libraryPicker.delegate = self
         self.libraryPicker.allowsEditing = false
         self.libraryPicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum
+        
         let libraryOption = UIAlertAction(title: "Photo Library", style: UIAlertActionStyle.Default, handler: {(action :UIAlertAction!) -> Void in
-            self.presentViewController(self.libraryPicker, animated: true, completion: nil)
+            
+            var libraryStatus = ALAssetsLibrary.authorizationStatus()
+            switch libraryStatus {
+            case .NotDetermined:
+                self.libraryAlertView.message = "We are about to ask for permission to let this app use your photo library"
+                self.presentViewController(self.libraryAlertView, animated: true, completion: {() -> Void in
+                    })
+            case .Authorized:
+                self.presentViewController(self.libraryAlertView, animated: true, completion: nil)
+            case .Denied:
+                self.libraryAlertView.message = "You previously denied this app permission to use your camera, go to your privacy settings to fix this"
+                self.presentViewController(self.libraryAlertView, animated: true, completion: {() -> Void in
+                    })
+            case .Restricted:
+                self.libraryAlertView.message = "You previously denied this app permission to use your camera, go to your privacy settings to fix this"
+                self.presentViewController(self.libraryAlertView, animated: true, completion: {() -> Void in
+                    })
+            }
             })
         let cancelOption = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {(action :UIAlertAction!) -> Void in
             println(action.title)
             })
         self.actionController.addAction(cancelOption)
         self.actionController.addAction(libraryOption)
+        
+        let libraryAlertOption = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: {(action :UIAlertAction!) -> Void in
+             self.presentViewController(self.libraryPicker, animated: true, completion: nil)
+            })
+        self.libraryAlertView.addAction(libraryAlertOption)
     }
     
     override func didReceiveMemoryWarning() {
@@ -109,6 +157,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         var cameraStatus = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
         println(cameraStatus.toRaw())
         println(libraryStatus.toRaw())
+
+
         self.presentViewController(self.actionController, animated: true, completion: nil)
     }
     
