@@ -149,7 +149,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         didSelectItemAtIndexPath indexPath: NSIndexPath!) {
             println(indexPath.row)
             var shape = self.dataSource!.shapeDataSource.shapes[indexPath.row]
-            self.cutoutImageView!.image = shape.previewImage
+            self.cutoutImageView!.image = shape.overlayImage
     }
     
     

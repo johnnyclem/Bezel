@@ -20,16 +20,28 @@ class PhotoEditController {
         self.originalImage = image
     }
     
-    func imageWithBackgroundImage(backgroundImage : UIImage, shape : Shape) ->UIImage {
-        return UIImage()
+    func imageWithBackgroundImage(backgroundImage : UIImage, shape : Shape) -> UIImage? {
+        return nil
     }
     
-    func imageWithBackgroundColor(backgroundColor : UIColor, shape : Shape) ->UIImage {
-        return UIImage()
+    func imageWithBackgroundColor(backgroundColor : UIColor, shape : Shape) -> UIImage? {
+        let context = CIContext(options: nil)
+        
+        let background = CIImage(image: originalImage)
+        let overlay = CIImage(image: shape.previewImage)
+        
+        if let compositedImage = overlay.imageByCompositingOverImage(background) {
+            return UIImage(CIImage: compositedImage)
+        }
+        return nil
     }
     
-    func imageWithShape(shape : Shape) ->UIImage {
-        return UIImage()
+    func imageWithShape(shape : Shape) -> UIImage? {
+        if let compositedImage = self.imageWithBackgroundColor(UIColor.blackColor(), shape: shape) {
+            return compositedImage
+        }
+        
+        return nil
     }
     
     
