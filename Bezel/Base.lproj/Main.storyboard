@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zXU-ic-GAn">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                                <rect key="frame" x="0.0" y="58" width="480" height="262"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="iG7-lQ-i0E"/>
                                 </constraints>
@@ -27,7 +27,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AdJ-Pk-0sF">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AdJ-Pk-0sF">
                                 <rect key="frame" x="0.0" y="320" width="480" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="lru-Lz-Vbq"/>
@@ -93,16 +93,43 @@
                                     </connections>
                                 </collectionReusableView>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOG-LX-2Lf">
+                                <rect key="frame" x="213" y="20" width="54" height="30"/>
+                                <state key="normal" title="Camera">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cameraButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Kc1-lN-Q4D"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIq-b2-1nS">
+                                <rect key="frame" x="20" y="20" width="40" height="30"/>
+                                <state key="normal" title="Share">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s11-Ur-FeX">
+                                <rect key="frame" x="430" y="20" width="30" height="30"/>
+                                <state key="normal" title="Info">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="AdJ-Pk-0sF" firstAttribute="trailing" secondItem="zXU-ic-GAn" secondAttribute="trailing" id="01J-fM-dzD"/>
                             <constraint firstItem="AdJ-Pk-0sF" firstAttribute="top" secondItem="zXU-ic-GAn" secondAttribute="bottom" id="0T7-8t-zER"/>
+                            <constraint firstAttribute="trailing" secondItem="s11-Ur-FeX" secondAttribute="trailing" constant="20" id="6fW-lD-5fc"/>
                             <constraint firstAttribute="bottom" secondItem="AdJ-Pk-0sF" secondAttribute="bottom" id="BpF-Hh-4Zp"/>
                             <constraint firstAttribute="trailing" secondItem="AdJ-Pk-0sF" secondAttribute="trailing" id="Flx-PG-HB1"/>
                             <constraint firstItem="AdJ-Pk-0sF" firstAttribute="leading" secondItem="zXU-ic-GAn" secondAttribute="leading" id="GRJ-f0-rTf"/>
-                            <constraint firstItem="zXU-ic-GAn" firstAttribute="top" secondItem="j80-xJ-0IA" secondAttribute="top" id="asR-Qo-edp"/>
+                            <constraint firstItem="FOG-LX-2Lf" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="Ntu-Up-Jbf"/>
+                            <constraint firstItem="FOG-LX-2Lf" firstAttribute="top" secondItem="s11-Ur-FeX" secondAttribute="top" id="Q1D-DB-Pwx"/>
+                            <constraint firstItem="zXU-ic-GAn" firstAttribute="top" secondItem="FOG-LX-2Lf" secondAttribute="bottom" constant="8" id="hDZ-jX-You"/>
+                            <constraint firstItem="FOG-LX-2Lf" firstAttribute="top" secondItem="TIq-b2-1nS" secondAttribute="top" id="qQA-A6-cnh"/>
                             <constraint firstItem="zXU-ic-GAn" firstAttribute="leading" secondItem="j80-xJ-0IA" secondAttribute="leading" id="saK-q3-noU"/>
+                            <constraint firstItem="TIq-b2-1nS" firstAttribute="leading" secondItem="j80-xJ-0IA" secondAttribute="leading" constant="20" id="xJG-Z5-uRz"/>
+                            <constraint firstAttribute="centerX" secondItem="FOG-LX-2Lf" secondAttribute="centerX" id="xLR-Ce-tHO"/>
                         </constraints>
                     </view>
                     <connections>

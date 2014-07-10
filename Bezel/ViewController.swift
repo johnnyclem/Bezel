@@ -13,10 +13,28 @@ class ViewController: UIViewController {
     @IBOutlet var imageView : UIImageView?
     @IBOutlet var collectionView : UICollectionView?
     var dataSource : BezelCollectionViewDataSource?
+    let actionController = UIAlertController(title: "Image Source", message: "Select Your Choice Please", preferredStyle: UIAlertControllerStyle.ActionSheet)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.testCollectionViewDataSource()
+        self.setupActionController()
+    }
+    
+    func setupActionController(){
+        
+        let cancelOption = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {(action :UIAlertAction!) -> Void in
+            println(action.title)
+            })
+        let cameraOption = UIAlertAction(title: "Camera", style: UIAlertActionStyle.Default, handler: {(action :UIAlertAction!) -> Void in
+            println(action.title)
+            })
+        let libraryOption = UIAlertAction(title: "Photo Library", style: UIAlertActionStyle.Default, handler: {(action :UIAlertAction!) -> Void in
+            println(action.title)
+            })
+        self.actionController.addAction(cameraOption)
+        self.actionController.addAction(cancelOption)
+        self.actionController.addAction(libraryOption)
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,6 +86,9 @@ class ViewController: UIViewController {
         collectionView!.reloadData()
     }
     
+    @IBAction func cameraButtonPressed(sender: AnyObject) {
+        self.presentViewController(self.actionController, animated: true, completion: nil)
+    }
 }
 
 
