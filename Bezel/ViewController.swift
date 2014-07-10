@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIScrollViewDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIScrollViewDelegate, UICollectionViewDelegate {
     
     var imageView : UIImageView!
     
@@ -28,10 +28,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         self.setupPickersAndActionController()
         
         self.scrollView!.delegate = self
-        self.scrollView!.minimumZoomScale = 1
-        self.scrollView!.maximumZoomScale = 30
+        self.scrollView!.minimumZoomScale = 0.5
+        self.scrollView!.maximumZoomScale = 10
         self.imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.scrollView!.frame.size.width, height: self.scrollView!.frame.size.height))
         self.scrollView!.addSubview(self.imageView)
+        self.imageView.contentMode = UIViewContentMode.ScaleAspectFill
         
         imageView!.contentMode = UIViewContentMode.ScaleAspectFill
     }
@@ -48,15 +49,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
                 })
              self.actionController.addAction(cameraOption)
         }
-        
+        //setup
         self.libraryPicker.delegate = self
         self.libraryPicker.allowsEditing = false
         self.libraryPicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum
         let libraryOption = UIAlertAction(title: "Photo Library", style: UIAlertActionStyle.Default, handler: {(action :UIAlertAction!) -> Void in
             self.presentViewController(self.libraryPicker, animated: true, completion: nil)
             })
-        
-        
         let cancelOption = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {(action :UIAlertAction!) -> Void in
             println(action.title)
             })
@@ -67,7 +66,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     func setupCollectionViewDataSource() {
         dataSource = BezelCollectionViewDataSource()
         collectionView!.dataSource = dataSource
-        collectionView!.delegate = dataSource
+        //collectionView!.delegate = dataSource
         collectionView!.reloadData()
     }
     
@@ -82,6 +81,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
             let image = info[UIImagePickerControllerOriginalImage] as UIImage
             self.photoEditor = PhotoEditController(image: image)
             self.imageView.frame.size = image.size
+            self.imageView.contentMode = UIViewContentMode.ScaleAspectFill
             self.scrollView!.contentSize = image.size
             self.dismissViewControllerAnimated(true, completion: {
                 let defaultShape = Shape(previewImage: UIImage(named: "bolt_black.png"))

@@ -105,26 +105,35 @@
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="enJ-Rp-Gs1">
                                 <rect key="frame" x="0.0" y="58" width="480" height="254"/>
+                                <color key="backgroundColor" red="0.26747486149999999" green="1" blue="0.32945114939999998" alpha="1" colorSpace="calibratedRGB"/>
                             </scrollView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n9G-sY-ILS">
+                                <rect key="frame" x="0.0" y="58" width="480" height="254"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="enJ-Rp-Gs1" firstAttribute="leading" secondItem="j80-xJ-0IA" secondAttribute="leading" id="2vu-T5-4o7"/>
                             <constraint firstAttribute="trailing" secondItem="s11-Ur-FeX" secondAttribute="trailing" constant="20" id="6fW-lD-5fc"/>
                             <constraint firstItem="enJ-Rp-Gs1" firstAttribute="top" secondItem="s11-Ur-FeX" secondAttribute="bottom" constant="8" id="7Js-tK-sh0"/>
+                            <constraint firstAttribute="trailing" secondItem="n9G-sY-ILS" secondAttribute="trailing" id="8wi-tg-K08"/>
                             <constraint firstAttribute="bottom" secondItem="AdJ-Pk-0sF" secondAttribute="bottom" id="BpF-Hh-4Zp"/>
                             <constraint firstAttribute="trailing" secondItem="AdJ-Pk-0sF" secondAttribute="trailing" id="Flx-PG-HB1"/>
                             <constraint firstItem="FOG-LX-2Lf" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="Ntu-Up-Jbf"/>
+                            <constraint firstItem="n9G-sY-ILS" firstAttribute="leading" secondItem="j80-xJ-0IA" secondAttribute="leading" id="OWR-rO-wgz"/>
                             <constraint firstItem="FOG-LX-2Lf" firstAttribute="top" secondItem="s11-Ur-FeX" secondAttribute="top" id="Q1D-DB-Pwx"/>
                             <constraint firstItem="AdJ-Pk-0sF" firstAttribute="top" secondItem="enJ-Rp-Gs1" secondAttribute="bottom" constant="8" id="aGS-CV-9Al"/>
+                            <constraint firstItem="n9G-sY-ILS" firstAttribute="top" secondItem="s11-Ur-FeX" secondAttribute="bottom" constant="8" id="lZW-RD-b6G"/>
                             <constraint firstItem="FOG-LX-2Lf" firstAttribute="top" secondItem="TIq-b2-1nS" secondAttribute="top" id="qQA-A6-cnh"/>
                             <constraint firstAttribute="trailing" secondItem="enJ-Rp-Gs1" secondAttribute="trailing" id="rne-rl-hN2"/>
                             <constraint firstItem="TIq-b2-1nS" firstAttribute="leading" secondItem="j80-xJ-0IA" secondAttribute="leading" constant="20" id="xJG-Z5-uRz"/>
                             <constraint firstAttribute="centerX" secondItem="FOG-LX-2Lf" secondAttribute="centerX" id="xLR-Ce-tHO"/>
+                            <constraint firstItem="AdJ-Pk-0sF" firstAttribute="top" secondItem="n9G-sY-ILS" secondAttribute="bottom" constant="8" id="znO-lM-Q6O"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="AdJ-Pk-0sF" id="bzn-0W-KB5"/>
+                        <outlet property="cutoutImageView" destination="n9G-sY-ILS" id="YXp-Bv-jMn"/>
                         <outlet property="scrollView" destination="enJ-Rp-Gs1" id="yWO-pq-iUw"/>
                     </connections>
                 </viewController>
