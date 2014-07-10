@@ -13,6 +13,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     var imageView : UIImageView!
     @IBOutlet strong var scrollView: UIScrollView?
     @IBOutlet var collectionView : UICollectionView?
+    @IBOutlet strong var cutoutImageView: UIImageView?
     var dataSource : BezelCollectionViewDataSource?
     let actionController = UIAlertController(title: "Image Source", message: "Select Your Choice Please", preferredStyle: UIAlertControllerStyle.ActionSheet)
     let cameraPicker = UIImagePickerController()
@@ -24,12 +25,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         self.setupPickersAndActionController()
         
         self.scrollView!.delegate = self
-        self.scrollView!.minimumZoomScale = 1
-        self.scrollView!.maximumZoomScale = 30
+        self.scrollView!.minimumZoomScale = 0.5
+        self.scrollView!.maximumZoomScale = 10
         self.imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.scrollView!.frame.size.width, height: self.scrollView!.frame.size.height))
         self.scrollView!.addSubview(self.imageView)
+        self.imageView.contentMode = UIViewContentMode.ScaleAspectFill
         
-        imageView!.contentMode = UIViewContentMode.ScaleAspectFill
         var image = UIImage(named: "road.jpg")
         imageView!.image = image
     }
@@ -46,15 +47,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
                 })
              self.actionController.addAction(cameraOption)
         }
-        
+        //setup
         self.libraryPicker.delegate = self
         self.libraryPicker.allowsEditing = false
         self.libraryPicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum
         let libraryOption = UIAlertAction(title: "Photo Library", style: UIAlertActionStyle.Default, handler: {(action :UIAlertAction!) -> Void in
             self.presentViewController(self.libraryPicker, animated: true, completion: nil)
             })
-        
-        
         let cancelOption = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: {(action :UIAlertAction!) -> Void in
             println(action.title)
             })
@@ -110,10 +109,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
      func imagePickerController(picker: UIImagePickerController!,
         didFinishPickingMediaWithInfo info: [NSObject : AnyObject]!) {
             let image = info[UIImagePickerControllerOriginalImage] as UIImage
+            println(image.size)
+            //reset zoomscales
+            self.scrollView!.setZoomScale(1.0, animated: false)
+            self.scrollView!.minimumZoomScale = 0.5
+            
             self.imageView.frame.size = image.size
+            self.imageView.contentMode = UIViewContentMode.ScaleAspectFill
             self.scrollView!.contentSize = image.size
             self.imageView.image = image
+            
+            //calculate proper zoom scale for lanscape or portrait
+            let zoomFactor = min(image.size.width, image.size.height)
+            let frameMinSide = min(self.view.frame.size.width, self.view.frame.size.height)
+            self.scrollView!.setZoomScale(frameMinSide / zoomFactor, animated: true)
+            self.scrollView!.minimumZoomScale = frameMinSide / zoomFactor
+
+            //self.imageView.frame = CGRect(x: 0, y: 0, width: self.scrollView!.contentSize.width, height: self.scrollView!.contentSize.height)
+            //self.scrollView!.zoomScale = 0.5
             self.dismissViewControllerAnimated(true, completion: nil)
+            self.scrollView!.contentMode = UIViewContentMode.ScaleAspectFill
+            
     }
     //#pragma mark - UIScrollViewDelegate
     func viewForZoomingInScrollView(scrollView: UIScrollView!) -> UIView! {
