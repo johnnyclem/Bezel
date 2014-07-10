@@ -82,15 +82,6 @@
                                     </connections>
                                 </collectionReusableView>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOG-LX-2Lf">
-                                <rect key="frame" x="213" y="20" width="54" height="30"/>
-                                <state key="normal" title="Camera">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="cameraButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Kc1-lN-Q4D"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIq-b2-1nS">
                                 <rect key="frame" x="20" y="20" width="40" height="30"/>
                                 <state key="normal" title="Share">
@@ -110,6 +101,16 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n9G-sY-ILS">
                                 <rect key="frame" x="0.0" y="58" width="480" height="254"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOG-LX-2Lf">
+                                <rect key="frame" x="210" y="0.0" width="60" height="60"/>
+                                <state key="normal" image="cameraOff">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="cameraOn"/>
+                                <connections>
+                                    <action selector="cameraButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Kc1-lN-Q4D"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -119,12 +120,12 @@
                             <constraint firstAttribute="trailing" secondItem="n9G-sY-ILS" secondAttribute="trailing" id="8wi-tg-K08"/>
                             <constraint firstAttribute="bottom" secondItem="AdJ-Pk-0sF" secondAttribute="bottom" id="BpF-Hh-4Zp"/>
                             <constraint firstAttribute="trailing" secondItem="AdJ-Pk-0sF" secondAttribute="trailing" id="Flx-PG-HB1"/>
-                            <constraint firstItem="FOG-LX-2Lf" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="Ntu-Up-Jbf"/>
+                            <constraint firstItem="FOG-LX-2Lf" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="-20" id="Ntu-Up-Jbf"/>
                             <constraint firstItem="n9G-sY-ILS" firstAttribute="leading" secondItem="j80-xJ-0IA" secondAttribute="leading" id="OWR-rO-wgz"/>
-                            <constraint firstItem="FOG-LX-2Lf" firstAttribute="top" secondItem="s11-Ur-FeX" secondAttribute="top" id="Q1D-DB-Pwx"/>
+                            <constraint firstItem="FOG-LX-2Lf" firstAttribute="top" secondItem="s11-Ur-FeX" secondAttribute="top" constant="-20" id="Q1D-DB-Pwx"/>
                             <constraint firstItem="AdJ-Pk-0sF" firstAttribute="top" secondItem="enJ-Rp-Gs1" secondAttribute="bottom" constant="8" id="aGS-CV-9Al"/>
                             <constraint firstItem="n9G-sY-ILS" firstAttribute="top" secondItem="s11-Ur-FeX" secondAttribute="bottom" constant="8" id="lZW-RD-b6G"/>
-                            <constraint firstItem="FOG-LX-2Lf" firstAttribute="top" secondItem="TIq-b2-1nS" secondAttribute="top" id="qQA-A6-cnh"/>
+                            <constraint firstItem="FOG-LX-2Lf" firstAttribute="top" secondItem="TIq-b2-1nS" secondAttribute="top" constant="-20" id="qQA-A6-cnh"/>
                             <constraint firstAttribute="trailing" secondItem="enJ-Rp-Gs1" secondAttribute="trailing" id="rne-rl-hN2"/>
                             <constraint firstItem="TIq-b2-1nS" firstAttribute="leading" secondItem="j80-xJ-0IA" secondAttribute="leading" constant="20" id="xJG-Z5-uRz"/>
                             <constraint firstAttribute="centerX" secondItem="FOG-LX-2Lf" secondAttribute="centerX" id="xLR-Ce-tHO"/>
@@ -141,4 +142,8 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="cameraOff" width="60" height="60"/>
+        <image name="cameraOn" width="60" height="60"/>
+    </resources>
 </document>

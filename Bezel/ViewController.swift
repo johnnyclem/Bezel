@@ -11,9 +11,9 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIScrollViewDelegate, UICollectionViewDelegate {
     
     var imageView : UIImageView!
-    @IBOutlet strong var scrollView: UIScrollView?
+    @IBOutlet var scrollView: UIScrollView?
     @IBOutlet var collectionView : UICollectionView!
-    @IBOutlet strong var cutoutImageView: UIImageView?
+    @IBOutlet var cutoutImageView: UIImageView?
     var dataSource : BezelCollectionViewDataSource?
     let actionController = UIAlertController(title: "Image Source", message: "Select Your Choice Please", preferredStyle: UIAlertControllerStyle.ActionSheet)
     let cameraPicker = UIImagePickerController()
@@ -105,7 +105,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         self.presentViewController(self.actionController, animated: true, completion: nil)
     }
     
-    //#pragma mark - UIImagePickerControllerDelegate
+    //#Pragma mark - UIImagePickerControllerDelegate
     
      func imagePickerController(picker: UIImagePickerController!,
         didFinishPickingMediaWithInfo info: [NSObject : AnyObject]!) {
