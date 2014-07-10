@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AssetsLibrary
+import AVFoundation
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIScrollViewDelegate, UICollectionViewDelegate {
     
@@ -102,6 +104,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     }
     
     @IBAction func cameraButtonPressed(sender: AnyObject) {
+        
+        var libraryStatus = ALAssetsLibrary.authorizationStatus()
+        var cameraStatus = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
+        println(cameraStatus.toRaw())
+        println(libraryStatus.toRaw())
         self.presentViewController(self.actionController, animated: true, completion: nil)
     }
     
