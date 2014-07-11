@@ -13,7 +13,7 @@ class ColorDataSource: NSObject {
     var colors : Array<UIColor>
     
     init(colors: Array<UIColor>?) {
-        if let newColors = colors as? Array<UIColor> {
+        if let newColors = colors {
             self.colors = newColors
         } else {
             self.colors = [UIColor.blackColor(), UIColor.darkGrayColor(), UIColor.lightGrayColor(), UIColor.whiteColor(), UIColor.redColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.brownColor(), UIColor.yellowColor()]

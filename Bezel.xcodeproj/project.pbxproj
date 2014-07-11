@@ -14,12 +14,17 @@
 		A20B6FE2196DB92D0067347D /* BezelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20B6FE1196DB92D0067347D /* BezelTests.swift */; };
 		A20B6FEC196DB93B0067347D /* PhotoEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20B6FEB196DB93B0067347D /* PhotoEditController.swift */; };
 		A20B6FEE196DB9540067347D /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20B6FED196DB9540067347D /* Shape.swift */; };
+		A3CB06C4200D473A97DF83DC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 161AF068250047B78517F639 /* libPods.a */; };
 		EF2427FA196DCFF600EB8A55 /* bolt_white.png in Resources */ = {isa = PBXBuildFile; fileRef = EF2427F7196DCFF600EB8A55 /* bolt_white.png */; };
 		EF2427FB196DCFF600EB8A55 /* bolt_white.png in Resources */ = {isa = PBXBuildFile; fileRef = EF2427F7196DCFF600EB8A55 /* bolt_white.png */; };
 		EF2427FC196DCFF600EB8A55 /* bolt_black.png in Resources */ = {isa = PBXBuildFile; fileRef = EF2427F8196DCFF600EB8A55 /* bolt_black.png */; };
 		EF2427FD196DCFF600EB8A55 /* bolt_black.png in Resources */ = {isa = PBXBuildFile; fileRef = EF2427F8196DCFF600EB8A55 /* bolt_black.png */; };
 		EF2427FE196DCFF600EB8A55 /* road.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF2427F9196DCFF600EB8A55 /* road.jpg */; };
 		EF2427FF196DCFF600EB8A55 /* road.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF2427F9196DCFF600EB8A55 /* road.jpg */; };
+		EF38970C197061F900F2314E /* anchor.svg in Resources */ = {isa = PBXBuildFile; fileRef = EF38970B197061F900F2314E /* anchor.svg */; };
+		EF38970D197061F900F2314E /* anchor.svg in Resources */ = {isa = PBXBuildFile; fileRef = EF38970B197061F900F2314E /* anchor.svg */; };
+		EF3897101970643D00F2314E /* anchor_black.svg in Resources */ = {isa = PBXBuildFile; fileRef = EF38970F1970643D00F2314E /* anchor_black.svg */; };
+		EF3897111970643D00F2314E /* anchor_black.svg in Resources */ = {isa = PBXBuildFile; fileRef = EF38970F1970643D00F2314E /* anchor_black.svg */; };
 		EF8726BF196DE18600FCD47C /* ColorDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8726BE196DE18600FCD47C /* ColorDataSource.swift */; };
 		EF8726C0196DE18600FCD47C /* ColorDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8726BE196DE18600FCD47C /* ColorDataSource.swift */; };
 		EF8726C2196DE62F00FCD47C /* ShapeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8726C1196DE62F00FCD47C /* ShapeDataSource.swift */; };
@@ -63,6 +68,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		032924E336924443B4042789 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		161AF068250047B78517F639 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A20B6FC9196DB92C0067347D /* Bezel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bezel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A20B6FCD196DB92C0067347D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A20B6FCE196DB92C0067347D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +84,9 @@
 		EF2427F7196DCFF600EB8A55 /* bolt_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bolt_white.png; sourceTree = "<group>"; };
 		EF2427F8196DCFF600EB8A55 /* bolt_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bolt_black.png; sourceTree = "<group>"; };
 		EF2427F9196DCFF600EB8A55 /* road.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = road.jpg; sourceTree = "<group>"; };
+		EF3897061970617E00F2314E /* Bezel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bezel-Bridging-Header.h"; sourceTree = "<group>"; };
+		EF38970B197061F900F2314E /* anchor.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = anchor.svg; sourceTree = "<group>"; };
+		EF38970F1970643D00F2314E /* anchor_black.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = anchor_black.svg; sourceTree = "<group>"; };
 		EF8726BE196DE18600FCD47C /* ColorDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorDataSource.swift; sourceTree = "<group>"; };
 		EF8726C1196DE62F00FCD47C /* ShapeDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapeDataSource.swift; sourceTree = "<group>"; };
 		EF8726C4196DE6EE00FCD47C /* BackgroundDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundDataSource.swift; sourceTree = "<group>"; };
@@ -99,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3CB06C4200D473A97DF83DC /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,12 +123,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		85EEA9CDEBCF43C8AE2A239C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				161AF068250047B78517F639 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A20B6FC0196DB92C0067347D = {
 			isa = PBXGroup;
 			children = (
 				A20B6FCB196DB92C0067347D /* Bezel */,
 				A20B6FDE196DB92D0067347D /* BezelTests */,
 				A20B6FCA196DB92C0067347D /* Products */,
+				032924E336924443B4042789 /* Pods.xcconfig */,
+				85EEA9CDEBCF43C8AE2A239C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,6 +154,7 @@
 		A20B6FCB196DB92C0067347D /* Bezel */ = {
 			isa = PBXGroup;
 			children = (
+				EF38970E197061FC00F2314E /* Resources */,
 				EF8726BD196DE15B00FCD47C /* DataSources */,
 				A20B6FCE196DB92C0067347D /* AppDelegate.swift */,
 				A20B6FD0196DB92C0067347D /* ViewController.swift */,
@@ -160,6 +182,7 @@
 		A20B6FCC196DB92C0067347D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EF3897061970617E00F2314E /* Bezel-Bridging-Header.h */,
 				A20B6FCD196DB92C0067347D /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -182,6 +205,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EF38970E197061FC00F2314E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EF38970B197061F900F2314E /* anchor.svg */,
+				EF38970F1970643D00F2314E /* anchor_black.svg */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		EF8726BD196DE15B00FCD47C /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,9 +234,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A20B6FE5196DB92D0067347D /* Build configuration list for PBXNativeTarget "Bezel" */;
 			buildPhases = (
+				6D3C4C2573924C8C87A46C62 /* Check Pods Manifest.lock */,
 				A20B6FC5196DB92C0067347D /* Sources */,
 				A20B6FC6196DB92C0067347D /* Frameworks */,
 				A20B6FC7196DB92C0067347D /* Resources */,
+				2AE79A68EC43475A91FBC322 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -281,6 +315,7 @@
 				EF8726DA196DF01A00FCD47C /* tree_bg.png in Resources */,
 				EF2427FE196DCFF600EB8A55 /* road.jpg in Resources */,
 				A20B6FD6196DB92C0067347D /* Images.xcassets in Resources */,
+				EF3897101970643D00F2314E /* anchor_black.svg in Resources */,
 				EF8726C8196DE78C00FCD47C /* gold_tree_bg.png in Resources */,
 				EFD369BB196F19250079EC70 /* cross_black.png in Resources */,
 				EF8726E3196DF12100FCD47C /* cross_white.png in Resources */,
@@ -288,6 +323,7 @@
 				EF2427FC196DCFF600EB8A55 /* bolt_black.png in Resources */,
 				EF8726DF196DF12100FCD47C /* anchor_white.png in Resources */,
 				EF2427FA196DCFF600EB8A55 /* bolt_white.png in Resources */,
+				EF38970C197061F900F2314E /* anchor.svg in Resources */,
 				EFD369B7196F19250079EC70 /* anchor_black.png in Resources */,
 				EF8726E1196DF12100FCD47C /* arrow_white.png in Resources */,
 			);
@@ -300,11 +336,13 @@
 				EFD369B8196F19250079EC70 /* anchor_black.png in Resources */,
 				EF8726E0196DF12100FCD47C /* anchor_white.png in Resources */,
 				EFD369BA196F19250079EC70 /* arrow_black.png in Resources */,
+				EF3897111970643D00F2314E /* anchor_black.svg in Resources */,
 				EF8726E4196DF12100FCD47C /* cross_white.png in Resources */,
 				EF2427FD196DCFF600EB8A55 /* bolt_black.png in Resources */,
 				EF8726C9196DE78C00FCD47C /* gold_tree_bg.png in Resources */,
 				EF2427FF196DCFF600EB8A55 /* road.jpg in Resources */,
 				EF2427FB196DCFF600EB8A55 /* bolt_white.png in Resources */,
+				EF38970D197061F900F2314E /* anchor.svg in Resources */,
 				EFD369BC196F19250079EC70 /* cross_black.png in Resources */,
 				EF8726E2196DF12100FCD47C /* arrow_white.png in Resources */,
 				EF8726DB196DF01A00FCD47C /* tree_bg.png in Resources */,
@@ -313,6 +351,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2AE79A68EC43475A91FBC322 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D3C4C2573924C8C87A46C62 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A20B6FC5196DB92C0067347D /* Sources */ = {
@@ -447,23 +518,32 @@
 		};
 		A20B6FE6196DB92D0067347D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 032924E336924443B4042789 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Bezel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Bezel/Bezel-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		A20B6FE7196DB92D0067347D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 032924E336924443B4042789 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Bezel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Bezel/Bezel-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -471,6 +551,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Bezel.app/Bezel";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -483,6 +564,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bezel/BezelTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -491,6 +574,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Bezel.app/Bezel";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -499,6 +583,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bezel/BezelTests-Bridging-Header.h";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;

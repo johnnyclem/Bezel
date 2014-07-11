@@ -30,6 +30,7 @@ class PhotoEditController {
         let background = CIImage(image: originalImage)
         let overlay = CIImage(image: shape.previewImage)
         
+        
         if let compositedImage = overlay.imageByCompositingOverImage(background) {
             return UIImage(CIImage: compositedImage)
         }

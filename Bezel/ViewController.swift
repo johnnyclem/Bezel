@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIScrollViewDelegate, UICollectionViewDelegate {
     
     var imageView : UIImageView!
+    var currentShape : Shape?
     @IBOutlet strong var scrollView: UIScrollView?
     @IBOutlet var collectionView : UICollectionView!
     @IBOutlet strong var cutoutImageView: UIImageView?
@@ -99,6 +100,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         collectionView!.dataSource = dataSource
         //collectionView!.delegate = dataSource
         collectionView!.reloadData()
+        currentShape = dataSource!.shapeDataSource.shapes[0]
     }
     
     @IBAction func cameraButtonPressed(sender: AnyObject) {
@@ -140,9 +142,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     //#pragma mark - UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView!,
         didSelectItemAtIndexPath indexPath: NSIndexPath!) {
-            println(indexPath.row)
-            var shape = self.dataSource!.shapeDataSource.shapes[indexPath.row]
-            self.cutoutImageView!.image = shape.overlayImage
+            
+            var fillColor = currentShape!.fillColor
+            var shape = currentShape!
+            
+            switch (dataSource!.selectedSection) {
+            case 0: // Colors
+                println(indexPath.row)
+                fillColor = dataSource!.colorDataSource.colors[indexPath.row]
+                currentShape = Shape(overlayImage: shape.overlayImage, previewImage: shape.previewImage, color: fillColor, size: CGSize(width: 640, height: 640))
+            case 1: // Shapes
+                shape = self.dataSource!.shapeDataSource.shapes![indexPath.row]
+                currentShape = shape
+            default: // Backgrounds
+                return
+            }
+
+            self.cutoutImageView!.image = currentShape!.overlayImage
     }
     
     
