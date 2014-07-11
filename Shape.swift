@@ -25,11 +25,11 @@ class Shape {
         self.overlayImage = overlayImage
     }
     
-    init(overlayImage : UIImage, previewImage : UIImage, color : UIColor, size : CGSize) {
+    init(color : UIColor, size : CGSize) {
         let anchor = UIImage(SVGNamed: "anchor", targetSize: CGSize(width: 120, height: 120), fillColor: UIColor.whiteColor())
         let anchorOverlay = UIImage(SVGNamed: "anchor_black", targetSize: CGSize(width: 640, height: 640), fillColor: color)
 
-        self.previewImage = previewImage
+        self.previewImage = anchor
         self.overlayImage = anchorOverlay
         self.fillColor = color
         self.overlaySize = size

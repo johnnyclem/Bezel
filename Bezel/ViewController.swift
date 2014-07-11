@@ -16,6 +16,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     @IBOutlet var scrollView: UIScrollView?
     @IBOutlet var collectionView : UICollectionView!
     @IBOutlet var cutoutImageView: UIImageView?
+    var currentShape = Shape(color: UIColor.blackColor(), size: CGSize(width: 640, height: 640))
     var dataSource : BezelCollectionViewDataSource?
     let actionController = UIAlertController(title: "Image Source", message: "Select Your Choice Please", preferredStyle: UIAlertControllerStyle.ActionSheet)
     let cameraPicker = UIImagePickerController()
@@ -199,22 +200,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     func collectionView(collectionView: UICollectionView!,
         didSelectItemAtIndexPath indexPath: NSIndexPath!) {
             
-            var fillColor = currentShape!.fillColor
-            var shape = currentShape!
+            var fillColor = currentShape.fillColor
             
             switch (dataSource!.selectedSection) {
             case 0: // Colors
                 println(indexPath.row)
                 fillColor = dataSource!.colorDataSource.colors[indexPath.row]
-                currentShape = Shape(overlayImage: shape.overlayImage, previewImage: shape.previewImage, color: fillColor, size: CGSize(width: 640, height: 640))
+                currentShape = Shape(color: fillColor, size: CGSize(width: 640, height: 640))
             case 1: // Shapes
-                shape = self.dataSource!.shapeDataSource.shapes![indexPath.row]
-                currentShape = shape
+                currentShape = self.dataSource!.shapeDataSource.shapes![indexPath.row]
             default: // Backgrounds
                 return
             }
 
-            self.cutoutImageView!.image = currentShape!.overlayImage
+            self.cutoutImageView!.image = currentShape.overlayImage
     }
     
     
