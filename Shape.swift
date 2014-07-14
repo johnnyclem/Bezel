@@ -10,30 +10,32 @@ import UIKit
 
 
 class Shape {
-    var previewImage : UIImage
-    var overlayImage : UIImage
+    var previewImage : UIImage?
+    var overlayImage : UIImage?
     var fillColor = UIColor.blackColor()
     var overlaySize = CGSize(width: 640, height: 640)
+    var shapeName : String?
+    var overlayImageName : String!
+    var previewImageName : String!
     
-    init(previewImage : UIImage) {
-        self.previewImage = previewImage
-        self.overlayImage = previewImage
-    }
-    
-    init(overlayImage : UIImage, previewImage : UIImage) {
-        self.previewImage = previewImage
-        self.overlayImage = overlayImage
-    }
-    
-    init(color : UIColor, size : CGSize) {
-        let anchor = UIImage(SVGNamed: "anchor", targetSize: CGSize(width: 120, height: 120), fillColor: UIColor.whiteColor())
-        let anchorOverlay = UIImage(SVGNamed: "anchor_black", targetSize: CGSize(width: 640, height: 640), fillColor: color)
-
-        self.previewImage = anchor
-        self.overlayImage = anchorOverlay
-        self.fillColor = color
+    init(color : UIColor, size : CGSize, info : Dictionary<String, String>) {
         self.overlaySize = size
+        self.fillColor = color
+        if let newShapeName : String = info["shapeName"] {
+            self.shapeName = newShapeName
+        }
+        if let previewImageName : String = info["previewImage"] {
+            self.previewImageName = previewImageName
+            self.previewImage = UIImage(SVGNamed: self.previewImageName, targetSize: self.overlaySize, fillColor: UIColor.whiteColor())
+        }
+        if let overlayImageName : String = info["overlayImage"] {
+            self.overlayImageName = overlayImageName
+            self.overlayImage = UIImage(SVGNamed: self.overlayImageName, targetSize: self.overlaySize, fillColor: self.fillColor)
+        }
     }
     
-
+    func setFillColor(color : UIColor) {
+        self.fillColor = color
+        self.overlayImage = UIImage(SVGNamed: self.overlayImageName, targetSize: self.overlaySize, fillColor: self.fillColor)
+    }
 }

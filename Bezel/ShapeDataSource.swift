@@ -9,34 +9,36 @@
 import UIKit
 
 class ShapeDataSource: NSObject {
-    var shapes : Array<Shape>!
+    var shapes = Array<Shape>()
     
-    init(shapes: Array<Shape>?) {
+    init() {
         super.init()
-        
-        if let newShapes = shapes as? Array<Shape> {
-            self.shapes = newShapes
-        } else {
-            self.shapes = self.loadAllShapes()
-        }
+        shapes = self.loadAllShapes()
     }
     
     func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
-        return self.shapes!.count
+        return self.shapes.count
     }
     
     func loadAllShapes() -> Array<Shape> {
-        let anchor = UIImage(SVGNamed: "anchor", targetSize: CGSize(width: 120, height: 120), fillColor: UIColor.whiteColor())
-        let anchorOverlay = UIImage(SVGNamed: "anchor_black", targetSize: CGSize(width: 640, height: 640), fillColor: UIColor.blackColor())
+        let filePath = NSBundle.mainBundle().pathForResource("Shapes", ofType: "plist")
+        let shapesArray = NSArray(contentsOfFile: filePath)
+        var allShapes = Array<Shape>()
         
-        let shape = Shape(overlayImage : anchorOverlay, previewImage : anchor)
-        return [shape]
+        for info in shapesArray {
+            if let shapeDict = info as? Dictionary<String, String> {
+                let shape = Shape(color: UIColor.blackColor(), size : CGSize(width: 640, height: 640), info : shapeDict)
+                allShapes += shape
+            }
+        }
+        
+        return allShapes
     }
         
     func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ShapeCell", forIndexPath: indexPath) as ImageCollectionViewCell
         
-        let shape = self.shapes![indexPath.row]
+        let shape = self.shapes[indexPath.row]
         
         if !cell.imageView {
             cell.imageView = UIImageView(frame: cell.bounds)

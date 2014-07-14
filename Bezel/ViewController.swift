@@ -14,9 +14,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     
     var imageView : UIImageView!
     @IBOutlet var scrollView: UIScrollView?
-    @IBOutlet var collectionView : UICollectionView!
+    @IBOutlet var collectionView : UICollectionView?
     @IBOutlet var cutoutImageView: UIImageView?
-    var currentShape = Shape(color: UIColor.blackColor(), size: CGSize(width: 640, height: 640))
+    var currentColor = UIColor.blackColor()
+    var currentShape = Shape(color: UIColor.blackColor(), size: CGSize(width: 640, height: 640), info: ["shapeName":"Anchor", "overlayImage":"anchor_black", "previewImage":"anchor"])
+
     var dataSource : BezelCollectionViewDataSource?
     let actionController = UIAlertController(title: "Image Source", message: "Select Your Choice Please", preferredStyle: UIAlertControllerStyle.ActionSheet)
     let cameraPicker = UIImagePickerController()
@@ -26,7 +28,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView.delegate = self
+        self.collectionView!.delegate = self
         self.testCollectionViewDataSource()
         self.setupPickersAndAlertControllers()
         
@@ -148,9 +150,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     func testCollectionViewDataSource() {
         dataSource = BezelCollectionViewDataSource()
         collectionView!.dataSource = dataSource
-        //collectionView!.delegate = dataSource
+//        collectionView!.delegate = dataSource
         collectionView!.reloadData()
-        currentShape = dataSource!.shapeDataSource.shapes[0]
+        if dataSource!.shapeDataSource.shapes.count > 0 {
+            currentShape = dataSource!.shapeDataSource.shapes[0]
+        }
     }
     
     @IBAction func cameraButtonPressed(sender: AnyObject) {
@@ -200,15 +204,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     func collectionView(collectionView: UICollectionView!,
         didSelectItemAtIndexPath indexPath: NSIndexPath!) {
             
-            var fillColor = currentShape.fillColor
-            
             switch (dataSource!.selectedSection) {
             case 0: // Colors
                 println(indexPath.row)
-                fillColor = dataSource!.colorDataSource.colors[indexPath.row]
-                currentShape = Shape(color: fillColor, size: CGSize(width: 640, height: 640))
+                currentColor = dataSource!.colorDataSource.colors[indexPath.row]
+                currentShape.setFillColor(currentColor)
             case 1: // Shapes
-                currentShape = self.dataSource!.shapeDataSource.shapes![indexPath.row]
+                currentShape = self.dataSource!.shapeDataSource.shapes[indexPath.row]
+                currentShape.setFillColor(currentColor)
             default: // Backgrounds
                 return
             }

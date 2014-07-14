@@ -18,7 +18,7 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, UICol
     
     init() {
         colorDataSource = ColorDataSource(colors: nil)
-        shapeDataSource = ShapeDataSource(shapes: nil)
+        shapeDataSource = ShapeDataSource()
         backgroundDataSource = BackgroundDataSource(backgrounds: nil)
         super.init()
     }
