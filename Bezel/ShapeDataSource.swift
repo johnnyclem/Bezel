@@ -27,7 +27,7 @@ class ShapeDataSource: NSObject {
         
         for info in shapesArray {
             if let shapeDict = info as? Dictionary<String, String> {
-                let shape = Shape(color: UIColor.blackColor(), size : CGSize(width: 640, height: 640), info : shapeDict)
+                let shape = Shape(color: UIColor.clearColor(), size : CGSize(width: 640, height: 640), info : shapeDict)
                 allShapes += shape
             }
         }

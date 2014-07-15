@@ -43,6 +43,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         imageView!.image = image
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        dataSource!.didChangeSegment(1)
+    }
+    
     func setupPickersAndAlertControllers(){
         
         //only add the camera option if a camera is on the device
@@ -213,15 +218,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     func collectionView(collectionView: UICollectionView!,
         didSelectItemAtIndexPath indexPath: NSIndexPath!) {
             
-            switch (dataSource!.selectedSection) {
-            case 1: // Shapes
-                currentShape = self.dataSource!.shapeDataSource.shapes[indexPath.row]
-                currentShape.setFillColor(currentColor)
-            default: // Backgrounds
-                return
+            NSOperationQueue().addOperationWithBlock() {
+                switch (self.dataSource!.selectedSection) {
+                case 1: // Shapes
+                    self.currentShape = self.dataSource!.shapeDataSource.shapes[indexPath.row]
+                    self.currentShape.setFillColor(self.currentColor)
+                default: // Backgrounds
+                    self.currentShape.setFillPattern(self.dataSource!.backgroundDataSource.backgrounds[indexPath.row])
+                    return
+                }
+                NSOperationQueue.mainQueue().addOperationWithBlock() {
+                    self.cutoutImageView!.image = self.currentShape.overlayImage
+                }
             }
-
-            self.cutoutImageView!.image = currentShape.overlayImage
     }
     
     

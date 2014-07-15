@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="14A283o" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="14A283o" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
     </dependencies>
@@ -8,41 +8,63 @@
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Bezel" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="j80-xJ-0IA">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AdJ-Pk-0sF">
-                                <rect key="frame" x="0.0" y="320" width="480" height="160"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="VP3-oz-m68"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9Z9-We-Sd0">
-                                    <size key="itemSize" width="65" height="65"/>
-                                    <size key="headerReferenceSize" width="50" height="33"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="c0s-X0-X3o">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="JaH-4f-lOV"/>
+                                    <barButtonItem image="share" id="nq9-7h-vbL"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="yDy-vz-UMO"/>
+                                    <barButtonItem image="camera" id="bvT-b5-l33"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="f3m-vY-7PX"/>
+                                    <barButtonItem image="more" style="plain" id="AVa-DU-z5X"/>
+                                    <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="yrL-Wy-C4w"/>
+                                </items>
+                            </toolbar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="enJ-Rp-Gs1">
+                                <rect key="frame" x="0.0" y="44" width="320" height="320"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.26747486149999999" green="1" blue="0.32945114939999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </scrollView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gold_tree_bg.png" id="n9G-sY-ILS">
+                                <rect key="frame" x="0.0" y="44" width="320" height="320"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                        <color key="value" red="0.57307518189999995" green="1" blue="0.70684804710000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="overlayImage" value="anchor_black.png"/>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="AdJ-Pk-0sF">
+                                <rect key="frame" x="0.0" y="364" width="320" height="204"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="9Z9-We-Sd0">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="320" height="29"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="5" minY="10" maxX="5" maxY="10"/>
+                                    <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ColorCell" id="sdn-Eq-WjH">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="470" height="160"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="165"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <size key="customSize" width="470" height="160"/>
+                                        <size key="customSize" width="310" height="165"/>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShapeCell" id="2JJ-dj-idc" customClass="ImageCollectionViewCell" customModule="Bezel" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -51,18 +73,18 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Header" id="Lfi-RP-l5X" customClass="HeaderCollectionReusableView" customModule="Bezel" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="480" height="33"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BtP-lU-hHf">
-                                            <rect key="frame" x="0.0" y="2" width="480" height="29"/>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="BtP-lU-hHf">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="Colors"/>
                                                 <segment title="Shapes"/>
@@ -73,64 +95,13 @@
                                             </connections>
                                         </segmentedControl>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="BtP-lU-hHf" firstAttribute="leading" secondItem="Lfi-RP-l5X" secondAttribute="leading" id="dyN-HF-LYg"/>
-                                        <constraint firstItem="BtP-lU-hHf" firstAttribute="centerY" secondItem="Lfi-RP-l5X" secondAttribute="centerY" id="j9l-A3-8It"/>
-                                        <constraint firstAttribute="trailing" secondItem="BtP-lU-hHf" secondAttribute="trailing" id="mVg-th-3Jl"/>
-                                    </constraints>
                                     <connections>
                                         <outlet property="segmentedControl" destination="BtP-lU-hHf" id="eXw-Mo-h5t"/>
                                     </connections>
                                 </collectionReusableView>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOG-LX-2Lf">
-                                <rect key="frame" x="210" y="0.0" width="60" height="60"/>
-                                <state key="normal" image="cameraOff">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted" image="cameraOn"/>
-                                <connections>
-                                    <action selector="cameraButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Kc1-lN-Q4D"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s11-Ur-FeX">
-                                <rect key="frame" x="438" y="20" width="22" height="22"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="enJ-Rp-Gs1">
-                                <rect key="frame" x="0.0" y="50" width="480" height="262"/>
-                                <color key="backgroundColor" red="0.26747486149999999" green="1" blue="0.32945114939999998" alpha="1" colorSpace="calibratedRGB"/>
-                            </scrollView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n9G-sY-ILS">
-                                <rect key="frame" x="0.0" y="50" width="480" height="262"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIq-b2-1nS">
-                                <rect key="frame" x="20" y="20" width="40" height="30"/>
-                                <state key="normal" title="Share"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="AdJ-Pk-0sF" firstAttribute="top" secondItem="n9G-sY-ILS" secondAttribute="bottom" constant="8" symbolic="YES" id="0bC-SU-T5T"/>
-                            <constraint firstItem="AdJ-Pk-0sF" firstAttribute="trailing" secondItem="n9G-sY-ILS" secondAttribute="trailing" id="1nj-Fy-Nfc"/>
-                            <constraint firstItem="enJ-Rp-Gs1" firstAttribute="leading" secondItem="j80-xJ-0IA" secondAttribute="leading" id="2vu-T5-4o7"/>
-                            <constraint firstAttribute="trailing" secondItem="s11-Ur-FeX" secondAttribute="trailing" constant="20" id="6fW-lD-5fc"/>
-                            <constraint firstItem="enJ-Rp-Gs1" firstAttribute="top" secondItem="s11-Ur-FeX" secondAttribute="bottom" constant="8" id="7Js-tK-sh0"/>
-                            <constraint firstAttribute="trailing" secondItem="n9G-sY-ILS" secondAttribute="trailing" id="8wi-tg-K08"/>
-                            <constraint firstAttribute="bottom" secondItem="AdJ-Pk-0sF" secondAttribute="bottom" id="EQd-UF-Jux"/>
-                            <constraint firstItem="AdJ-Pk-0sF" firstAttribute="top" secondItem="enJ-Rp-Gs1" secondAttribute="bottom" constant="8" symbolic="YES" id="Ej4-Ae-uWT"/>
-                            <constraint firstItem="FOG-LX-2Lf" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="-20" id="Ntu-Up-Jbf"/>
-                            <constraint firstItem="n9G-sY-ILS" firstAttribute="leading" secondItem="j80-xJ-0IA" secondAttribute="leading" id="OWR-rO-wgz"/>
-                            <constraint firstItem="FOG-LX-2Lf" firstAttribute="top" secondItem="s11-Ur-FeX" secondAttribute="top" constant="-20" id="Q1D-DB-Pwx"/>
-                            <constraint firstItem="AdJ-Pk-0sF" firstAttribute="leading" secondItem="n9G-sY-ILS" secondAttribute="leading" id="fMK-Pg-1cs"/>
-                            <constraint firstItem="n9G-sY-ILS" firstAttribute="top" secondItem="s11-Ur-FeX" secondAttribute="bottom" constant="8" id="lZW-RD-b6G"/>
-                            <constraint firstItem="FOG-LX-2Lf" firstAttribute="top" secondItem="TIq-b2-1nS" secondAttribute="top" constant="-20" id="qQA-A6-cnh"/>
-                            <constraint firstAttribute="trailing" secondItem="enJ-Rp-Gs1" secondAttribute="trailing" id="rne-rl-hN2"/>
-                            <constraint firstItem="TIq-b2-1nS" firstAttribute="leading" secondItem="j80-xJ-0IA" secondAttribute="leading" constant="20" id="xJG-Z5-uRz"/>
-                            <constraint firstAttribute="centerX" secondItem="FOG-LX-2Lf" secondAttribute="centerX" id="xLR-Ce-tHO"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="AdJ-Pk-0sF" id="bzn-0W-KB5"/>
@@ -140,10 +111,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="144" y="228"/>
         </scene>
     </scenes>
     <resources>
-        <image name="cameraOff" width="60" height="60"/>
-        <image name="cameraOn" width="60" height="60"/>
+        <image name="anchor_black.png" width="640" height="640"/>
+        <image name="camera" width="60" height="60"/>
+        <image name="gold_tree_bg.png" width="640" height="640"/>
+        <image name="more" width="60" height="60"/>
+        <image name="share" width="60" height="60"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4">
+            <size key="portraitSize" width="320" height="568"/>
+            <size key="landscapeSize" width="568" height="320"/>
+        </simulatedScreenMetrics>
+    </simulatedMetricsContainer>
 </document>

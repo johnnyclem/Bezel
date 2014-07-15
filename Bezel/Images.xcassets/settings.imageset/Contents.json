@@ -5,12 +5,13 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "settingsOff.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "cameraOff@2x.png"
+      "filename" : "settingsOff@2x.png"
     }
   ],
   "info" : {

@@ -26,7 +26,7 @@ class Shape {
         }
         if let previewImageName : String = info["previewImage"] {
             self.previewImageName = previewImageName
-            self.previewImage = UIImage(SVGNamed: self.previewImageName, targetSize: self.overlaySize, fillColor: UIColor.whiteColor())
+            self.previewImage = UIImage(named: self.previewImageName)
         }
         if let overlayImageName : String = info["overlayImage"] {
             self.overlayImageName = overlayImageName
@@ -36,6 +36,10 @@ class Shape {
     
     func setFillColor(color : UIColor) {
         self.fillColor = color
-        self.overlayImage = UIImage(SVGNamed: self.overlayImageName, targetSize: self.overlaySize, fillColor: self.fillColor)
+        self.overlayImage = UIImage(SVGNamed: self.overlayImageName, targetSize: self.overlaySize, fillColor: self.fillColor, cache: true)
+    }
+    
+    func setFillPattern(pattern : UIImage) {
+        self.overlayImage = UIImage(SVGNamed: self.overlayImageName, targetSize: self.overlaySize, fillImage: pattern, cache: true)
     }
 }
