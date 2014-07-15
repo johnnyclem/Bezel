@@ -16,8 +16,8 @@
 <metadata>
 	<sfw  xmlns="&ns_sfw;">
 		<slices></slices>
-		<sliceSourceBounds  width="39.75" height="55" x="9.5" y="3" bottomLeftOrigin="true"></sliceSourceBounds>
+		<sliceSourceBounds  width="39.752" height="55" y="3" x="9.498" bottomLeftOrigin="true"></sliceSourceBounds>
 	</sfw>
 </metadata>
-<ellipse cx="29.874" cy="30" rx="19.876" ry="27.5"/>
+<ellipse fill="#FFFFFF" cx="29.874" cy="30" rx="19.876" ry="27.5"/>
 </svg>

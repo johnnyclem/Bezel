@@ -11,20 +11,21 @@ import UIKit
 class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, HeaderDelegate {
 
     var selectedSection = 0
-    var colorDataSource : ColorDataSource!
     var shapeDataSource : ShapeDataSource!
     var backgroundDataSource : BackgroundDataSource!
     var collectionView : UICollectionView?
+    var didChangeColorBlock : NKOColorPickerDidChangeColorBlock
+    var colorPicker = NKOColorPickerView()
     
-    init() {
-        colorDataSource = ColorDataSource(colors: nil)
+    init(didChangeColorBlock : NKOColorPickerDidChangeColorBlock) {
         shapeDataSource = ShapeDataSource()
         backgroundDataSource = BackgroundDataSource(backgrounds: nil)
+        self.didChangeColorBlock = didChangeColorBlock
         super.init()
     }
     
     func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, sizeForItemAtIndexPath indexPath: NSIndexPath!) -> CGSize {
-            return CGSize(width: 50, height: 50)
+        return CGSize(width: 50, height: 50)
     }
     
     func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
@@ -36,7 +37,7 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, UICol
         case 1:
             return shapeDataSource.collectionView(collectionView, numberOfItemsInSection: section)
         default:
-            return colorDataSource.collectionView(collectionView, numberOfItemsInSection: section)
+            return 0
         }
     }
 
@@ -44,10 +45,8 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, UICol
         switch (selectedSection) {
         case 2:
             return backgroundDataSource.collectionView(collectionView, cellForItemAtIndexPath: indexPath)
-        case 1:
-            return shapeDataSource.collectionView(collectionView, cellForItemAtIndexPath: indexPath)
         default:
-            return colorDataSource.collectionView(collectionView, cellForItemAtIndexPath: indexPath)
+            return shapeDataSource.collectionView(collectionView, cellForItemAtIndexPath: indexPath)
         }
     }
     
@@ -61,6 +60,15 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, UICol
     
     func didChangeSegment(segment: Int) {
         selectedSection = segment
-        self.collectionView?.reloadData()
+        if selectedSection == 0 {
+            colorPicker = NKOColorPickerView(frame: CGRect(origin: CGPoint(x: 0, y: collectionView!.frame.origin.y + 33), size: CGSize(width: collectionView!.frame.size.width, height: collectionView!.frame.size.height-33.0)))
+            colorPicker.color = UIColor.purpleColor()
+            colorPicker.didChangeColorBlock = self.didChangeColorBlock
+            collectionView!.superview.addSubview(colorPicker)
+            collectionView!.reloadData()
+        } else {
+            colorPicker.removeFromSuperview()
+            self.collectionView?.reloadData()
+        }
     }
 }

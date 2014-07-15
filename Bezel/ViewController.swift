@@ -35,7 +35,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         self.scrollView!.delegate = self
         self.scrollView!.minimumZoomScale = 0.5
         self.scrollView!.maximumZoomScale = 10
-        self.imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.scrollView!.frame.size.width, height: self.scrollView!.frame.size.height))
+        self.imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.scrollView!.frame.size.width, height: self.scrollView!.frame.size.width))
         self.scrollView!.addSubview(self.imageView)
         self.imageView.contentMode = UIViewContentMode.ScaleAspectFill
         
@@ -148,13 +148,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     }
     
     func testCollectionViewDataSource() {
-        dataSource = BezelCollectionViewDataSource()
+        dataSource = BezelCollectionViewDataSource() { (color : UIColor!) in
+            self.updateShapeColor(color)
+        }
         collectionView!.dataSource = dataSource
 //        collectionView!.delegate = dataSource
         collectionView!.reloadData()
         if dataSource!.shapeDataSource.shapes.count > 0 {
             currentShape = dataSource!.shapeDataSource.shapes[0]
         }
+    }
+    
+    func updateShapeColor (color : UIColor) {
+        println("changed color to: \(color)")
+        self.currentColor = color
+        self.currentShape.setFillColor(self.currentColor)
+        self.cutoutImageView!.image = currentShape.overlayImage
     }
     
     @IBAction func cameraButtonPressed(sender: AnyObject) {
@@ -205,10 +214,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         didSelectItemAtIndexPath indexPath: NSIndexPath!) {
             
             switch (dataSource!.selectedSection) {
-            case 0: // Colors
-                println(indexPath.row)
-                currentColor = dataSource!.colorDataSource.colors[indexPath.row]
-                currentShape.setFillColor(currentColor)
             case 1: // Shapes
                 currentShape = self.dataSource!.shapeDataSource.shapes[indexPath.row]
                 currentShape.setFillColor(currentColor)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="14A283o" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
     </dependencies>
@@ -16,10 +16,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AdJ-Pk-0sF">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AdJ-Pk-0sF">
                                 <rect key="frame" x="0.0" y="320" width="480" height="160"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="lru-Lz-Vbq"/>
+                                    <constraint firstAttribute="height" constant="160" id="VP3-oz-m68"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9Z9-We-Sd0">
                                     <size key="itemSize" width="65" height="65"/>
@@ -32,10 +32,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="470" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <size key="customSize" width="470" height="160"/>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ShapeCell" id="2JJ-dj-idc" customClass="ImageCollectionViewCell" customModule="Bezel" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -112,22 +113,23 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="AdJ-Pk-0sF" firstAttribute="top" secondItem="n9G-sY-ILS" secondAttribute="bottom" constant="8" symbolic="YES" id="0bC-SU-T5T"/>
+                            <constraint firstItem="AdJ-Pk-0sF" firstAttribute="trailing" secondItem="n9G-sY-ILS" secondAttribute="trailing" id="1nj-Fy-Nfc"/>
                             <constraint firstItem="enJ-Rp-Gs1" firstAttribute="leading" secondItem="j80-xJ-0IA" secondAttribute="leading" id="2vu-T5-4o7"/>
                             <constraint firstAttribute="trailing" secondItem="s11-Ur-FeX" secondAttribute="trailing" constant="20" id="6fW-lD-5fc"/>
                             <constraint firstItem="enJ-Rp-Gs1" firstAttribute="top" secondItem="s11-Ur-FeX" secondAttribute="bottom" constant="8" id="7Js-tK-sh0"/>
                             <constraint firstAttribute="trailing" secondItem="n9G-sY-ILS" secondAttribute="trailing" id="8wi-tg-K08"/>
-                            <constraint firstAttribute="bottom" secondItem="AdJ-Pk-0sF" secondAttribute="bottom" id="BpF-Hh-4Zp"/>
-                            <constraint firstAttribute="trailing" secondItem="AdJ-Pk-0sF" secondAttribute="trailing" id="Flx-PG-HB1"/>
+                            <constraint firstAttribute="bottom" secondItem="AdJ-Pk-0sF" secondAttribute="bottom" id="EQd-UF-Jux"/>
+                            <constraint firstItem="AdJ-Pk-0sF" firstAttribute="top" secondItem="enJ-Rp-Gs1" secondAttribute="bottom" constant="8" symbolic="YES" id="Ej4-Ae-uWT"/>
                             <constraint firstItem="FOG-LX-2Lf" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="-20" id="Ntu-Up-Jbf"/>
                             <constraint firstItem="n9G-sY-ILS" firstAttribute="leading" secondItem="j80-xJ-0IA" secondAttribute="leading" id="OWR-rO-wgz"/>
                             <constraint firstItem="FOG-LX-2Lf" firstAttribute="top" secondItem="s11-Ur-FeX" secondAttribute="top" constant="-20" id="Q1D-DB-Pwx"/>
-                            <constraint firstItem="AdJ-Pk-0sF" firstAttribute="top" secondItem="enJ-Rp-Gs1" secondAttribute="bottom" constant="8" id="aGS-CV-9Al"/>
+                            <constraint firstItem="AdJ-Pk-0sF" firstAttribute="leading" secondItem="n9G-sY-ILS" secondAttribute="leading" id="fMK-Pg-1cs"/>
                             <constraint firstItem="n9G-sY-ILS" firstAttribute="top" secondItem="s11-Ur-FeX" secondAttribute="bottom" constant="8" id="lZW-RD-b6G"/>
                             <constraint firstItem="FOG-LX-2Lf" firstAttribute="top" secondItem="TIq-b2-1nS" secondAttribute="top" constant="-20" id="qQA-A6-cnh"/>
                             <constraint firstAttribute="trailing" secondItem="enJ-Rp-Gs1" secondAttribute="trailing" id="rne-rl-hN2"/>
                             <constraint firstItem="TIq-b2-1nS" firstAttribute="leading" secondItem="j80-xJ-0IA" secondAttribute="leading" constant="20" id="xJG-Z5-uRz"/>
                             <constraint firstAttribute="centerX" secondItem="FOG-LX-2Lf" secondAttribute="centerX" id="xLR-Ce-tHO"/>
-                            <constraint firstItem="AdJ-Pk-0sF" firstAttribute="top" secondItem="n9G-sY-ILS" secondAttribute="bottom" constant="8" id="znO-lM-Q6O"/>
                         </constraints>
                     </view>
                     <connections>

@@ -16,8 +16,8 @@
 <metadata>
 	<sfw  xmlns="&ns_sfw;">
 		<slices></slices>
-		<sliceSourceBounds  width="50" height="57.732" x="4.5" y="1.768" bottomLeftOrigin="true"></sliceSourceBounds>
+		<sliceSourceBounds  width="50" height="57.732" y="1.768" x="4.5" bottomLeftOrigin="true"></sliceSourceBounds>
 	</sfw>
 </metadata>
-<polygon points="5,15.433 29.999,1 55,15.433 55,44.301 29.999,58.732 5,44.301 "/>
+<polygon fill="#FFFFFF" points="5,15.433 29.999,1 55,15.433 55,44.301 29.999,58.732 5,44.301 "/>
 </svg>

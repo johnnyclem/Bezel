@@ -1,12 +1,15 @@
 PODS:
+  - NKOColorPickerView (0.2)
   - RaptureXML (1.0.1)
   - UIImage+SVG (0.1):
     - RaptureXML (~> 1.0.1)
 
 DEPENDENCIES:
+  - NKOColorPickerView (~> 0.2)
   - UIImage+SVG (~> 0.1)
 
 SPEC CHECKSUMS:
+  NKOColorPickerView: b4d32e1eedfcaeaec890f8301081ee030d49cffd
   RaptureXML: b9b0aca9c68c684c189af73dd5e8f8fdeec74600
   UIImage+SVG: cd2c1069ca2c6ee2b5eceb2fe983821ef62b9106
 

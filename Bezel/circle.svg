@@ -16,8 +16,8 @@
 <metadata>
 	<sfw  xmlns="&ns_sfw;">
 		<slices></slices>
-		<sliceSourceBounds  width="50" height="50.001" x="4.5" y="5.499" bottomLeftOrigin="true"></sliceSourceBounds>
+		<sliceSourceBounds  width="50" height="50" y="5.5" x="4.5" bottomLeftOrigin="true"></sliceSourceBounds>
 	</sfw>
 </metadata>
-<circle cx="30" cy="30" r="25"/>
+<circle fill="#FFFFFF" cx="30" cy="30" r="25"/>
 </svg>
