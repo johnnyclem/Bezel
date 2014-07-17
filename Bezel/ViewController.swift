@@ -13,9 +13,11 @@ import AVFoundation
 class ViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIScrollViewDelegate, UICollectionViewDelegate {
     
     var imageView : UIImageView!
+    let imagePreviewQueue = NSOperationQueue()
     @IBOutlet var scrollView: UIScrollView?
     @IBOutlet var collectionView : UICollectionView?
     @IBOutlet var cutoutImageView: UIImageView?
+    
     var currentColor = UIColor.blackColor()
     var currentShape = Shape(color: UIColor.blackColor(), size: CGSize(width: 640, height: 640), info: ["shapeName":"Anchor", "overlayImage":"anchor_black", "previewImage":"anchor"])
 
@@ -157,7 +159,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
             self.updateShapeColor(color)
         }
         collectionView!.dataSource = dataSource
-//        collectionView!.delegate = dataSource
         collectionView!.reloadData()
         if dataSource!.shapeDataSource.shapes.count > 0 {
             currentShape = dataSource!.shapeDataSource.shapes[0]
@@ -218,7 +219,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     func collectionView(collectionView: UICollectionView!,
         didSelectItemAtIndexPath indexPath: NSIndexPath!) {
             
-            NSOperationQueue().addOperationWithBlock() {
+            imagePreviewQueue.addOperationWithBlock() {
                 switch (self.dataSource!.selectedSection) {
                 case 1: // Shapes
                     self.currentShape = self.dataSource!.shapeDataSource.shapes[indexPath.row]

@@ -36,10 +36,10 @@ class Shape {
     
     func setFillColor(color : UIColor) {
         self.fillColor = color
-        self.overlayImage = UIImage(SVGNamed: self.overlayImageName, targetSize: self.overlaySize, fillColor: self.fillColor, cache: true)
+        self.overlayImage = UIImage(SVGNamed: self.overlayImageName, targetSize: self.overlaySize, fillColor: self.fillColor, cache: false)
     }
     
     func setFillPattern(pattern : UIImage) {
-        self.overlayImage = UIImage(SVGNamed: self.overlayImageName, targetSize: self.overlaySize, fillImage: pattern, cache: true)
+        self.overlayImage = UIImage(SVGNamed: self.overlayImageName, targetSize: self.overlaySize, fillImage: pattern, cache: false)
     }
 }
