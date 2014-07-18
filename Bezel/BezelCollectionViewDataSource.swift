@@ -8,24 +8,21 @@
 
 import UIKit
 
-class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, HeaderDelegate {
+class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, HeaderDelegate {
 
     var selectedSection = 0
-    var shapeDataSource : ShapeDataSource!
+    var shapes = Array<Shape>()
     var backgroundDataSource : BackgroundDataSource!
     var collectionView : UICollectionView?
     var didChangeColorBlock : NKOColorPickerDidChangeColorBlock
     var colorPicker = NKOColorPickerView()
+    var currentColor = UIColor.lightGrayColor()
     
     init(didChangeColorBlock : NKOColorPickerDidChangeColorBlock) {
-        shapeDataSource = ShapeDataSource()
         backgroundDataSource = BackgroundDataSource(backgrounds: nil)
         self.didChangeColorBlock = didChangeColorBlock
         super.init()
-    }
-    
-    func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, sizeForItemAtIndexPath indexPath: NSIndexPath!) -> CGSize {
-        return CGSize(width: 50, height: 50)
+        self.shapes = self.loadAllShapes()
     }
     
     func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
@@ -35,9 +32,9 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, UICol
         case 2:
             return backgroundDataSource.collectionView(collectionView, numberOfItemsInSection: section)
         case 1:
-            return shapeDataSource.collectionView(collectionView, numberOfItemsInSection: section)
-        default:
             return 0
+        default:
+            return shapes.count
         }
     }
 
@@ -46,7 +43,17 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, UICol
         case 2:
             return backgroundDataSource.collectionView(collectionView, cellForItemAtIndexPath: indexPath)
         default:
-            return shapeDataSource.collectionView(collectionView, cellForItemAtIndexPath: indexPath)
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ShapeCell", forIndexPath: indexPath) as ImageCollectionViewCell
+            
+            let shape = self.shapes[indexPath.row]
+            
+            if !cell.imageView {
+                cell.imageView = UIImageView(frame: cell.bounds)
+                cell.addSubview(cell.imageView)
+            }
+            
+            cell.imageView!.image = shape.previewImage
+            return cell
         }
     }
     
@@ -60,9 +67,9 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, UICol
     
     func didChangeSegment(segment: Int) {
         selectedSection = segment
-        if selectedSection == 0 {
+        if selectedSection == 1 {
             colorPicker = NKOColorPickerView(frame: CGRect(origin: CGPoint(x: 0, y: collectionView!.frame.origin.y + 33), size: CGSize(width: collectionView!.frame.size.width, height: collectionView!.frame.size.height-33.0)))
-            colorPicker.color = UIColor.purpleColor()
+            colorPicker.color = self.currentColor
             colorPicker.didChangeColorBlock = self.didChangeColorBlock
             collectionView!.superview.addSubview(colorPicker)
             collectionView!.reloadData()
@@ -71,4 +78,22 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, UICol
             self.collectionView?.reloadData()
         }
     }
+    
+    // Shapes Data Source
+    func loadAllShapes() -> Array<Shape> {
+        let filePath = NSBundle.mainBundle().pathForResource("Shapes", ofType: "plist")
+        let shapesArray = NSArray(contentsOfFile: filePath)
+        var allShapes = Array<Shape>()
+        
+        for info in shapesArray {
+            if let shapeDict = info as? Dictionary<String, String> {
+                let shape = Shape(color: UIColor.clearColor(), size : CGSize(width: 640, height: 640), info : shapeDict)
+                allShapes += shape
+            }
+        }
+        
+        return allShapes
+    }
+
+    
 }

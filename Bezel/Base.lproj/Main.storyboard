@@ -36,7 +36,7 @@
                                 <rect key="frame" x="0.0" y="44" width="320" height="320"/>
                                 <color key="backgroundColor" red="0.26747486149999999" green="1" blue="0.32945114939999998" alpha="1" colorSpace="calibratedRGB"/>
                             </scrollView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gold_tree_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="n9G-sY-ILS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n9G-sY-ILS">
                                 <rect key="frame" x="0.0" y="44" width="320" height="320"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
@@ -90,8 +90,8 @@
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BtP-lU-hHf">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="29"/>
                                             <segments>
-                                                <segment title="Colors"/>
                                                 <segment title="Shapes"/>
+                                                <segment title="Colors"/>
                                                 <segment title="Backgrounds"/>
                                             </segments>
                                             <connections>
@@ -121,7 +121,6 @@
     <resources>
         <image name="anchor_black.png" width="640" height="640"/>
         <image name="camera" width="60" height="44"/>
-        <image name="gold_tree_bg.png" width="640" height="640"/>
         <image name="more" width="60" height="44"/>
         <image name="share" width="60" height="44"/>
     </resources>

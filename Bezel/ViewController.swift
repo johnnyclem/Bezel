@@ -18,7 +18,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     @IBOutlet var collectionView : UICollectionView?
     @IBOutlet var cutoutImageView: UIImageView?
     
-    var currentColor = UIColor.blackColor()
     var currentShape = Shape(color: UIColor.blackColor(), size: CGSize(width: 640, height: 640), info: ["shapeName":"Anchor", "overlayImage":"anchor_black", "previewImage":"anchor"])
 
     var dataSource : BezelCollectionViewDataSource?
@@ -43,11 +42,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         
         var image = UIImage(named: "road.jpg")
         imageView!.image = image
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        dataSource!.didChangeSegment(1)
     }
     
     func setupPickersAndAlertControllers(){
@@ -99,7 +93,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
                 self.presentViewController(self.libraryAlertView, animated: true, completion: {() -> Void in
                     })
             case .Authorized:
-                self.presentViewController(self.libraryAlertView, animated: true, completion: nil)
+                self.presentViewController(self.libraryPicker, animated: true, completion: nil)
+                return
             case .Denied:
                 self.libraryAlertView.message = "You previously denied this app permission to use your camera, go to your privacy settings to fix this"
                 self.presentViewController(self.libraryAlertView, animated: true, completion: {() -> Void in
@@ -125,50 +120,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    func testImageViewOverlay() {
-        //        let overlay = UIImage(named: "bolt_black.png")
-        //        let overlayView = UIImageView(frame: imageView!.frame)
-        //        overlayView.image = overlay
-        //        imageView!.addSubview(overlayView)
-        
-        let composition = self.overlayImageWithShape(nil, image: imageView!.image)
-        imageView!.image = UIImage(CIImage: composition)
-    }
-    
-    func overlayBoltByCheating() {
-        let overlayImage = UIImage(named: "bolt_black.png")
-        let overlay = UIImageView(frame: imageView!.frame)
-        overlay.contentMode = UIViewContentMode.ScaleAspectFit
-        overlay.image = overlayImage
-        self.view.addSubview(overlay)
-    }
-    
-    func overlayImageWithShape(shape : Shape?, image: UIImage) -> CIImage {
-        let context = CIContext(options: nil)
-        
-        let background = CIImage(image: image)
-        let overlayImage = UIImage(named: "bolt_black.png")
-        let overlay = CIImage(image: overlayImage)
 
-        return overlay.imageByCompositingOverImage(background)
-    }
-    
     func testCollectionViewDataSource() {
         dataSource = BezelCollectionViewDataSource() { (color : UIColor!) in
             self.updateShapeColor(color)
         }
         collectionView!.dataSource = dataSource
         collectionView!.reloadData()
-        if dataSource!.shapeDataSource.shapes.count > 0 {
-            currentShape = dataSource!.shapeDataSource.shapes[0]
+        if dataSource!.shapes.count > 0 {
+            currentShape = dataSource!.shapes[0]
         }
     }
     
     func updateShapeColor (color : UIColor) {
         println("changed color to: \(color)")
-        self.currentColor = color
-        self.currentShape.setFillColor(self.currentColor)
+        self.dataSource!.currentColor = color
+        self.currentShape.setFillColor(self.dataSource!.currentColor)
         self.cutoutImageView!.image = currentShape.overlayImage
     }
     
@@ -221,9 +188,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
             
             imagePreviewQueue.addOperationWithBlock() {
                 switch (self.dataSource!.selectedSection) {
-                case 1: // Shapes
-                    self.currentShape = self.dataSource!.shapeDataSource.shapes[indexPath.row]
-                    self.currentShape.setFillColor(self.currentColor)
+                case 0: // Shapes
+                    self.currentShape = self.dataSource!.shapes[indexPath.row]
+                    self.currentShape.setFillColor(self.dataSource!.currentColor)
                 default: // Backgrounds
                     self.currentShape.setFillPattern(self.dataSource!.backgroundDataSource.backgrounds[indexPath.row])
                     return
