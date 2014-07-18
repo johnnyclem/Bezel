@@ -192,7 +192,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
                     self.currentShape = self.dataSource!.shapes[indexPath.row]
                     self.currentShape.setFillColor(self.dataSource!.currentColor)
                 default: // Backgrounds
-                    self.currentShape.setFillPattern(self.dataSource!.backgroundDataSource.backgrounds[indexPath.row])
+                    self.currentShape.setFillPattern(self.dataSource!.backgrounds[indexPath.row])
                     return
                 }
                 NSOperationQueue.mainQueue().addOperationWithBlock() {

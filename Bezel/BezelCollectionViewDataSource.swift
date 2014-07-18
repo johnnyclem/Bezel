@@ -12,17 +12,17 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
 
     var selectedSection = 0
     var shapes = Array<Shape>()
-    var backgroundDataSource : BackgroundDataSource!
+    var backgrounds = Array<UIImage>()
     var collectionView : UICollectionView?
     var didChangeColorBlock : NKOColorPickerDidChangeColorBlock
     var colorPicker = NKOColorPickerView()
     var currentColor = UIColor.lightGrayColor()
     
     init(didChangeColorBlock : NKOColorPickerDidChangeColorBlock) {
-        backgroundDataSource = BackgroundDataSource(backgrounds: nil)
         self.didChangeColorBlock = didChangeColorBlock
         super.init()
         self.shapes = self.loadAllShapes()
+        self.backgrounds = [UIImage(named: "tree_bg.png"), UIImage(named: "gold_tree_bg.png"), UIImage(named: "candy_bg.png")]
     }
     
     func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
@@ -30,7 +30,7 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
         
         switch (selectedSection) {
         case 2:
-            return backgroundDataSource.collectionView(collectionView, numberOfItemsInSection: section)
+            return backgrounds.count
         case 1:
             return 0
         default:
@@ -41,7 +41,16 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
     func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {
         switch (selectedSection) {
         case 2:
-            return backgroundDataSource.collectionView(collectionView, cellForItemAtIndexPath: indexPath)
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("BackgroundCell", forIndexPath: indexPath) as ImageCollectionViewCell
+            
+            if !cell.imageView {
+                cell.imageView = UIImageView(frame: cell.bounds)
+                cell.addSubview(cell.imageView)
+            }
+            
+            cell.imageView!.image = self.backgrounds[indexPath.row]
+            
+            return cell
         default:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ShapeCell", forIndexPath: indexPath) as ImageCollectionViewCell
             

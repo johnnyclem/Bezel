@@ -19,8 +19,6 @@
 		EF2427FF196DCFF600EB8A55 /* road.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF2427F9196DCFF600EB8A55 /* road.jpg */; };
 		EF3897101970643D00F2314E /* anchor_black.svg in Resources */ = {isa = PBXBuildFile; fileRef = EF38970F1970643D00F2314E /* anchor_black.svg */; };
 		EF3897111970643D00F2314E /* anchor_black.svg in Resources */ = {isa = PBXBuildFile; fileRef = EF38970F1970643D00F2314E /* anchor_black.svg */; };
-		EF8726C5196DE6EE00FCD47C /* BackgroundDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8726C4196DE6EE00FCD47C /* BackgroundDataSource.swift */; };
-		EF8726C6196DE6EE00FCD47C /* BackgroundDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8726C4196DE6EE00FCD47C /* BackgroundDataSource.swift */; };
 		EF8726C8196DE78C00FCD47C /* gold_tree_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = EF8726C7196DE78C00FCD47C /* gold_tree_bg.png */; };
 		EF8726C9196DE78C00FCD47C /* gold_tree_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = EF8726C7196DE78C00FCD47C /* gold_tree_bg.png */; };
 		EF8726CB196DE95400FCD47C /* BezelCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8726CA196DE95400FCD47C /* BezelCollectionViewDataSource.swift */; };
@@ -106,7 +104,6 @@
 		EF3897061970617E00F2314E /* Bezel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bezel-Bridging-Header.h"; sourceTree = "<group>"; };
 		EF38970F1970643D00F2314E /* anchor_black.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = anchor_black.svg; sourceTree = "<group>"; };
 		EF6F240D19759E2900E1CB41 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
-		EF8726C4196DE6EE00FCD47C /* BackgroundDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundDataSource.swift; sourceTree = "<group>"; };
 		EF8726C7196DE78C00FCD47C /* gold_tree_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gold_tree_bg.png; sourceTree = "<group>"; };
 		EF8726CA196DE95400FCD47C /* BezelCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezelCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		EF8726CD196DE99000FCD47C /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -260,7 +257,6 @@
 		EF8726BD196DE15B00FCD47C /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
-				EF8726C4196DE6EE00FCD47C /* BackgroundDataSource.swift */,
 				EF8726CA196DE95400FCD47C /* BezelCollectionViewDataSource.swift */,
 				EF8726CD196DE99000FCD47C /* HeaderCollectionReusableView.swift */,
 				EF8726E5196DF2EF00FCD47C /* ImageCollectionViewCell.swift */,
@@ -447,7 +443,6 @@
 				EF8726CE196DE99000FCD47C /* HeaderCollectionReusableView.swift in Sources */,
 				A20B6FD1196DB92C0067347D /* ViewController.swift in Sources */,
 				EF8726CB196DE95400FCD47C /* BezelCollectionViewDataSource.swift in Sources */,
-				EF8726C5196DE6EE00FCD47C /* BackgroundDataSource.swift in Sources */,
 				EF8726E6196DF2EF00FCD47C /* ImageCollectionViewCell.swift in Sources */,
 				A20B6FCF196DB92C0067347D /* AppDelegate.swift in Sources */,
 				A20B6FEC196DB93B0067347D /* PhotoEditController.swift in Sources */,
@@ -459,7 +454,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF8726C6196DE6EE00FCD47C /* BackgroundDataSource.swift in Sources */,
 				A20B6FE2196DB92D0067347D /* BezelTests.swift in Sources */,
 				EF8726E7196DF2EF00FCD47C /* ImageCollectionViewCell.swift in Sources */,
 				EF8726CC196DE95400FCD47C /* BezelCollectionViewDataSource.swift in Sources */,
