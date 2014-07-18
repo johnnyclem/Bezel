@@ -29,6 +29,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePreviewQueue.maxConcurrentOperationCount = 1
         self.collectionView!.delegate = self
         self.testCollectionViewDataSource()
         self.setupPickersAndAlertControllers()

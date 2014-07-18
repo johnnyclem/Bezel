@@ -4,3 +4,4 @@
 
 #import <UIImage+SVG/UIImage+SVG.h>
 #import <NKOColorPickerView/NKOColorPickerView.h>
+#import <UIImage+SVG/PocketSVG.h>

@@ -19,6 +19,7 @@
 		EF2427FF196DCFF600EB8A55 /* road.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF2427F9196DCFF600EB8A55 /* road.jpg */; };
 		EF3897101970643D00F2314E /* anchor_black.svg in Resources */ = {isa = PBXBuildFile; fileRef = EF38970F1970643D00F2314E /* anchor_black.svg */; };
 		EF3897111970643D00F2314E /* anchor_black.svg in Resources */ = {isa = PBXBuildFile; fileRef = EF38970F1970643D00F2314E /* anchor_black.svg */; };
+		EF60F3D019799CC30058DBFD /* BezelClassExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60F3CF19799CC30058DBFD /* BezelClassExtensions.swift */; };
 		EF8726C8196DE78C00FCD47C /* gold_tree_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = EF8726C7196DE78C00FCD47C /* gold_tree_bg.png */; };
 		EF8726C9196DE78C00FCD47C /* gold_tree_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = EF8726C7196DE78C00FCD47C /* gold_tree_bg.png */; };
 		EF8726CB196DE95400FCD47C /* BezelCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8726CA196DE95400FCD47C /* BezelCollectionViewDataSource.swift */; };
@@ -103,6 +104,7 @@
 		EF2427F9196DCFF600EB8A55 /* road.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = road.jpg; sourceTree = "<group>"; };
 		EF3897061970617E00F2314E /* Bezel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bezel-Bridging-Header.h"; sourceTree = "<group>"; };
 		EF38970F1970643D00F2314E /* anchor_black.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = anchor_black.svg; sourceTree = "<group>"; };
+		EF60F3CF19799CC30058DBFD /* BezelClassExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezelClassExtensions.swift; sourceTree = "<group>"; };
 		EF6F240D19759E2900E1CB41 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		EF8726C7196DE78C00FCD47C /* gold_tree_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gold_tree_bg.png; sourceTree = "<group>"; };
 		EF8726CA196DE95400FCD47C /* BezelCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezelCollectionViewDataSource.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			children = (
 				EF3897061970617E00F2314E /* Bezel-Bridging-Header.h */,
 				A20B6FCD196DB92C0067347D /* Info.plist */,
+				EF60F3CF19799CC30058DBFD /* BezelClassExtensions.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				EF8726CB196DE95400FCD47C /* BezelCollectionViewDataSource.swift in Sources */,
 				EF8726E6196DF2EF00FCD47C /* ImageCollectionViewCell.swift in Sources */,
 				A20B6FCF196DB92C0067347D /* AppDelegate.swift in Sources */,
+				EF60F3D019799CC30058DBFD /* BezelClassExtensions.swift in Sources */,
 				A20B6FEC196DB93B0067347D /* PhotoEditController.swift in Sources */,
 				A20B6FEE196DB9540067347D /* Shape.swift in Sources */,
 			);

@@ -21,17 +21,23 @@ class Shape {
     init(color : UIColor, size : CGSize, info : Dictionary<String, String>) {
         self.overlaySize = size
         self.fillColor = color
+        let previewSize = CGSize(width: 120, height: 120)
+        
         if let newShapeName : String = info["shapeName"] {
             self.shapeName = newShapeName
         }
         if let previewImageName : String = info["previewImage"] {
             self.previewImageName = previewImageName
-            self.previewImage = UIImage(named: self.previewImageName)
         }
         if let overlayImageName : String = info["overlayImage"] {
             self.overlayImageName = overlayImageName
             self.overlayImage = UIImage(SVGNamed: self.overlayImageName, targetSize: self.overlaySize, fillColor: self.fillColor)
+            self.previewImage = UIImage(SVGNamed: self.overlayImageName, targetSize: previewSize, fillColor: self.fillColor)
         }
+    }
+    
+    func updatePreviewColor(color : UIColor ) {
+        self.previewImage = UIImage(SVGNamed: self.overlayImageName, targetSize: CGSize(width: 120, height: 120), fillColor: color, cache: false)
     }
     
     func setFillColor(color : UIColor) {
@@ -40,6 +46,6 @@ class Shape {
     }
     
     func setFillPattern(pattern : UIImage) {
-        self.overlayImage = UIImage(SVGNamed: self.overlayImageName, targetSize: self.overlaySize, fillImage: pattern, cache: false)
+        self.overlayImage = UIImage.imageWithBackgroundFromSVGNamed(self.overlayImageName, targetSize: self.overlaySize, fillImage: pattern)
     }
 }

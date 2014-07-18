@@ -21,7 +21,7 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
     init(didChangeColorBlock : NKOColorPickerDidChangeColorBlock) {
         self.didChangeColorBlock = didChangeColorBlock
         super.init()
-        self.shapes = self.loadAllShapes()
+        self.shapes = self.loadAllShapes(UIColor.whiteColor())
         self.backgrounds = [UIImage(named: "tree_bg.png"), UIImage(named: "gold_tree_bg.png"), UIImage(named: "candy_bg.png")]
     }
     
@@ -84,19 +84,23 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
             collectionView!.reloadData()
         } else {
             colorPicker.removeFromSuperview()
-            self.collectionView?.reloadData()
+            for shape in self.shapes {
+                shape.updatePreviewColor(self.currentColor)
+            }
+            self.shapes = self.loadAllShapes(self.currentColor)
+            self.collectionView!.reloadData()
         }
     }
     
     // Shapes Data Source
-    func loadAllShapes() -> Array<Shape> {
+    func loadAllShapes(color : UIColor) -> Array<Shape> {
         let filePath = NSBundle.mainBundle().pathForResource("Shapes", ofType: "plist")
         let shapesArray = NSArray(contentsOfFile: filePath)
         var allShapes = Array<Shape>()
         
         for info in shapesArray {
             if let shapeDict = info as? Dictionary<String, String> {
-                let shape = Shape(color: UIColor.clearColor(), size : CGSize(width: 640, height: 640), info : shapeDict)
+                let shape = Shape(color: color, size : CGSize(width: 640, height: 640), info : shapeDict)
                 allShapes += shape
             }
         }
