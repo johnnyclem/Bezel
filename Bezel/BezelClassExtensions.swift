@@ -11,7 +11,7 @@ import UIKit
 extension UIImage {
     
     class func imageWithBackgroundFromSVGNamed(name : String, targetSize : CGSize, fillImage : UIImage) -> UIImage {
-        let svg = PocketSVG(fromSVGFilename: name, fileExtension: "svg")
+        let svg = PocketSVG(fromSVGFile: name)
         let boundingBoxAspectRatio = svg.width / svg.height
         let targetAspectRatio = targetSize.width / targetSize.height
         var scaleFactor = CGFloat(1.0)
