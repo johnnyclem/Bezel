@@ -151,6 +151,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
 
         self.presentViewController(self.actionController, animated: true, completion: nil)
     }
+    @IBAction func shreButtonPressed(sender: AnyObject) {
+        
+       let activitiesController = UIActivityViewController(activityItems: [self.imageView.image], applicationActivities: nil)
+        self.presentViewController(activitiesController, animated: true, completion: nil)
+    }
     
     //#Pragma mark - UIImagePickerControllerDelegate
     
