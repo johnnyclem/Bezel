@@ -1,19 +1,16 @@
 PODS:
   - NKOColorPickerView (0.2)
   - RaptureXML (1.0.1)
-  - TGDrawSvgPathView (1.0.2)
   - UIImage+SVG (0.1):
     - RaptureXML (~> 1.0.1)
 
 DEPENDENCIES:
   - NKOColorPickerView
-  - TGDrawSvgPathView
   - UIImage+SVG
 
 SPEC CHECKSUMS:
   NKOColorPickerView: b4d32e1eedfcaeaec890f8301081ee030d49cffd
   RaptureXML: b9b0aca9c68c684c189af73dd5e8f8fdeec74600
-  TGDrawSvgPathView: a55a1c737be32cff0fc7eeb92aaf08c2df4c51d4
   UIImage+SVG: cd2c1069ca2c6ee2b5eceb2fe983821ef62b9106
 
 COCOAPODS: 0.33.1

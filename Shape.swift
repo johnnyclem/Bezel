@@ -28,11 +28,12 @@ class Shape {
         }
         if let previewImageName : String = info["previewImage"] {
             self.previewImageName = previewImageName
+            self.previewImage = UIImage(named: previewImageName)
         }
         if let overlayImageName : String = info["overlayImage"] {
             self.overlayImageName = overlayImageName
             self.overlayImage = UIImage(SVGNamed: self.overlayImageName, targetSize: self.overlaySize, fillColor: self.fillColor)
-            self.previewImage = UIImage(SVGNamed: self.overlayImageName, targetSize: previewSize, fillColor: self.fillColor)
+//            self.previewImage = UIImage(SVGNamed: self.overlayImageName, targetSize: previewSize, fillColor: self.fillColor)
         }
     }
     

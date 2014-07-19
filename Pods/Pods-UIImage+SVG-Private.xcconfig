@@ -1,5 +1,5 @@
 #include "Pods-UIImage+SVG.xcconfig"
 GCC_PREPROCESSOR_DEFINITIONS = COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/UIImage+SVG" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/NKOColorPickerView" "${PODS_ROOT}/Headers/RaptureXML" "${PODS_ROOT}/Headers/TGDrawSvgPathView" "${PODS_ROOT}/Headers/UIImage+SVG" ${PODS_UIIMAGE_SVG_HEADER_SEARCH_PATHS}
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/UIImage+SVG" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/NKOColorPickerView" "${PODS_ROOT}/Headers/RaptureXML" "${PODS_ROOT}/Headers/UIImage+SVG" ${PODS_UIIMAGE_SVG_HEADER_SEARCH_PATHS}
 OTHER_LDFLAGS = -ObjC ${PODS_UIIMAGE_SVG_OTHER_LDFLAGS}
 PODS_ROOT = ${SRCROOT}

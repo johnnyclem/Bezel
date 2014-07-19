@@ -1,1 +1,0 @@
-../../TGDrawSvgPathView/Classes/TGDrawSvgPathView.h
