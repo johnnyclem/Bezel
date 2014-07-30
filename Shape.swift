@@ -46,7 +46,9 @@ class Shape {
         self.overlayImage = UIImage(SVGNamed: self.overlayImageName, targetSize: self.overlaySize, fillColor: self.fillColor, cache: false)
     }
     
-    func setFillPattern(pattern : UIImage) {
-        self.overlayImage = UIImage.imageWithBackgroundFromSVGNamed(self.overlayImageName, targetSize: self.overlaySize, fillImage: pattern)
+    func setFillPattern(pattern : UIImage, foregroundImage : UIImage) {
+        if let overlayImage = self.overlayImage? {
+            self.overlayImage = UIImage.maskImage(foregroundImage, withMask: overlayImage, andBackground: pattern)
+        }
     }
 }

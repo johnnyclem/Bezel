@@ -45,5 +45,4 @@ class PhotoEditController {
         return nil
     }
     
-    
 }

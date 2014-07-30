@@ -16,6 +16,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     let imagePreviewQueue = NSOperationQueue()
     @IBOutlet var scrollView: UIScrollView?
     @IBOutlet var collectionView : UICollectionView?
+    @IBOutlet var containerView : UIView?
     @IBOutlet var cutoutImageView: UIImageView?
     
     var currentShape = Shape(color: UIColor.blackColor(), size: CGSize(width: 640, height: 640), info: ["shapeName":"Anchor", "overlayImage":"anchor_black", "previewImage":"anchor"])
@@ -152,8 +153,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         self.presentViewController(self.actionController, animated: true, completion: nil)
     }
     @IBAction func shreButtonPressed(sender: AnyObject) {
-        
-       let activitiesController = UIActivityViewController(activityItems: [self.imageView.image], applicationActivities: nil)
+        let photoEditor = PhotoEditController(image: self.imageView.image)
+        let outputImage = UIImage.imageFromView(self.containerView!)
+        let activitiesController = UIActivityViewController(activityItems: [outputImage], applicationActivities: nil)
         self.presentViewController(activitiesController, animated: true, completion: nil)
     }
     
@@ -199,7 +201,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
                     self.currentShape = self.dataSource!.shapes[indexPath.row]
                     self.currentShape.setFillColor(self.dataSource!.currentColor)
                 default: // Backgrounds
-                    self.currentShape.setFillPattern(self.dataSource!.backgrounds[indexPath.row])
+                    self.currentShape.setFillPattern(self.dataSource!.backgrounds[indexPath.row], foregroundImage: self.imageView!.image)
                     return
                 }
                 NSOperationQueue.mainQueue().addOperationWithBlock() {

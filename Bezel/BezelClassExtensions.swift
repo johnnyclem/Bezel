@@ -7,8 +7,17 @@
 //
 
 import UIKit
+import CoreImage
 
 extension UIImage {
+    
+    class func imageFromView(view : UIView) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, 0.0)
+        view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
+        let outputImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return outputImage
+    }
     
     class func imageWithBackgroundFromSVGNamed(name : String, targetSize : CGSize, fillImage : UIImage) -> UIImage {
         let svg = PocketSVG(fromSVGFile: name)
@@ -40,4 +49,17 @@ extension UIImage {
 
         return image
     }
+
+    class func maskImage(image : UIImage, withMask mask : UIImage, andBackground background : UIImage) -> UIImage {
+        
+        let blendFilter = CIFilter(name: "CIBlendWithAlphaMask")
+//        blendFilter.setValue(CIImage(CGImageRef : image.CGImage), forKey: kCIInputImageKey)
+        
+        /*
+, withInputParameters: ["inputImage" : image.CIImage, kCIInputBackgroundImageKey : background.CIImage, kCIInputMaskImageKey : mask.CIImage]
+        */
+        let outputImage = blendFilter.outputImage
+        return UIImage(CIImage: outputImage)
+    }
+
 }
