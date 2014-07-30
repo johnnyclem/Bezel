@@ -19,7 +19,6 @@ class Shape {
     var previewImageName : String!
     
     init(color : UIColor, size : CGSize, info : Dictionary<String, String>) {
-        self.overlaySize = size
         self.fillColor = color
         let previewSize = CGSize(width: 120, height: 120)
         
@@ -47,8 +46,7 @@ class Shape {
     }
     
     func setFillPattern(pattern : UIImage, foregroundImage : UIImage) {
-        if let overlayImage = self.overlayImage? {
-            self.overlayImage = UIImage.maskImage(foregroundImage, withMask: overlayImage, andBackground: pattern)
-        }
+        let fillPattern = UIColor(patternImage: pattern)
+        self.overlayImage = UIImage(SVGNamed: self.overlayImageName, targetSize: self.overlaySize, fillColor: fillPattern, cache: false)
     }
 }

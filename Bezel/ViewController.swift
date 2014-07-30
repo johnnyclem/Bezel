@@ -202,7 +202,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
                     self.currentShape.setFillColor(self.dataSource!.currentColor)
                 default: // Backgrounds
                     self.currentShape.setFillPattern(self.dataSource!.backgrounds[indexPath.row], foregroundImage: self.imageView!.image)
-                    return
                 }
                 NSOperationQueue.mainQueue().addOperationWithBlock() {
                     self.cutoutImageView!.image = self.currentShape.overlayImage
