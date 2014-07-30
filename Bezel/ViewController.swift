@@ -20,7 +20,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     @IBOutlet var cutoutImageView: UIImageView?
     
     var currentShape = Shape(color: UIColor.blackColor(), size: CGSize(width: 640, height: 640), info: ["shapeName":"Anchor", "overlayImage":"anchor_black", "previewImage":"anchor"])
-
+    var currentColor = UIColor.whiteColor()
+    
     var dataSource : BezelCollectionViewDataSource?
     let actionController = UIAlertController(title: "Image Source", message: "Select Your Choice Please", preferredStyle: UIAlertControllerStyle.ActionSheet)
     let cameraPicker = UIImagePickerController()
@@ -126,6 +127,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
 
     func testCollectionViewDataSource() {
         dataSource = BezelCollectionViewDataSource() { (color : UIColor!) in
+            self.dataSource!.currentColor = color
             self.updateShapeColor(color)
         }
         collectionView!.dataSource = dataSource
@@ -137,8 +139,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     
     func updateShapeColor (color : UIColor) {
         println("changed color to: \(color)")
-        self.dataSource!.currentColor = color
-        self.currentShape.setFillColor(self.dataSource!.currentColor)
+        self.currentColor = color
+        self.dataSource!.currentColor = self.currentColor
+        self.currentShape.setFillColor(self.currentColor)
         self.cutoutImageView!.image = currentShape.overlayImage
     }
     
@@ -199,11 +202,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
                 switch (self.dataSource!.selectedSection) {
                 case 0: // Shapes
                     self.currentShape = self.dataSource!.shapes[indexPath.row]
-                    self.currentShape.setFillColor(self.dataSource!.currentColor)
                 default: // Backgrounds
-                    self.currentShape.setFillPattern(self.dataSource!.backgrounds[indexPath.row], foregroundImage: self.imageView!.image)
+                    self.currentColor = UIColor(patternImage: self.dataSource!.backgrounds[indexPath.row])
                 }
                 NSOperationQueue.mainQueue().addOperationWithBlock() {
+                    self.currentShape.setFillColor(self.currentColor)
                     self.cutoutImageView!.image = self.currentShape.overlayImage
                 }
             }

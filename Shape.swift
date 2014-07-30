@@ -14,13 +14,13 @@ class Shape {
     var overlayImage : UIImage?
     var fillColor = UIColor.blackColor()
     var overlaySize = CGSize(width: 640, height: 640)
+    let previewSize = CGSize(width: 120, height: 120)
     var shapeName : String?
     var overlayImageName : String!
     var previewImageName : String!
     
     init(color : UIColor, size : CGSize, info : Dictionary<String, String>) {
         self.fillColor = color
-        let previewSize = CGSize(width: 120, height: 120)
         
         if let newShapeName : String = info["shapeName"] {
             self.shapeName = newShapeName
@@ -32,7 +32,6 @@ class Shape {
         if let overlayImageName : String = info["overlayImage"] {
             self.overlayImageName = overlayImageName
             self.overlayImage = UIImage(SVGNamed: self.overlayImageName, targetSize: self.overlaySize, fillColor: self.fillColor)
-//            self.previewImage = UIImage(SVGNamed: self.overlayImageName, targetSize: previewSize, fillColor: self.fillColor)
         }
     }
     
@@ -45,8 +44,4 @@ class Shape {
         self.overlayImage = UIImage(SVGNamed: self.overlayImageName, targetSize: self.overlaySize, fillColor: self.fillColor, cache: false)
     }
     
-    func setFillPattern(pattern : UIImage, foregroundImage : UIImage) {
-        let fillPattern = UIColor(patternImage: pattern)
-        self.overlayImage = UIImage(SVGNamed: self.overlayImageName, targetSize: self.overlaySize, fillColor: fillPattern, cache: false)
-    }
 }

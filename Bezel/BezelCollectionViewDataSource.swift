@@ -84,10 +84,6 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
             collectionView!.reloadData()
         } else {
             colorPicker.removeFromSuperview()
-//            for shape in self.shapes {
-//                shape.updatePreviewColor(self.currentColor)
-//            }
-//            self.shapes = self.loadAllShapes(self.currentColor)
             self.collectionView!.reloadData()
         }
     }
