@@ -155,13 +155,29 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
 
         self.presentViewController(self.actionController, animated: true, completion: nil)
     }
-    @IBAction func shreButtonPressed(sender: AnyObject) {
+    @IBAction func shareButtonPressed(sender: AnyObject) {
         let photoEditor = PhotoEditController(image: self.imageView.image)
         let outputImage = UIImage.imageFromView(self.containerView!)
         let activitiesController = UIActivityViewController(activityItems: [outputImage], applicationActivities: nil)
         self.presentViewController(activitiesController, animated: true, completion: nil)
     }
+
+    @IBAction func settingsButtonPressed(sender: AnyObject) {
+        let settingsVC = SettingsViewController()
+        settingsVC.view.bounds = self.view.bounds
+        let backButton = UIButton(frame: settingsVC.view.bounds)
+        backButton.setTitle("GO BACK", forState: UIControlState.Application)
+        backButton.addTarget(self, action: Selector("dismissSettings"), forControlEvents: UIControlEvents.TouchUpInside)
+        settingsVC.view.addSubview(backButton)
+        self.presentViewController(settingsVC, animated: true) {
+            
+        }
+    }
     
+    func dismissSettings() {
+        
+    }
+
     //#Pragma mark - UIImagePickerControllerDelegate
     
      func imagePickerController(picker: UIImagePickerController!,

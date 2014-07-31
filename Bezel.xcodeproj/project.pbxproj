@@ -21,6 +21,35 @@
 		EF3897101970643D00F2314E /* anchor_black.svg in Resources */ = {isa = PBXBuildFile; fileRef = EF38970F1970643D00F2314E /* anchor_black.svg */; };
 		EF3897111970643D00F2314E /* anchor_black.svg in Resources */ = {isa = PBXBuildFile; fileRef = EF38970F1970643D00F2314E /* anchor_black.svg */; };
 		EF60F3D019799CC30058DBFD /* BezelClassExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60F3CF19799CC30058DBFD /* BezelClassExtensions.swift */; };
+		EF8229CB1989D13A00A76075 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8229CA1989D13A00A76075 /* SettingsViewController.swift */; };
+		EF822A4B1989D49F00A76075 /* Backgrounds.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF822A4A1989D49F00A76075 /* Backgrounds.plist */; };
+		EF822A4C1989D49F00A76075 /* Backgrounds.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF822A4A1989D49F00A76075 /* Backgrounds.plist */; };
+		EF822A5A1989D70500A76075 /* mexture-001.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A4D1989D70500A76075 /* mexture-001.png */; };
+		EF822A5B1989D70500A76075 /* mexture-001.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A4D1989D70500A76075 /* mexture-001.png */; };
+		EF822A5C1989D70500A76075 /* mexture-002.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A4E1989D70500A76075 /* mexture-002.png */; };
+		EF822A5D1989D70500A76075 /* mexture-002.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A4E1989D70500A76075 /* mexture-002.png */; };
+		EF822A5E1989D70500A76075 /* mexture-003.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A4F1989D70500A76075 /* mexture-003.png */; };
+		EF822A5F1989D70500A76075 /* mexture-003.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A4F1989D70500A76075 /* mexture-003.png */; };
+		EF822A601989D70500A76075 /* mexture-004.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A501989D70500A76075 /* mexture-004.png */; };
+		EF822A611989D70500A76075 /* mexture-004.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A501989D70500A76075 /* mexture-004.png */; };
+		EF822A621989D70500A76075 /* mexture-005.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A511989D70500A76075 /* mexture-005.png */; };
+		EF822A631989D70500A76075 /* mexture-005.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A511989D70500A76075 /* mexture-005.png */; };
+		EF822A641989D70500A76075 /* mexture-006.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A521989D70500A76075 /* mexture-006.png */; };
+		EF822A651989D70500A76075 /* mexture-006.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A521989D70500A76075 /* mexture-006.png */; };
+		EF822A661989D70500A76075 /* mexture-007.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A531989D70500A76075 /* mexture-007.png */; };
+		EF822A671989D70500A76075 /* mexture-007.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A531989D70500A76075 /* mexture-007.png */; };
+		EF822A681989D70500A76075 /* mexture-008.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A541989D70500A76075 /* mexture-008.png */; };
+		EF822A691989D70500A76075 /* mexture-008.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A541989D70500A76075 /* mexture-008.png */; };
+		EF822A6A1989D70500A76075 /* mexture-009.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A551989D70500A76075 /* mexture-009.png */; };
+		EF822A6B1989D70500A76075 /* mexture-009.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A551989D70500A76075 /* mexture-009.png */; };
+		EF822A6C1989D70500A76075 /* mexture-010.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A561989D70500A76075 /* mexture-010.png */; };
+		EF822A6D1989D70500A76075 /* mexture-010.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A561989D70500A76075 /* mexture-010.png */; };
+		EF822A6E1989D70500A76075 /* mexture-011.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A571989D70500A76075 /* mexture-011.png */; };
+		EF822A6F1989D70500A76075 /* mexture-011.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A571989D70500A76075 /* mexture-011.png */; };
+		EF822A701989D70500A76075 /* mexture-012.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A581989D70500A76075 /* mexture-012.png */; };
+		EF822A711989D70500A76075 /* mexture-012.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A581989D70500A76075 /* mexture-012.png */; };
+		EF822A721989D70500A76075 /* mexture-013.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A591989D70500A76075 /* mexture-013.png */; };
+		EF822A731989D70500A76075 /* mexture-013.png in Resources */ = {isa = PBXBuildFile; fileRef = EF822A591989D70500A76075 /* mexture-013.png */; };
 		EF8726C8196DE78C00FCD47C /* gold_tree_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = EF8726C7196DE78C00FCD47C /* gold_tree_bg.png */; };
 		EF8726C9196DE78C00FCD47C /* gold_tree_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = EF8726C7196DE78C00FCD47C /* gold_tree_bg.png */; };
 		EF8726CB196DE95400FCD47C /* BezelCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8726CA196DE95400FCD47C /* BezelCollectionViewDataSource.swift */; };
@@ -108,6 +137,21 @@
 		EF38970F1970643D00F2314E /* anchor_black.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = anchor_black.svg; sourceTree = "<group>"; };
 		EF60F3CF19799CC30058DBFD /* BezelClassExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezelClassExtensions.swift; sourceTree = "<group>"; };
 		EF6F240D19759E2900E1CB41 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		EF8229CA1989D13A00A76075 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		EF822A4A1989D49F00A76075 /* Backgrounds.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Backgrounds.plist; sourceTree = "<group>"; };
+		EF822A4D1989D70500A76075 /* mexture-001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-001.png"; sourceTree = "<group>"; };
+		EF822A4E1989D70500A76075 /* mexture-002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-002.png"; sourceTree = "<group>"; };
+		EF822A4F1989D70500A76075 /* mexture-003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-003.png"; sourceTree = "<group>"; };
+		EF822A501989D70500A76075 /* mexture-004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-004.png"; sourceTree = "<group>"; };
+		EF822A511989D70500A76075 /* mexture-005.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-005.png"; sourceTree = "<group>"; };
+		EF822A521989D70500A76075 /* mexture-006.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-006.png"; sourceTree = "<group>"; };
+		EF822A531989D70500A76075 /* mexture-007.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-007.png"; sourceTree = "<group>"; };
+		EF822A541989D70500A76075 /* mexture-008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-008.png"; sourceTree = "<group>"; };
+		EF822A551989D70500A76075 /* mexture-009.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-009.png"; sourceTree = "<group>"; };
+		EF822A561989D70500A76075 /* mexture-010.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-010.png"; sourceTree = "<group>"; };
+		EF822A571989D70500A76075 /* mexture-011.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-011.png"; sourceTree = "<group>"; };
+		EF822A581989D70500A76075 /* mexture-012.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-012.png"; sourceTree = "<group>"; };
+		EF822A591989D70500A76075 /* mexture-013.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-013.png"; sourceTree = "<group>"; };
 		EF8726C7196DE78C00FCD47C /* gold_tree_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gold_tree_bg.png; sourceTree = "<group>"; };
 		EF8726CA196DE95400FCD47C /* BezelCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezelCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		EF8726CD196DE99000FCD47C /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
@@ -198,6 +242,7 @@
 				A20B6FD2196DB92C0067347D /* Main.storyboard */,
 				A20B6FD5196DB92C0067347D /* Images.xcassets */,
 				A20B6FCC196DB92C0067347D /* Supporting Files */,
+				EF8229CA1989D13A00A76075 /* SettingsViewController.swift */,
 			);
 			path = Bezel;
 			sourceTree = "<group>";
@@ -232,20 +277,16 @@
 		EF38970E197061FC00F2314E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EF2427F9196DCFF600EB8A55 /* road.jpg */,
-				EF8726C7196DE78C00FCD47C /* gold_tree_bg.png */,
-				EF8726D3196DEFE600FCD47C /* candy_bg.png */,
-				EF8726D9196DF01A00FCD47C /* tree_bg.png */,
-				EFA68580197082E30085B0FF /* circle_black.svg */,
-				EFA68582197082E30085B0FF /* hexagon_black.svg */,
-				EFA68584197082E30085B0FF /* ornament_black.svg */,
-				EFA68586197082E30085B0FF /* oval_black.svg */,
-				EFA68588197082E30085B0FF /* rectangle_black.svg */,
-				EFA6858A197082E30085B0FF /* square_black.svg */,
-				EFA6858C197082E30085B0FF /* star_black.svg */,
-				EFA6858E197082E30085B0FF /* triangle_black.svg */,
-				EFA68590197082E30085B0FF /* xmas_tree_black.svg */,
-				EF38970F1970643D00F2314E /* anchor_black.svg */,
+				EF8229CE1989D34F00A76075 /* Images */,
+				EF8229CD1989D34700A76075 /* Backgrounds */,
+				EF8229CC1989D34000A76075 /* Shapes */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		EF8229CC1989D34000A76075 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
 				EF9AE8DF1975A1BA0087CA71 /* anchor.png */,
 				EF9AE8E01975A1BA0087CA71 /* circle.png */,
 				EF9AE8E11975A1BA0087CA71 /* hexagon.png */,
@@ -257,8 +298,50 @@
 				EF9AE8E71975A1BA0087CA71 /* triangle.png */,
 				EF9AE8E81975A1BA0087CA71 /* xmas_tree.png */,
 				EFA685A41970830A0085B0FF /* Shapes.plist */,
+				EFA68580197082E30085B0FF /* circle_black.svg */,
+				EFA68582197082E30085B0FF /* hexagon_black.svg */,
+				EFA68584197082E30085B0FF /* ornament_black.svg */,
+				EFA68586197082E30085B0FF /* oval_black.svg */,
+				EFA68588197082E30085B0FF /* rectangle_black.svg */,
+				EFA6858A197082E30085B0FF /* square_black.svg */,
+				EFA6858C197082E30085B0FF /* star_black.svg */,
+				EFA6858E197082E30085B0FF /* triangle_black.svg */,
+				EFA68590197082E30085B0FF /* xmas_tree_black.svg */,
+				EF38970F1970643D00F2314E /* anchor_black.svg */,
 			);
-			name = Resources;
+			name = Shapes;
+			sourceTree = "<group>";
+		};
+		EF8229CD1989D34700A76075 /* Backgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				EF822A4D1989D70500A76075 /* mexture-001.png */,
+				EF822A4E1989D70500A76075 /* mexture-002.png */,
+				EF822A4F1989D70500A76075 /* mexture-003.png */,
+				EF822A501989D70500A76075 /* mexture-004.png */,
+				EF822A511989D70500A76075 /* mexture-005.png */,
+				EF822A521989D70500A76075 /* mexture-006.png */,
+				EF822A531989D70500A76075 /* mexture-007.png */,
+				EF822A541989D70500A76075 /* mexture-008.png */,
+				EF822A551989D70500A76075 /* mexture-009.png */,
+				EF822A561989D70500A76075 /* mexture-010.png */,
+				EF822A571989D70500A76075 /* mexture-011.png */,
+				EF822A581989D70500A76075 /* mexture-012.png */,
+				EF822A591989D70500A76075 /* mexture-013.png */,
+				EF822A4A1989D49F00A76075 /* Backgrounds.plist */,
+				EF8726C7196DE78C00FCD47C /* gold_tree_bg.png */,
+				EF8726D3196DEFE600FCD47C /* candy_bg.png */,
+				EF8726D9196DF01A00FCD47C /* tree_bg.png */,
+			);
+			name = Backgrounds;
+			sourceTree = "<group>";
+		};
+		EF8229CE1989D34F00A76075 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				EF2427F9196DCFF600EB8A55 /* road.jpg */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		EF8726BD196DE15B00FCD47C /* DataSources */ = {
@@ -361,26 +444,40 @@
 				A20B6FD4196DB92C0067347D /* Main.storyboard in Resources */,
 				EFA68594197082E30085B0FF /* hexagon_black.svg in Resources */,
 				EF9AE8F11975A1BA0087CA71 /* oval.png in Resources */,
+				EF822A621989D70500A76075 /* mexture-005.png in Resources */,
 				EFA68598197082E30085B0FF /* oval_black.svg in Resources */,
 				EFA6859C197082E30085B0FF /* square_black.svg in Resources */,
+				EF822A5A1989D70500A76075 /* mexture-001.png in Resources */,
 				EF8726DA196DF01A00FCD47C /* tree_bg.png in Resources */,
+				EF822A641989D70500A76075 /* mexture-006.png in Resources */,
 				EF9AE8EB1975A1BA0087CA71 /* circle.png in Resources */,
 				EF9AE8F31975A1BA0087CA71 /* rectangle.png in Resources */,
 				EF9AE8F71975A1BA0087CA71 /* star.png in Resources */,
+				EF822A601989D70500A76075 /* mexture-004.png in Resources */,
 				EFA685A2197082E30085B0FF /* xmas_tree_black.svg in Resources */,
 				EF9AE8EF1975A1BA0087CA71 /* ornament.png in Resources */,
+				EF822A5C1989D70500A76075 /* mexture-002.png in Resources */,
 				EFA68592197082E30085B0FF /* circle_black.svg in Resources */,
+				EF822A661989D70500A76075 /* mexture-007.png in Resources */,
 				EFA6859A197082E30085B0FF /* rectangle_black.svg in Resources */,
 				EF2427FE196DCFF600EB8A55 /* road.jpg in Resources */,
 				A20B6FD6196DB92C0067347D /* Images.xcassets in Resources */,
+				EF822A721989D70500A76075 /* mexture-013.png in Resources */,
+				EF822A6E1989D70500A76075 /* mexture-011.png in Resources */,
+				EF822A6C1989D70500A76075 /* mexture-010.png in Resources */,
 				EF3897101970643D00F2314E /* anchor_black.svg in Resources */,
 				EF8726C8196DE78C00FCD47C /* gold_tree_bg.png in Resources */,
+				EF822A701989D70500A76075 /* mexture-012.png in Resources */,
 				EF9AE8ED1975A1BA0087CA71 /* hexagon.png in Resources */,
 				EF9AE8F91975A1BA0087CA71 /* triangle.png in Resources */,
+				EF822A5E1989D70500A76075 /* mexture-003.png in Resources */,
 				EF9AE8FB1975A1BA0087CA71 /* xmas_tree.png in Resources */,
 				EFA685A0197082E30085B0FF /* triangle_black.svg in Resources */,
 				EF9AE8E91975A1BA0087CA71 /* anchor.png in Resources */,
 				EF9AE8F51975A1BA0087CA71 /* square.png in Resources */,
+				EF822A681989D70500A76075 /* mexture-008.png in Resources */,
+				EF822A6A1989D70500A76075 /* mexture-009.png in Resources */,
+				EF822A4B1989D49F00A76075 /* Backgrounds.plist in Resources */,
 				EF8726D4196DEFE600FCD47C /* candy_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,13 +493,27 @@
 				EF9AE8F41975A1BA0087CA71 /* rectangle.png in Resources */,
 				EF9AE8FA1975A1BA0087CA71 /* triangle.png in Resources */,
 				EF8726C9196DE78C00FCD47C /* gold_tree_bg.png in Resources */,
+				EF822A671989D70500A76075 /* mexture-007.png in Resources */,
 				EF9AE8FC1975A1BA0087CA71 /* xmas_tree.png in Resources */,
+				EF822A691989D70500A76075 /* mexture-008.png in Resources */,
+				EF822A6D1989D70500A76075 /* mexture-010.png in Resources */,
 				EF2427FF196DCFF600EB8A55 /* road.jpg in Resources */,
 				EF8726DB196DF01A00FCD47C /* tree_bg.png in Resources */,
+				EF822A5F1989D70500A76075 /* mexture-003.png in Resources */,
+				EF822A5B1989D70500A76075 /* mexture-001.png in Resources */,
+				EF822A631989D70500A76075 /* mexture-005.png in Resources */,
 				EF9AE8EC1975A1BA0087CA71 /* circle.png in Resources */,
+				EF822A611989D70500A76075 /* mexture-004.png in Resources */,
 				EF9AE8F81975A1BA0087CA71 /* star.png in Resources */,
+				EF822A6B1989D70500A76075 /* mexture-009.png in Resources */,
+				EF822A711989D70500A76075 /* mexture-012.png in Resources */,
 				EF9AE8EA1975A1BA0087CA71 /* anchor.png in Resources */,
+				EF822A651989D70500A76075 /* mexture-006.png in Resources */,
 				EF9AE8F61975A1BA0087CA71 /* square.png in Resources */,
+				EF822A5D1989D70500A76075 /* mexture-002.png in Resources */,
+				EF822A6F1989D70500A76075 /* mexture-011.png in Resources */,
+				EF822A4C1989D49F00A76075 /* Backgrounds.plist in Resources */,
+				EF822A731989D70500A76075 /* mexture-013.png in Resources */,
 				EF8726D5196DEFE600FCD47C /* candy_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,6 +566,7 @@
 				EF60F3D019799CC30058DBFD /* BezelClassExtensions.swift in Sources */,
 				A20B6FEC196DB93B0067347D /* PhotoEditController.swift in Sources */,
 				A20B6FEE196DB9540067347D /* Shape.swift in Sources */,
+				EF8229CB1989D13A00A76075 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

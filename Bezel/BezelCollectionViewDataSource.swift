@@ -22,7 +22,7 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
         self.didChangeColorBlock = didChangeColorBlock
         super.init()
         self.shapes = self.loadAllShapes(UIColor.whiteColor())
-        self.backgrounds = [UIImage(named: "tree_bg.png"), UIImage(named: "gold_tree_bg.png"), UIImage(named: "candy_bg.png")]
+        self.backgrounds = self.loadAllTextures()
     }
     
     func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
@@ -102,6 +102,23 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
         }
         
         return allShapes
+    }
+
+    func loadAllTextures() -> Array<UIImage> {
+        let filePath = NSBundle.mainBundle().pathForResource("Backgrounds", ofType: "plist")
+        let bgArray = NSArray(contentsOfFile: filePath)
+        var allBGs = Array<UIImage>()
+        
+        for info in bgArray {
+            if let bgDict = info as? NSDictionary {
+                if let imageName = info["imageName"] as? String {
+                    let bg = UIImage(named: imageName)
+                    allBGs += bg
+                }
+            }
+        }
+        
+        return allBGs
     }
 
     
