@@ -53,7 +53,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         //only add the camera option if a camera is on the device
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
             self.cameraPicker.delegate = self
-            self.cameraPicker.allowsEditing = false
+            self.cameraPicker.allowsEditing = true
             self.cameraPicker.sourceType = UIImagePickerControllerSourceType.Camera
             let cameraOption = UIAlertAction(title: "Camera", style: UIAlertActionStyle.Default, handler: {(action :UIAlertAction!) -> Void in
 
@@ -85,7 +85,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         }
         //setup the photo library option
         self.libraryPicker.delegate = self
-        self.libraryPicker.allowsEditing = false
+        self.libraryPicker.allowsEditing = true
         self.libraryPicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum
         
         let libraryOption = UIAlertAction(title: "Photo Library", style: UIAlertActionStyle.Default, handler: {(action :UIAlertAction!) -> Void in
@@ -182,11 +182,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     
      func imagePickerController(picker: UIImagePickerController!,
         didFinishPickingMediaWithInfo info: [NSObject : AnyObject]!) {
-            let image = info[UIImagePickerControllerOriginalImage] as UIImage
+            let image = info[UIImagePickerControllerEditedImage] as UIImage
             println(image.size)
             //reset zoomscales
             self.scrollView!.setZoomScale(1.0, animated: false)
-            self.scrollView!.minimumZoomScale = 0.5
+            self.scrollView!.minimumZoomScale = 0.125
             
             self.imageView.frame.size = image.size
             self.imageView.contentMode = UIViewContentMode.ScaleAspectFill
@@ -208,6 +208,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     //#pragma mark - UIScrollViewDelegate
     func viewForZoomingInScrollView(scrollView: UIScrollView!) -> UIView! {
         return self.imageView
+    }
+    
+    func scrollViewDidEndZooming(scrollView: UIScrollView!, withView view: UIView!, atScale scale: CGFloat) {
+        self.imageView.center = self.scrollView!.center
     }
     
     //#pragma mark - UICollectionViewDelegate
