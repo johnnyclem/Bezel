@@ -11,5 +11,6 @@ import UIKit
 class ImageCollectionViewCell: UICollectionViewCell {
 
     var imageView : UIImageView?
-        
+    var overlayImageView : UIImageView?
+    var backgroundImageView : UIImageView?
 }

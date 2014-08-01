@@ -120,7 +120,7 @@
 /* Begin PBXFileReference section */
 		032924E336924443B4042789 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		161AF068250047B78517F639 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A20B6FC9196DB92C0067347D /* Bezel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bezel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A20B6FC9196DB92C0067347D /* bezel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bezel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A20B6FCD196DB92C0067347D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A20B6FCE196DB92C0067347D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A20B6FD0196DB92C0067347D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -224,7 +224,7 @@
 		A20B6FCA196DB92C0067347D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A20B6FC9196DB92C0067347D /* Bezel.app */,
+				A20B6FC9196DB92C0067347D /* bezel.app */,
 				A20B6FDB196DB92D0067347D /* BezelTests.xctest */,
 			);
 			name = Products;
@@ -357,9 +357,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A20B6FC8196DB92C0067347D /* Bezel */ = {
+		A20B6FC8196DB92C0067347D /* bezel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A20B6FE5196DB92D0067347D /* Build configuration list for PBXNativeTarget "Bezel" */;
+			buildConfigurationList = A20B6FE5196DB92D0067347D /* Build configuration list for PBXNativeTarget "bezel" */;
 			buildPhases = (
 				6D3C4C2573924C8C87A46C62 /* Check Pods Manifest.lock */,
 				A20B6FC5196DB92C0067347D /* Sources */,
@@ -372,9 +372,9 @@
 			);
 			dependencies = (
 			);
-			name = Bezel;
+			name = bezel;
 			productName = Bezel;
-			productReference = A20B6FC9196DB92C0067347D /* Bezel.app */;
+			productReference = A20B6FC9196DB92C0067347D /* bezel.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A20B6FDA196DB92D0067347D /* BezelTests */ = {
@@ -427,7 +427,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A20B6FC8196DB92C0067347D /* Bezel */,
+				A20B6FC8196DB92C0067347D /* bezel */,
 				A20B6FDA196DB92D0067347D /* BezelTests */,
 			);
 		};
@@ -586,7 +586,7 @@
 /* Begin PBXTargetDependency section */
 		A20B6FDD196DB92D0067347D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A20B6FC8196DB92C0067347D /* Bezel */;
+			target = A20B6FC8196DB92C0067347D /* bezel */;
 			targetProxy = A20B6FDC196DB92D0067347D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -691,7 +691,7 @@
 				INFOPLIST_FILE = Bezel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5C35B3FA-A665-45BF-8C1B-B74A3C3CA1E6";
 				SWIFT_OBJC_BRIDGING_HEADER = "Bezel/Bezel-Bridging-Header.h";
 			};
 			name = Debug;
@@ -702,12 +702,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				INFOPLIST_FILE = Bezel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5C35B3FA-A665-45BF-8C1B-B74A3C3CA1E6";
 				SWIFT_OBJC_BRIDGING_HEADER = "Bezel/Bezel-Bridging-Header.h";
 			};
 			name = Release;
@@ -765,7 +765,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A20B6FE5196DB92D0067347D /* Build configuration list for PBXNativeTarget "Bezel" */ = {
+		A20B6FE5196DB92D0067347D /* Build configuration list for PBXNativeTarget "bezel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A20B6FE6196DB92D0067347D /* Debug */,

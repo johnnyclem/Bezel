@@ -18,6 +18,8 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
     var colorPicker = NKOColorPickerView()
     var currentColor = UIColor.lightGrayColor()
     
+    var currentShape = Shape(color: UIColor.whiteColor(), size: CGSize(width: 640, height: 640), info: ["shapeName" : "circle", "overlayImage" : "circle_black", "previewImage" : "circle"])
+
     init(didChangeColorBlock : NKOColorPickerDidChangeColorBlock) {
         self.didChangeColorBlock = didChangeColorBlock
         super.init()
@@ -30,7 +32,7 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
         
         switch (selectedSection) {
         case 2:
-            return backgrounds.count
+            return backgrounds.count + 1
         case 1:
             return 0
         default:
@@ -43,12 +45,18 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
         case 2:
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("BackgroundCell", forIndexPath: indexPath) as ImageCollectionViewCell
             
-            if !cell.imageView {
-                cell.imageView = UIImageView(frame: cell.bounds)
-                cell.addSubview(cell.imageView)
-            }
+            cell.imageView = UIImageView(frame: cell.bounds)
+            cell.addSubview(cell.imageView)
+            let cellOverlayImage = self.currentShape.previewImage
+            cell.overlayImageView = UIImageView(frame: cell.bounds)
+            cell.overlayImageView!.image = cellOverlayImage
+            cell.imageView!.addSubview(cell.overlayImageView)
             
-            cell.imageView!.image = self.backgrounds[indexPath.row]
+            if indexPath.row == self.backgrounds.count {
+                cell.imageView!.image = UIImage(named: "placeHolder")
+            } else {
+                cell.imageView!.image = self.backgrounds[indexPath.row]
+            }
             
             return cell
         default:
@@ -60,6 +68,7 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
                 cell.imageView = UIImageView(frame: cell.bounds)
                 cell.addSubview(cell.imageView)
             }
+            
             
             cell.imageView!.image = shape.previewImage
             return cell
@@ -84,7 +93,7 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
             collectionView!.reloadData()
         } else {
             colorPicker.removeFromSuperview()
-            self.collectionView!.reloadData()
+            collectionView!.reloadData()
         }
     }
     

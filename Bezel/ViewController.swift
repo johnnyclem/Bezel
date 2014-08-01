@@ -222,6 +222,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
                 switch (self.dataSource!.selectedSection) {
                 case 0: // Shapes
                     self.currentShape = self.dataSource!.shapes[indexPath.row]
+                    self.dataSource!.currentShape = self.currentShape
                 default: // Backgrounds
                     self.currentColor = UIColor(patternImage: self.dataSource!.backgrounds[indexPath.row])
                 }
