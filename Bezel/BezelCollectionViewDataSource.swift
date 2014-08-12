@@ -12,12 +12,13 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
 
     var selectedSection = 0
     var shapes = Array<Shape>()
-    var backgrounds = Array<UIImage>()
+    var backgrounds = [UIImage]()
+    var backgroundThumbs = [UIImage]()
+    
     var collectionView : UICollectionView?
     var didChangeColorBlock : NKOColorPickerDidChangeColorBlock
     var colorPicker = NKOColorPickerView()
     var currentColor = UIColor.lightGrayColor()
-    
     var currentShape = Shape(color: UIColor.whiteColor(), size: CGSize(width: 640, height: 640), info: ["shapeName" : "circle", "overlayImage" : "circle_black", "previewImage" : "circle"])
 
     init(didChangeColorBlock : NKOColorPickerDidChangeColorBlock) {
@@ -32,7 +33,7 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
         
         switch (selectedSection) {
         case 2:
-            return backgrounds.count + 1
+            return backgrounds.count
         case 1:
             return 0
         default:
@@ -42,31 +43,48 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
 
     func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {
         switch (selectedSection) {
-        case 2:
+        case 2: // Backgrounds
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("BackgroundCell", forIndexPath: indexPath) as ImageCollectionViewCell
             
-            cell.imageView = UIImageView(frame: cell.bounds)
-            cell.addSubview(cell.imageView)
-            let cellOverlayImage = self.currentShape.previewImage
-            cell.overlayImageView = UIImageView(frame: cell.bounds)
-            cell.overlayImageView!.image = cellOverlayImage
-            cell.imageView!.addSubview(cell.overlayImageView)
+            var imageView : UIImageView!
+            var overlayImageView : UIImageView!
             
-            if indexPath.row == self.backgrounds.count {
-                cell.imageView!.image = UIImage(named: "placeHolder")
+            if let taggedImageView = cell.viewWithTag(999) as? UIImageView {
+                imageView = taggedImageView
             } else {
-                cell.imageView!.image = self.backgrounds[indexPath.row]
+                imageView = UIImageView(frame: cell.bounds)
+                imageView.tag = 999
+                cell.addSubview(imageView)
             }
             
+            if indexPath.item == backgrounds.count {
+                for subView in imageView.subviews {
+                    subView.removeFromSuperview()
+                }
+            } else {
+                let cellOverlayImage = self.currentShape.previewImage
+
+                if let taggedOverlayImageView = cell.viewWithTag(998) as? UIImageView {
+                    overlayImageView = taggedOverlayImageView
+                } else {
+                    overlayImageView = UIImageView(frame: cell.bounds)
+                    overlayImageView.tag = 998
+                    overlayImageView.image = cellOverlayImage
+                    imageView.addSubview(overlayImageView!)
+                }
+            }
+            
+            imageView.image = self.backgroundThumbs[indexPath.row]
+            
             return cell
-        default:
+        default: // Shapes
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ShapeCell", forIndexPath: indexPath) as ImageCollectionViewCell
             
             let shape = self.shapes[indexPath.row]
             
-            if !cell.imageView {
+            if cell.imageView == nil {
                 cell.imageView = UIImageView(frame: cell.bounds)
-                cell.addSubview(cell.imageView)
+                cell.addSubview(cell.imageView!)
             }
             
             
@@ -89,7 +107,7 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
             colorPicker = NKOColorPickerView(frame: CGRect(origin: CGPoint(x: 0, y: collectionView!.frame.origin.y + 33), size: CGSize(width: collectionView!.frame.size.width, height: collectionView!.frame.size.height-33.0)))
             colorPicker.color = self.currentColor
             colorPicker.didChangeColorBlock = self.didChangeColorBlock
-            collectionView!.superview.addSubview(colorPicker)
+            collectionView?.superview?.addSubview(colorPicker)
             collectionView!.reloadData()
         } else {
             colorPicker.removeFromSuperview()
@@ -106,7 +124,7 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
         for info in shapesArray {
             if let shapeDict = info as? Dictionary<String, String> {
                 let shape = Shape(color: color, size : CGSize(width: 640, height: 640), info : shapeDict)
-                allShapes += shape
+                allShapes.append(shape)
             }
         }
         
@@ -121,8 +139,11 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
         for info in bgArray {
             if let bgDict = info as? NSDictionary {
                 if let imageName = info["imageName"] as? String {
+                    var thumbName = imageName + "_thumb"
+                    let bgThumb = UIImage(named: thumbName)
                     let bg = UIImage(named: imageName)
-                    allBGs += bg
+                    allBGs.append(bg)
+                    self.backgroundThumbs.append(bgThumb)
                 }
             }
         }

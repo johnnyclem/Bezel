@@ -16,11 +16,71 @@
 		A20B6FEE196DB9540067347D /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20B6FED196DB9540067347D /* Shape.swift */; };
 		A3CB06C4200D473A97DF83DC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 161AF068250047B78517F639 /* libPods.a */; };
 		EF043DB8197F23B200FAF152 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF043DB7197F23B200FAF152 /* CoreImage.framework */; };
+		EF1104E8199A8A24004B9496 /* addPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = EF1104E7199A8A24004B9496 /* addPhoto.png */; };
+		EF1104E9199A8A24004B9496 /* addPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = EF1104E7199A8A24004B9496 /* addPhoto.png */; };
+		EF1104EA199A8A24004B9496 /* addPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = EF1104E7199A8A24004B9496 /* addPhoto.png */; };
+		EF21C7BC199A7B53008E288D /* PeopleView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF21C7BB199A7B53008E288D /* PeopleView.m */; };
 		EF2427FE196DCFF600EB8A55 /* road.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF2427F9196DCFF600EB8A55 /* road.jpg */; };
 		EF2427FF196DCFF600EB8A55 /* road.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EF2427F9196DCFF600EB8A55 /* road.jpg */; };
+		EF3159F11990185C00DA3414 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF3159F01990185C00DA3414 /* PhotosUI.framework */; };
+		EF3159F31990185C00DA3414 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF3159F21990185C00DA3414 /* Photos.framework */; };
+		EF3159F81990185C00DA3414 /* PhotoEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3159F71990185C00DA3414 /* PhotoEditingViewController.swift */; };
+		EF3159FA1990185C00DA3414 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF3159F91990185C00DA3414 /* MainInterface.storyboard */; };
+		EF3159FD1990185C00DA3414 /* extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EF3159EF1990185C00DA3414 /* extension.appex */; };
+		EF315A19199026EF00DA3414 /* Filters.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF315A18199026EF00DA3414 /* Filters.plist */; };
+		EF315A1A199026EF00DA3414 /* Filters.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF315A18199026EF00DA3414 /* Filters.plist */; };
+		EF315A1B199026EF00DA3414 /* Filters.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF315A18199026EF00DA3414 /* Filters.plist */; };
 		EF3897101970643D00F2314E /* anchor_black.svg in Resources */ = {isa = PBXBuildFile; fileRef = EF38970F1970643D00F2314E /* anchor_black.svg */; };
 		EF3897111970643D00F2314E /* anchor_black.svg in Resources */ = {isa = PBXBuildFile; fileRef = EF38970F1970643D00F2314E /* anchor_black.svg */; };
 		EF60F3D019799CC30058DBFD /* BezelClassExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF60F3CF19799CC30058DBFD /* BezelClassExtensions.swift */; };
+		EF74DEED199AC3E800526189 /* candy_bg_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEDD199AC3E800526189 /* candy_bg_thumb.png */; };
+		EF74DEEE199AC3E800526189 /* candy_bg_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEDD199AC3E800526189 /* candy_bg_thumb.png */; };
+		EF74DEEF199AC3E800526189 /* candy_bg_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEDD199AC3E800526189 /* candy_bg_thumb.png */; };
+		EF74DEF0199AC3E800526189 /* gold_tree_bg_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEDE199AC3E800526189 /* gold_tree_bg_thumb.png */; };
+		EF74DEF1199AC3E800526189 /* gold_tree_bg_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEDE199AC3E800526189 /* gold_tree_bg_thumb.png */; };
+		EF74DEF2199AC3E800526189 /* gold_tree_bg_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEDE199AC3E800526189 /* gold_tree_bg_thumb.png */; };
+		EF74DEF3199AC3E800526189 /* mexture-001_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEDF199AC3E800526189 /* mexture-001_thumb.png */; };
+		EF74DEF4199AC3E800526189 /* mexture-001_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEDF199AC3E800526189 /* mexture-001_thumb.png */; };
+		EF74DEF5199AC3E800526189 /* mexture-001_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEDF199AC3E800526189 /* mexture-001_thumb.png */; };
+		EF74DEF6199AC3E800526189 /* mexture-002_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE0199AC3E800526189 /* mexture-002_thumb.png */; };
+		EF74DEF7199AC3E800526189 /* mexture-002_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE0199AC3E800526189 /* mexture-002_thumb.png */; };
+		EF74DEF8199AC3E800526189 /* mexture-002_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE0199AC3E800526189 /* mexture-002_thumb.png */; };
+		EF74DEF9199AC3E800526189 /* mexture-003_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE1199AC3E800526189 /* mexture-003_thumb.png */; };
+		EF74DEFA199AC3E800526189 /* mexture-003_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE1199AC3E800526189 /* mexture-003_thumb.png */; };
+		EF74DEFB199AC3E800526189 /* mexture-003_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE1199AC3E800526189 /* mexture-003_thumb.png */; };
+		EF74DEFC199AC3E800526189 /* mexture-004_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE2199AC3E800526189 /* mexture-004_thumb.png */; };
+		EF74DEFD199AC3E800526189 /* mexture-004_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE2199AC3E800526189 /* mexture-004_thumb.png */; };
+		EF74DEFE199AC3E800526189 /* mexture-004_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE2199AC3E800526189 /* mexture-004_thumb.png */; };
+		EF74DEFF199AC3E800526189 /* mexture-005_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE3199AC3E800526189 /* mexture-005_thumb.png */; };
+		EF74DF00199AC3E800526189 /* mexture-005_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE3199AC3E800526189 /* mexture-005_thumb.png */; };
+		EF74DF01199AC3E800526189 /* mexture-005_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE3199AC3E800526189 /* mexture-005_thumb.png */; };
+		EF74DF02199AC3E800526189 /* mexture-006_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE4199AC3E800526189 /* mexture-006_thumb.png */; };
+		EF74DF03199AC3E800526189 /* mexture-006_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE4199AC3E800526189 /* mexture-006_thumb.png */; };
+		EF74DF04199AC3E800526189 /* mexture-006_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE4199AC3E800526189 /* mexture-006_thumb.png */; };
+		EF74DF05199AC3E800526189 /* mexture-007_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE5199AC3E800526189 /* mexture-007_thumb.png */; };
+		EF74DF06199AC3E800526189 /* mexture-007_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE5199AC3E800526189 /* mexture-007_thumb.png */; };
+		EF74DF07199AC3E800526189 /* mexture-007_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE5199AC3E800526189 /* mexture-007_thumb.png */; };
+		EF74DF08199AC3E800526189 /* mexture-008_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE6199AC3E800526189 /* mexture-008_thumb.png */; };
+		EF74DF09199AC3E800526189 /* mexture-008_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE6199AC3E800526189 /* mexture-008_thumb.png */; };
+		EF74DF0A199AC3E800526189 /* mexture-008_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE6199AC3E800526189 /* mexture-008_thumb.png */; };
+		EF74DF0B199AC3E800526189 /* mexture-009_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE7199AC3E800526189 /* mexture-009_thumb.png */; };
+		EF74DF0C199AC3E800526189 /* mexture-009_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE7199AC3E800526189 /* mexture-009_thumb.png */; };
+		EF74DF0D199AC3E800526189 /* mexture-009_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE7199AC3E800526189 /* mexture-009_thumb.png */; };
+		EF74DF0E199AC3E800526189 /* mexture-010_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE8199AC3E800526189 /* mexture-010_thumb.png */; };
+		EF74DF0F199AC3E800526189 /* mexture-010_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE8199AC3E800526189 /* mexture-010_thumb.png */; };
+		EF74DF10199AC3E800526189 /* mexture-010_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE8199AC3E800526189 /* mexture-010_thumb.png */; };
+		EF74DF11199AC3E800526189 /* mexture-011_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE9199AC3E800526189 /* mexture-011_thumb.png */; };
+		EF74DF12199AC3E800526189 /* mexture-011_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE9199AC3E800526189 /* mexture-011_thumb.png */; };
+		EF74DF13199AC3E800526189 /* mexture-011_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEE9199AC3E800526189 /* mexture-011_thumb.png */; };
+		EF74DF14199AC3E800526189 /* mexture-012_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEEA199AC3E800526189 /* mexture-012_thumb.png */; };
+		EF74DF15199AC3E800526189 /* mexture-012_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEEA199AC3E800526189 /* mexture-012_thumb.png */; };
+		EF74DF16199AC3E800526189 /* mexture-012_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEEA199AC3E800526189 /* mexture-012_thumb.png */; };
+		EF74DF17199AC3E800526189 /* mexture-013_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEEB199AC3E800526189 /* mexture-013_thumb.png */; };
+		EF74DF18199AC3E800526189 /* mexture-013_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEEB199AC3E800526189 /* mexture-013_thumb.png */; };
+		EF74DF19199AC3E800526189 /* mexture-013_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEEB199AC3E800526189 /* mexture-013_thumb.png */; };
+		EF74DF1A199AC3E800526189 /* tree_bg_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEEC199AC3E800526189 /* tree_bg_thumb.png */; };
+		EF74DF1B199AC3E800526189 /* tree_bg_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEEC199AC3E800526189 /* tree_bg_thumb.png */; };
+		EF74DF1C199AC3E800526189 /* tree_bg_thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = EF74DEEC199AC3E800526189 /* tree_bg_thumb.png */; };
 		EF8229CB1989D13A00A76075 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8229CA1989D13A00A76075 /* SettingsViewController.swift */; };
 		EF822A4B1989D49F00A76075 /* Backgrounds.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF822A4A1989D49F00A76075 /* Backgrounds.plist */; };
 		EF822A4C1989D49F00A76075 /* Backgrounds.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF822A4A1989D49F00A76075 /* Backgrounds.plist */; };
@@ -102,9 +162,34 @@
 			remoteGlobalIDString = A20B6FC8196DB92C0067347D;
 			remoteInfo = Bezel;
 		};
+		EF3159FB1990185C00DA3414 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A20B6FC1196DB92C0067347D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF3159EE1990185C00DA3414;
+			remoteInfo = extension;
+		};
+		EF3159FE1990185C00DA3414 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A20B6FC1196DB92C0067347D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF3159EE1990185C00DA3414;
+			remoteInfo = extension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		EF315A031990185C00DA3414 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				EF3159FD1990185C00DA3414 /* extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EF6F240819759B6E00E1CB41 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -132,11 +217,37 @@
 		A20B6FEB196DB93B0067347D /* PhotoEditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoEditController.swift; path = ../PhotoEditController.swift; sourceTree = "<group>"; };
 		A20B6FED196DB9540067347D /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Shape.swift; path = ../Shape.swift; sourceTree = "<group>"; };
 		EF043DB7197F23B200FAF152 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		EF1104E7199A8A24004B9496 /* addPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addPhoto.png; sourceTree = "<group>"; };
+		EF21C7BA199A7B53008E288D /* PeopleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleView.h; sourceTree = "<group>"; };
+		EF21C7BB199A7B53008E288D /* PeopleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleView.m; sourceTree = "<group>"; };
 		EF2427F9196DCFF600EB8A55 /* road.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = road.jpg; sourceTree = "<group>"; };
+		EF3159EF1990185C00DA3414 /* extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF3159F01990185C00DA3414 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
+		EF3159F21990185C00DA3414 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		EF3159F61990185C00DA3414 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF3159F71990185C00DA3414 /* PhotoEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditingViewController.swift; sourceTree = "<group>"; };
+		EF3159F91990185C00DA3414 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		EF315A18199026EF00DA3414 /* Filters.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Filters.plist; sourceTree = "<group>"; };
 		EF3897061970617E00F2314E /* Bezel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bezel-Bridging-Header.h"; sourceTree = "<group>"; };
 		EF38970F1970643D00F2314E /* anchor_black.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = anchor_black.svg; sourceTree = "<group>"; };
 		EF60F3CF19799CC30058DBFD /* BezelClassExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezelClassExtensions.swift; sourceTree = "<group>"; };
 		EF6F240D19759E2900E1CB41 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		EF74DEDD199AC3E800526189 /* candy_bg_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = candy_bg_thumb.png; sourceTree = "<group>"; };
+		EF74DEDE199AC3E800526189 /* gold_tree_bg_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gold_tree_bg_thumb.png; sourceTree = "<group>"; };
+		EF74DEDF199AC3E800526189 /* mexture-001_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-001_thumb.png"; sourceTree = "<group>"; };
+		EF74DEE0199AC3E800526189 /* mexture-002_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-002_thumb.png"; sourceTree = "<group>"; };
+		EF74DEE1199AC3E800526189 /* mexture-003_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-003_thumb.png"; sourceTree = "<group>"; };
+		EF74DEE2199AC3E800526189 /* mexture-004_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-004_thumb.png"; sourceTree = "<group>"; };
+		EF74DEE3199AC3E800526189 /* mexture-005_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-005_thumb.png"; sourceTree = "<group>"; };
+		EF74DEE4199AC3E800526189 /* mexture-006_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-006_thumb.png"; sourceTree = "<group>"; };
+		EF74DEE5199AC3E800526189 /* mexture-007_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-007_thumb.png"; sourceTree = "<group>"; };
+		EF74DEE6199AC3E800526189 /* mexture-008_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-008_thumb.png"; sourceTree = "<group>"; };
+		EF74DEE7199AC3E800526189 /* mexture-009_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-009_thumb.png"; sourceTree = "<group>"; };
+		EF74DEE8199AC3E800526189 /* mexture-010_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-010_thumb.png"; sourceTree = "<group>"; };
+		EF74DEE9199AC3E800526189 /* mexture-011_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-011_thumb.png"; sourceTree = "<group>"; };
+		EF74DEEA199AC3E800526189 /* mexture-012_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-012_thumb.png"; sourceTree = "<group>"; };
+		EF74DEEB199AC3E800526189 /* mexture-013_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-013_thumb.png"; sourceTree = "<group>"; };
+		EF74DEEC199AC3E800526189 /* tree_bg_thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree_bg_thumb.png; sourceTree = "<group>"; };
 		EF8229CA1989D13A00A76075 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EF822A4A1989D49F00A76075 /* Backgrounds.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Backgrounds.plist; sourceTree = "<group>"; };
 		EF822A4D1989D70500A76075 /* mexture-001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mexture-001.png"; sourceTree = "<group>"; };
@@ -197,6 +308,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EF3159EC1990185C00DA3414 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF3159F11990185C00DA3414 /* PhotosUI.framework in Frameworks */,
+				EF3159F31990185C00DA3414 /* Photos.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -206,6 +326,8 @@
 				EF043DB7197F23B200FAF152 /* CoreImage.framework */,
 				EF6F240D19759E2900E1CB41 /* libPods.a */,
 				161AF068250047B78517F639 /* libPods.a */,
+				EF3159F01990185C00DA3414 /* PhotosUI.framework */,
+				EF3159F21990185C00DA3414 /* Photos.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -215,6 +337,7 @@
 			children = (
 				A20B6FCB196DB92C0067347D /* Bezel */,
 				A20B6FDE196DB92D0067347D /* BezelTests */,
+				EF3159F41990185C00DA3414 /* extension */,
 				A20B6FCA196DB92C0067347D /* Products */,
 				032924E336924443B4042789 /* Pods.xcconfig */,
 				85EEA9CDEBCF43C8AE2A239C /* Frameworks */,
@@ -226,6 +349,7 @@
 			children = (
 				A20B6FC9196DB92C0067347D /* bezel.app */,
 				A20B6FDB196DB92D0067347D /* BezelTests.xctest */,
+				EF3159EF1990185C00DA3414 /* extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -243,6 +367,8 @@
 				A20B6FD5196DB92C0067347D /* Images.xcassets */,
 				A20B6FCC196DB92C0067347D /* Supporting Files */,
 				EF8229CA1989D13A00A76075 /* SettingsViewController.swift */,
+				EF21C7BA199A7B53008E288D /* PeopleView.h */,
+				EF21C7BB199A7B53008E288D /* PeopleView.m */,
 			);
 			path = Bezel;
 			sourceTree = "<group>";
@@ -274,9 +400,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EF3159F41990185C00DA3414 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				EF3159F71990185C00DA3414 /* PhotoEditingViewController.swift */,
+				EF3159F91990185C00DA3414 /* MainInterface.storyboard */,
+				EF3159F51990185C00DA3414 /* Supporting Files */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		EF3159F51990185C00DA3414 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EF3159F61990185C00DA3414 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		EF38970E197061FC00F2314E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EF315A18199026EF00DA3414 /* Filters.plist */,
 				EF8229CE1989D34F00A76075 /* Images */,
 				EF8229CD1989D34700A76075 /* Backgrounds */,
 				EF8229CC1989D34000A76075 /* Shapes */,
@@ -315,6 +460,22 @@
 		EF8229CD1989D34700A76075 /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				EF74DEDD199AC3E800526189 /* candy_bg_thumb.png */,
+				EF74DEDE199AC3E800526189 /* gold_tree_bg_thumb.png */,
+				EF74DEDF199AC3E800526189 /* mexture-001_thumb.png */,
+				EF74DEE0199AC3E800526189 /* mexture-002_thumb.png */,
+				EF74DEE1199AC3E800526189 /* mexture-003_thumb.png */,
+				EF74DEE2199AC3E800526189 /* mexture-004_thumb.png */,
+				EF74DEE3199AC3E800526189 /* mexture-005_thumb.png */,
+				EF74DEE4199AC3E800526189 /* mexture-006_thumb.png */,
+				EF74DEE5199AC3E800526189 /* mexture-007_thumb.png */,
+				EF74DEE6199AC3E800526189 /* mexture-008_thumb.png */,
+				EF74DEE7199AC3E800526189 /* mexture-009_thumb.png */,
+				EF74DEE8199AC3E800526189 /* mexture-010_thumb.png */,
+				EF74DEE9199AC3E800526189 /* mexture-011_thumb.png */,
+				EF74DEEA199AC3E800526189 /* mexture-012_thumb.png */,
+				EF74DEEB199AC3E800526189 /* mexture-013_thumb.png */,
+				EF74DEEC199AC3E800526189 /* tree_bg_thumb.png */,
 				EF822A4D1989D70500A76075 /* mexture-001.png */,
 				EF822A4E1989D70500A76075 /* mexture-002.png */,
 				EF822A4F1989D70500A76075 /* mexture-003.png */,
@@ -328,6 +489,7 @@
 				EF822A571989D70500A76075 /* mexture-011.png */,
 				EF822A581989D70500A76075 /* mexture-012.png */,
 				EF822A591989D70500A76075 /* mexture-013.png */,
+				EF1104E7199A8A24004B9496 /* addPhoto.png */,
 				EF822A4A1989D49F00A76075 /* Backgrounds.plist */,
 				EF8726C7196DE78C00FCD47C /* gold_tree_bg.png */,
 				EF8726D3196DEFE600FCD47C /* candy_bg.png */,
@@ -367,10 +529,13 @@
 				A20B6FC7196DB92C0067347D /* Resources */,
 				2AE79A68EC43475A91FBC322 /* Copy Pods Resources */,
 				EF6F240819759B6E00E1CB41 /* Embed Frameworks */,
+				EF315A031990185C00DA3414 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				EF3159FC1990185C00DA3414 /* PBXTargetDependency */,
+				EF3159FF1990185C00DA3414 /* PBXTargetDependency */,
 			);
 			name = bezel;
 			productName = Bezel;
@@ -395,6 +560,23 @@
 			productReference = A20B6FDB196DB92D0067347D /* BezelTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		EF3159EE1990185C00DA3414 /* extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF315A021990185C00DA3414 /* Build configuration list for PBXNativeTarget "extension" */;
+			buildPhases = (
+				EF3159EB1990185C00DA3414 /* Sources */,
+				EF3159EC1990185C00DA3414 /* Frameworks */,
+				EF3159ED1990185C00DA3414 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = extension;
+			productName = extension;
+			productReference = EF3159EF1990185C00DA3414 /* extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -411,6 +593,10 @@
 					A20B6FDA196DB92D0067347D = {
 						CreatedOnToolsVersion = 6.0;
 						TestTargetID = A20B6FC8196DB92C0067347D;
+					};
+					EF3159EE1990185C00DA3414 = {
+						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = TX54R8GYX2;
 					};
 				};
 			};
@@ -429,6 +615,7 @@
 			targets = (
 				A20B6FC8196DB92C0067347D /* bezel */,
 				A20B6FDA196DB92D0067347D /* BezelTests */,
+				EF3159EE1990185C00DA3414 /* extension */,
 			);
 		};
 /* End PBXProject section */
@@ -438,22 +625,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF74DF11199AC3E800526189 /* mexture-011_thumb.png in Resources */,
 				EFA68596197082E30085B0FF /* ornament_black.svg in Resources */,
+				EF74DF0E199AC3E800526189 /* mexture-010_thumb.png in Resources */,
+				EF74DEF9199AC3E800526189 /* mexture-003_thumb.png in Resources */,
 				EFA685A51970830A0085B0FF /* Shapes.plist in Resources */,
 				EFA6859E197082E30085B0FF /* star_black.svg in Resources */,
 				A20B6FD4196DB92C0067347D /* Main.storyboard in Resources */,
 				EFA68594197082E30085B0FF /* hexagon_black.svg in Resources */,
+				EF74DF17199AC3E800526189 /* mexture-013_thumb.png in Resources */,
 				EF9AE8F11975A1BA0087CA71 /* oval.png in Resources */,
+				EF74DF0B199AC3E800526189 /* mexture-009_thumb.png in Resources */,
 				EF822A621989D70500A76075 /* mexture-005.png in Resources */,
+				EF74DEFC199AC3E800526189 /* mexture-004_thumb.png in Resources */,
+				EF74DF02199AC3E800526189 /* mexture-006_thumb.png in Resources */,
 				EFA68598197082E30085B0FF /* oval_black.svg in Resources */,
 				EFA6859C197082E30085B0FF /* square_black.svg in Resources */,
+				EF74DEF0199AC3E800526189 /* gold_tree_bg_thumb.png in Resources */,
 				EF822A5A1989D70500A76075 /* mexture-001.png in Resources */,
 				EF8726DA196DF01A00FCD47C /* tree_bg.png in Resources */,
 				EF822A641989D70500A76075 /* mexture-006.png in Resources */,
+				EF74DEF3199AC3E800526189 /* mexture-001_thumb.png in Resources */,
+				EF74DF05199AC3E800526189 /* mexture-007_thumb.png in Resources */,
 				EF9AE8EB1975A1BA0087CA71 /* circle.png in Resources */,
 				EF9AE8F31975A1BA0087CA71 /* rectangle.png in Resources */,
 				EF9AE8F71975A1BA0087CA71 /* star.png in Resources */,
 				EF822A601989D70500A76075 /* mexture-004.png in Resources */,
+				EF1104E8199A8A24004B9496 /* addPhoto.png in Resources */,
 				EFA685A2197082E30085B0FF /* xmas_tree_black.svg in Resources */,
 				EF9AE8EF1975A1BA0087CA71 /* ornament.png in Resources */,
 				EF822A5C1989D70500A76075 /* mexture-002.png in Resources */,
@@ -461,6 +659,8 @@
 				EF822A661989D70500A76075 /* mexture-007.png in Resources */,
 				EFA6859A197082E30085B0FF /* rectangle_black.svg in Resources */,
 				EF2427FE196DCFF600EB8A55 /* road.jpg in Resources */,
+				EF315A19199026EF00DA3414 /* Filters.plist in Resources */,
+				EF74DF1A199AC3E800526189 /* tree_bg_thumb.png in Resources */,
 				A20B6FD6196DB92C0067347D /* Images.xcassets in Resources */,
 				EF822A721989D70500A76075 /* mexture-013.png in Resources */,
 				EF822A6E1989D70500A76075 /* mexture-011.png in Resources */,
@@ -469,13 +669,18 @@
 				EF8726C8196DE78C00FCD47C /* gold_tree_bg.png in Resources */,
 				EF822A701989D70500A76075 /* mexture-012.png in Resources */,
 				EF9AE8ED1975A1BA0087CA71 /* hexagon.png in Resources */,
+				EF74DEFF199AC3E800526189 /* mexture-005_thumb.png in Resources */,
 				EF9AE8F91975A1BA0087CA71 /* triangle.png in Resources */,
 				EF822A5E1989D70500A76075 /* mexture-003.png in Resources */,
+				EF74DEED199AC3E800526189 /* candy_bg_thumb.png in Resources */,
 				EF9AE8FB1975A1BA0087CA71 /* xmas_tree.png in Resources */,
 				EFA685A0197082E30085B0FF /* triangle_black.svg in Resources */,
 				EF9AE8E91975A1BA0087CA71 /* anchor.png in Resources */,
+				EF74DF08199AC3E800526189 /* mexture-008_thumb.png in Resources */,
 				EF9AE8F51975A1BA0087CA71 /* square.png in Resources */,
 				EF822A681989D70500A76075 /* mexture-008.png in Resources */,
+				EF74DF14199AC3E800526189 /* mexture-012_thumb.png in Resources */,
+				EF74DEF6199AC3E800526189 /* mexture-002_thumb.png in Resources */,
 				EF822A6A1989D70500A76075 /* mexture-009.png in Resources */,
 				EF822A4B1989D49F00A76075 /* Backgrounds.plist in Resources */,
 				EF8726D4196DEFE600FCD47C /* candy_bg.png in Resources */,
@@ -489,32 +694,76 @@
 				EF9AE8EE1975A1BA0087CA71 /* hexagon.png in Resources */,
 				EF9AE8F21975A1BA0087CA71 /* oval.png in Resources */,
 				EF9AE8F01975A1BA0087CA71 /* ornament.png in Resources */,
+				EF74DF03199AC3E800526189 /* mexture-006_thumb.png in Resources */,
+				EF74DF15199AC3E800526189 /* mexture-012_thumb.png in Resources */,
 				EF3897111970643D00F2314E /* anchor_black.svg in Resources */,
+				EF74DF06199AC3E800526189 /* mexture-007_thumb.png in Resources */,
 				EF9AE8F41975A1BA0087CA71 /* rectangle.png in Resources */,
 				EF9AE8FA1975A1BA0087CA71 /* triangle.png in Resources */,
 				EF8726C9196DE78C00FCD47C /* gold_tree_bg.png in Resources */,
 				EF822A671989D70500A76075 /* mexture-007.png in Resources */,
 				EF9AE8FC1975A1BA0087CA71 /* xmas_tree.png in Resources */,
+				EF74DEF4199AC3E800526189 /* mexture-001_thumb.png in Resources */,
 				EF822A691989D70500A76075 /* mexture-008.png in Resources */,
+				EF74DF1B199AC3E800526189 /* tree_bg_thumb.png in Resources */,
 				EF822A6D1989D70500A76075 /* mexture-010.png in Resources */,
+				EF74DF09199AC3E800526189 /* mexture-008_thumb.png in Resources */,
 				EF2427FF196DCFF600EB8A55 /* road.jpg in Resources */,
+				EF74DEFD199AC3E800526189 /* mexture-004_thumb.png in Resources */,
 				EF8726DB196DF01A00FCD47C /* tree_bg.png in Resources */,
 				EF822A5F1989D70500A76075 /* mexture-003.png in Resources */,
+				EF74DF0C199AC3E800526189 /* mexture-009_thumb.png in Resources */,
 				EF822A5B1989D70500A76075 /* mexture-001.png in Resources */,
 				EF822A631989D70500A76075 /* mexture-005.png in Resources */,
 				EF9AE8EC1975A1BA0087CA71 /* circle.png in Resources */,
+				EF1104E9199A8A24004B9496 /* addPhoto.png in Resources */,
 				EF822A611989D70500A76075 /* mexture-004.png in Resources */,
 				EF9AE8F81975A1BA0087CA71 /* star.png in Resources */,
+				EF74DF0F199AC3E800526189 /* mexture-010_thumb.png in Resources */,
+				EF315A1A199026EF00DA3414 /* Filters.plist in Resources */,
+				EF74DEF1199AC3E800526189 /* gold_tree_bg_thumb.png in Resources */,
 				EF822A6B1989D70500A76075 /* mexture-009.png in Resources */,
+				EF74DF00199AC3E800526189 /* mexture-005_thumb.png in Resources */,
 				EF822A711989D70500A76075 /* mexture-012.png in Resources */,
+				EF74DF12199AC3E800526189 /* mexture-011_thumb.png in Resources */,
+				EF74DF18199AC3E800526189 /* mexture-013_thumb.png in Resources */,
+				EF74DEFA199AC3E800526189 /* mexture-003_thumb.png in Resources */,
 				EF9AE8EA1975A1BA0087CA71 /* anchor.png in Resources */,
 				EF822A651989D70500A76075 /* mexture-006.png in Resources */,
 				EF9AE8F61975A1BA0087CA71 /* square.png in Resources */,
 				EF822A5D1989D70500A76075 /* mexture-002.png in Resources */,
+				EF74DEEE199AC3E800526189 /* candy_bg_thumb.png in Resources */,
 				EF822A6F1989D70500A76075 /* mexture-011.png in Resources */,
 				EF822A4C1989D49F00A76075 /* Backgrounds.plist in Resources */,
+				EF74DEF7199AC3E800526189 /* mexture-002_thumb.png in Resources */,
 				EF822A731989D70500A76075 /* mexture-013.png in Resources */,
 				EF8726D5196DEFE600FCD47C /* candy_bg.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF3159ED1990185C00DA3414 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF74DF13199AC3E800526189 /* mexture-011_thumb.png in Resources */,
+				EF315A1B199026EF00DA3414 /* Filters.plist in Resources */,
+				EF74DF10199AC3E800526189 /* mexture-010_thumb.png in Resources */,
+				EF74DF07199AC3E800526189 /* mexture-007_thumb.png in Resources */,
+				EF74DEFB199AC3E800526189 /* mexture-003_thumb.png in Resources */,
+				EF74DEFE199AC3E800526189 /* mexture-004_thumb.png in Resources */,
+				EF74DF19199AC3E800526189 /* mexture-013_thumb.png in Resources */,
+				EF74DEF5199AC3E800526189 /* mexture-001_thumb.png in Resources */,
+				EF74DF0D199AC3E800526189 /* mexture-009_thumb.png in Resources */,
+				EF3159FA1990185C00DA3414 /* MainInterface.storyboard in Resources */,
+				EF74DF04199AC3E800526189 /* mexture-006_thumb.png in Resources */,
+				EF1104EA199A8A24004B9496 /* addPhoto.png in Resources */,
+				EF74DF16199AC3E800526189 /* mexture-012_thumb.png in Resources */,
+				EF74DF1C199AC3E800526189 /* tree_bg_thumb.png in Resources */,
+				EF74DF0A199AC3E800526189 /* mexture-008_thumb.png in Resources */,
+				EF74DEF8199AC3E800526189 /* mexture-002_thumb.png in Resources */,
+				EF74DF01199AC3E800526189 /* mexture-005_thumb.png in Resources */,
+				EF74DEEF199AC3E800526189 /* candy_bg_thumb.png in Resources */,
+				EF74DEF2199AC3E800526189 /* gold_tree_bg_thumb.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,6 +812,7 @@
 				EF8726CB196DE95400FCD47C /* BezelCollectionViewDataSource.swift in Sources */,
 				EF8726E6196DF2EF00FCD47C /* ImageCollectionViewCell.swift in Sources */,
 				A20B6FCF196DB92C0067347D /* AppDelegate.swift in Sources */,
+				EF21C7BC199A7B53008E288D /* PeopleView.m in Sources */,
 				EF60F3D019799CC30058DBFD /* BezelClassExtensions.swift in Sources */,
 				A20B6FEC196DB93B0067347D /* PhotoEditController.swift in Sources */,
 				A20B6FEE196DB9540067347D /* Shape.swift in Sources */,
@@ -581,6 +831,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EF3159EB1990185C00DA3414 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF3159F81990185C00DA3414 /* PhotoEditingViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -588,6 +846,16 @@
 			isa = PBXTargetDependency;
 			target = A20B6FC8196DB92C0067347D /* bezel */;
 			targetProxy = A20B6FDC196DB92D0067347D /* PBXContainerItemProxy */;
+		};
+		EF3159FC1990185C00DA3414 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF3159EE1990185C00DA3414 /* extension */;
+			targetProxy = EF3159FB1990185C00DA3414 /* PBXContainerItemProxy */;
+		};
+		EF3159FF1990185C00DA3414 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF3159EE1990185C00DA3414 /* extension */;
+			targetProxy = EF3159FE1990185C00DA3414 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -753,6 +1021,36 @@
 			};
 			name = Release;
 		};
+		EF315A001990185C00DA3414 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = extension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		EF315A011990185C00DA3414 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				INFOPLIST_FILE = extension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -779,6 +1077,15 @@
 			buildConfigurations = (
 				A20B6FE9196DB92D0067347D /* Debug */,
 				A20B6FEA196DB92D0067347D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF315A021990185C00DA3414 /* Build configuration list for PBXNativeTarget "extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF315A001990185C00DA3414 /* Debug */,
+				EF315A011990185C00DA3414 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
