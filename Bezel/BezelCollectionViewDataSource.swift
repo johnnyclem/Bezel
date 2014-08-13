@@ -47,7 +47,7 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("BackgroundCell", forIndexPath: indexPath) as ImageCollectionViewCell
             
             var imageView : UIImageView!
-            var overlayImageView : UIImageView!
+//            var overlayImageView : UIImageView!
             
             if let taggedImageView = cell.viewWithTag(999) as? UIImageView {
                 imageView = taggedImageView
@@ -58,21 +58,8 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
             }
             
             if indexPath.item == backgrounds.count {
-                for subView in imageView.subviews {
-                    subView.removeFromSuperview()
-                }
                 imageView.image = self.backgroundThumbs[0]
             } else {
-                let cellOverlayImage = self.currentShape.previewImage
-
-                if let taggedOverlayImageView = cell.viewWithTag(998) as? UIImageView {
-                    overlayImageView = taggedOverlayImageView
-                } else {
-                    overlayImageView = UIImageView(frame: cell.bounds)
-                    overlayImageView.tag = 998
-                    overlayImageView.image = cellOverlayImage
-                    imageView.addSubview(overlayImageView!)
-                }
                 imageView.image = self.backgrounds[indexPath.row]
             }
             
