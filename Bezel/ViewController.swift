@@ -195,13 +195,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     func handleBackgroundPickedImage(image: UIImage) {
         self.dismissViewControllerAnimated(true) {
             if let backgrounds = self.dataSource?.backgrounds {
-                let addNewBG = backgrounds.last
-                self.dataSource?.backgroundThumbs.removeLast()
                 let thumb = UIImage(image: image, scaledToFillToSize: CGSize(width: 140, height: 140))
                 let fullImage = UIImage(image: image, scaledToFillToSize: CGSize(width: 640, height: 640))
                 self.dataSource?.backgrounds.append(fullImage)
                 self.dataSource?.backgroundThumbs.append(thumb)
-                self.dataSource?.backgroundThumbs.append(addNewBG!)
                 self.collectionView?.reloadData()
                 self.collectionView?.selectItemAtIndexPath(NSIndexPath(forItem: backgrounds.count, inSection: 0), animated: true, scrollPosition: UICollectionViewScrollPosition.CenteredVertically)
                 self.pickingBackground = false
@@ -248,18 +245,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
             imagePreviewQueue.addOperationWithBlock() {
                 switch (self.dataSource!.selectedSection) {
                 case 0: // Shapes
-                    self.currentShape = self.dataSource!.shapes[indexPath.row]
+                    self.currentShape = self.dataSource!.shapes[indexPath.item]
                     self.dataSource!.currentShape = self.currentShape
                 default: // Backgrounds
-                    if indexPath.item == self.dataSource!.backgrounds.count - 1 {
+                    if indexPath.item == self.dataSource!.backgroundThumbs.count - 1 {
                         self.pickingBackground = true
                         self.cameraButtonPressed(self)
                     } else {
-                        self.currentColor = UIColor(patternImage: self.dataSource!.backgrounds[indexPath.row])
+                        self.currentColor = UIColor(patternImage: self.dataSource!.backgrounds[indexPath.item])
                     }
                 }
+
+                self.currentShape.setFillColor(self.currentColor)
                 NSOperationQueue.mainQueue().addOperationWithBlock() {
-                    self.currentShape.setFillColor(self.currentColor)
                     self.cutoutImageView!.image = self.currentShape.overlayImage
                 }
             }

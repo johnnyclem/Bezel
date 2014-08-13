@@ -62,9 +62,5 @@
 		<key>imageName</key>
 		<string>mexture-012</string>
 	</dict>
-	<dict>
-		<key>imageName</key>
-		<string>addPhoto</string>
-	</dict>
 </array>
 </plist>

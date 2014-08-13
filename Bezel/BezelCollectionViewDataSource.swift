@@ -33,7 +33,7 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
         
         switch (selectedSection) {
         case 2:
-            return backgrounds.count
+            return backgroundThumbs.count
         case 1:
             return 0
         default:
@@ -61,6 +61,7 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
                 for subView in imageView.subviews {
                     subView.removeFromSuperview()
                 }
+                imageView.image = self.backgroundThumbs[0]
             } else {
                 let cellOverlayImage = self.currentShape.previewImage
 
@@ -72,9 +73,9 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
                     overlayImageView.image = cellOverlayImage
                     imageView.addSubview(overlayImageView!)
                 }
+                imageView.image = self.backgrounds[indexPath.row]
             }
             
-            imageView.image = self.backgroundThumbs[indexPath.row]
             
             return cell
         default: // Shapes
@@ -138,7 +139,9 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
         let filePath = NSBundle.mainBundle().pathForResource("Backgrounds", ofType: "plist")
         let bgArray = NSArray(contentsOfFile: filePath)
         var allBGs = Array<UIImage>()
-        
+        let addBgThumb = UIImage(named: "addPhoto.png")
+        self.backgroundThumbs.append(addBgThumb)
+
         for info in bgArray {
             if let bgDict = info as? NSDictionary {
                 if let imageName = info["imageName"] as? String {
