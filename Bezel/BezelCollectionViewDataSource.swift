@@ -17,7 +17,7 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
     
     var collectionView : UICollectionView?
     var didChangeColorBlock : NKOColorPickerDidChangeColorBlock
-    var colorPicker = NKOColorPickerView()
+    var colorPicker : NKOColorPickerView?
     var currentColor = UIColor.lightGrayColor()
     var currentShape = Shape(color: UIColor.whiteColor(), size: CGSize(width: 640, height: 640), info: ["shapeName" : "circle", "overlayImage" : "circle_black", "previewImage" : "circle"])
 
@@ -104,13 +104,16 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
     func didChangeSegment(segment: Int) {
         selectedSection = segment
         if selectedSection == 1 {
-            colorPicker = NKOColorPickerView(frame: CGRect(origin: CGPoint(x: 0, y: collectionView!.frame.origin.y + 33), size: CGSize(width: collectionView!.frame.size.width, height: collectionView!.frame.size.height-33.0)))
-            colorPicker.color = self.currentColor
-            colorPicker.didChangeColorBlock = self.didChangeColorBlock
-            collectionView?.superview?.addSubview(colorPicker)
+            if self.colorPicker == nil {
+                colorPicker = NKOColorPickerView(frame: CGRect(origin: CGPoint(x: 0, y: collectionView!.frame.origin.y + 33), size: CGSize(width: collectionView!.frame.size.width, height: collectionView!.frame.size.height-33.0)))
+                colorPicker!.didChangeColorBlock = self.didChangeColorBlock
+            }
+            
+            colorPicker!.color = self.currentColor
+            collectionView?.superview?.addSubview(colorPicker!)
             collectionView!.reloadData()
         } else {
-            colorPicker.removeFromSuperview()
+            colorPicker?.removeFromSuperview()
             collectionView!.reloadData()
         }
     }

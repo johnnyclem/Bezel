@@ -61,5 +61,9 @@ extension UIImage {
         let outputImage = blendFilter.outputImage
         return UIImage(CIImage: outputImage)
     }
+    
+    func resizeImage(toSize size: CGSize) {
+        
+    }
 
 }

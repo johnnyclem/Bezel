@@ -7,3 +7,4 @@
 #import <UIImage+SVG/PocketSVG.h>
 #import <CoreImage/CoreImage.h>
 #import "PeopleView.h"
+#import "UIImage+Resize.h"

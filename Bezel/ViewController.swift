@@ -130,7 +130,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
 
     func testCollectionViewDataSource() {
         dataSource = BezelCollectionViewDataSource() { (color : UIColor!) in
-            self.dataSource!.currentColor = color
             self.updateShapeColor(color)
         }
         collectionView!.dataSource = dataSource
@@ -143,9 +142,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     func updateShapeColor (color : UIColor) {
         println("changed color to: \(color)")
         self.currentColor = color
-        self.dataSource!.currentColor = self.currentColor
+        self.dataSource?.currentColor = self.currentColor
         self.currentShape.setFillColor(self.currentColor)
-        self.cutoutImageView!.image = currentShape.overlayImage
+        self.cutoutImageView?.image = currentShape.overlayImage
     }
     
     @IBAction func cameraButtonPressed(sender: AnyObject) {
@@ -197,9 +196,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         self.dismissViewControllerAnimated(true) {
             if let backgrounds = self.dataSource?.backgrounds {
                 let addNewBG = backgrounds.last
-                self.dataSource?.backgrounds.removeLast()
-                self.dataSource?.backgrounds.append(image)
-                self.dataSource?.backgrounds.append(addNewBG!)
+                self.dataSource?.backgroundThumbs.removeLast()
+                let thumb = UIImage(image: image, scaledToFillToSize: CGSize(width: 140, height: 140))
+                let fullImage = UIImage(image: image, scaledToFillToSize: CGSize(width: 640, height: 640))
+                self.dataSource?.backgrounds.append(fullImage)
+                self.dataSource?.backgroundThumbs.append(thumb)
+                self.dataSource?.backgroundThumbs.append(addNewBG!)
                 self.collectionView?.reloadData()
                 self.collectionView?.selectItemAtIndexPath(NSIndexPath(forItem: backgrounds.count, inSection: 0), animated: true, scrollPosition: UICollectionViewScrollPosition.CenteredVertically)
                 self.pickingBackground = false
