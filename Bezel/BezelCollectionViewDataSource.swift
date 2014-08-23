@@ -47,7 +47,6 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("BackgroundCell", forIndexPath: indexPath) as ImageCollectionViewCell
             
             var imageView : UIImageView!
-//            var overlayImageView : UIImageView!
             
             if let taggedImageView = cell.viewWithTag(999) as? UIImageView {
                 imageView = taggedImageView
@@ -89,9 +88,17 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
     
     // Header Delegate
     
-    func didChangeSegment(segment: Int) {
+    func didChangeSegment(segment : Int, sender: AnyObject?) {
         selectedSection = segment
-        if selectedSection == 1 {
+        
+        if let segmentedControl = sender as? UISegmentedControl {
+            println("Tapped Control With ID: \(segmentedControl.accessibilityLabel)")
+        } else {
+            println("couldn't cast sender to UISegmentedControl")
+        }
+
+        switch selectedSection {
+        case 1:
             if self.colorPicker == nil {
                 colorPicker = NKOColorPickerView(frame: CGRect(origin: CGPoint(x: 0, y: collectionView!.frame.origin.y + 33), size: CGSize(width: collectionView!.frame.size.width, height: collectionView!.frame.size.height-33.0)))
                 colorPicker!.didChangeColorBlock = self.didChangeColorBlock
@@ -100,7 +107,7 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
             colorPicker!.color = self.currentColor
             collectionView?.superview?.addSubview(colorPicker!)
             collectionView!.reloadData()
-        } else {
+        default:
             colorPicker?.removeFromSuperview()
             collectionView!.reloadData()
         }
@@ -108,7 +115,7 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
     
     // Shapes Data Source
     func loadAllShapes(color : UIColor) -> Array<Shape> {
-        let filePath = NSBundle.mainBundle().pathForResource("Shapes", ofType: "plist")
+        let filePath = NSBundle.mainBundle().pathForResource("Shapes", ofType: "plist")!
         let shapesArray = NSArray(contentsOfFile: filePath)
         var allShapes = Array<Shape>()
         
@@ -123,7 +130,7 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
     }
 
     func loadAllTextures() -> Array<UIImage> {
-        let filePath = NSBundle.mainBundle().pathForResource("Backgrounds", ofType: "plist")
+        let filePath = NSBundle.mainBundle().pathForResource("Backgrounds", ofType: "plist")!
         let bgArray = NSArray(contentsOfFile: filePath)
         var allBGs = Array<UIImage>()
         let addBgThumb = UIImage(named: "addPhoto.png")

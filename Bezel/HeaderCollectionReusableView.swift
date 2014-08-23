@@ -10,7 +10,7 @@ import UIKit
 
 protocol HeaderDelegate : NSObjectProtocol {
     
-    func didChangeSegment(segment : Int)
+    func didChangeSegment(segment : Int, sender: AnyObject?)
 }
 
 class HeaderCollectionReusableView: UICollectionReusableView {
@@ -19,6 +19,6 @@ class HeaderCollectionReusableView: UICollectionReusableView {
     var delegate : HeaderDelegate?
     
     @IBAction func changeCollectionViewData (sender : AnyObject?) {
-        delegate?.didChangeSegment(segmentedControl!.selectedSegmentIndex)
+        delegate?.didChangeSegment(segmentedControl!.selectedSegmentIndex, sender: sender)
     }
 }

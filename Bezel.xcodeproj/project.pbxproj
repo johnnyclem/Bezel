@@ -101,6 +101,7 @@
 		EF8726DB196DF01A00FCD47C /* tree_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = EF8726D9196DF01A00FCD47C /* tree_bg.png */; };
 		EF8726E6196DF2EF00FCD47C /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8726E5196DF2EF00FCD47C /* ImageCollectionViewCell.swift */; };
 		EF8726E7196DF2EF00FCD47C /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8726E5196DF2EF00FCD47C /* ImageCollectionViewCell.swift */; };
+		EF94A2A619A7D07B00C2C061 /* AnalyticsEngineConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = EF94A2A519A7D07B00C2C061 /* AnalyticsEngineConstants.m */; };
 		EF9AE8E91975A1BA0087CA71 /* anchor.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9AE8DF1975A1BA0087CA71 /* anchor.png */; };
 		EF9AE8EA1975A1BA0087CA71 /* anchor.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9AE8DF1975A1BA0087CA71 /* anchor.png */; };
 		EF9AE8EB1975A1BA0087CA71 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9AE8E01975A1BA0087CA71 /* circle.png */; };
@@ -231,6 +232,8 @@
 		EF8726D3196DEFE600FCD47C /* candy_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = candy_bg.png; sourceTree = "<group>"; };
 		EF8726D9196DF01A00FCD47C /* tree_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree_bg.png; sourceTree = "<group>"; };
 		EF8726E5196DF2EF00FCD47C /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		EF94A2A419A7D07B00C2C061 /* AnalyticsEngineConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticsEngineConstants.h; sourceTree = "<group>"; };
+		EF94A2A519A7D07B00C2C061 /* AnalyticsEngineConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyticsEngineConstants.m; sourceTree = "<group>"; };
 		EF9AE8DF1975A1BA0087CA71 /* anchor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anchor.png; sourceTree = "<group>"; };
 		EF9AE8E01975A1BA0087CA71 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
 		EF9AE8E11975A1BA0087CA71 /* hexagon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hexagon.png; sourceTree = "<group>"; };
@@ -332,6 +335,8 @@
 				EF60F3CF19799CC30058DBFD /* BezelClassExtensions.swift */,
 				EF74DF1D199ADA7A00526189 /* UIImage+Resize.h */,
 				EF74DF1E199ADA7A00526189 /* UIImage+Resize.m */,
+				EF94A2A419A7D07B00C2C061 /* AnalyticsEngineConstants.h */,
+				EF94A2A519A7D07B00C2C061 /* AnalyticsEngineConstants.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -465,6 +470,7 @@
 				2AE79A68EC43475A91FBC322 /* Copy Pods Resources */,
 				EF6F240819759B6E00E1CB41 /* Embed Frameworks */,
 				EF315A031990185C00DA3414 /* Embed App Extensions */,
+				EF94A2A719A7D0D900C2C061 /* Generate Storyboard Identifiers */,
 			);
 			buildRules = (
 			);
@@ -505,6 +511,11 @@
 					A20B6FC8196DB92C0067347D = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = TX54R8GYX2;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					A20B6FDA196DB92D0067347D = {
 						CreatedOnToolsVersion = 6.0;
@@ -685,6 +696,20 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		EF94A2A719A7D0D900C2C061 /* Generate Storyboard Identifiers */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Storyboard Identifiers";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sbconstants --verbose ${SRCROOT}/Bezel/AnalyticsEngineConstants.h";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -696,6 +721,7 @@
 				A20B6FD1196DB92C0067347D /* ViewController.swift in Sources */,
 				EF8726CB196DE95400FCD47C /* BezelCollectionViewDataSource.swift in Sources */,
 				EF8726E6196DF2EF00FCD47C /* ImageCollectionViewCell.swift in Sources */,
+				EF94A2A619A7D07B00C2C061 /* AnalyticsEngineConstants.m in Sources */,
 				A20B6FCF196DB92C0067347D /* AppDelegate.swift in Sources */,
 				EF21C7BC199A7B53008E288D /* PeopleView.m in Sources */,
 				EF60F3D019799CC30058DBFD /* BezelClassExtensions.swift in Sources */,

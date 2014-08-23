@@ -56,7 +56,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         //only add the camera option if a camera is on the device
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
             self.cameraPicker.delegate = self
-            self.cameraPicker.allowsEditing = true
+            self.cameraPicker.allowsEditing = false
             self.cameraPicker.sourceType = UIImagePickerControllerSourceType.Camera
             let cameraOption = UIAlertAction(title: "Camera", style: UIAlertActionStyle.Default, handler: {(action :UIAlertAction!) -> Void in
 
@@ -88,7 +88,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         }
         //setup the photo library option
         self.libraryPicker.delegate = self
-        self.libraryPicker.allowsEditing = true
+        self.libraryPicker.allowsEditing = false
         self.libraryPicker.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum
         
         let libraryOption = UIAlertAction(title: "Photo Library", style: UIAlertActionStyle.Default, handler: {(action :UIAlertAction!) -> Void in

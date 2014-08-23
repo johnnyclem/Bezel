@@ -41,7 +41,7 @@ class Shape {
     
     func setFillColor(color : UIColor) {
         self.fillColor = color
-        self.overlayImage = UIImage(SVGNamed: self.overlayImageName, targetSize: self.overlaySize, fillColor: self.fillColor, cache: false)
+        self.overlayImage = UIImage(SVGNamed: self.overlayImageName, targetSize: self.overlaySize, fillColor: self.fillColor, cache: true)
     }
     
 }
