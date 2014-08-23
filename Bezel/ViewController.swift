@@ -51,6 +51,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         imageView!.image = image
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.applyShapeForIndexPath(NSIndexPath(forItem: 0, inSection: 0))
+    }
+    
     func setupPickersAndAlertControllers(){
         
         //only add the camera option if a camera is on the device
@@ -234,33 +240,32 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         return self.imageView
     }
     
-    func scrollViewDidEndZooming(scrollView: UIScrollView!, withView view: UIView!, atScale scale: CGFloat) {
-        self.imageView.center = self.scrollView!.center
-    }
-    
     //#pragma mark - UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView!,
         didSelectItemAtIndexPath indexPath: NSIndexPath!) {
-            
-            imagePreviewQueue.addOperationWithBlock() {
-                switch (self.dataSource!.selectedSection) {
-                case 0: // Shapes
-                    self.currentShape = self.dataSource!.shapes[indexPath.item]
-                    self.dataSource!.currentShape = self.currentShape
-                default: // Backgrounds
-                    if indexPath.item == self.dataSource!.backgroundThumbs.count - 1 {
-                        self.pickingBackground = true
-                        self.cameraButtonPressed(self)
-                    } else {
-                        self.currentColor = UIColor(patternImage: self.dataSource!.backgrounds[indexPath.item])
-                    }
-                }
-
-                self.currentShape.setFillColor(self.currentColor)
-                NSOperationQueue.mainQueue().addOperationWithBlock() {
-                    self.cutoutImageView!.image = self.currentShape.overlayImage
+            self.applyShapeForIndexPath(indexPath)
+    }
+    
+    func applyShapeForIndexPath(indexPath: NSIndexPath) {
+        imagePreviewQueue.addOperationWithBlock() {
+            switch (self.dataSource!.selectedSection) {
+            case 0: // Shapes
+                self.currentShape = self.dataSource!.shapes[indexPath.item]
+                self.dataSource!.currentShape = self.currentShape
+            default: // Backgrounds
+                if indexPath.item == self.dataSource!.backgroundThumbs.count - 1 {
+                    self.pickingBackground = true
+                    self.cameraButtonPressed(self)
+                } else {
+                    self.currentColor = UIColor(patternImage: self.dataSource!.backgrounds[indexPath.item])
                 }
             }
+            
+            self.currentShape.setFillColor(self.currentColor)
+            NSOperationQueue.mainQueue().addOperationWithBlock() {
+                self.cutoutImageView!.image = self.currentShape.overlayImage
+            }
+        }
     }
     
     
