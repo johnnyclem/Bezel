@@ -12,6 +12,8 @@ import UIKit
 class Shape {
     var previewImage : UIImage?
     var overlayImage : UIImage?
+    var backgroundImage : UIImage?
+
     var fillColor = UIColor.blackColor()
     var overlaySize = CGSize(width: 640, height: 640)
     let previewSize = CGSize(width: 120, height: 120)
@@ -41,7 +43,7 @@ class Shape {
     
     func setFillColor(color : UIColor) {
         self.fillColor = color
-        self.overlayImage = UIImage(SVGNamed: self.overlayImageName, targetSize: self.overlaySize, fillColor: self.fillColor, cache: true)
+        self.overlayImage = UIImage(SVGNamed: self.overlayImageName, targetSize: self.overlaySize, fillColor: self.fillColor, cache: false)
     }
     
 }

@@ -1,0 +1,536 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC8039EF196DD32E0031B33B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8039ED196DD32E0031B33B /* ViewController.m */; };
+		AC8039F0196DD32E0031B33B /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC8039EE196DD32E0031B33B /* ViewController.xib */; };
+		AC8039FF196DEE190031B33B /* TGDrawSvgPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8039FE196DEE190031B33B /* TGDrawSvgPathView.m */; };
+		AC803A02196DF6770031B33B /* PocketSVG.m in Sources */ = {isa = PBXBuildFile; fileRef = AC803A01196DF6770031B33B /* PocketSVG.m */; };
+		AC803A07196E06600031B33B /* criss6.svg in Resources */ = {isa = PBXBuildFile; fileRef = AC803A03196E06600031B33B /* criss6.svg */; };
+		AC803A0C196E071F0031B33B /* world17.svg in Resources */ = {isa = PBXBuildFile; fileRef = AC803A0B196E071F0031B33B /* world17.svg */; };
+		AC803A14196E08BB0031B33B /* replay2.svg in Resources */ = {isa = PBXBuildFile; fileRef = AC803A13196E08BB0031B33B /* replay2.svg */; };
+		AC803A16196E09190031B33B /* dropbox10.svg in Resources */ = {isa = PBXBuildFile; fileRef = AC803A15196E09190031B33B /* dropbox10.svg */; };
+		ACB150DD196C796300CA1D4B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB150DC196C796300CA1D4B /* Foundation.framework */; };
+		ACB150DF196C796300CA1D4B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB150DE196C796300CA1D4B /* CoreGraphics.framework */; };
+		ACB150E1196C796300CA1D4B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB150E0196C796300CA1D4B /* UIKit.framework */; };
+		ACB150E7196C796300CA1D4B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACB150E5196C796300CA1D4B /* InfoPlist.strings */; };
+		ACB150E9196C796300CA1D4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB150E8196C796300CA1D4B /* main.m */; };
+		ACB150ED196C796300CA1D4B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB150EC196C796300CA1D4B /* AppDelegate.m */; };
+		ACB150EF196C796300CA1D4B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACB150EE196C796300CA1D4B /* Images.xcassets */; };
+		ACB150F6196C796400CA1D4B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB150F5196C796400CA1D4B /* XCTest.framework */; };
+		ACB150F7196C796400CA1D4B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB150DC196C796300CA1D4B /* Foundation.framework */; };
+		ACB150F8196C796400CA1D4B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB150E0196C796300CA1D4B /* UIKit.framework */; };
+		ACB1511A196CA4A600CA1D4B /* cloud.svg in Resources */ = {isa = PBXBuildFile; fileRef = ACB15117196CA4A600CA1D4B /* cloud.svg */; };
+		ACB1511B196CA4A600CA1D4B /* iceland.svg in Resources */ = {isa = PBXBuildFile; fileRef = ACB15118196CA4A600CA1D4B /* iceland.svg */; };
+		EF60F3DB1979AAA90058DBFD /* anchor.svg in Resources */ = {isa = PBXBuildFile; fileRef = EF60F3D11979AAA90058DBFD /* anchor.svg */; };
+		EF60F3DC1979AAA90058DBFD /* circle.svg in Resources */ = {isa = PBXBuildFile; fileRef = EF60F3D21979AAA90058DBFD /* circle.svg */; };
+		EF60F3DD1979AAA90058DBFD /* hexagon.svg in Resources */ = {isa = PBXBuildFile; fileRef = EF60F3D31979AAA90058DBFD /* hexagon.svg */; };
+		EF60F3DE1979AAA90058DBFD /* ornament.svg in Resources */ = {isa = PBXBuildFile; fileRef = EF60F3D41979AAA90058DBFD /* ornament.svg */; };
+		EF60F3DF1979AAA90058DBFD /* oval.svg in Resources */ = {isa = PBXBuildFile; fileRef = EF60F3D51979AAA90058DBFD /* oval.svg */; };
+		EF60F3E01979AAA90058DBFD /* rectangle_black.svg in Resources */ = {isa = PBXBuildFile; fileRef = EF60F3D61979AAA90058DBFD /* rectangle_black.svg */; };
+		EF60F3E11979AAA90058DBFD /* square_black.svg in Resources */ = {isa = PBXBuildFile; fileRef = EF60F3D71979AAA90058DBFD /* square_black.svg */; };
+		EF60F3E21979AAA90058DBFD /* star_black.svg in Resources */ = {isa = PBXBuildFile; fileRef = EF60F3D81979AAA90058DBFD /* star_black.svg */; };
+		EF60F3E31979AAA90058DBFD /* triangle_black.svg in Resources */ = {isa = PBXBuildFile; fileRef = EF60F3D91979AAA90058DBFD /* triangle_black.svg */; };
+		EF60F3E41979AAA90058DBFD /* xmas_tree.svg in Resources */ = {isa = PBXBuildFile; fileRef = EF60F3DA1979AAA90058DBFD /* xmas_tree.svg */; };
+		EFD5F1DC1979BA450035161D /* road.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFD5F1DB1979BA450035161D /* road.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ACB150F9196C796400CA1D4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACB150D1196C796300CA1D4B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACB150D8196C796300CA1D4B;
+			remoteInfo = SVGPathDrawing;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AC8039EC196DD32E0031B33B /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		AC8039ED196DD32E0031B33B /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AC8039EE196DD32E0031B33B /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		AC8039FD196DEE190031B33B /* TGDrawSvgPathView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TGDrawSvgPathView.h; path = Classes/TGDrawSvgPathView.h; sourceTree = "<group>"; };
+		AC8039FE196DEE190031B33B /* TGDrawSvgPathView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TGDrawSvgPathView.m; path = Classes/TGDrawSvgPathView.m; sourceTree = "<group>"; };
+		AC803A00196DF6770031B33B /* PocketSVG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PocketSVG.h; path = Classes/PocketSVG.h; sourceTree = "<group>"; };
+		AC803A01196DF6770031B33B /* PocketSVG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PocketSVG.m; path = Classes/PocketSVG.m; sourceTree = "<group>"; };
+		AC803A03196E06600031B33B /* criss6.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = criss6.svg; path = Resources/Assets/criss6.svg; sourceTree = "<group>"; };
+		AC803A0B196E071F0031B33B /* world17.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = world17.svg; path = Resources/Assets/world17.svg; sourceTree = "<group>"; };
+		AC803A13196E08BB0031B33B /* replay2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = replay2.svg; path = Resources/Assets/replay2.svg; sourceTree = "<group>"; };
+		AC803A15196E09190031B33B /* dropbox10.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = dropbox10.svg; path = Resources/Assets/dropbox10.svg; sourceTree = "<group>"; };
+		ACB150D9196C796300CA1D4B /* SVGPathDrawing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SVGPathDrawing.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACB150DC196C796300CA1D4B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ACB150DE196C796300CA1D4B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		ACB150E0196C796300CA1D4B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		ACB150E4196C796300CA1D4B /* SVGPathDrawing-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SVGPathDrawing-Info.plist"; sourceTree = "<group>"; };
+		ACB150E6196C796300CA1D4B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ACB150E8196C796300CA1D4B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ACB150EA196C796300CA1D4B /* SVGPathDrawing-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SVGPathDrawing-Prefix.pch"; sourceTree = "<group>"; };
+		ACB150EB196C796300CA1D4B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ACB150EC196C796300CA1D4B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ACB150EE196C796300CA1D4B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		ACB150F4196C796400CA1D4B /* SVGPathDrawingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SVGPathDrawingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACB150F5196C796400CA1D4B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		ACB15117196CA4A600CA1D4B /* cloud.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = cloud.svg; path = Resources/Assets/cloud.svg; sourceTree = "<group>"; };
+		ACB15118196CA4A600CA1D4B /* iceland.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = iceland.svg; path = Resources/Assets/iceland.svg; sourceTree = "<group>"; };
+		EF60F3D11979AAA90058DBFD /* anchor.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = anchor.svg; sourceTree = "<group>"; };
+		EF60F3D21979AAA90058DBFD /* circle.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = circle.svg; sourceTree = "<group>"; };
+		EF60F3D31979AAA90058DBFD /* hexagon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = hexagon.svg; sourceTree = "<group>"; };
+		EF60F3D41979AAA90058DBFD /* ornament.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ornament.svg; sourceTree = "<group>"; };
+		EF60F3D51979AAA90058DBFD /* oval.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = oval.svg; sourceTree = "<group>"; };
+		EF60F3D61979AAA90058DBFD /* rectangle_black.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = rectangle_black.svg; sourceTree = "<group>"; };
+		EF60F3D71979AAA90058DBFD /* square_black.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = square_black.svg; sourceTree = "<group>"; };
+		EF60F3D81979AAA90058DBFD /* star_black.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = star_black.svg; sourceTree = "<group>"; };
+		EF60F3D91979AAA90058DBFD /* triangle_black.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = triangle_black.svg; sourceTree = "<group>"; };
+		EF60F3DA1979AAA90058DBFD /* xmas_tree.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = xmas_tree.svg; sourceTree = "<group>"; };
+		EFD5F1DB1979BA450035161D /* road.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = road.jpg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ACB150D6196C796300CA1D4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACB150DF196C796300CA1D4B /* CoreGraphics.framework in Frameworks */,
+				ACB150E1196C796300CA1D4B /* UIKit.framework in Frameworks */,
+				ACB150DD196C796300CA1D4B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACB150F1196C796400CA1D4B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACB150F6196C796400CA1D4B /* XCTest.framework in Frameworks */,
+				ACB150F8196C796400CA1D4B /* UIKit.framework in Frameworks */,
+				ACB150F7196C796400CA1D4B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AC8039F1196DE0530031B33B /* TGSvgPathDrawView */ = {
+			isa = PBXGroup;
+			children = (
+				AC803A00196DF6770031B33B /* PocketSVG.h */,
+				AC803A01196DF6770031B33B /* PocketSVG.m */,
+				AC8039FD196DEE190031B33B /* TGDrawSvgPathView.h */,
+				AC8039FE196DEE190031B33B /* TGDrawSvgPathView.m */,
+			);
+			name = TGSvgPathDrawView;
+			sourceTree = "<group>";
+		};
+		ACB150D0196C796300CA1D4B = {
+			isa = PBXGroup;
+			children = (
+				AC8039F1196DE0530031B33B /* TGSvgPathDrawView */,
+				ACB150E2196C796300CA1D4B /* SVGPathDrawing */,
+				ACB150DB196C796300CA1D4B /* Frameworks */,
+				ACB150DA196C796300CA1D4B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ACB150DA196C796300CA1D4B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ACB150D9196C796300CA1D4B /* SVGPathDrawing.app */,
+				ACB150F4196C796400CA1D4B /* SVGPathDrawingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ACB150DB196C796300CA1D4B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ACB150DC196C796300CA1D4B /* Foundation.framework */,
+				ACB150DE196C796300CA1D4B /* CoreGraphics.framework */,
+				ACB150E0196C796300CA1D4B /* UIKit.framework */,
+				ACB150F5196C796400CA1D4B /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ACB150E2196C796300CA1D4B /* SVGPathDrawing */ = {
+			isa = PBXGroup;
+			children = (
+				AC8039EC196DD32E0031B33B /* ViewController.h */,
+				AC8039ED196DD32E0031B33B /* ViewController.m */,
+				AC8039EE196DD32E0031B33B /* ViewController.xib */,
+				ACB15115196CA43A00CA1D4B /* Resources */,
+				ACB150EB196C796300CA1D4B /* AppDelegate.h */,
+				ACB150EC196C796300CA1D4B /* AppDelegate.m */,
+				ACB150EE196C796300CA1D4B /* Images.xcassets */,
+				ACB150E3196C796300CA1D4B /* Supporting Files */,
+			);
+			path = SVGPathDrawing;
+			sourceTree = "<group>";
+		};
+		ACB150E3196C796300CA1D4B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ACB150E4196C796300CA1D4B /* SVGPathDrawing-Info.plist */,
+				ACB150E5196C796300CA1D4B /* InfoPlist.strings */,
+				ACB150E8196C796300CA1D4B /* main.m */,
+				ACB150EA196C796300CA1D4B /* SVGPathDrawing-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ACB15115196CA43A00CA1D4B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ACB15116196CA45600CA1D4B /* Assets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		ACB15116196CA45600CA1D4B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				EFD5F1DB1979BA450035161D /* road.jpg */,
+				EF60F3D11979AAA90058DBFD /* anchor.svg */,
+				EF60F3D21979AAA90058DBFD /* circle.svg */,
+				EF60F3D31979AAA90058DBFD /* hexagon.svg */,
+				EF60F3D41979AAA90058DBFD /* ornament.svg */,
+				EF60F3D51979AAA90058DBFD /* oval.svg */,
+				EF60F3D61979AAA90058DBFD /* rectangle_black.svg */,
+				EF60F3D71979AAA90058DBFD /* square_black.svg */,
+				EF60F3D81979AAA90058DBFD /* star_black.svg */,
+				EF60F3D91979AAA90058DBFD /* triangle_black.svg */,
+				EF60F3DA1979AAA90058DBFD /* xmas_tree.svg */,
+				AC803A15196E09190031B33B /* dropbox10.svg */,
+				AC803A13196E08BB0031B33B /* replay2.svg */,
+				AC803A0B196E071F0031B33B /* world17.svg */,
+				AC803A03196E06600031B33B /* criss6.svg */,
+				ACB15117196CA4A600CA1D4B /* cloud.svg */,
+				ACB15118196CA4A600CA1D4B /* iceland.svg */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ACB150D8196C796300CA1D4B /* SVGPathDrawing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACB15105196C796400CA1D4B /* Build configuration list for PBXNativeTarget "SVGPathDrawing" */;
+			buildPhases = (
+				ACB150D5196C796300CA1D4B /* Sources */,
+				ACB150D6196C796300CA1D4B /* Frameworks */,
+				ACB150D7196C796300CA1D4B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SVGPathDrawing;
+			productName = SVGPathDrawing;
+			productReference = ACB150D9196C796300CA1D4B /* SVGPathDrawing.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ACB150F3196C796400CA1D4B /* SVGPathDrawingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACB15108196C796400CA1D4B /* Build configuration list for PBXNativeTarget "SVGPathDrawingTests" */;
+			buildPhases = (
+				ACB150F0196C796400CA1D4B /* Sources */,
+				ACB150F1196C796400CA1D4B /* Frameworks */,
+				ACB150F2196C796400CA1D4B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ACB150FA196C796400CA1D4B /* PBXTargetDependency */,
+			);
+			name = SVGPathDrawingTests;
+			productName = SVGPathDrawingTests;
+			productReference = ACB150F4196C796400CA1D4B /* SVGPathDrawingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ACB150D1196C796300CA1D4B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Skyr;
+				TargetAttributes = {
+					ACB150F3196C796400CA1D4B = {
+						TestTargetID = ACB150D8196C796300CA1D4B;
+					};
+				};
+			};
+			buildConfigurationList = ACB150D4196C796300CA1D4B /* Build configuration list for PBXProject "SVGPathDrawing" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ACB150D0196C796300CA1D4B;
+			productRefGroup = ACB150DA196C796300CA1D4B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ACB150D8196C796300CA1D4B /* SVGPathDrawing */,
+				ACB150F3196C796400CA1D4B /* SVGPathDrawingTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ACB150D7196C796300CA1D4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC803A14196E08BB0031B33B /* replay2.svg in Resources */,
+				EFD5F1DC1979BA450035161D /* road.jpg in Resources */,
+				EF60F3DB1979AAA90058DBFD /* anchor.svg in Resources */,
+				AC803A07196E06600031B33B /* criss6.svg in Resources */,
+				AC8039F0196DD32E0031B33B /* ViewController.xib in Resources */,
+				EF60F3E21979AAA90058DBFD /* star_black.svg in Resources */,
+				EF60F3E01979AAA90058DBFD /* rectangle_black.svg in Resources */,
+				AC803A16196E09190031B33B /* dropbox10.svg in Resources */,
+				EF60F3DD1979AAA90058DBFD /* hexagon.svg in Resources */,
+				EF60F3E31979AAA90058DBFD /* triangle_black.svg in Resources */,
+				EF60F3DF1979AAA90058DBFD /* oval.svg in Resources */,
+				ACB1511B196CA4A600CA1D4B /* iceland.svg in Resources */,
+				AC803A0C196E071F0031B33B /* world17.svg in Resources */,
+				EF60F3DE1979AAA90058DBFD /* ornament.svg in Resources */,
+				EF60F3E11979AAA90058DBFD /* square_black.svg in Resources */,
+				ACB150E7196C796300CA1D4B /* InfoPlist.strings in Resources */,
+				ACB1511A196CA4A600CA1D4B /* cloud.svg in Resources */,
+				EF60F3DC1979AAA90058DBFD /* circle.svg in Resources */,
+				EF60F3E41979AAA90058DBFD /* xmas_tree.svg in Resources */,
+				ACB150EF196C796300CA1D4B /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACB150F2196C796400CA1D4B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ACB150D5196C796300CA1D4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACB150ED196C796300CA1D4B /* AppDelegate.m in Sources */,
+				AC8039FF196DEE190031B33B /* TGDrawSvgPathView.m in Sources */,
+				ACB150E9196C796300CA1D4B /* main.m in Sources */,
+				AC8039EF196DD32E0031B33B /* ViewController.m in Sources */,
+				AC803A02196DF6770031B33B /* PocketSVG.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACB150F0196C796400CA1D4B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ACB150FA196C796400CA1D4B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACB150D8196C796300CA1D4B /* SVGPathDrawing */;
+			targetProxy = ACB150F9196C796400CA1D4B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ACB150E5196C796300CA1D4B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACB150E6196C796300CA1D4B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ACB15103196C796400CA1D4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		ACB15104196C796400CA1D4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ACB15106196C796400CA1D4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SVGPathDrawing/SVGPathDrawing-Prefix.pch";
+				INFOPLIST_FILE = "SVGPathDrawing/SVGPathDrawing-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		ACB15107196C796400CA1D4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SVGPathDrawing/SVGPathDrawing-Prefix.pch";
+				INFOPLIST_FILE = "SVGPathDrawing/SVGPathDrawing-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		ACB15109196C796400CA1D4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SVGPathDrawing.app/SVGPathDrawing";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SVGPathDrawing/SVGPathDrawing-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SVGPathDrawingTests/SVGPathDrawingTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		ACB1510A196C796400CA1D4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SVGPathDrawing.app/SVGPathDrawing";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SVGPathDrawing/SVGPathDrawing-Prefix.pch";
+				INFOPLIST_FILE = "SVGPathDrawingTests/SVGPathDrawingTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ACB150D4196C796300CA1D4B /* Build configuration list for PBXProject "SVGPathDrawing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACB15103196C796400CA1D4B /* Debug */,
+				ACB15104196C796400CA1D4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACB15105196C796400CA1D4B /* Build configuration list for PBXNativeTarget "SVGPathDrawing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACB15106196C796400CA1D4B /* Debug */,
+				ACB15107196C796400CA1D4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACB15108196C796400CA1D4B /* Build configuration list for PBXNativeTarget "SVGPathDrawingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACB15109196C796400CA1D4B /* Debug */,
+				ACB1510A196C796400CA1D4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ACB150D1196C796300CA1D4B /* Project object */;
+}

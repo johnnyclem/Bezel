@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>layers</key>
+	<array>
+		<dict>
+			<key>file</key>
+			<string>Bryce.jpg</string>
+			<key>offsetX</key>
+			<real>0.0</real>
+			<key>offsetY</key>
+			<real>0.0</real>
+			<key>type</key>
+			<string>image</string>
+		</dict>
+		<dict>
+			<key>classname</key>
+			<string>CIBlendWithAlphaMask</string>
+			<key>type</key>
+			<string>filter</string>
+			<key>values</key>
+			<dict>
+				<key>inputImage</key>
+				<string>mexture-007.png</string>
+				<key>inputMaskImage</key>
+				<string>hexagon.png</string>
+			</dict>
+		</dict>
+	</array>
+	<key>windowHeight</key>
+	<real>684</real>
+	<key>windowWidth</key>
+	<real>640</real>
+</dict>
+</plist>

@@ -13,36 +13,41 @@ class PhotoEditController {
     
     var originalImage : UIImage
     var shape : Shape?
-    var backgroundColor : UIColor?
     var backgroundImage : UIImage?
     
     init(image : UIImage) {
         self.originalImage = image
     }
     
-    func imageWithBackgroundImage(backgroundImage : UIImage, shape : Shape) -> UIImage? {
-        return nil
+    func imageWithBackgroundImage(backgroundImage : UIImage, andShape shape : Shape) -> UIImage {
+        self.backgroundImage = backgroundImage
+        
+        var context = CIContext(options: nil)
+        let compositeFilter = CIFilter(name: "CIBlendWithAlphaMask")
+        compositeFilter.setValue(originalImage, forKey: kCIInputImageKey)
+        compositeFilter.setValue(shape.overlayImage, forKey: kCIInputMaskImageKey)
+        compositeFilter.setValue(backgroundImage, forKey: kCIInputBackgroundImageKey)
+        
+        var compositeImage = compositeFilter.outputImage
+        context.createCGImage(compositeImage, fromRect: CGRect(x: 0, y: 0, width: 640, height: 640))
+        
+        return UIImage(CIImage: compositeImage)
     }
-    
-    func imageWithBackgroundColor(backgroundColor : UIColor, shape : Shape) -> UIImage? {
-        let context = CIContext(options: nil)
+
+    func imageWithBackgroundColor(backgroundColor : UIColor, andShape shape : Shape) -> UIImage {
+        var colorImage = UIImage(color: backgroundColor)
         
-        let background = CIImage(image: originalImage)
-        let overlay = CIImage(image: shape.previewImage)
+        var context = CIContext(options: nil)
         
+        let compositeFilter = CIFilter(name: "CIBlendWithAlphaMask")
+        compositeFilter.setValue(originalImage, forKey: kCIInputImageKey)
+        compositeFilter.setValue(shape.overlayImage, forKey: kCIInputMaskImageKey)
+        compositeFilter.setValue(colorImage, forKey: kCIInputBackgroundImageKey)
         
-        if let compositedImage = overlay.imageByCompositingOverImage(background) {
-            return UIImage(CIImage: compositedImage)
-        }
-        return nil
+        var compositeImage = compositeFilter.outputImage
+        context.createCGImage(compositeImage, fromRect: CGRect(x: 0, y: 0, width: 640, height: 640))
+        
+        return UIImage(CIImage: compositeImage)
     }
-    
-    func imageWithShape(shape : Shape) -> UIImage? {
-        if let compositedImage = self.imageWithBackgroundColor(UIColor.blackColor(), shape: shape) {
-            return compositedImage
-        }
         
-        return nil
-    }
-    
 }

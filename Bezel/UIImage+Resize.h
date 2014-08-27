@@ -57,4 +57,6 @@
 + (UIImage *)imageWithImage:(UIImage *)image
          scaledToFillToSize:(CGSize)newSize;
 
++ (UIImage *)imageWithColor:(UIColor *)color;
+
 @end

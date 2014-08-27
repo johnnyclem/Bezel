@@ -14,17 +14,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     
     let cameraPicker = UIImagePickerController()
     let libraryPicker = UIImagePickerController()
-    let imagePreviewQueue = NSOperationQueue()
+    let imageProcessingQueue = NSOperationQueue()
     
     var currentColor = UIColor.whiteColor()
-    var dataSource : BezelCollectionViewDataSource?
+    var dataSource : BezelCollectionViewDataSource!
     var imageView : UIImageView!
     var pickingBackground = false
+    var hasBackgroundTexture = false
     
-    @IBOutlet var scrollView: UIScrollView?
-    @IBOutlet var collectionView : UICollectionView?
-    @IBOutlet var containerView : UIView?
-    @IBOutlet var cutoutImageView: UIImageView?
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var collectionView : UICollectionView!
+    @IBOutlet var containerView : UIView!
+    @IBOutlet var cutoutImageView: UIImageView!
     
     var currentShape = Shape(color: UIColor.blackColor(), size: CGSize(width: 640, height: 640), info: ["shapeName":"Anchor", "overlayImage":"anchor_black", "previewImage":"anchor"])
 
@@ -34,27 +35,30 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imagePreviewQueue.maxConcurrentOperationCount = 3
-        self.collectionView!.delegate = self
-        
-        self.testCollectionViewDataSource()
+        self.setupImageQueues()
+        self.setupCollectionViewDataSource()
         self.setupPickersAndAlertControllers()
-        
-        self.scrollView!.delegate = self
-        self.scrollView!.minimumZoomScale = 0.5
-        self.scrollView!.maximumZoomScale = 10
-        self.imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.scrollView!.frame.size.width, height: self.scrollView!.frame.size.width))
-        self.scrollView!.addSubview(self.imageView)
+        self.setupScrollView()
+    }
+
+    func setupScrollView() {
+        self.scrollView.delegate = self
+        self.scrollView.minimumZoomScale = 1.0
+        self.scrollView.maximumZoomScale = 10
+        self.imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.scrollView.frame.size.width, height: self.scrollView.frame.size.width))
+        self.scrollView.addSubview(self.imageView)
         self.imageView.contentMode = UIViewContentMode.ScaleAspectFill
         
         var image = UIImage(named: "road.jpg")
-        imageView!.image = image
+        self.imageView.image = image
+    }
+    
+    func setupImageQueues() {
+        imageProcessingQueue.qualityOfService = NSQualityOfService.UserInitiated
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        self.applyShapeForIndexPath(NSIndexPath(forItem: 0, inSection: 0))
     }
     
     func setupPickersAndAlertControllers(){
@@ -134,105 +138,100 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         super.didReceiveMemoryWarning()
     }
 
-    func testCollectionViewDataSource() {
-        dataSource = BezelCollectionViewDataSource() { (color : UIColor!) in
+    func setupCollectionViewDataSource() {
+        self.dataSource = BezelCollectionViewDataSource() { (color : UIColor!) in
             self.updateShapeColor(color)
         }
-        collectionView!.dataSource = dataSource
-        collectionView!.reloadData()
-        if dataSource!.shapes.count > 0 {
-            currentShape = dataSource!.shapes[0]
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self.dataSource
+        if let firstShape = self.dataSource.shapes.first {
+            self.currentShape = firstShape
+            self.collectionView.reloadData()
         }
     }
     
     func updateShapeColor (color : UIColor) {
-        println("changed color to: \(color)")
-        self.currentColor = color
-        self.dataSource?.currentColor = self.currentColor
-        self.currentShape.setFillColor(self.currentColor)
-        self.cutoutImageView?.image = currentShape.overlayImage
+        imageProcessingQueue.addOperationWithBlock { () -> Void in
+            self.currentColor = color
+            self.dataSource.currentColor = self.currentColor
+            self.currentShape.setFillColor(self.currentColor)
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                self.cutoutImageView.image = self.currentShape.overlayImage
+            })
+        }
     }
     
     @IBAction func cameraButtonPressed(sender: AnyObject) {
-        
         var libraryStatus = ALAssetsLibrary.authorizationStatus()
         var cameraStatus = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
-        println(cameraStatus.toRaw())
-        println(libraryStatus.toRaw())
-
-
         self.presentViewController(self.actionController, animated: true, completion: nil)
     }
     @IBAction func shareButtonPressed(sender: AnyObject) {
         let photoEditor = PhotoEditController(image: self.imageView.image)
-        let outputImage = UIImage.imageFromView(self.containerView!)
-        let activitiesController = UIActivityViewController(activityItems: [outputImage], applicationActivities: nil)
-        self.presentViewController(activitiesController, animated: true, completion: nil)
-    }
 
-    @IBAction func settingsButtonPressed(sender: AnyObject) {
-        let settingsVC = SettingsViewController()
-        settingsVC.view.bounds = self.view.bounds
-        let backButton = UIButton(frame: settingsVC.view.bounds)
-        backButton.setTitle("GO BACK", forState: UIControlState.Application)
-        backButton.addTarget(self, action: Selector("dismissSettings"), forControlEvents: UIControlEvents.TouchUpInside)
-        settingsVC.view.addSubview(backButton)
-        self.presentViewController(settingsVC, animated: true) {
-            
+        if self.hasBackgroundTexture {
+            var outputImage = photoEditor.imageWithBackgroundImage(self.currentShape.overlayImage!, andShape: self.currentShape)
+            let activitiesController = UIActivityViewController(activityItems: [outputImage], applicationActivities: nil)
+            self.presentViewController(activitiesController, animated: true, completion: nil)
+        } else {
+            var outputImage = photoEditor.imageWithBackgroundColor(self.currentShape.fillColor, andShape: self.currentShape)
+            let activitiesController = UIActivityViewController(activityItems: [outputImage], applicationActivities: nil)
+            self.presentViewController(activitiesController, animated: true, completion: nil)
         }
-    }
-    
-    func dismissSettings() {
-        
     }
 
     //#Pragma mark - UIImagePickerControllerDelegate
     
      func imagePickerController(picker: UIImagePickerController!,
         didFinishPickingMediaWithInfo info: [NSObject : AnyObject]!) {
-            let image = info[UIImagePickerControllerEditedImage] as UIImage
-            if self.pickingBackground {
-                self.handleBackgroundPickedImage(image)
-            } else {
-                self.handleMainPickedImage(image)
+            if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+                if self.pickingBackground {
+                    self.handleBackgroundPickedImage(image)
+                } else {
+                    self.handleMainPickedImage(image)
+                }
             }
     }
     
     func handleBackgroundPickedImage(image: UIImage) {
         self.dismissViewControllerAnimated(true) {
-            if let backgrounds = self.dataSource?.backgrounds {
+            self.imageProcessingQueue.addOperationWithBlock({ () -> Void in
                 let thumb = UIImage(image: image, scaledToFillToSize: CGSize(width: 140, height: 140))
                 let fullImage = UIImage(image: image, scaledToFillToSize: CGSize(width: 640, height: 640))
-                self.dataSource?.backgrounds.append(fullImage)
-                self.dataSource?.backgroundThumbs.append(thumb)
-                self.collectionView?.reloadData()
-                self.collectionView?.selectItemAtIndexPath(NSIndexPath(forItem: backgrounds.count, inSection: 0), animated: true, scrollPosition: UICollectionViewScrollPosition.CenteredVertically)
-                self.pickingBackground = false
-            }
+                self.dataSource.backgrounds.append(fullImage)
+                self.dataSource.backgroundThumbs.append(thumb)
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    self.collectionView?.reloadData()
+                    self.collectionView?.selectItemAtIndexPath(NSIndexPath(forItem: self.dataSource.backgrounds.count, inSection: 0), animated: true, scrollPosition: UICollectionViewScrollPosition.CenteredVertically)
+                    self.pickingBackground = false
+                })
+            })
         }
     }
     
     func handleMainPickedImage(image: UIImage) {
-        println(image.size)
-        //reset zoomscales
-        self.scrollView!.setZoomScale(1.0, animated: false)
-        self.scrollView!.minimumZoomScale = 0.125
-        
-        self.imageView.frame.size = image.size
-        self.imageView.contentMode = UIViewContentMode.ScaleAspectFill
-        self.scrollView!.contentSize = image.size
-        self.imageView.image = image
-        
-        //calculate proper zoom scale for lanscape or portrait
-        let zoomFactor = min(image.size.width, image.size.height)
-        let frameMinSide = min(self.view.frame.size.width, self.view.frame.size.height)
-        self.scrollView!.setZoomScale(frameMinSide / zoomFactor, animated: true)
-        self.scrollView!.minimumZoomScale = frameMinSide / zoomFactor
-        
-        //self.imageView.frame = CGRect(x: 0, y: 0, width: self.scrollView!.contentSize.width, height: self.scrollView!.contentSize.height)
-        //self.scrollView!.zoomScale = 0.5
-        self.dismissViewControllerAnimated(true, completion: nil)
-        self.scrollView!.contentMode = UIViewContentMode.ScaleAspectFill
+        self.imageProcessingQueue.addOperationWithBlock({ () -> Void in
+            println(image.size)
+            //reset zoomscales
+            self.scrollView.setZoomScale(1.0, animated: false)
+            self.scrollView.minimumZoomScale = 0.125
+            
+            self.imageView.frame.size = image.size
+            self.imageView.contentMode = UIViewContentMode.ScaleAspectFill
+            self.scrollView.contentSize = image.size
+            self.imageView.image = image
+            
+            //calculate proper zoom scale for lanscape or portrait
+            let zoomFactor = min(image.size.width, image.size.height)
+            let frameMinSide = min(self.view.frame.size.width, self.view.frame.size.height)
+            self.scrollView.setZoomScale(frameMinSide / zoomFactor, animated: true)
+            self.scrollView.minimumZoomScale = frameMinSide / zoomFactor
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                self.dismissViewControllerAnimated(true, completion: nil)
+                self.scrollView.contentMode = UIViewContentMode.ScaleAspectFill
+            })
+        })
     }
     
     //#pragma mark - UIScrollViewDelegate
@@ -243,32 +242,32 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     //#pragma mark - UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView!,
         didSelectItemAtIndexPath indexPath: NSIndexPath!) {
+        self.imageProcessingQueue.addOperationWithBlock() {
             self.applyShapeForIndexPath(indexPath)
-    }
-    
-    func applyShapeForIndexPath(indexPath: NSIndexPath) {
-        imagePreviewQueue.addOperationWithBlock() {
-            switch (self.dataSource!.selectedSection) {
-            case 0: // Shapes
-                self.currentShape = self.dataSource!.shapes[indexPath.item]
-                self.dataSource!.currentShape = self.currentShape
-            default: // Backgrounds
-                if indexPath.item == self.dataSource!.backgroundThumbs.count - 1 {
-                    self.pickingBackground = true
-                    self.cameraButtonPressed(self)
-                } else {
-                    self.currentColor = UIColor(patternImage: self.dataSource!.backgrounds[indexPath.item])
-                }
-            }
-            
-            self.currentShape.setFillColor(self.currentColor)
-            NSOperationQueue.mainQueue().addOperationWithBlock() {
-                self.cutoutImageView!.image = self.currentShape.overlayImage
-            }
         }
     }
     
-    
+    func applyShapeForIndexPath(indexPath: NSIndexPath) {
+        switch (self.dataSource.selectedSection) {
+        case 0: // Shapes
+            self.currentShape = self.dataSource.shapes[indexPath.item]
+            self.dataSource.currentShape = self.currentShape
+            self.hasBackgroundTexture = false
+        default: // Backgrounds
+            if indexPath.item == self.dataSource.backgroundThumbs.count - 1 {
+                self.pickingBackground = true
+                self.cameraButtonPressed(self)
+            } else {
+                self.currentColor = UIColor(patternImage: self.dataSource.backgrounds[indexPath.item])
+                self.hasBackgroundTexture = false
+            }
+        }
+        
+        self.currentShape.setFillColor(self.currentColor)
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+            self.cutoutImageView.image = self.currentShape.overlayImage
+        }
+    }
 }
 
 

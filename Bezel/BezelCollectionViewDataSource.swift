@@ -14,7 +14,7 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
     var shapes = Array<Shape>()
     var backgrounds = [UIImage]()
     var backgroundThumbs = [UIImage]()
-    
+    var diskIOQueue = NSOperationQueue()
     var collectionView : UICollectionView?
     var didChangeColorBlock : NKOColorPickerDidChangeColorBlock
     var colorPicker : NKOColorPickerView?
@@ -24,8 +24,9 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
     init(didChangeColorBlock : NKOColorPickerDidChangeColorBlock) {
         self.didChangeColorBlock = didChangeColorBlock
         super.init()
-        self.shapes = self.loadAllShapes(UIColor.whiteColor())
-        self.backgrounds = self.loadAllTextures()
+        self.loadAllShapes(UIColor.whiteColor())
+        self.loadAllTextures()
+        self.diskIOQueue.qualityOfService = NSQualityOfService.UserInitiated
     }
     
     func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
@@ -114,25 +115,23 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
     }
     
     // Shapes Data Source
-    func loadAllShapes(color : UIColor) -> Array<Shape> {
+    func loadAllShapes(color : UIColor) {
         let filePath = NSBundle.mainBundle().pathForResource("Shapes", ofType: "plist")!
         let shapesArray = NSArray(contentsOfFile: filePath)
-        var allShapes = Array<Shape>()
+        self.shapes = Array<Shape>()
         
         for info in shapesArray {
             if let shapeDict = info as? Dictionary<String, String> {
                 let shape = Shape(color: color, size : CGSize(width: 640, height: 640), info : shapeDict)
-                allShapes.append(shape)
+                self.shapes.append(shape)
             }
         }
-        
-        return allShapes
     }
 
-    func loadAllTextures() -> Array<UIImage> {
+    func loadAllTextures() {
         let filePath = NSBundle.mainBundle().pathForResource("Backgrounds", ofType: "plist")!
         let bgArray = NSArray(contentsOfFile: filePath)
-        var allBGs = Array<UIImage>()
+        self.backgrounds = Array<UIImage>()
         let addBgThumb = UIImage(named: "addPhoto.png")
         self.backgroundThumbs.append(addBgThumb)
 
@@ -141,15 +140,15 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
                 if let imageName = info["imageName"] as? String {
                     var thumbName = imageName + "_thumb"
                     let bgThumb = UIImage(named: thumbName)
-                    let bg = UIImage(named: imageName)
-                    allBGs.append(bg)
                     self.backgroundThumbs.append(bgThumb)
+                    self.diskIOQueue.addOperationWithBlock { () -> Void in
+                        let bg = UIImage(named: imageName)
+                        self.backgrounds.append(bg)
+                    }
                 }
             }
         }
-        
-        return allBGs
     }
-
     
 }
+
