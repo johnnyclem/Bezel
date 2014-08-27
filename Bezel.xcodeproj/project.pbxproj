@@ -12,7 +12,6 @@
 		A20B6FD4196DB92C0067347D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20B6FD2196DB92C0067347D /* Main.storyboard */; };
 		A20B6FD6196DB92C0067347D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20B6FD5196DB92C0067347D /* Images.xcassets */; };
 		A20B6FE2196DB92D0067347D /* BezelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20B6FE1196DB92D0067347D /* BezelTests.swift */; };
-		A20B6FEC196DB93B0067347D /* PhotoEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20B6FEB196DB93B0067347D /* PhotoEditController.swift */; };
 		A20B6FEE196DB9540067347D /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20B6FED196DB9540067347D /* Shape.swift */; };
 		A3CB06C4200D473A97DF83DC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 161AF068250047B78517F639 /* libPods.a */; };
 		EF043DB8197F23B200FAF152 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF043DB7197F23B200FAF152 /* CoreImage.framework */; };
@@ -101,7 +100,6 @@
 		EF8726DB196DF01A00FCD47C /* tree_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = EF8726D9196DF01A00FCD47C /* tree_bg.png */; };
 		EF8726E6196DF2EF00FCD47C /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8726E5196DF2EF00FCD47C /* ImageCollectionViewCell.swift */; };
 		EF8726E7196DF2EF00FCD47C /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8726E5196DF2EF00FCD47C /* ImageCollectionViewCell.swift */; };
-		EF94A2A619A7D07B00C2C061 /* AnalyticsEngineConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = EF94A2A519A7D07B00C2C061 /* AnalyticsEngineConstants.m */; };
 		EF9AE8E91975A1BA0087CA71 /* anchor.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9AE8DF1975A1BA0087CA71 /* anchor.png */; };
 		EF9AE8EA1975A1BA0087CA71 /* anchor.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9AE8DF1975A1BA0087CA71 /* anchor.png */; };
 		EF9AE8EB1975A1BA0087CA71 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9AE8E01975A1BA0087CA71 /* circle.png */; };
@@ -179,7 +177,6 @@
 		A20B6FDB196DB92D0067347D /* BezelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BezelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A20B6FE0196DB92D0067347D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A20B6FE1196DB92D0067347D /* BezelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezelTests.swift; sourceTree = "<group>"; };
-		A20B6FEB196DB93B0067347D /* PhotoEditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoEditController.swift; path = ../PhotoEditController.swift; sourceTree = "<group>"; };
 		A20B6FED196DB9540067347D /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Shape.swift; path = ../Shape.swift; sourceTree = "<group>"; };
 		EF043DB7197F23B200FAF152 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		EF1104E7199A8A24004B9496 /* addPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addPhoto.png; sourceTree = "<group>"; };
@@ -232,8 +229,6 @@
 		EF8726D3196DEFE600FCD47C /* candy_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = candy_bg.png; sourceTree = "<group>"; };
 		EF8726D9196DF01A00FCD47C /* tree_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree_bg.png; sourceTree = "<group>"; };
 		EF8726E5196DF2EF00FCD47C /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		EF94A2A419A7D07B00C2C061 /* AnalyticsEngineConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyticsEngineConstants.h; sourceTree = "<group>"; };
-		EF94A2A519A7D07B00C2C061 /* AnalyticsEngineConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyticsEngineConstants.m; sourceTree = "<group>"; };
 		EF9AE8DF1975A1BA0087CA71 /* anchor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anchor.png; sourceTree = "<group>"; };
 		EF9AE8E01975A1BA0087CA71 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
 		EF9AE8E11975A1BA0087CA71 /* hexagon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hexagon.png; sourceTree = "<group>"; };
@@ -315,7 +310,6 @@
 				EF8726BD196DE15B00FCD47C /* DataSources */,
 				A20B6FCE196DB92C0067347D /* AppDelegate.swift */,
 				A20B6FD0196DB92C0067347D /* ViewController.swift */,
-				A20B6FEB196DB93B0067347D /* PhotoEditController.swift */,
 				A20B6FED196DB9540067347D /* Shape.swift */,
 				A20B6FD2196DB92C0067347D /* Main.storyboard */,
 				A20B6FD5196DB92C0067347D /* Images.xcassets */,
@@ -335,8 +329,6 @@
 				EF60F3CF19799CC30058DBFD /* BezelClassExtensions.swift */,
 				EF74DF1D199ADA7A00526189 /* UIImage+Resize.h */,
 				EF74DF1E199ADA7A00526189 /* UIImage+Resize.m */,
-				EF94A2A419A7D07B00C2C061 /* AnalyticsEngineConstants.h */,
-				EF94A2A519A7D07B00C2C061 /* AnalyticsEngineConstants.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -721,11 +713,9 @@
 				A20B6FD1196DB92C0067347D /* ViewController.swift in Sources */,
 				EF8726CB196DE95400FCD47C /* BezelCollectionViewDataSource.swift in Sources */,
 				EF8726E6196DF2EF00FCD47C /* ImageCollectionViewCell.swift in Sources */,
-				EF94A2A619A7D07B00C2C061 /* AnalyticsEngineConstants.m in Sources */,
 				A20B6FCF196DB92C0067347D /* AppDelegate.swift in Sources */,
 				EF21C7BC199A7B53008E288D /* PeopleView.m in Sources */,
 				EF60F3D019799CC30058DBFD /* BezelClassExtensions.swift in Sources */,
-				A20B6FEC196DB93B0067347D /* PhotoEditController.swift in Sources */,
 				EF74DF1F199ADA7A00526189 /* UIImage+Resize.m in Sources */,
 				A20B6FEE196DB9540067347D /* Shape.swift in Sources */,
 				EF8229CB1989D13A00A76075 /* SettingsViewController.swift in Sources */,

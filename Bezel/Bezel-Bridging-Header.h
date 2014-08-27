@@ -8,4 +8,3 @@
 #import <CoreImage/CoreImage.h>
 #import "PeopleView.h"
 #import "UIImage+Resize.h"
-#import "AnalyticsEngineConstants.h"

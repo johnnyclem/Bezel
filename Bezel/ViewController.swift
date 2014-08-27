@@ -12,11 +12,10 @@ import AVFoundation
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UIScrollViewDelegate, UICollectionViewDelegate {
     
-    let cameraPicker = UIImagePickerController()
-    let libraryPicker = UIImagePickerController()
     let imageProcessingQueue = NSOperationQueue()
     
     var currentColor = UIColor.whiteColor()
+    var currentImage = UIImage(named: "road.jpg")
     var dataSource : BezelCollectionViewDataSource!
     var imageView : UIImageView!
     var pickingBackground = false
@@ -27,11 +26,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     @IBOutlet var containerView : UIView!
     @IBOutlet var cutoutImageView: UIImageView!
     
-    var currentShape = Shape(color: UIColor.blackColor(), size: CGSize(width: 640, height: 640), info: ["shapeName":"Anchor", "overlayImage":"anchor_black", "previewImage":"anchor"])
+    lazy var currentShape : Shape = {
+        let defaultColor = UIColor.blackColor()
+        let defaultSize = CGSize(width: 640, height: 640)
+        let defaultShapeInfo = [ "shapeName" : "Anchor", "overlayImage" : "anchor_black", "previewImage" : "anchor" ]
+        return Shape(color: defaultColor, size: defaultSize, info: defaultShapeInfo)
+    }()
+    
+    var actionController = UIAlertController(title: "Image Source", message: "Select Your Choice Please", preferredStyle: UIAlertControllerStyle.ActionSheet)
 
-    let actionController = UIAlertController(title: "Image Source", message: "Select Your Choice Please", preferredStyle: UIAlertControllerStyle.ActionSheet)
-    let libraryAlertView = UIAlertController(title: "Hello There", message: "", preferredStyle: UIAlertControllerStyle.Alert)
-    let cameraAlertView = UIAlertController(title: "Hello There", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+    var libraryPicker = UIImagePickerController()
+    var libraryAlertView = UIAlertController(title: "Hello There", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+    
+    var cameraPicker = UIImagePickerController()
+    var cameraAlertView = UIAlertController(title: "Hello There", message: "", preferredStyle: UIAlertControllerStyle.Alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,9 +56,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         self.imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.scrollView.frame.size.width, height: self.scrollView.frame.size.width))
         self.scrollView.addSubview(self.imageView)
         self.imageView.contentMode = UIViewContentMode.ScaleAspectFill
-        
-        var image = UIImage(named: "road.jpg")
-        self.imageView.image = image
+        self.imageView.image = self.currentImage
     }
     
     func setupImageQueues() {
@@ -167,16 +173,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         self.presentViewController(self.actionController, animated: true, completion: nil)
     }
     @IBAction func shareButtonPressed(sender: AnyObject) {
-        let photoEditor = PhotoEditController(image: self.imageView.image)
-
-        if self.hasBackgroundTexture {
-            var outputImage = photoEditor.imageWithBackgroundImage(self.currentShape.overlayImage!, andShape: self.currentShape)
-            let activitiesController = UIActivityViewController(activityItems: [outputImage], applicationActivities: nil)
-            self.presentViewController(activitiesController, animated: true, completion: nil)
-        } else {
-            var outputImage = photoEditor.imageWithBackgroundColor(self.currentShape.fillColor, andShape: self.currentShape)
-            let activitiesController = UIActivityViewController(activityItems: [outputImage], applicationActivities: nil)
-            self.presentViewController(activitiesController, animated: true, completion: nil)
+        self.imageProcessingQueue.addOperationWithBlock {
+            if self.hasBackgroundTexture {
+                if let outputImage = self.currentShape.imageWithBackground(self.currentShape.overlayImage, backgroundColor: nil, originalImage: self.currentImage) {
+                    let activitiesController = UIActivityViewController(activityItems: [outputImage], applicationActivities: nil)
+                    NSOperationQueue.mainQueue().addOperationWithBlock({
+                        self.presentViewController(activitiesController, animated: true, completion: nil)
+                    })
+                }
+            } else {
+                if let outputImage = self.currentShape.imageWithBackground(nil, backgroundColor: self.currentShape.fillColor, originalImage: self.currentImage) {
+                    let activitiesController = UIActivityViewController(activityItems: [outputImage], applicationActivities: nil)
+                    NSOperationQueue.mainQueue().addOperationWithBlock({
+                        self.presentViewController(activitiesController, animated: true, completion: nil)
+                    })
+                }
+            }
         }
     }
 
@@ -195,14 +207,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     
     func handleBackgroundPickedImage(image: UIImage) {
         self.dismissViewControllerAnimated(true) {
-            self.imageProcessingQueue.addOperationWithBlock({ () -> Void in
+            self.imageProcessingQueue.addOperationWithBlock({
                 let thumb = UIImage(image: image, scaledToFillToSize: CGSize(width: 140, height: 140))
                 let fullImage = UIImage(image: image, scaledToFillToSize: CGSize(width: 640, height: 640))
                 self.dataSource.backgrounds.append(fullImage)
                 self.dataSource.backgroundThumbs.append(thumb)
-                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                    self.collectionView?.reloadData()
-                    self.collectionView?.selectItemAtIndexPath(NSIndexPath(forItem: self.dataSource.backgrounds.count, inSection: 0), animated: true, scrollPosition: UICollectionViewScrollPosition.CenteredVertically)
+                NSOperationQueue.mainQueue().addOperationWithBlock({
+                    self.collectionView.reloadData()
+                    self.collectionView.selectItemAtIndexPath(NSIndexPath(forItem: self.dataSource.backgrounds.count, inSection: 0), animated: true, scrollPosition: UICollectionViewScrollPosition.CenteredVertically)
                     self.pickingBackground = false
                 })
             })
@@ -210,26 +222,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     }
     
     func handleMainPickedImage(image: UIImage) {
-        self.imageProcessingQueue.addOperationWithBlock({ () -> Void in
-            println(image.size)
-            //reset zoomscales
-            self.scrollView.setZoomScale(1.0, animated: false)
-            self.scrollView.minimumZoomScale = 0.125
-            
-            self.imageView.frame.size = image.size
-            self.imageView.contentMode = UIViewContentMode.ScaleAspectFill
-            self.scrollView.contentSize = image.size
-            self.imageView.image = image
-            
-            //calculate proper zoom scale for lanscape or portrait
-            let zoomFactor = min(image.size.width, image.size.height)
-            let frameMinSide = min(self.view.frame.size.width, self.view.frame.size.height)
-            self.scrollView.setZoomScale(frameMinSide / zoomFactor, animated: true)
-            self.scrollView.minimumZoomScale = frameMinSide / zoomFactor
-            
-            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                self.dismissViewControllerAnimated(true, completion: nil)
-                self.scrollView.contentMode = UIViewContentMode.ScaleAspectFill
+        self.imageProcessingQueue.addOperationWithBlock({
+            self.dismissViewControllerAnimated(true, completion: {
+                
+                //reset zoomscales
+                self.scrollView.setZoomScale(1.0, animated: false)
+                self.scrollView.minimumZoomScale = 0.125
+                
+                // reset imageView
+                self.imageView.frame.size = image.size
+                self.imageView.contentMode = UIViewContentMode.ScaleAspectFill
+                self.scrollView.contentSize = image.size
+                self.imageView.image = image
+                
+                //calculate proper zoom scale for lanscape or portrait
+                let zoomFactor = min(image.size.width, image.size.height)
+                let frameMinSide = min(self.view.frame.size.width, self.view.frame.size.height)
+                
+                //set new zoomscales
+                self.scrollView.setZoomScale(frameMinSide / zoomFactor, animated: true)
+                self.scrollView.minimumZoomScale = frameMinSide / zoomFactor
+                
             })
         })
     }
