@@ -174,21 +174,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     }
     @IBAction func shareButtonPressed(sender: AnyObject) {
         self.imageProcessingQueue.addOperationWithBlock {
-            if self.hasBackgroundTexture {
-                if let outputImage = self.currentShape.imageWithBackground(self.currentShape.overlayImage, backgroundColor: nil, originalImage: self.currentImage) {
-                    let activitiesController = UIActivityViewController(activityItems: [outputImage], applicationActivities: nil)
-                    NSOperationQueue.mainQueue().addOperationWithBlock({
-                        self.presentViewController(activitiesController, animated: true, completion: nil)
-                    })
-                }
-            } else {
-                if let outputImage = self.currentShape.imageWithBackground(nil, backgroundColor: self.currentShape.fillColor, originalImage: self.currentImage) {
-                    let activitiesController = UIActivityViewController(activityItems: [outputImage], applicationActivities: nil)
-                    NSOperationQueue.mainQueue().addOperationWithBlock({
-                        self.presentViewController(activitiesController, animated: true, completion: nil)
-                    })
-                }
-            }
+            let outputImage = self.currentShape.maskedOutputForImage(self.currentImage)
+            let activitiesController = UIActivityViewController(activityItems: [outputImage], applicationActivities: nil)
+            NSOperationQueue.mainQueue().addOperationWithBlock({
+                self.presentViewController(activitiesController, animated: true, completion: nil)
+            })
         }
     }
 

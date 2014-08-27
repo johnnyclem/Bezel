@@ -51,6 +51,15 @@ class Shape {
         self.overlayImage = UIImage(SVGNamed: self.overlayImageName, targetSize: self.overlaySize, fillColor: self.fillColor, cache: false)
     }
     
+    func maskedOutputForImage(originalImage: UIImage) -> UIImage {
+        
+        let longerSide = max(originalImage.size.height, originalImage.size.height)
+        let targetSize = CGSize(width: longerSide, height: longerSide)
+        let imageMask = UIImage(SVGNamed: overlayImageName, targetSize: targetSize, fillColor: self.fillColor)
+        let maskedImage = Toucan(image: originalImage).resize(targetSize, fitMode: .Crop).maskWithImage(maskImage: imageMask)
+        return maskedImage.image
+    }
+    
     func imageWithBackground(backgroundImage: UIImage?, backgroundColor: UIColor?, originalImage: UIImage) -> UIImage? {
         
         var imageMask : UIImage!
@@ -77,5 +86,6 @@ class Shape {
         println(maskedImage.size)
         return maskedImage
     }
+
     
 }
