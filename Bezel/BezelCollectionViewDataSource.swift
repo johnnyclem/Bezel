@@ -29,7 +29,7 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
         self.diskIOQueue.qualityOfService = NSQualityOfService.UserInitiated
     }
     
-    func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         self.collectionView = collectionView
         
         switch (selectedSection) {
@@ -40,9 +40,10 @@ class BezelCollectionViewDataSource: NSObject, UICollectionViewDataSource, Heade
         default:
             return shapes.count
         }
-    }
 
-    func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         switch (selectedSection) {
         case 2: // Backgrounds
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("BackgroundCell", forIndexPath: indexPath) as ImageCollectionViewCell
